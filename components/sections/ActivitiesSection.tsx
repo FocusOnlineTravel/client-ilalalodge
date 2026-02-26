@@ -1,44 +1,39 @@
 import { ActivitiesBlock } from '@/types/acf';
-import {
-  Plane,
-  Mountain,
-  Waves,
-  Binoculars,
-  Ship,
-  Users,
-  Wind,
-  Zap,
-  TreePine,
-  Map,
-  Camera,
-  Fish
-} from 'lucide-react';
+import Image from 'next/image';
 import React from 'react';
 
 interface Props {
   data: ActivitiesBlock;
 }
 
-// Map activity labels to icons
+// Map activity labels to custom icons
 const getActivityIcon = (label: string) => {
-  const iconClass = "h-8 w-8 text-brand-forest";
-
-  const iconMap: Record<string, React.ReactElement> = {
-    'Helicopter Flights': <Plane className={iconClass} />,
-    'Bungee Jumping': <Mountain className={iconClass} />,
-    'White Water Rafting': <Waves className={iconClass} />,
-    'Game Drives': <Binoculars className={iconClass} />,
-    'River Cruises': <Ship className={iconClass} />,
-    'Cultural Tours': <Users className={iconClass} />,
-    'Gorge Swing': <Wind className={iconClass} />,
-    'Zip Lining': <Zap className={iconClass} />,
-    'Big Five Safari': <TreePine className={iconClass} />,
-    'Chobe Day Trip': <Map className={iconClass} />,
-    'Hwange Day Trip': <Camera className={iconClass} />,
-    'Fishing': <Fish className={iconClass} />,
+  const iconMap: Record<string, string> = {
+    'Helicopter Flights': '/icons/icon-chopper 1.png',
+    'Bungee Jumping': '/icons/waterfall 1.png',
+    'White Water Rafting': '/icons/icon-boat 1.png',
+    'Game Drives': '/icons/family-car 2.png',
+    'River Cruises': '/icons/icon-boat 1.png',
+    'Cultural Tours': '/icons/quiver 1.png',
+    'Gorge Swing': '/icons/walk 1.png',
+    'Zip Lining': '/icons/waterfall 1.png',
+    'Big Five Safari': '/icons/pawprint 1.png',
+    'Chobe Day Trip': '/icons/family-car 2.png',
+    'Hwange Day Trip': '/icons/family-car 2.png',
+    'Fishing': '/icons/icon-boat 1.png',
   };
 
-  return iconMap[label] || <Camera className={iconClass} />;
+  const iconSrc = iconMap[label] || '/icons/waterfall 1.png';
+
+  return (
+    <Image
+      src={iconSrc}
+      alt={label}
+      width={60}
+      height={60}
+      className="w-16 h-16 object-contain"
+    />
+  );
 };
 
 export default function ActivitiesSection({ data }: Props) {
@@ -47,7 +42,7 @@ export default function ActivitiesSection({ data }: Props) {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
-          <span className="text-brand-gold font-script text-6xl lg:text-8xl block mb-2">
+          <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
             {data.activities_eyebrow}
           </span>
           <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-8">
@@ -56,13 +51,13 @@ export default function ActivitiesSection({ data }: Props) {
         </div>
 
         {/* Activities Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 lg:gap-8 mb-12">
+        <div className="flex flex-wrap justify-center gap-8 lg:gap-12 my-16 max-w-6xl mx-auto">
           {data.activities_items.map((activity, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center gap-3 p-4 bg-brand-daisy/20 hover:bg-brand-daisy/30 transition-colors"
+              className="flex flex-col items-center text-center gap-3 w-32"
             >
-              <div className="p-4">
+              <div>
                 {getActivityIcon(activity.activity_label)}
               </div>
               <span className="text-sm font-medium text-brand-forest">{activity.activity_label}</span>

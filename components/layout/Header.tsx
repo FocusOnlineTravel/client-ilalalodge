@@ -40,7 +40,9 @@ export default function Header() {
       }`}
     >
       <div className="w-full px-4 lg:px-8">
-        <div className="flex items-center justify-center h-20 lg:h-24 relative">
+        <div className={`flex items-center justify-center relative transition-all duration-300 ${
+          isScrolled ? 'h-16 lg:h-20' : 'h-24 lg:h-32'
+        }`}>
           {/* Burger Menu Button - Left Side */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -78,9 +80,11 @@ export default function Header() {
             <Image
               src={isScrolled ? '/images/logo-blacl.png' : '/images/logo-white.png'}
               alt="Ilala Lodge Hotel"
-              width={216}
-              height={72}
-              className="h-14 lg:h-20 w-auto transition-opacity"
+              width={248}
+              height={83}
+              className={`w-auto transition-all duration-300 ${
+                isScrolled ? 'h-12 lg:h-16' : 'h-16 lg:h-24'
+              }`}
               priority
             />
           </Link>

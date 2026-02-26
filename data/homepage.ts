@@ -174,8 +174,8 @@ export const homePage: HomePage = {
     },
     {
       acf_fc_layout: 'wildlife_section',
-      wildlife_eyebrow: 'Nature on your doorstep',
-      wildlife_heading: 'Victoria Falls',
+      wildlife_eyebrow: 'The Victoria Falls',
+      wildlife_heading: 'NATURE ON YOUR DOORSTEP',
       wildlife_body_copy:
         'The Victoria Falls National Park borders the front of the property and, as such, wild animals often graze on the hotel lawns. Warthogs, in particular, are common visitors and they are sure to delight and entertain you. You might even be lucky enough to witness a herd of elephants feasting on the trees while you relax on your private balcony.',
       wildlife_cta: {
@@ -225,8 +225,6 @@ export const homePage: HomePage = {
         { activity_label: 'Zip Lining' },
         { activity_label: 'Big Five Safari' },
         { activity_label: 'Chobe Day Trip' },
-        { activity_label: 'Hwange Day Trip' },
-        { activity_label: 'Fishing' },
       ],
       activities_cta: {
         label: 'View All Activities',
@@ -315,7 +313,7 @@ export const homePage: HomePage = {
         height: 600,
       },
       cta_banner_cta: {
-        label: 'Check Availability',
+        label: 'BOOK NOW',
         url: BOOKING_URL,
         target: '_blank',
       },

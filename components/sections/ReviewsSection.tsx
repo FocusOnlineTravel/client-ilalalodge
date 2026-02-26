@@ -25,7 +25,7 @@ export default function ReviewsSection({ data }: Props) {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
-          <span className="text-brand-gold font-script text-6xl lg:text-8xl block mb-2">
+          <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
             {data.reviews_eyebrow}
           </span>
           <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest">

@@ -45,7 +45,7 @@ export default function DiningSection({ data }: Props) {
 
           {/* Text Content */}
           <div className="order-1 lg:order-2 space-y-6">
-            <span className="text-brand-gold font-script text-6xl lg:text-8xl block">
+            <span className="text-brand-script font-script text-6xl lg:text-8xl block">
               {data.dining_eyebrow}
             </span>
             <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest leading-tight">

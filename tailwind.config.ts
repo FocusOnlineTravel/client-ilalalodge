@@ -16,6 +16,7 @@ const config: Config = {
           stem: "#636449",      // Muted green
           daisy: "#eaeadb",     // Cream/off-white
           gold: "#d0a44f",      // Golden accent
+          script: "#2227155e",  // Script font color with opacity
         },
       },
       fontFamily: {

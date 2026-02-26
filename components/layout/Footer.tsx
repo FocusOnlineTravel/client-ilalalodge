@@ -1,37 +1,30 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import { CONTACT, SOCIAL_MEDIA } from '@/lib/constants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-brand-daisy text-brand-forest">
-      <div className="border-t-4 border-brand-gold"></div>
+    <footer id="contact" className="bg-[#E5DDD5] text-brand-forest">
       <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Logo and Tagline */}
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_0.8fr_0.8fr_0.8fr_1fr] gap-8 lg:gap-12">
+          {/* Logo */}
+          <div>
             <Image
               src="/images/logo-blacl.png"
               alt="Ilala Lodge Hotel"
-              width={180}
-              height={60}
-              className="h-14 w-auto"
+              width={270}
+              height={90}
+              className="h-24 w-auto"
             />
-            <p className="text-sm text-brand-greenery">
-              The closest hotel to Victoria Falls
-            </p>
-            <p className="text-sm text-brand-stem">
-              Offering warm and welcoming true African hospitality since 1989.
-            </p>
           </div>
 
-          {/* Quick Links */}
+          {/* STAY */}
           <div>
-            <h3 className="font-serif text-lg mb-4 text-brand-forest">
-              Quick Links
+            <h3 className="font-sans text-xs uppercase tracking-wider mb-4 text-brand-forest font-semibold">
+              STAY
             </h3>
             <ul className="space-y-2">
               <li>
@@ -39,9 +32,50 @@ export default function Footer() {
                   href="#accommodation"
                   className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
                 >
-                  Accommodation
+                  Classic Rooms
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="#accommodation"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Deluxe Rooms
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#accommodation"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Classic Suites
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#accommodation"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Executive Suites
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#accommodation"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Stratham Suite
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* EXPERIENCES */}
+          <div>
+            <h3 className="font-sans text-xs uppercase tracking-wider mb-4 text-brand-forest font-semibold">
+              EXPERIENCES
+            </h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="#dining"
@@ -52,10 +86,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#nature"
+                  href="#activities"
                   className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
                 >
-                  Nature
+                  Day Trips
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#dining"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  High Tea
                 </Link>
               </li>
               <li>
@@ -66,13 +108,29 @@ export default function Footer() {
                   Activities
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="#activities"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Game Drives
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#activities"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Cultural
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Explore */}
+          {/* ABOUT */}
           <div>
-            <h3 className="font-serif text-lg mb-4 text-brand-forest">
-              Explore
+            <h3 className="font-sans text-xs uppercase tracking-wider mb-4 text-brand-forest font-semibold">
+              ABOUT
             </h3>
             <ul className="space-y-2">
               <li>
@@ -80,7 +138,23 @@ export default function Footer() {
                   href="#about"
                   className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
                 >
-                  About Us
+                  Our Story
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#about"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Location
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#nature"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Victoria Falls
                 </Link>
               </li>
               <li>
@@ -91,97 +165,77 @@ export default function Footer() {
                   Gallery
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="#facilities"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
-                >
-                  Facilities
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#reviews"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
-                >
-                  Reviews
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* CONTACT */}
           <div>
-            <h3 className="font-serif text-lg mb-4 text-brand-forest">
-              Contact
+            <h3 className="font-sans text-xs uppercase tracking-wider mb-4 text-brand-forest font-semibold">
+              CONTACT
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
-                <a
-                  href={`mailto:${CONTACT.email}`}
-                  className="flex items-start gap-2 text-sm text-brand-stem hover:text-brand-gold transition-colors"
-                >
-                  <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <span>{CONTACT.email}</span>
-                </a>
+                <p className="text-sm font-semibold text-brand-forest">DIRECT BOOKINGS</p>
               </li>
               <li>
                 <a
                   href={`tel:${CONTACT.phone}`}
-                  className="flex items-start gap-2 text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors underline"
                 >
-                  <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <span>{CONTACT.phone}</span>
+                  {CONTACT.phone}
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-2 text-sm text-brand-stem">
-                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <span>{CONTACT.address}</span>
-                </div>
+                <a
+                  href={CONTACT.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors underline"
+                >
+                  Chat with us on Whatsapp
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors underline"
+                >
+                  {CONTACT.email}
+                </a>
               </li>
             </ul>
 
             {/* Social Media */}
-            <div className="mt-6">
-              <h4 className="text-sm font-semibold mb-3 text-brand-forest">Follow Us</h4>
-              <div className="flex gap-3">
-                <a
-                  href={SOCIAL_MEDIA.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-brand-forest text-white p-2 hover:bg-brand-gold hover:text-brand-forest transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a
-                  href={SOCIAL_MEDIA.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-brand-forest text-white p-2 hover:bg-brand-gold hover:text-brand-forest transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-4 w-4" />
-                </a>
-                <a
-                  href={SOCIAL_MEDIA.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-brand-forest text-white p-2 hover:bg-brand-gold hover:text-brand-forest transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-4 w-4" />
-                </a>
-              </div>
+            <div className="flex gap-3 mt-4">
+              <a
+                href={SOCIAL_MEDIA.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-forest hover:text-brand-gold transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href={SOCIAL_MEDIA.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-forest hover:text-brand-gold transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-brand-stem/20 text-center">
-          <p className="text-sm text-brand-stem">
-            &copy; {currentYear} Ilala Lodge Hotel. All rights reserved.
+        <div className="mt-12 pt-6 border-t border-brand-stem/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-stem">
+          <p>
+            &copy; {currentYear} Ilala Lodge | <Link href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</Link> | <Link href="#" className="hover:text-brand-gold transition-colors">Terms & Conditions</Link>
+          </p>
+          <p>
+            Website by <a href="https://focusonlinetravel.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Focus Online Travel</a>
           </p>
         </div>
       </div>

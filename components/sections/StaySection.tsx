@@ -31,7 +31,7 @@ export default function StaySection({ data }: Props) {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
-          <span className="text-brand-gold font-script text-6xl lg:text-8xl block mb-2">
+          <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
             {data.stay_eyebrow}
           </span>
           <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-4">
@@ -100,7 +100,7 @@ export default function StaySection({ data }: Props) {
                             href={room.room_cta.url}
                             target={room.room_cta.target}
                             rel={room.room_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-                            className="bg-brand-gold hover:bg-brand-gold/90 text-brand-forest px-4 py-2 lg:px-6 lg:py-3 rounded-full font-semibold transition-all duration-200 hover:shadow-lg text-sm lg:text-base"
+                            className="bg-brand-forest hover:bg-brand-forest/90 text-white px-4 py-2 lg:px-6 lg:py-3 rounded-full font-semibold transition-all duration-200 hover:shadow-lg text-sm lg:text-base uppercase tracking-wide"
                           >
                             {room.room_cta.label}
                           </a>
