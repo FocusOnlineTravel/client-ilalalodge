@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { StayBlock } from '@/types/acf';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import FadeInView from '@/components/animations/FadeInView';
 
 interface Props {
   data: StayBlock;
@@ -30,19 +31,21 @@ export default function StaySection({ data }: Props) {
     <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-brand-daisy" id="accommodation">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
-            {data.stay_eyebrow}
-          </span>
-          <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-4">
-            {data.stay_heading}
-          </h2>
-          {data.stay_subheading && (
-            <p className="text-brand-stem text-lg max-w-2xl mx-auto">
-              {data.stay_subheading}
-            </p>
-          )}
-        </div>
+        <FadeInView>
+          <div className="text-center mb-12 lg:mb-16">
+            <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
+              {data.stay_eyebrow}
+            </span>
+            <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-4">
+              {data.stay_heading}
+            </h2>
+            {data.stay_subheading && (
+              <p className="text-brand-stem text-lg max-w-2xl mx-auto">
+                {data.stay_subheading}
+              </p>
+            )}
+          </div>
+        </FadeInView>
 
         {/* Carousel */}
         <div className="relative max-w-7xl mx-auto">
@@ -58,7 +61,7 @@ export default function StaySection({ data }: Props) {
                   {data.stay_rooms.slice(slideIndex * 2, slideIndex * 2 + 2).map((room, roomIndex) => (
                     <div
                       key={roomIndex}
-                      className="flex-1 bg-white overflow-hidden shadow-xl"
+                      className="w-full lg:w-[calc(50%-1rem)] flex-shrink-0 bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
                     >
                       {/* Room Image with Count Pill */}
                       <div className="relative h-[250px] lg:h-[350px]">
@@ -66,7 +69,7 @@ export default function StaySection({ data }: Props) {
                           src={room.room_image.url}
                           alt={room.room_image.alt}
                           fill
-                          className="object-cover"
+                          className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
                         {/* Room Count Pill */}
@@ -87,7 +90,7 @@ export default function StaySection({ data }: Props) {
                         </p>
                         <div className="flex items-center justify-between pt-4 border-t border-brand-stem/20">
                           <div>
-                            <div className="text-xl lg:text-2xl font-bold text-brand-forest">
+                            <div className="text-xl lg:text-2xl font-normal text-brand-forest font-serif">
                               {room.room_price_from}
                             </div>
                             {room.room_price_suffix && (

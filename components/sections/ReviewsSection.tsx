@@ -47,9 +47,9 @@ export default function ReviewsSection({ data }: Props) {
                   {data.reviews_items.slice(slideIndex * 3, slideIndex * 3 + 3).map((review, reviewIndex) => (
                     <div
                       key={reviewIndex}
-                      className="flex-1 bg-brand-daisy p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow"
+                      className="flex-1 bg-[#fafaf8] p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                     >
-                      <Quote className="h-8 w-8 lg:h-10 lg:w-10 text-brand-gold mb-4" />
+                      <Quote className="h-8 w-8 lg:h-10 lg:w-10 text-gray-300 mb-4" />
                       <h3 className="font-serif text-lg lg:text-xl text-brand-forest mb-3">
                         {review.review_title}
                       </h3>

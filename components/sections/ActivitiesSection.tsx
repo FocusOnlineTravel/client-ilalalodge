@@ -1,6 +1,7 @@
 import { ActivitiesBlock } from '@/types/acf';
 import Image from 'next/image';
 import React from 'react';
+import FadeInView from '@/components/animations/FadeInView';
 
 interface Props {
   data: ActivitiesBlock;
@@ -41,26 +42,28 @@ export default function ActivitiesSection({ data }: Props) {
     <section className="py-16 lg:py-24 bg-white text-brand-forest" id="activities">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
-            {data.activities_eyebrow}
-          </span>
-          <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-8">
-            {data.activities_heading}
-          </h2>
-        </div>
+        <FadeInView>
+          <div className="text-center mb-12 lg:mb-16">
+            <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
+              {data.activities_eyebrow}
+            </span>
+            <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-8">
+              {data.activities_heading}
+            </h2>
+          </div>
+        </FadeInView>
 
         {/* Activities Grid */}
         <div className="flex flex-wrap justify-center gap-8 lg:gap-12 my-16 max-w-6xl mx-auto">
           {data.activities_items.map((activity, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center gap-3 w-32"
+              className="flex flex-col items-center text-center gap-3 w-32 group cursor-pointer"
             >
-              <div>
+              <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300">
                 {getActivityIcon(activity.activity_label)}
               </div>
-              <span className="text-sm font-medium text-brand-forest">{activity.activity_label}</span>
+              <span className="text-sm font-medium text-brand-forest group-hover:text-brand-gold transition-colors duration-200">{activity.activity_label}</span>
             </div>
           ))}
         </div>
@@ -71,7 +74,7 @@ export default function ActivitiesSection({ data }: Props) {
             href={data.activities_cta.url}
             target={data.activities_cta.target}
             rel={data.activities_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-            className="inline-block bg-brand-gold hover:bg-brand-gold/90 text-brand-forest px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg"
+            className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg hover:scale-105 uppercase tracking-wide"
           >
             {data.activities_cta.label}
           </a>

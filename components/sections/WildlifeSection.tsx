@@ -8,7 +8,7 @@ interface Props {
 
 export default function WildlifeSection({ data }: Props) {
   return (
-    <section className="py-16 lg:py-24 bg-brand-daisy" id="nature">
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-brand-daisy to-white" id="nature">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}

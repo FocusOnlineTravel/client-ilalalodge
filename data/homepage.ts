@@ -28,11 +28,11 @@ export const homePage: HomePage = {
     {
       acf_fc_layout: 'intro_section',
       intro_eyebrow: 'Closest Hotel to the Falls',
-      intro_heading: 'Ilala Lodge Hotel',
+      intro_heading: 'A family-run hotel that offers luxury and comfort in the heart of Victoria Falls',
       intro_body_copy:
-        'Ilala Lodge Hotel is a family-run hotel that offers luxury and comfort in the heart of Victoria Falls, Zimbabwe. Nestled in attractive gardens, the well-appointed hotel is a mere eight-minute walk from Victoria Falls, one of the Seven Natural Wonders of the World. The hotel is ideally located in the hustle and bustle of town, within walking distance of all historical sites, restaurants and activities in Victoria Falls. Offering warm and welcoming true African hospitality, our friendly and attentive staff will ensure that your visit is perfect in every way.',
+        'Nestled in attractive gardens, the well-appointed hotel is a mere eight-minute walk from Victoria Falls, one of the Seven Natural Wonders of the World.',
       intro_cta: {
-        label: 'Learn More About Us',
+        label: 'Offers',
         url: '#about',
         target: '_self',
       },
@@ -76,10 +76,10 @@ export const homePage: HomePage = {
           room_price_from: 'From $240',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/accommodation-luxury.png',
+            url: '/images/Deluxe-Room-King-ILH--1500x1000.jpeg',
             alt: 'Deluxe Room at Ilala Lodge Hotel',
-            width: 600,
-            height: 400,
+            width: 1500,
+            height: 1000,
           },
           room_cta: {
             label: 'Book Room',
@@ -88,17 +88,17 @@ export const homePage: HomePage = {
           },
         },
         {
-          room_name: 'Premium Rooms',
-          room_count: 16,
+          room_name: 'Classic Suites',
+          room_count: 6,
           room_description:
-            'Our Premium Rooms offer enhanced luxury with spacious layouts, premium furnishings, and stunning views. Each room features modern amenities while maintaining the classic elegance that defines Ilala Lodge.',
+            'Our Classic Suites offer spacious elegance with separate living areas, premium furnishings, and stunning views. Each suite features modern amenities while maintaining the timeless sophistication that defines Ilala Lodge.',
           room_price_from: 'From $320',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/accommodation-luxury.png',
-            alt: 'Premium Room at Ilala Lodge Hotel',
-            width: 600,
-            height: 400,
+            url: '/images/Classic-Suite-ILH--1334x1000.jpg',
+            alt: 'Classic Suite at Ilala Lodge Hotel',
+            width: 1334,
+            height: 1000,
           },
           room_cta: {
             label: 'Book Room',
@@ -107,17 +107,36 @@ export const homePage: HomePage = {
           },
         },
         {
-          room_name: 'Suite Rooms',
-          room_count: 8,
+          room_name: 'Executive Suites',
+          room_count: 4,
           room_description:
-            'Experience ultimate luxury in our Suite Rooms. These expansive accommodations feature separate living areas, premium bathrooms, and private balconies with breathtaking views of the surrounding wilderness.',
+            'Experience elevated luxury in our Executive Suites. These expansive accommodations feature separate living areas, premium bathrooms, private balconies, and breathtaking views of the surrounding wilderness and gardens.',
           room_price_from: 'From $450',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/accommodation-luxury.png',
-            alt: 'Suite Room at Ilala Lodge Hotel',
-            width: 600,
-            height: 400,
+            url: '/images/Executive-Suite-Bedroom-ILH-1500x1000.jpeg',
+            alt: 'Executive Suite at Ilala Lodge Hotel',
+            width: 1500,
+            height: 1000,
+          },
+          room_cta: {
+            label: 'Book Room',
+            url: BOOKING_URL,
+            target: '_blank',
+          },
+        },
+        {
+          room_name: 'Stratham Suite',
+          room_count: 1,
+          room_description:
+            'The crown jewel of Ilala Lodge, the Stratham Suite offers unparalleled luxury and space. This exclusive suite features a master bedroom, spacious living area, luxurious bathroom, and private outdoor space with panoramic views.',
+          room_price_from: 'From $650',
+          room_price_suffix: 'per night',
+          room_image: {
+            url: '/images/Strathern-Suite-Bedroom.jpeg',
+            alt: 'Stratham Suite at Ilala Lodge Hotel',
+            width: 1500,
+            height: 1000,
           },
           room_cta: {
             label: 'Book Room',
@@ -129,8 +148,8 @@ export const homePage: HomePage = {
     },
     {
       acf_fc_layout: 'dining_section',
-      dining_eyebrow: 'Dining',
-      dining_heading: 'Fine dining at the',
+      dining_eyebrow: 'Dine at Ilala',
+      dining_heading: 'Elevated Comfort Food at',
       dining_subheading: 'Cassia Restaurant',
       dining_body_copy:
         'The Cassia Restaurant, located at Ilala Lodge Hotel, offers an unmatched menu and an extensive wine list featuring carefully selected wines from South Africa\'s top vineyards. The calming and tranquil ambience sets the stage for a truly unforgettable dining experience at one of the finest Victoria Falls restaurants, within earshot of the gentle rumble of Victoria Falls.',
