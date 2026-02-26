@@ -45,12 +45,13 @@ export const homePage: HomePage = {
     },
     {
       acf_fc_layout: 'stay_section',
-      stay_eyebrow: 'Accommodation',
-      stay_heading: 'Where Comfort Meets Luxury',
+      stay_eyebrow: 'Stay with us',
+      stay_heading: 'AT ILALA LODGE HOTEL',
       stay_subheading: 'Choose from our selection of beautifully appointed rooms',
       stay_rooms: [
         {
           room_name: 'Classic Rooms',
+          room_count: 32,
           room_description:
             'The Twin Classic Rooms at Ilala Lodge Hotel are complete with two comfortable ¾ beds set within an expansive space, and an en-suite bathroom with a separate shower. The King Classic Rooms are ideal for couples, as they have one cosy king-size bed.',
           room_price_from: 'From $180',
@@ -69,6 +70,7 @@ export const homePage: HomePage = {
         },
         {
           room_name: 'Deluxe Rooms',
+          room_count: 24,
           room_description:
             'Situated in the stylish West Wing, the Deluxe Rooms at Ilala Lodge Hotel ooze old-world charm and sophistication. All Deluxe rooms are complete with a private patio overlooking the hotel\'s lush gardens that merge with the wildlife National park.',
           room_price_from: 'From $240',
@@ -76,6 +78,44 @@ export const homePage: HomePage = {
           room_image: {
             url: '/images/accommodation-luxury.png',
             alt: 'Deluxe Room at Ilala Lodge Hotel',
+            width: 600,
+            height: 400,
+          },
+          room_cta: {
+            label: 'Book Room',
+            url: BOOKING_URL,
+            target: '_blank',
+          },
+        },
+        {
+          room_name: 'Premium Rooms',
+          room_count: 16,
+          room_description:
+            'Our Premium Rooms offer enhanced luxury with spacious layouts, premium furnishings, and stunning views. Each room features modern amenities while maintaining the classic elegance that defines Ilala Lodge.',
+          room_price_from: 'From $320',
+          room_price_suffix: 'per night',
+          room_image: {
+            url: '/images/accommodation-luxury.png',
+            alt: 'Premium Room at Ilala Lodge Hotel',
+            width: 600,
+            height: 400,
+          },
+          room_cta: {
+            label: 'Book Room',
+            url: BOOKING_URL,
+            target: '_blank',
+          },
+        },
+        {
+          room_name: 'Suite Rooms',
+          room_count: 8,
+          room_description:
+            'Experience ultimate luxury in our Suite Rooms. These expansive accommodations feature separate living areas, premium bathrooms, and private balconies with breathtaking views of the surrounding wilderness.',
+          room_price_from: 'From $450',
+          room_price_suffix: 'per night',
+          room_image: {
+            url: '/images/accommodation-luxury.png',
+            alt: 'Suite Room at Ilala Lodge Hotel',
             width: 600,
             height: 400,
           },
@@ -95,7 +135,7 @@ export const homePage: HomePage = {
       dining_body_copy:
         'The Cassia Restaurant, located at Ilala Lodge Hotel, offers an unmatched menu and an extensive wine list featuring carefully selected wines from South Africa\'s top vineyards. The calming and tranquil ambience sets the stage for a truly unforgettable dining experience at one of the finest Victoria Falls restaurants, within earshot of the gentle rumble of Victoria Falls.',
       dining_cta: {
-        label: 'View Menu',
+        label: 'Learn more',
         url: '#dining',
         target: '_self',
       },
@@ -134,8 +174,8 @@ export const homePage: HomePage = {
     },
     {
       acf_fc_layout: 'wildlife_section',
-      wildlife_eyebrow: 'Nature',
-      wildlife_heading: 'Nature at your doorstep',
+      wildlife_eyebrow: 'Nature on your doorstep',
+      wildlife_heading: 'Victoria Falls',
       wildlife_body_copy:
         'The Victoria Falls National Park borders the front of the property and, as such, wild animals often graze on the hotel lawns. Warthogs, in particular, are common visitors and they are sure to delight and entertain you. You might even be lucky enough to witness a herd of elephants feasting on the trees while you relax on your private balcony.',
       wildlife_cta: {
@@ -172,8 +212,8 @@ export const homePage: HomePage = {
     },
     {
       acf_fc_layout: 'activities_section',
-      activities_eyebrow: 'Experiences',
-      activities_heading: 'Victoria Falls Activities',
+      activities_eyebrow: 'Plenty to do',
+      activities_heading: 'VICTORIA FALLS ACTIVITIES',
       activities_items: [
         { activity_label: 'Helicopter Flights' },
         { activity_label: 'Bungee Jumping' },
@@ -219,6 +259,48 @@ export const homePage: HomePage = {
             'The level of service at Ilala Lodge is outstanding. Every member of staff went above and beyond to make our stay special. The attention to detail is remarkable.',
           review_author: 'Emma L.',
           review_source: 'Booking.com',
+        },
+        {
+          review_title: 'Unforgettable Safari',
+          review_body:
+            'The game drives organized by the hotel were spectacular. We saw the Big Five and the guides were incredibly knowledgeable. Combined with the luxury accommodations, this was a dream trip.',
+          review_author: 'Michael T.',
+          review_source: 'TripAdvisor',
+        },
+        {
+          review_title: 'Best Hotel in Victoria Falls',
+          review_body:
+            'After visiting several hotels in the area, Ilala Lodge stands out for its authentic African hospitality, prime location, and beautiful grounds. The proximity to the falls is unbeatable.',
+          review_author: 'Jennifer & Mark S.',
+          review_source: 'Expedia',
+        },
+        {
+          review_title: 'Magical Atmosphere',
+          review_body:
+            'From the moment we arrived, we felt welcomed. The gardens are stunning, rooms are spacious and comfortable, and dining under the stars was a highlight of our African adventure.',
+          review_author: 'Lisa H.',
+          review_source: 'Google Reviews',
+        },
+        {
+          review_title: 'Wildlife Paradise',
+          review_body:
+            'Waking up to elephants grazing outside our window was surreal. The staff made sure we had everything we needed, and the sunset cruise they arranged was breathtaking.',
+          review_author: 'Robert & Anne K.',
+          review_source: 'TripAdvisor',
+        },
+        {
+          review_title: 'Luxury Meets Nature',
+          review_body:
+            'The perfect blend of luxury accommodation and raw African nature. The rooms are beautifully appointed, the restaurant serves excellent cuisine, and the location cannot be beaten.',
+          review_author: 'James W.',
+          review_source: 'Booking.com',
+        },
+        {
+          review_title: 'Highly Recommended',
+          review_body:
+            'This was our first trip to Africa and Ilala Lodge exceeded all expectations. The staff were attentive without being intrusive, and they helped arrange all our activities. Cannot recommend enough!',
+          review_author: 'Patricia D.',
+          review_source: 'Google Reviews',
         },
       ],
     },

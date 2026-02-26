@@ -10,13 +10,14 @@ interface Props {
 
 export default function ReviewsSection({ data }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = Math.ceil(data.reviews_items.length / 3);
 
-  const nextReview = () => {
-    setCurrentIndex((prev) => (prev + 1) % data.reviews_items.length);
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
   };
 
-  const prevReview = () => {
-    setCurrentIndex((prev) => (prev - 1 + data.reviews_items.length) % data.reviews_items.length);
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
   return (
@@ -32,81 +33,77 @@ export default function ReviewsSection({ data }: Props) {
           </h2>
         </div>
 
-        {/* Reviews Grid for Desktop */}
-        <div className="hidden lg:grid grid-cols-3 gap-8">
-          {data.reviews_items.map((review, index) => (
+        {/* Carousel */}
+        <div className="relative max-w-7xl mx-auto">
+          <div className="overflow-hidden">
+            {/* Review Cards Container with Smooth Transition */}
             <div
-              key={index}
-              className="bg-brand-daisy p-8 shadow-lg hover:shadow-xl transition-shadow"
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              <Quote className="h-10 w-10 text-brand-gold mb-4" />
-              <h3 className="font-serif text-xl text-brand-forest mb-3">
-                {review.review_title}
-              </h3>
-              <p className="text-brand-stem leading-relaxed mb-4">
-                {review.review_body}
-              </p>
-              <div className="pt-4 border-t border-brand-stem/20">
-                <p className="font-semibold text-brand-forest">{review.review_author}</p>
-                {review.review_source && (
-                  <p className="text-sm text-brand-stem">{review.review_source}</p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Reviews Carousel for Mobile/Tablet */}
-        <div className="lg:hidden relative">
-          <div className="bg-brand-daisy p-6 md:p-8 shadow-lg min-h-[320px] flex flex-col">
-            <Quote className="h-10 w-10 text-brand-gold mb-4" />
-            <h3 className="font-serif text-xl text-brand-forest mb-3">
-              {data.reviews_items[currentIndex].review_title}
-            </h3>
-            <p className="text-brand-stem leading-relaxed mb-4 flex-grow">
-              {data.reviews_items[currentIndex].review_body}
-            </p>
-            <div className="pt-4 border-t border-brand-stem/20">
-              <p className="font-semibold text-brand-forest">
-                {data.reviews_items[currentIndex].review_author}
-              </p>
-              {data.reviews_items[currentIndex].review_source && (
-                <p className="text-sm text-brand-stem">
-                  {data.reviews_items[currentIndex].review_source}
-                </p>
-              )}
+              {/* Group reviews into slides of 3 */}
+              {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                <div key={slideIndex} className="min-w-full flex gap-6 lg:gap-8">
+                  {data.reviews_items.slice(slideIndex * 3, slideIndex * 3 + 3).map((review, reviewIndex) => (
+                    <div
+                      key={reviewIndex}
+                      className="flex-1 bg-brand-daisy p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                      <Quote className="h-8 w-8 lg:h-10 lg:w-10 text-brand-gold mb-4" />
+                      <h3 className="font-serif text-lg lg:text-xl text-brand-forest mb-3">
+                        {review.review_title}
+                      </h3>
+                      <p className="text-brand-stem leading-relaxed mb-4 text-sm lg:text-base line-clamp-4">
+                        {review.review_body}
+                      </p>
+                      <div className="pt-4 border-t border-brand-stem/20">
+                        <p className="font-semibold text-brand-forest">{review.review_author}</p>
+                        {review.review_source && (
+                          <p className="text-xs lg:text-sm text-brand-stem">{review.review_source}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <button
-              onClick={prevReview}
-              className="bg-brand-gold hover:bg-brand-gold/90 text-brand-forest p-2 transition-colors"
-              aria-label="Previous review"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <div className="flex gap-2">
-              {data.reviews_items.map((_, index) => (
+          {totalSlides > 1 && (
+            <>
+              <button
+                onClick={prevSlide}
+                className="absolute -left-6 lg:-left-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 shadow-lg transition-all duration-300 z-10"
+                aria-label="Previous reviews"
+              >
+                <ChevronLeft className="h-8 w-8" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute -right-6 lg:-right-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 shadow-lg transition-all duration-300 z-10"
+                aria-label="Next reviews"
+              >
+                <ChevronRight className="h-8 w-8" />
+              </button>
+            </>
+          )}
+
+          {/* Dots Indicator */}
+          {totalSlides > 1 && (
+            <div className="flex justify-center gap-3 mt-8">
+              {Array.from({ length: totalSlides }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`h-2 transition-all ${
-                    index === currentIndex ? 'w-8 bg-brand-gold' : 'w-2 bg-brand-stem/30'
+                  className={`h-3 transition-all duration-300 ${
+                    index === currentIndex ? 'w-10 bg-brand-gold' : 'w-3 bg-brand-stem/30'
                   }`}
-                  aria-label={`Go to review ${index + 1}`}
+                  aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
-            <button
-              onClick={nextReview}
-              className="bg-brand-gold hover:bg-brand-gold/90 text-brand-forest p-2 transition-colors"
-              aria-label="Next review"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-          </div>
+          )}
         </div>
       </div>
     </section>

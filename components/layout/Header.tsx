@@ -35,7 +35,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-brand-forest/95 backdrop-blur-sm shadow-lg'
+          ? 'bg-white backdrop-blur-sm shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -44,28 +44,43 @@ export default function Header() {
           {/* Burger Menu Button - Left Side */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="absolute left-4 lg:left-8 z-10 text-white p-2 group"
+            className={`absolute left-4 lg:left-8 z-10 p-2 group transition-colors flex items-center gap-3 ${
+              isScrolled ? 'text-brand-forest' : 'text-white'
+            }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
               <X className="h-10 w-10" />
             ) : (
-              <div className="flex flex-col gap-2 w-12">
-                <span className="h-1 w-12 bg-white transition-all group-hover:bg-brand-gold"></span>
-                <span className="h-1 w-9 bg-white transition-all group-hover:bg-brand-gold"></span>
-                <span className="h-1 w-12 bg-white transition-all group-hover:bg-brand-gold"></span>
-              </div>
+              <>
+                <div className="flex flex-col gap-1.5 w-7">
+                  <span className={`h-0.5 w-7 transition-all group-hover:bg-brand-gold ${
+                    isScrolled ? 'bg-brand-forest' : 'bg-white'
+                  }`}></span>
+                  <span className={`h-0.5 w-5 transition-all group-hover:bg-brand-gold ${
+                    isScrolled ? 'bg-brand-forest' : 'bg-white'
+                  }`}></span>
+                  <span className={`h-0.5 w-7 transition-all group-hover:bg-brand-gold ${
+                    isScrolled ? 'bg-brand-forest' : 'bg-white'
+                  }`}></span>
+                </div>
+                <span className={`text-xs font-semibold uppercase tracking-wider transition-colors ${
+                  isScrolled ? 'text-brand-forest' : 'text-white'
+                } group-hover:text-brand-gold`}>
+                  Menu
+                </span>
+              </>
             )}
           </button>
 
           {/* Logo - Centered */}
           <Link href="/" className="relative z-10">
             <Image
-              src="/images/logo-white.png"
+              src={isScrolled ? '/images/logo-blacl.png' : '/images/logo-white.png'}
               alt="Ilala Lodge Hotel"
               width={216}
               height={72}
-              className="h-14 lg:h-20 w-auto"
+              className="h-14 lg:h-20 w-auto transition-opacity"
               priority
             />
           </Link>
@@ -75,7 +90,11 @@ export default function Header() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute right-4 lg:right-8 z-10 bg-white hover:bg-white/90 text-brand-forest px-6 py-2 lg:px-8 lg:py-3 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide text-sm"
+            className={`absolute right-4 lg:right-8 z-10 px-6 py-2 lg:px-8 lg:py-3 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide text-sm ${
+              isScrolled
+                ? 'bg-brand-forest hover:bg-brand-forest/90 text-white'
+                : 'bg-white hover:bg-white/90 text-brand-forest'
+            }`}
           >
             Book Now
           </a>

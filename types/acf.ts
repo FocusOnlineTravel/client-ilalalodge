@@ -38,6 +38,7 @@ export interface StayBlock {
   stay_subheading?: string;
   stay_rooms: {
     room_name: string;
+    room_count: number;
     room_description: string;
     room_price_from: string;
     room_price_suffix?: string;

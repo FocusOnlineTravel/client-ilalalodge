@@ -61,10 +61,9 @@ export default function DiningSection({ data }: Props) {
               href={data.dining_cta.url}
               target={data.dining_cta.target}
               rel={data.dining_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-              className="inline-flex items-center gap-2 text-brand-gold hover:text-brand-gold/80 font-semibold transition-colors group"
+              className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
             >
               {data.dining_cta.label}
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </div>
