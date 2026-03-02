@@ -126,15 +126,15 @@ export const homePage: HomePage = {
           },
         },
         {
-          room_name: 'Stratham Suite',
+          room_name: 'Strathearn Suite',
           room_count: 1,
           room_description:
-            'The crown jewel of Ilala Lodge, the Stratham Suite offers unparalleled luxury and space. This exclusive suite features a master bedroom, spacious living area, luxurious bathroom, and private outdoor space with panoramic views.',
+            'The crown jewel of Ilala Lodge, the Strathearn Suite offers unparalleled luxury and space. This exclusive suite features a master bedroom, spacious living area, luxurious bathroom, and private outdoor space with panoramic views.',
           room_price_from: 'From $650',
           room_price_suffix: 'per night',
           room_image: {
             url: '/images/Strathern-Suite-Bedroom.jpeg',
-            alt: 'Stratham Suite at Ilala Lodge Hotel',
+            alt: 'Strathearn Suite at Ilala Lodge Hotel',
             width: 1500,
             height: 1000,
           },

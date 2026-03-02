@@ -64,7 +64,7 @@ export default function Footer() {
                   href="#accommodation"
                   className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
                 >
-                  Stratham Suite
+                  Strathearn Suite
                 </Link>
               </li>
             </ul>
