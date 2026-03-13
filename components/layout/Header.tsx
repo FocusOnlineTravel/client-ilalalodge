@@ -52,9 +52,7 @@ export default function Header() {
   return (
     <>
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
-        isMobileMenuOpen ? 'z-[80]' : 'z-50'
-      } ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white backdrop-blur-sm shadow-lg'
           : 'bg-transparent'
@@ -66,34 +64,30 @@ export default function Header() {
         }`}>
           {/* Burger Menu Button - Left Side */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`absolute left-4 lg:left-8 z-[100] p-2 group transition-colors flex items-center gap-3 ${
+            onClick={() => setIsMobileMenuOpen(true)}
+            className={`absolute left-4 lg:left-8 z-10 p-2 group transition-colors flex items-center gap-3 ${
+              isMobileMenuOpen ? 'opacity-0 pointer-events-none' : ''
+            } ${
               isScrolled ? 'text-brand-forest' : 'text-white'
             }`}
-            aria-label="Toggle menu"
+            aria-label="Open menu"
           >
-            {isMobileMenuOpen ? (
-              <X className="h-10 w-10" />
-            ) : (
-              <>
-                <div className="flex flex-col gap-1.5 w-7">
-                  <span className={`h-0.5 w-7 transition-all group-hover:bg-brand-gold ${
-                    isScrolled ? 'bg-brand-forest' : 'bg-white'
-                  }`}></span>
-                  <span className={`h-0.5 w-5 transition-all group-hover:bg-brand-gold ${
-                    isScrolled ? 'bg-brand-forest' : 'bg-white'
-                  }`}></span>
-                  <span className={`h-0.5 w-7 transition-all group-hover:bg-brand-gold ${
-                    isScrolled ? 'bg-brand-forest' : 'bg-white'
-                  }`}></span>
-                </div>
-                <span className={`text-lg font-semibold uppercase tracking-wider transition-colors ${
-                  isScrolled ? 'text-brand-forest' : 'text-white'
-                } group-hover:text-brand-gold`}>
-                  Menu
-                </span>
-              </>
-            )}
+            <div className="flex flex-col gap-1.5 w-7">
+              <span className={`h-0.5 w-7 transition-all group-hover:bg-brand-gold ${
+                isScrolled ? 'bg-brand-forest' : 'bg-white'
+              }`}></span>
+              <span className={`h-0.5 w-5 transition-all group-hover:bg-brand-gold ${
+                isScrolled ? 'bg-brand-forest' : 'bg-white'
+              }`}></span>
+              <span className={`h-0.5 w-7 transition-all group-hover:bg-brand-gold ${
+                isScrolled ? 'bg-brand-forest' : 'bg-white'
+              }`}></span>
+            </div>
+            <span className={`text-lg font-semibold uppercase tracking-wider transition-colors ${
+              isScrolled ? 'text-brand-forest' : 'text-white'
+            } group-hover:text-brand-gold`}>
+              Menu
+            </span>
           </button>
 
           {/* Logo - Centered */}
@@ -133,6 +127,15 @@ export default function Header() {
           isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
+        {/* Close Button - Top Left */}
+        <button
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute top-6 left-4 lg:top-8 lg:left-8 z-10 p-2 text-white hover:text-brand-gold transition-colors"
+          aria-label="Close menu"
+        >
+          <X className="h-10 w-10" />
+        </button>
+
         {/* Left Side - Menu (50%) */}
         <div
           className={`w-1/2 bg-brand-forest overflow-y-auto transition-transform duration-300 relative ${
