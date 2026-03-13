@@ -204,41 +204,6 @@ export default function LocationPage() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-16 md:py-24 bg-brand-daisy">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-8">
-            Find Us
-          </h2>
-          <div className="bg-white p-8 shadow-lg text-center">
-            <p className="text-brand-forest/80 mb-6 leading-relaxed">
-              <strong>Ilala Lodge Hotel</strong><br />
-              411 Livingstone Way<br />
-              Victoria Falls, Zimbabwe<br />
-              <br />
-              Just 8 minutes walk from Victoria Falls entrance
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="https://maps.google.com/?q=Ilala+Lodge+Hotel+Victoria+Falls"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 border-2 border-brand-forest text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
-              >
-                View on Map
-              </a>
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
-              >
-                Book Your Stay
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
