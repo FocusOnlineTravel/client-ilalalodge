@@ -17,20 +17,20 @@ export default function Footer() {
               alt="Ilala Lodge Hotel"
               width={270}
               height={90}
-              className="h-24 w-auto"
+              className="h-32 w-auto"
             />
           </div>
 
           {/* STAY */}
           <div>
-            <h3 className="font-sans text-xs uppercase tracking-wider mb-4 text-brand-forest font-semibold">
+            <h3 className="font-serif text-lg uppercase tracking-wider mb-4 text-brand-forest">
               STAY
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               <li>
                 <Link
                   href="#accommodation"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Classic Rooms
                 </Link>
@@ -38,7 +38,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#accommodation"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Deluxe Rooms
                 </Link>
@@ -46,7 +46,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#accommodation"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Classic Suites
                 </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#accommodation"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Executive Suites
                 </Link>
@@ -62,7 +62,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#accommodation"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Strathearn Suite
                 </Link>
@@ -72,14 +72,14 @@ export default function Footer() {
 
           {/* EXPERIENCES */}
           <div>
-            <h3 className="font-sans text-xs uppercase tracking-wider mb-4 text-brand-forest font-semibold">
+            <h3 className="font-serif text-lg uppercase tracking-wider mb-4 text-brand-forest">
               EXPERIENCES
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               <li>
                 <Link
                   href="#dining"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Dining
                 </Link>
@@ -87,7 +87,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#activities"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Day Trips
                 </Link>
@@ -95,7 +95,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#dining"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   High Tea
                 </Link>
@@ -103,7 +103,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#activities"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Activities
                 </Link>
@@ -111,7 +111,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#activities"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Game Drives
                 </Link>
@@ -119,7 +119,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#activities"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Cultural
                 </Link>
@@ -129,14 +129,14 @@ export default function Footer() {
 
           {/* ABOUT */}
           <div>
-            <h3 className="font-sans text-xs uppercase tracking-wider mb-4 text-brand-forest font-semibold">
+            <h3 className="font-serif text-lg uppercase tracking-wider mb-4 text-brand-forest">
               ABOUT
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               <li>
                 <Link
                   href="#about"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Our Story
                 </Link>
@@ -144,7 +144,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#about"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Location
                 </Link>
@@ -152,7 +152,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#nature"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Victoria Falls
                 </Link>
@@ -160,7 +160,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#gallery"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Gallery
                 </Link>
@@ -170,17 +170,17 @@ export default function Footer() {
 
           {/* CONTACT */}
           <div>
-            <h3 className="font-sans text-xs uppercase tracking-wider mb-4 text-brand-forest font-semibold">
+            <h3 className="font-serif text-lg uppercase tracking-wider mb-4 text-brand-forest">
               CONTACT
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               <li>
-                <p className="text-sm font-semibold text-brand-forest">DIRECT BOOKINGS</p>
+                <p className="text-base font-semibold text-brand-forest">DIRECT BOOKINGS</p>
               </li>
               <li>
                 <a
                   href={`tel:${CONTACT.phone}`}
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors underline"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors underline"
                 >
                   {CONTACT.phone}
                 </a>
@@ -190,7 +190,7 @@ export default function Footer() {
                   href={CONTACT.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors underline"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors underline"
                 >
                   Chat with us on Whatsapp
                 </a>
@@ -198,7 +198,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="text-sm text-brand-stem hover:text-brand-gold transition-colors underline"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors underline"
                 >
                   {CONTACT.email}
                 </a>
@@ -230,7 +230,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-6 border-t border-brand-stem/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-stem">
+        <div className="mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-stem">
           <p>
             &copy; {currentYear} Ilala Lodge | <Link href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</Link> | <Link href="#" className="hover:text-brand-gold transition-colors">Terms & Conditions</Link>
           </p>

@@ -15,7 +15,7 @@ export default function AccommodationPage() {
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/STAY.png"
+            src="/images/Classic-Suite-ILH--1334x1000.jpg"
             alt="Ilala Lodge Accommodation"
             fill
             className="object-cover"
@@ -24,10 +24,10 @@ export default function AccommodationPage() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <p className="font-script text-3xl md:text-4xl text-brand-gold mb-4">
+          <p className="font-serif text-[1.25rem] uppercase tracking-[0.3em] mb-1">
             {accommodationData.subtitle}
           </p>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl uppercase tracking-wide">
+          <h1 className="font-script text-[6rem] text-brand-gold leading-none">
             {accommodationData.title}
           </h1>
         </div>
@@ -54,7 +54,7 @@ export default function AccommodationPage() {
                 }`}
               >
                 {/* Image */}
-                <div className={`relative aspect-[4/3] ${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
+                <div className={`relative aspect-[4/3] md:aspect-[1/1] ${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
                   <Image
                     src={room.image}
                     alt={room.title}
@@ -64,7 +64,7 @@ export default function AccommodationPage() {
                 </div>
 
                 {/* Content */}
-                <div className={`${index % 2 === 1 ? 'md:col-start-1' : ''}`}>
+                <div className={`px-4 md:px-8 lg:px-12 ${index % 2 === 1 ? 'md:col-start-1' : ''}`}>
                   <h2 className="font-serif text-3xl md:text-4xl text-brand-forest uppercase tracking-wide mb-4">
                     {room.title}
                   </h2>
@@ -74,7 +74,7 @@ export default function AccommodationPage() {
                   <div className="flex flex-wrap gap-4">
                     <Link
                       href={`/accommodation/${room.slug}`}
-                      className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 border-2 border-brand-forest text-brand-forest font-semibold uppercase tracking-wide text-lg hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
+                      className="px-3.5 pt-1 pb-0.5 lg:px-[22px] lg:pt-1.5 lg:pb-1 border-2 border-brand-forest text-brand-forest font-semibold uppercase tracking-wide text-lg hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
                     >
                       View Details
                     </Link>
@@ -82,7 +82,7 @@ export default function AccommodationPage() {
                       href={BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide text-lg hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
+                      className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide text-lg hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
                     >
                       Book Now
                     </a>
