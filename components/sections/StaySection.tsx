@@ -138,14 +138,14 @@ export default function StaySection({ data }: Props) {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute -left-6 lg:-left-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 shadow-lg transition-all duration-300 z-10"
+                className="absolute -left-6 lg:-left-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full shadow-lg transition-all duration-300 z-10"
                 aria-label="Previous rooms"
               >
                 <ChevronLeft className="h-8 w-8" />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute -right-6 lg:-right-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 shadow-lg transition-all duration-300 z-10"
+                className="absolute -right-6 lg:-right-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full shadow-lg transition-all duration-300 z-10"
                 aria-label="Next rooms"
               >
                 <ChevronRight className="h-8 w-8" />
@@ -160,7 +160,7 @@ export default function StaySection({ data }: Props) {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`h-3 transition-all duration-300 ${
+                  className={`h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex ? 'w-10 bg-brand-gold' : 'w-3 bg-brand-stem/30'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
