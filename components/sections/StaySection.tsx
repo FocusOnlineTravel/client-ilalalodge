@@ -73,7 +73,7 @@ export default function StaySection({ data }: Props) {
                       key={roomIndex}
                       className="w-full lg:w-[calc(50%-1rem)] flex-shrink-0 bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
                     >
-                      {/* Room Image with Count Pill */}
+                      {/* Room Image */}
                       <div className="relative h-[250px] lg:h-[350px]">
                         <Image
                           src={room.room_image.url}
@@ -82,12 +82,6 @@ export default function StaySection({ data }: Props) {
                           className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
-                        {/* Room Count Pill */}
-                        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 shadow-lg">
-                          <span className="text-brand-forest font-semibold text-sm">
-                            {room.room_count} {room.room_name.includes('Suite') ? 'Suites' : 'Rooms'}
-                          </span>
-                        </div>
                       </div>
 
                       {/* Room Info */}
@@ -102,14 +96,17 @@ export default function StaySection({ data }: Props) {
                         </p>
                         <div className="flex items-center justify-between pt-4 border-t border-brand-stem/20">
                           <div>
-                            <div className="text-xl lg:text-2xl font-normal text-brand-forest font-serif">
-                              {room.room_price_from}
+                            <div className="text-xs text-brand-stem mb-1">From</div>
+                            <div className="flex items-baseline gap-1">
+                              <span className="text-3xl lg:text-4xl font-light text-brand-forest font-serif">
+                                {room.room_price_from.replace('From ', '')}
+                              </span>
+                              {room.room_price_suffix && (
+                                <span className="text-sm text-brand-stem">
+                                  {room.room_price_suffix.replace('per night', 'pppn')}
+                                </span>
+                              )}
                             </div>
-                            {room.room_price_suffix && (
-                              <div className="text-xs lg:text-sm text-brand-stem">
-                                {room.room_price_suffix}
-                              </div>
-                            )}
                           </div>
                           <div className="flex gap-2">
                             <Link

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { WildlifeBlock } from '@/types/acf';
-import { ArrowRight } from 'lucide-react';
 
 interface Props {
   data: WildlifeBlock;
@@ -13,7 +12,7 @@ export default function WildlifeSection({ data }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}
           <div className="space-y-6">
-            <span className="text-brand-script font-script text-6xl lg:text-8xl block">
+            <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
               {data.wildlife_eyebrow}
             </span>
             <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest leading-tight">
@@ -26,10 +25,9 @@ export default function WildlifeSection({ data }: Props) {
               href={data.wildlife_cta.url}
               target={data.wildlife_cta.target}
               rel={data.wildlife_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-              className="inline-flex items-center gap-2 text-brand-gold hover:text-brand-gold/80 font-semibold transition-colors group"
+              className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
             >
-              {data.wildlife_cta.label}
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              Explore The Falls
             </a>
           </div>
 

@@ -13,6 +13,16 @@ Our King and Twin Classic Room options are decorated with railway teak furnishin
 
 Sliding doors open onto a luscious garden, offering a gateway to nature and the opportunity to see warthog, elephant, bushbuck, hippo and other wildlife grazing on the lawns. Make yourself at home by unpacking your belongings and relax and unwind in the comfort of your room.`,
       image: "/images/accommodation-classic.png",
+      roomCount: 32,
+      size: "35 m²",
+      sleeps: 2,
+      priceFrom: "$180",
+      gallery: [
+        "/images/accommodation-classic.png",
+        "/images/accommodation-classic.png",
+        "/images/accommodation-classic.png",
+        "/images/accommodation-classic.png",
+      ],
       amenities: [
         "Air-conditioning",
         "Mini Bar (with Complimentary Initial Stocking)",
@@ -36,6 +46,16 @@ Sliding doors open onto a luscious garden, offering a gateway to nature and the 
 
 For families of more than three, the Classic Suite is connected to a Classic Twin bedroom via an interleading door. The interconnecting room is equipped with a private bathroom and balcony overlooking views of the mist that rises from Victoria Falls.`,
       image: "/images/Classic-Suite-ILH--1334x1000.jpg",
+      roomCount: 6,
+      size: "45 m²",
+      sleeps: 3,
+      priceFrom: "$320",
+      gallery: [
+        "/images/Classic-Suite-ILH--1334x1000.jpg",
+        "/images/Classic-Suite-ILH--1334x1000.jpg",
+        "/images/Classic-Suite-ILH--1334x1000.jpg",
+        "/images/Classic-Suite-ILH--1334x1000.jpg",
+      ],
       amenities: [
         "Private Patio Facing Victoria Falls",
         "Additional 3/4 bed",
@@ -66,6 +86,16 @@ The Twin Deluxe Rooms have two three-quarter beds and an en-suite bathroom with 
 
 All Deluxe rooms are complete with a private patio overlooking the hotel's lush gardens that merge with the wildlife National park. From the comfort of their balcony, guests can enjoy wildlife sightings as well as the stunning sunrise through the mist that rises over the Victoria Falls.`,
       image: "/images/Deluxe-Room-King-ILH--1500x1000.jpeg",
+      roomCount: 24,
+      size: "40 m²",
+      sleeps: 2,
+      priceFrom: "$240",
+      gallery: [
+        "/images/Deluxe-Room-King-ILH--1500x1000.jpeg",
+        "/images/Deluxe-Room-King-ILH--1500x1000.jpeg",
+        "/images/Deluxe-Room-King-ILH--1500x1000.jpeg",
+        "/images/Deluxe-Room-King-ILH--1500x1000.jpeg",
+      ],
       amenities: [
         "Double Vanity Basins",
         "Air-conditioning",
@@ -90,6 +120,16 @@ All Deluxe rooms are complete with a private patio overlooking the hotel's lush 
 
 Guests of the Executive Suites have a private patio that opens off the bedroom and wraps around to the private lounge, here guests may enjoy the magnificent sunrise views over the mighty Victoria Falls.`,
       image: "/images/Executive-Suite-Bedroom-ILH-1500x1000.jpeg",
+      roomCount: 4,
+      size: "65 m²",
+      sleeps: 2,
+      priceFrom: "$450",
+      gallery: [
+        "/images/Executive-Suite-Bedroom-ILH-1500x1000.jpeg",
+        "/images/Executive-Suite-Bedroom-ILH-1500x1000.jpeg",
+        "/images/Executive-Suite-Bedroom-ILH-1500x1000.jpeg",
+        "/images/Executive-Suite-Bedroom-ILH-1500x1000.jpeg",
+      ],
       amenities: [
         "Private Lounge",
         "Private Patio Facing Victoria Falls",
@@ -121,6 +161,16 @@ Guests will also receive in-room continental breakfasts, welcome sparkling wine,
 
 In addition to offering an ideal romantic retreat, the suite can also be transformed into a comfortable and spacious family villa, via a pair of interleading doors into a secondary suite and deluxe guest room.`,
       image: "/images/Strathern-Suite-Bedroom.jpeg",
+      roomCount: 1,
+      size: "85 m²",
+      sleeps: 4,
+      priceFrom: "$650",
+      gallery: [
+        "/images/Strathern-Suite-Bedroom.jpeg",
+        "/images/Strathern-Suite-Bedroom.jpeg",
+        "/images/Strathern-Suite-Bedroom.jpeg",
+        "/images/Strathern-Suite-Bedroom.jpeg",
+      ],
       amenities: [
         "Private Patio Facing Victoria Falls",
         "Private Kitchen",

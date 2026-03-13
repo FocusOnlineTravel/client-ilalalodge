@@ -34,9 +34,9 @@ export default function Header() {
       ]
     },
     { label: 'Facilities', href: '#facilities' },
-    { label: 'Dining', href: '#dining' },
-    { label: 'Location', href: '#location' },
-    { label: 'Activities', href: '#activities' },
+    { label: 'Dining', href: '/dining' },
+    { label: 'Location', href: '/location' },
+    { label: 'Activities', href: '/activities' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'Our Story', href: '#our-story' },
     { label: 'FAQs', href: '#faqs' },

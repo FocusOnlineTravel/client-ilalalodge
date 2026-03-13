@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { accommodationData } from '@/data/accommodation';
 import { BOOKING_URL } from '@/lib/constants';
+import RoomGallery from '@/components/accommodation/RoomGallery';
+import OtherRoomsCarousel from '@/components/accommodation/OtherRoomsCarousel';
+import { Maximize2, Users } from 'lucide-react';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -38,14 +41,12 @@ export default async function RoomPage({ params }: Props) {
     notFound();
   }
 
-  const currentIndex = accommodationData.rooms.findIndex((r) => r.slug === slug);
-  const nextRoom = accommodationData.rooms[currentIndex + 1];
-  const prevRoom = accommodationData.rooms[currentIndex - 1];
+  const otherRooms = accommodationData.rooms.filter((r) => r.slug !== slug);
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center">
+      {/* Hero Section with Breadcrumb */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
             src={room.image}
@@ -54,111 +55,163 @@ export default async function RoomPage({ params }: Props) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <Link
             href="/accommodation"
             className="inline-block text-sm uppercase tracking-wider text-white/80 hover:text-brand-gold transition-colors mb-4"
           >
-            &larr; Back to Accommodation
+            &larr; Back to All Accommodation
           </Link>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl uppercase tracking-wide">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
             {room.title}
           </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+            {room.shortDescription}
+          </p>
         </div>
       </section>
 
-      {/* Room Description */}
-      <section className="py-16 md:py-24 bg-brand-daisy">
+      {/* Quick Info Bar */}
+      <section className="bg-white border-b border-brand-stem/10 py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-12 md:gap-20">
+            <div className="text-center">
+              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-2">Room Size</div>
+              <div className="text-2xl font-light text-brand-forest font-serif">{room.size}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-2">
+                {room.roomCount === 1 ? 'Suite' : 'Available Rooms'}
+              </div>
+              <div className="text-2xl font-light text-brand-forest font-serif">
+                {room.roomCount} {room.roomCount === 1 ? 'Suite' : 'Rooms'}
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-2">From Price</div>
+              <div className="text-2xl font-light text-brand-forest font-serif">{room.priceFrom}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Description Section */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-brand-daisy">
         <div className="max-w-4xl mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-8 text-center">
+            Our {room.title}
+          </h2>
           <div className="prose prose-lg max-w-none">
             {room.description.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-brand-forest/80 leading-relaxed mb-6">
+              <p key={index} className="text-brand-stem text-lg leading-relaxed mb-6">
                 {paragraph}
               </p>
             ))}
           </div>
-          <div className="mt-8">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide text-lg hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
-            >
-              Book This Room
-            </a>
-          </div>
         </div>
       </section>
 
-      {/* Amenities */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest uppercase tracking-wide text-center mb-12">
-            Amenities
+      {/* Amenities Section */}
+      <section className="py-16 md:py-20 bg-brand-daisy">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
+            Room Amenities
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {room.amenities.map((amenity, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 text-brand-forest/80"
+                className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
-                <span className="w-2 h-2 bg-brand-gold rounded-full flex-shrink-0" />
-                <span>{amenity}</span>
+                <div className="w-2 h-2 bg-brand-gold rounded-full flex-shrink-0" />
+                <span className="text-brand-forest">{amenity}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Navigation to Other Rooms */}
-      <section className="py-12 bg-brand-daisy border-t border-brand-stem/20">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex justify-between items-center">
-            {prevRoom ? (
-              <Link
-                href={`/accommodation/${prevRoom.slug}`}
-                className="group flex items-center gap-2 text-brand-forest hover:text-brand-gold transition-colors"
-              >
-                <span>&larr;</span>
-                <span className="font-serif uppercase tracking-wide">{prevRoom.title}</span>
-              </Link>
-            ) : (
-              <div />
-            )}
-            {nextRoom ? (
-              <Link
-                href={`/accommodation/${nextRoom.slug}`}
-                className="group flex items-center gap-2 text-brand-forest hover:text-brand-gold transition-colors"
-              >
-                <span className="font-serif uppercase tracking-wide">{nextRoom.title}</span>
-                <span>&rarr;</span>
-              </Link>
-            ) : (
-              <div />
-            )}
-          </div>
+      {/* Gallery Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-8">
+            Gallery
+          </h2>
+          <RoomGallery images={room.gallery} title={room.title} />
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 bg-brand-forest text-white text-center">
-        <div className="max-w-[72rem] mx-auto px-4">
-          <p className="font-script text-5xl md:text-[6.5rem] text-brand-gold mb-4">
-            Experience True African Hospitality
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-wide mb-6">
-            Book Your Stay at Ilala Lodge
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl text-brand-forest mb-6">
+            Ready to Book Your Stay?
           </h2>
-          <p className="text-white/80 mb-8">
-            Just 936 steps from the magnificent Victoria Falls
+          <p className="text-brand-stem text-lg mb-8 max-w-2xl mx-auto">
+            Experience luxury and comfort at {room.title}. Book directly for the best rates and exclusive benefits.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+            >
+              Book This Room
+            </a>
+            <Link
+              href="/accommodation"
+              className="inline-block border-2 border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
+            >
+              View All Rooms
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Other Rooms Carousel */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-brand-daisy">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block mb-2">
+              Explore More
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest">
+              Other Accommodation Options
+            </h2>
+          </div>
+          <OtherRoomsCarousel rooms={otherRooms} />
+        </div>
+      </section>
+
+      {/* Final CTA Banner */}
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pool.png"
+            alt="Ilala Lodge Hotel"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-brand-forest/80" />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
+          <p className="font-script text-5xl md:text-7xl text-brand-gold mb-4">
+            Book Your Stay
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl mb-6">
+            The Closest Hotel to Victoria Falls
+          </h2>
+          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            Just an 8-minute walk from one of the Seven Natural Wonders of the World
           </p>
           <a
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide text-lg hover:bg-brand-gold hover:text-white transition-all duration-200 hover:shadow-lg rounded-full"
+            className="inline-block bg-brand-gold hover:bg-brand-gold/90 text-white px-10 py-5 rounded-full font-bold uppercase tracking-wide text-lg hover:shadow-2xl transition-all duration-200 hover:scale-105"
           >
             Book Now
           </a>

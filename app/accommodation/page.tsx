@@ -65,12 +65,29 @@ export default function AccommodationPage() {
 
                 {/* Content */}
                 <div className={`px-4 md:px-8 lg:px-12 ${index % 2 === 1 ? 'md:col-start-1' : ''}`}>
-                  <h2 className="font-serif text-3xl md:text-4xl text-brand-forest uppercase tracking-wide mb-4">
+                  <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-4">
                     {room.title}
                   </h2>
                   <p className="text-brand-forest/70 leading-relaxed mb-6">
                     {room.shortDescription}
                   </p>
+
+                  {/* Room Details */}
+                  <div className="flex flex-wrap gap-6 mb-6 pb-6 border-b border-brand-stem/20">
+                    <div>
+                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">Size</div>
+                      <div className="text-lg font-serif text-brand-forest">{room.size}</div>
+                    </div>
+                    <div>
+                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">Sleeps</div>
+                      <div className="text-lg font-serif text-brand-forest">{room.sleeps} Guests</div>
+                    </div>
+                    <div>
+                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">From</div>
+                      <div className="text-lg font-serif text-brand-forest">{room.priceFrom} <span className="text-sm text-brand-stem/70">per night</span></div>
+                    </div>
+                  </div>
+
                   <div className="flex flex-wrap gap-4">
                     <Link
                       href={`/accommodation/${room.slug}`}

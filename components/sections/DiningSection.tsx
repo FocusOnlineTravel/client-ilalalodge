@@ -45,7 +45,7 @@ export default function DiningSection({ data }: Props) {
 
           {/* Text Content */}
           <div className="order-1 lg:order-2 space-y-6">
-            <span className="text-brand-script font-script text-6xl lg:text-8xl block">
+            <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
               {data.dining_eyebrow}
             </span>
             <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest leading-tight">
@@ -57,14 +57,26 @@ export default function DiningSection({ data }: Props) {
             <p className="text-brand-stem text-base lg:text-lg leading-relaxed">
               {data.dining_body_copy}
             </p>
-            <a
-              href={data.dining_cta.url}
-              target={data.dining_cta.target}
-              rel={data.dining_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-              className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
-            >
-              {data.dining_cta.label}
-            </a>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={data.dining_cta.url}
+                target={data.dining_cta.target}
+                rel={data.dining_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
+                className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+              >
+                {data.dining_cta.label}
+              </a>
+              {data.dining_cta_secondary && (
+                <a
+                  href={data.dining_cta_secondary.url}
+                  target={data.dining_cta_secondary.target}
+                  rel={data.dining_cta_secondary.target === '_blank' ? 'noopener noreferrer' : undefined}
+                  className="inline-block bg-brand-gold hover:bg-brand-gold/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+                >
+                  {data.dining_cta_secondary.label}
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>

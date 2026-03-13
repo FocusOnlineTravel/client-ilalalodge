@@ -46,8 +46,8 @@ export const homePage: HomePage = {
     {
       acf_fc_layout: 'stay_section',
       stay_eyebrow: 'Stay with us',
-      stay_heading: 'AT ILALA LODGE HOTEL',
-      stay_subheading: 'Choose from our selection of beautifully appointed rooms',
+      stay_heading: 'At Ilala Lodge Hotel',
+      stay_subheading: 'Choose from our selection of 67 beautifully appointed rooms',
       stay_rooms: [
         {
           room_name: 'Classic Rooms',
@@ -148,15 +148,20 @@ export const homePage: HomePage = {
     },
     {
       acf_fc_layout: 'dining_section',
-      dining_eyebrow: 'Dine at Ilala',
-      dining_heading: 'Elevated Comfort Food at',
-      dining_subheading: 'Cassia Restaurant',
+      dining_eyebrow: 'Cassia Restaurant',
+      dining_heading: 'Elevated Comfort Food',
+      dining_subheading: '',
       dining_body_copy:
         'The Cassia Restaurant, located at Ilala Lodge Hotel, offers an unmatched menu and an extensive wine list featuring carefully selected wines from South Africa\'s top vineyards. The calming and tranquil ambience sets the stage for a truly unforgettable dining experience at one of the finest Victoria Falls restaurants, within earshot of the gentle rumble of Victoria Falls.',
       dining_cta: {
-        label: 'Learn more',
+        label: 'Dining Options',
         url: '#dining',
         target: '_self',
+      },
+      dining_cta_secondary: {
+        label: 'Book a table',
+        url: BOOKING_URL,
+        target: '_blank',
       },
       dining_images: [
         {
@@ -194,7 +199,7 @@ export const homePage: HomePage = {
     {
       acf_fc_layout: 'wildlife_section',
       wildlife_eyebrow: 'The Victoria Falls',
-      wildlife_heading: 'NATURE ON YOUR DOORSTEP',
+      wildlife_heading: 'Nature on Your Doorstep',
       wildlife_body_copy:
         'The Victoria Falls National Park borders the front of the property and, as such, wild animals often graze on the hotel lawns. Warthogs, in particular, are common visitors and they are sure to delight and entertain you. You might even be lucky enough to witness a herd of elephants feasting on the trees while you relax on your private balcony.',
       wildlife_cta: {
@@ -232,7 +237,7 @@ export const homePage: HomePage = {
     {
       acf_fc_layout: 'activities_section',
       activities_eyebrow: 'Plenty to do',
-      activities_heading: 'VICTORIA FALLS ACTIVITIES',
+      activities_heading: 'Victoria Falls Activities',
       activities_items: [
         { activity_label: 'Helicopter Flights' },
         { activity_label: 'Bungee Jumping' },
@@ -326,8 +331,8 @@ export const homePage: HomePage = {
       cta_banner_heading: 'Ready to Experience Victoria Falls?',
       cta_banner_subheading: 'Book your stay at the closest hotel to the Falls',
       cta_banner_image: {
-        url: '/images/cta-image.png',
-        alt: 'Victoria Falls sunset',
+        url: '/images/pool.png',
+        alt: 'Ilala Lodge Hotel pool area',
         width: 1200,
         height: 600,
       },

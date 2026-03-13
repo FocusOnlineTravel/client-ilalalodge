@@ -54,6 +54,7 @@ export interface DiningBlock {
   dining_subheading: string;
   dining_body_copy: string;
   dining_cta: AcfCta;
+  dining_cta_secondary?: AcfCta;
   dining_images: AcfImage[];
 }
 

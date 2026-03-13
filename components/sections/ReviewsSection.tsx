@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { ReviewsBlock } from '@/types/acf';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Props {
   data: ReviewsBlock;
@@ -49,7 +50,14 @@ export default function ReviewsSection({ data }: Props) {
                       key={reviewIndex}
                       className="flex-1 bg-[#fafaf8] p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                     >
-                      <Quote className="h-8 w-8 lg:h-10 lg:w-10 text-gray-300 mb-4" />
+                      <div className="relative w-8 h-8 lg:w-10 lg:h-10 mb-4">
+                        <Image
+                          src="/images/quote.png"
+                          alt="Quote icon"
+                          fill
+                          className="object-contain opacity-60"
+                        />
+                      </div>
                       <h3 className="font-serif text-lg lg:text-xl text-brand-forest mb-3">
                         {review.review_title}
                       </h3>
