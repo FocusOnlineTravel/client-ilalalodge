@@ -15,7 +15,7 @@ export default function DiningSection({ data }: Props) {
           <div className="order-2 lg:order-1">
             <div className="grid grid-cols-2 gap-4">
               {/* Main large image */}
-              <div className="col-span-2 relative h-[300px] lg:h-[350px] overflow-hidden">
+              <div className="col-span-2 relative h-[500px] lg:h-[750px] overflow-hidden">
                 <Image
                   src={data.dining_images[0]?.url || '/images/dining-1.png'}
                   alt={data.dining_images[0]?.alt || 'Dining'}
@@ -25,11 +25,11 @@ export default function DiningSection({ data }: Props) {
                 />
               </div>
 
-              {/* Smaller images */}
-              {data.dining_images.slice(1, 5).map((image, index) => (
+              {/* Two smaller images */}
+              {data.dining_images.slice(1, 3).map((image, index) => (
                 <div
                   key={index}
-                  className="relative h-[150px] lg:h-[180px] overflow-hidden"
+                  className="relative h-[350px] lg:h-[450px] overflow-hidden"
                 >
                   <Image
                     src={image.url}
@@ -44,7 +44,7 @@ export default function DiningSection({ data }: Props) {
           </div>
 
           {/* Text Content */}
-          <div className="order-1 lg:order-2 space-y-6 px-4 lg:px-12">
+          <div className="order-1 lg:order-2 space-y-6 px-8 lg:px-20">
             <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
               {data.dining_eyebrow}
             </span>
@@ -76,6 +76,24 @@ export default function DiningSection({ data }: Props) {
                   {data.dining_cta_secondary.label}
                 </a>
               )}
+            </div>
+
+            {/* Bottom images */}
+            <div className="grid grid-cols-2 gap-4 !mt-[50px]">
+              {data.dining_images.slice(3, 5).map((image, index) => (
+                <div
+                  key={index}
+                  className={`relative h-[320px] lg:h-[400px] overflow-hidden ${index === 0 ? 'mt-[80px]' : ''}`}
+                >
+                  <Image
+                    src={image.url}
+                    alt={image.alt}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ const config: Config = {
           forest: "#222715",    // Primary dark green/black
           greenery: "#393127",  // Olive/greenish brown
           stem: "#636449",      // Muted green
-          daisy: "#eaeadb",     // Cream/off-white
+          daisy: "#f5f5ed",     // Lighter cream/off-white
           gold: "#d0a44f",      // Golden accent
           script: "#2227155e",  // Script font color with opacity
         },

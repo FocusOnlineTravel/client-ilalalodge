@@ -11,7 +11,7 @@ export default function WildlifeSection({ data }: Props) {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}
-          <div className="space-y-6 px-4 lg:px-12">
+          <div className="space-y-6 px-8 lg:px-20">
             <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
               {data.wildlife_eyebrow}
             </span>
