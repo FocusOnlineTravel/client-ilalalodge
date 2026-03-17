@@ -67,15 +67,13 @@ export default function StaySection({ data }: Props) {
                   </p>
 
                   {/* Room Details */}
-                  <div className="flex flex-wrap gap-6 mb-6 pb-6 border-b border-brand-stem/20">
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">From</div>
-                      <div className="text-lg font-serif text-brand-forest">
-                        {room.room_price_from.replace('From ', '')}
-                        {room.room_price_suffix && (
-                          <span className="text-sm text-brand-stem/70"> {room.room_price_suffix.replace('per night', 'pn')}</span>
-                        )}
-                      </div>
+                  <div className="mb-6">
+                    <div className="text-lg font-serif text-brand-forest">
+                      <span className="text-xs uppercase tracking-wider text-brand-stem/60 mr-2">From</span>
+                      {room.room_price_from.replace('From ', '')}
+                      {room.room_price_suffix && (
+                        <span className="text-sm text-brand-stem/70"> {room.room_price_suffix.replace('per night', 'pn')}</span>
+                      )}
                     </div>
                   </div>
 

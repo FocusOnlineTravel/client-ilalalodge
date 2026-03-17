@@ -161,7 +161,7 @@ export default function Header() {
         <div className="min-h-full px-12 pt-32 pb-24 lg:px-20">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-[300px_1fr] gap-12 lg:gap-16">
             {/* Left Column - Navigation */}
-            <nav className="flex flex-col gap-0">
+            <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <div key={link.href}>
                   {'subItems' in link && link.subItems ? (
@@ -182,8 +182,8 @@ export default function Header() {
                           <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isStaySubmenuOpen ? 'rotate-180' : ''}`} />
                         </button>
                       </div>
-                      <div className={`flex flex-col gap-0 ml-0 border-l border-white/30 pl-4 overflow-hidden transition-all duration-300 ${
-                        isStaySubmenuOpen ? 'max-h-96 mt-1 mb-[15px] opacity-100' : 'max-h-0 opacity-0'
+                      <div className={`flex flex-col gap-0 ml-0 pl-4 overflow-hidden transition-all duration-300 ${
+                        isStaySubmenuOpen ? 'max-h-96 mt-1 mb-[15px] opacity-100 border-l border-white/30' : 'max-h-0 opacity-0'
                       }`}>
                         {link.subItems.map((subItem) => (
                           <Link
