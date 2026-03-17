@@ -137,7 +137,7 @@ export default function ActivitiesPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {adrenalineActivities.map((activity) => (
-              <div key={activity.title} className="bg-brand-daisy p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div key={activity.title} className="bg-brand-daisy p-6 transition-colors">
                 <h3 className="font-serif text-2xl text-brand-forest mb-4">{activity.title}</h3>
                 <p className="text-brand-forest/70 leading-relaxed">{activity.description}</p>
               </div>
@@ -160,7 +160,7 @@ export default function ActivitiesPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {scenicActivities.map((activity) => (
-              <div key={activity.title} className="bg-white p-8 shadow-lg flex gap-6">
+              <div key={activity.title} className="bg-white p-8 flex gap-6">
                 <div className="text-5xl">{activity.icon}</div>
                 <div className="flex-1">
                   <h3 className="font-serif text-2xl text-brand-forest mb-3">{activity.title}</h3>
@@ -209,7 +209,7 @@ export default function ActivitiesPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {culturalActivities.map((activity) => (
-              <div key={activity.title} className="bg-white p-6 shadow-lg text-center">
+              <div key={activity.title} className="bg-white p-6 text-center">
                 <h3 className="font-serif text-xl text-brand-forest mb-3">{activity.title}</h3>
                 <p className="text-brand-forest/70 text-sm leading-relaxed">{activity.description}</p>
               </div>
@@ -270,7 +270,7 @@ export default function ActivitiesPage() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
+              className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 rounded-full"
             >
               Book Your Stay
             </a>

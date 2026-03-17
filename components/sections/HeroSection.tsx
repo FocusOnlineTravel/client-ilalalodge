@@ -52,7 +52,7 @@ export default function HeroSection({ data }: Props) {
         {/* Play Button - Bottom Left */}
         <button
           onClick={openVideo}
-          className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 z-20 bg-white/90 hover:bg-white text-brand-forest p-4 lg:p-5 rounded-full transition-all duration-200 hover:shadow-2xl group"
+          className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 z-20 bg-white/90 hover:bg-white text-brand-forest p-4 lg:p-5 rounded-full transition-all duration-200 group"
           aria-label="Play video"
         >
           <Play className="h-6 w-6 lg:h-8 lg:w-8 fill-current" />

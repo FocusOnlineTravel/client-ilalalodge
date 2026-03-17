@@ -74,7 +74,7 @@ export default function ActivitiesSection({ data }: Props) {
             href={data.activities_cta.url}
             target={data.activities_cta.target}
             rel={data.activities_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-            className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+            className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
           >
             {data.activities_cta.label}
           </a>

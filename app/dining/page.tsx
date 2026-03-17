@@ -116,7 +116,7 @@ export default function DiningPage() {
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16">
             {/* High Tea */}
-            <div className="bg-white p-8 shadow-lg">
+            <div className="bg-white p-8 ">
               <h3 className="font-serif text-2xl text-brand-forest mb-4">High Tea Experience</h3>
               <p className="text-brand-forest/70 leading-relaxed mb-4">
                 Indulge in a traditional afternoon tea experience with a selection of finger sandwiches, freshly baked scones with cream and jam, and an assortment of sweet treats. Perfectly complemented by your choice of fine teas or coffee.
@@ -125,7 +125,7 @@ export default function DiningPage() {
             </div>
 
             {/* Riverside Dining */}
-            <div className="bg-white p-8 shadow-lg">
+            <div className="bg-white p-8 ">
               <h3 className="font-serif text-2xl text-brand-forest mb-4">Riverside Dining</h3>
               <p className="text-brand-forest/70 leading-relaxed mb-4">
                 Experience the magic of dining by the Zambezi River. Our riverside dining setup offers an intimate atmosphere with the sounds of nature as your soundtrack and the stars as your canopy.
@@ -139,7 +139,7 @@ export default function DiningPage() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
+              className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover: rounded-full"
             >
               Book a Table
             </a>
@@ -163,7 +163,7 @@ export default function DiningPage() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-gold hover:text-white transition-all duration-200 hover:shadow-lg rounded-full"
+            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-gold hover:text-white transition-all duration-200 hover: rounded-full"
           >
             Make a Reservation
           </a>

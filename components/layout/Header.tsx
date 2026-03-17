@@ -116,7 +116,7 @@ export default function Header() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`absolute right-4 lg:right-8 z-10 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide ${
+            className={`absolute right-4 lg:right-8 z-10 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide ${
               isScrolled
                 ? 'bg-brand-forest hover:bg-brand-forest/90 text-white'
                 : 'bg-white hover:bg-white/90 text-brand-forest'
@@ -154,7 +154,7 @@ export default function Header() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-6 right-8 lg:top-8 lg:right-12 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide bg-white hover:bg-white/90 text-brand-forest"
+            className="absolute top-6 right-8 lg:top-8 lg:right-12 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide bg-white hover:bg-white/90 text-brand-forest"
           >
             Book Now
           </a>

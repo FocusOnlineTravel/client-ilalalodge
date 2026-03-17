@@ -15,7 +15,7 @@ export default function DiningSection({ data }: Props) {
           <div className="order-2 lg:order-1">
             <div className="grid grid-cols-2 gap-4">
               {/* Main large image */}
-              <div className="col-span-2 relative h-[300px] lg:h-[350px] overflow-hidden shadow-lg">
+              <div className="col-span-2 relative h-[300px] lg:h-[350px] overflow-hidden">
                 <Image
                   src={data.dining_images[0]?.url || '/images/dining-1.png'}
                   alt={data.dining_images[0]?.alt || 'Dining'}
@@ -29,7 +29,7 @@ export default function DiningSection({ data }: Props) {
               {data.dining_images.slice(1, 5).map((image, index) => (
                 <div
                   key={index}
-                  className="relative h-[150px] lg:h-[180px] overflow-hidden shadow-lg"
+                  className="relative h-[150px] lg:h-[180px] overflow-hidden"
                 >
                   <Image
                     src={image.url}

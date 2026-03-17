@@ -18,7 +18,8 @@
       "Bash(for f in \"\".png)",
       "Bash(do mv \"$f\" quote-icon.png)",
       "Bash(done)",
-      "Bash(node -e:*)"
+      "Bash(node -e:*)",
+      "Bash(timeout:*)"
     ]
   }
 }

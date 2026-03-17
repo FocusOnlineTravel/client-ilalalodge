@@ -36,7 +36,7 @@ export default function WildlifeSection({ data }: Props) {
             {data.wildlife_images.map((image, index) => (
               <div
                 key={index}
-                className="relative h-[200px] lg:h-[250px] overflow-hidden shadow-lg"
+                className="relative h-[200px] lg:h-[250px] overflow-hidden"
               >
                 <Image
                   src={image.url}

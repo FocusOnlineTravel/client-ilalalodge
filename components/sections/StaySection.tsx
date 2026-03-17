@@ -88,7 +88,7 @@ export default function StaySection({ data }: Props) {
                       href={room.room_cta.url}
                       target={room.room_cta.target}
                       rel={room.room_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-                      className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
+                      className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 rounded-full"
                     >
                       Book Now
                     </a>

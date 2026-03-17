@@ -48,7 +48,7 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
                 .map((room) => (
                   <div
                     key={room.slug}
-                    className="w-full lg:w-[calc(50%-1rem)] flex-shrink-0 bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                    className="w-full lg:w-[calc(50%-1rem)] flex-shrink-0 bg-white overflow-hidden transition-all duration-300 group"
                   >
                     {/* Room Image */}
                     <div className="relative h-[250px] lg:h-[350px]">
@@ -91,7 +91,7 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
                             href={BOOKING_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+                            className="bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
                           >
                             Book Now
                           </a>
@@ -110,14 +110,14 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
         <>
           <button
             onClick={prevSlide}
-            className="absolute -left-6 lg:-left-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full shadow-lg transition-all duration-300 z-10"
+            className="absolute -left-6 lg:-left-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full transition-all duration-300 z-10"
             aria-label="Previous rooms"
           >
             <ChevronLeft className="h-8 w-8" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute -right-6 lg:-right-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full shadow-lg transition-all duration-300 z-10"
+            className="absolute -right-6 lg:-right-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full transition-all duration-300 z-10"
             aria-label="Next rooms"
           >
             <ChevronRight className="h-8 w-8" />

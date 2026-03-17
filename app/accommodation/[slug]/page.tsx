@@ -123,7 +123,7 @@ export default async function RoomPage({ params }: Props) {
             {room.amenities.map((amenity, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                className="flex items-center gap-3 bg-white p-4 rounded-lg transition-colors"
               >
                 <div className="w-2 h-2 bg-brand-gold rounded-full flex-shrink-0" />
                 <span className="text-brand-forest">{amenity}</span>
@@ -157,7 +157,7 @@ export default async function RoomPage({ params }: Props) {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+              className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
             >
               Book This Room
             </a>
@@ -211,7 +211,7 @@ export default async function RoomPage({ params }: Props) {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-brand-gold hover:bg-brand-gold/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold uppercase tracking-wide hover:shadow-lg transition-all duration-200"
+            className="inline-block bg-brand-gold hover:bg-brand-gold/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold uppercase tracking-wide transition-all duration-200"
           >
             Book Now
           </a>

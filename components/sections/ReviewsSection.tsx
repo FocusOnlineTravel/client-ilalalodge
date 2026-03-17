@@ -48,7 +48,7 @@ export default function ReviewsSection({ data }: Props) {
                   {data.reviews_items.slice(slideIndex * 3, slideIndex * 3 + 3).map((review, reviewIndex) => (
                     <div
                       key={reviewIndex}
-                      className="flex-1 bg-[#fafaf8] p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="flex-1 bg-[#fafaf8] p-6 lg:p-8 transition-all duration-300 hover:-translate-y-1"
                     >
                       <div className="relative w-8 h-8 lg:w-10 lg:h-10 mb-4">
                         <Image
@@ -82,14 +82,14 @@ export default function ReviewsSection({ data }: Props) {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute -left-6 lg:-left-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full shadow-lg transition-all duration-300 z-10"
+                className="absolute -left-6 lg:-left-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full transition-all duration-300 z-10"
                 aria-label="Previous reviews"
               >
                 <ChevronLeft className="h-8 w-8" />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute -right-6 lg:-right-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full shadow-lg transition-all duration-300 z-10"
+                className="absolute -right-6 lg:-right-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full transition-all duration-300 z-10"
                 aria-label="Next reviews"
               >
                 <ChevronRight className="h-8 w-8" />
