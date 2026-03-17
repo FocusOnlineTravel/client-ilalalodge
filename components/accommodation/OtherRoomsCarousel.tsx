@@ -83,7 +83,7 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
                         <div className="flex gap-2">
                           <Link
                             href={`/accommodation/${room.slug}`}
-                            className="border-2 border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-4 pt-1.5 pb-1 lg:px-5 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 text-sm lg:text-base uppercase tracking-wide"
+                            className="border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
                           >
                             View Room
                           </Link>
@@ -91,7 +91,7 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
                             href={BOOKING_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-5 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg text-sm lg:text-base uppercase tracking-wide"
+                            className="bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
                           >
                             Book Now
                           </a>

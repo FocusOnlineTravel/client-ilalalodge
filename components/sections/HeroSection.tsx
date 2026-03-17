@@ -34,7 +34,7 @@ export default function HeroSection({ data }: Props) {
             quality={90}
           />
           {/* Dark overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/40"></div>
         </div>
 
         {/* Content */}

@@ -236,7 +236,7 @@ export default function ActivitiesPage() {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-brand-gold text-white font-semibold uppercase tracking-wide hover:bg-brand-gold/90 transition-all duration-200 rounded-full"
+                className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-gold text-white font-semibold uppercase tracking-wide hover:bg-brand-gold/90 transition-all duration-200 rounded-full"
               >
                 Book Your Cruise
               </a>
@@ -270,13 +270,13 @@ export default function ActivitiesPage() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
+              className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
             >
               Book Your Stay
             </a>
             <a
               href="/contact"
-              className="px-8 py-4 border-2 border-brand-forest text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
+              className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 border border-brand-forest text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
             >
               Contact Us
             </a>

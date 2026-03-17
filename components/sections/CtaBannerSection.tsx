@@ -19,7 +19,7 @@ export default function CtaBannerSection({ data }: Props) {
               href={data.cta_banner_cta.url}
               target={data.cta_banner_cta.target}
               rel={data.cta_banner_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-              className="inline-block bg-white hover:bg-white/90 text-brand-forest px-8 py-3 lg:px-10 lg:py-4 rounded-full font-semibold text-sm lg:text-base transition-all duration-200 hover:shadow-lg uppercase tracking-wider"
+              className="inline-block bg-white hover:bg-white/90 text-brand-forest px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
             >
               {data.cta_banner_cta.label}
             </a>

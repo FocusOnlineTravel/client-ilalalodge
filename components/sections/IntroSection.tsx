@@ -27,7 +27,7 @@ export default function IntroSection({ data }: Props) {
                 href={data.intro_cta.url}
                 target={data.intro_cta.target}
                 rel={data.intro_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-                className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg hover:scale-105 uppercase tracking-wide"
+                className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
               >
                 {data.intro_cta.label}
               </a>

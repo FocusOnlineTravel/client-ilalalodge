@@ -3,12 +3,13 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X, Facebook, Instagram } from 'lucide-react';
+import { X, Facebook, Instagram, ChevronDown } from 'lucide-react';
 import { BOOKING_URL } from '@/lib/constants';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isStaySubmenuOpen, setIsStaySubmenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,6 +48,12 @@ export default function Header() {
 
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
+    setIsStaySubmenuOpen(false);
+  };
+
+  const handleMenuClose = () => {
+    setIsMobileMenuOpen(false);
+    setIsStaySubmenuOpen(false);
   };
 
   return (
@@ -109,7 +116,7 @@ export default function Header() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`absolute right-4 lg:right-8 z-10 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide text-lg ${
+            className={`absolute right-4 lg:right-8 z-10 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide ${
               isScrolled
                 ? 'bg-brand-forest hover:bg-brand-forest/90 text-white'
                 : 'bg-white hover:bg-white/90 text-brand-forest'
@@ -129,7 +136,7 @@ export default function Header() {
       >
         {/* Close Button - Top Left */}
         <button
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={handleMenuClose}
           className="absolute top-6 left-4 lg:top-8 lg:left-8 z-10 p-2 text-white hover:text-brand-gold transition-colors"
           aria-label="Close menu"
         >
@@ -147,7 +154,7 @@ export default function Header() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-6 right-8 lg:top-8 lg:right-12 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide text-lg bg-white hover:bg-white/90 text-brand-forest"
+            className="absolute top-6 right-8 lg:top-8 lg:right-12 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide bg-white hover:bg-white/90 text-brand-forest"
           >
             Book Now
           </a>
@@ -157,26 +164,47 @@ export default function Header() {
             <nav className="flex flex-col gap-0">
               {navLinks.map((link) => (
                 <div key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={handleLinkClick}
-                    className="text-white/65 hover:text-white transition-colors duration-200 text-2xl font-normal font-serif uppercase block"
-                  >
-                    {link.label}
-                  </Link>
-                  {'subItems' in link && link.subItems && (
-                    <div className="flex flex-col gap-0 mt-1 ml-0 border-l border-white/30 pl-4 mb-[15px]">
-                      {link.subItems.map((subItem) => (
+                  {'subItems' in link && link.subItems ? (
+                    <>
+                      <div className="flex items-center gap-2">
                         <Link
-                          key={subItem.href}
-                          href={subItem.href}
+                          href={link.href}
                           onClick={handleLinkClick}
-                          className="text-white/80 hover:text-brand-gold transition-colors duration-200 text-lg font-sans"
+                          className="text-white/65 hover:text-white transition-colors duration-200 text-2xl font-normal font-serif uppercase"
                         >
-                          {subItem.label}
+                          {link.label}
                         </Link>
-                      ))}
-                    </div>
+                        <button
+                          onClick={() => setIsStaySubmenuOpen(!isStaySubmenuOpen)}
+                          className="text-white/65 hover:text-white transition-all duration-200 p-1"
+                          aria-label="Toggle submenu"
+                        >
+                          <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isStaySubmenuOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                      </div>
+                      <div className={`flex flex-col gap-0 ml-0 border-l border-white/30 pl-4 overflow-hidden transition-all duration-300 ${
+                        isStaySubmenuOpen ? 'max-h-96 mt-1 mb-[15px] opacity-100' : 'max-h-0 opacity-0'
+                      }`}>
+                        {link.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            onClick={handleLinkClick}
+                            className="text-white/80 hover:text-brand-gold transition-colors duration-200 text-lg font-sans"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={handleLinkClick}
+                      className="text-white/65 hover:text-white transition-colors duration-200 text-2xl font-normal font-serif uppercase block"
+                    >
+                      {link.label}
+                    </Link>
                   )}
                 </div>
               ))}
@@ -290,7 +318,7 @@ export default function Header() {
           className={`w-1/2 relative transition-all duration-500 delay-100 ${
             isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
           }`}
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={handleMenuClose}
         >
           <Image
             src="/images/banner-image-2-cropped.png"

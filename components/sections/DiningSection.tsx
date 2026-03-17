@@ -44,25 +44,25 @@ export default function DiningSection({ data }: Props) {
           </div>
 
           {/* Text Content */}
-          <div className="order-1 lg:order-2 space-y-6">
+          <div className="order-1 lg:order-2 space-y-6 px-4 lg:px-12">
             <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
               {data.dining_eyebrow}
             </span>
-            <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest leading-tight">
+            <h2 className="font-serif text-[2.2rem] text-brand-forest leading-tight">
               {data.dining_heading}
             </h2>
             <h3 className="font-serif text-2xl lg:text-3xl text-brand-greenery">
               {data.dining_subheading}
             </h3>
-            <p className="text-brand-stem text-base lg:text-lg leading-relaxed">
+            <p className="text-brand-stem text-[1rem] leading-relaxed">
               {data.dining_body_copy}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mt-8">
               <a
                 href={data.dining_cta.url}
                 target={data.dining_cta.target}
                 rel={data.dining_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-                className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+                className="inline-block border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
               >
                 {data.dining_cta.label}
               </a>
@@ -71,7 +71,7 @@ export default function DiningSection({ data }: Props) {
                   href={data.dining_cta_secondary.url}
                   target={data.dining_cta_secondary.target}
                   rel={data.dining_cta_secondary.target === '_blank' ? 'noopener noreferrer' : undefined}
-                  className="inline-block bg-brand-gold hover:bg-brand-gold/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+                  className="inline-block border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
                 >
                   {data.dining_cta_secondary.label}
                 </a>

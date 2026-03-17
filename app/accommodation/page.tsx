@@ -91,7 +91,7 @@ export default function AccommodationPage() {
                   <div className="flex flex-wrap gap-4">
                     <Link
                       href={`/accommodation/${room.slug}`}
-                      className="px-3.5 pt-1 pb-0.5 lg:px-[22px] lg:pt-1.5 lg:pb-1 border-2 border-brand-forest text-brand-forest font-semibold uppercase tracking-wide text-lg hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
+                      className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 border border-brand-forest text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
                     >
                       View Details
                     </Link>
@@ -99,7 +99,7 @@ export default function AccommodationPage() {
                       href={BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide text-lg hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
+                      className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover:shadow-lg rounded-full"
                     >
                       Book Now
                     </a>
@@ -127,7 +127,7 @@ export default function AccommodationPage() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide text-lg hover:bg-brand-gold hover:text-white transition-all duration-200 hover:shadow-lg rounded-full"
+            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-gold hover:text-white transition-all duration-200 hover:shadow-lg rounded-full"
           >
             Book Now
           </a>

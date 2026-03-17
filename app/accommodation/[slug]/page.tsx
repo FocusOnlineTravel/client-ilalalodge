@@ -157,13 +157,13 @@ export default async function RoomPage({ params }: Props) {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
+              className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 hover:shadow-lg uppercase tracking-wide"
             >
               Book This Room
             </a>
             <Link
               href="/accommodation"
-              className="inline-block border-2 border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
+              className="inline-block border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
             >
               View All Rooms
             </Link>
@@ -211,7 +211,7 @@ export default async function RoomPage({ params }: Props) {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-brand-gold hover:bg-brand-gold/90 text-white px-10 py-5 rounded-full font-bold uppercase tracking-wide text-lg hover:shadow-2xl transition-all duration-200 hover:scale-105"
+            className="inline-block bg-brand-gold hover:bg-brand-gold/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold uppercase tracking-wide hover:shadow-lg transition-all duration-200"
           >
             Book Now
           </a>
