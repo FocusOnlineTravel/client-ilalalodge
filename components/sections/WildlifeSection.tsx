@@ -32,21 +32,41 @@ export default function WildlifeSection({ data }: Props) {
           </div>
 
           {/* Image Grid - 2x2 */}
-          <div className="grid grid-cols-2 gap-4">
-            {data.wildlife_images.map((image, index) => (
-              <div
-                key={index}
-                className="relative h-[200px] lg:h-[250px] overflow-hidden"
-              >
-                <Image
-                  src={image.url}
-                  alt={image.alt}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-            ))}
+          <div className="flex gap-4">
+            {/* Left column */}
+            <div className="flex-1 flex flex-col gap-4">
+              {data.wildlife_images.filter((_, i) => i % 2 === 0).map((image, index) => (
+                <div
+                  key={index}
+                  className="relative h-[400px] lg:h-[400px] overflow-hidden"
+                >
+                  <Image
+                    src={image.url}
+                    alt={image.alt}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+              ))}
+            </div>
+            {/* Right column - staggered */}
+            <div className="flex-1 flex flex-col gap-4 mt-[30px]">
+              {data.wildlife_images.filter((_, i) => i % 2 === 1).map((image, index) => (
+                <div
+                  key={index}
+                  className="relative h-[400px] lg:h-[400px] overflow-hidden"
+                >
+                  <Image
+                    src={image.url}
+                    alt={image.alt}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
