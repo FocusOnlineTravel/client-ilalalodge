@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { WildlifeBlock } from '@/types/acf';
+import FadeInView from '@/components/animations/FadeInView';
 
 interface Props {
   data: WildlifeBlock;
@@ -11,7 +12,7 @@ export default function WildlifeSection({ data }: Props) {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}
-          <div className="space-y-6 px-8 lg:px-20">
+          <FadeInView direction="left" className="space-y-6 px-8 lg:px-20">
             <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
               {data.wildlife_eyebrow}
             </span>
@@ -29,15 +30,16 @@ export default function WildlifeSection({ data }: Props) {
             >
               Explore The Falls
             </a>
-          </div>
+          </FadeInView>
 
           {/* Image Grid - 2x2 */}
           <div className="flex gap-4">
             {/* Left column */}
             <div className="flex-1 flex flex-col gap-4">
               {data.wildlife_images.filter((_, i) => i % 2 === 0).map((image, index) => (
-                <div
+                <FadeInView
                   key={index}
+                  delay={index * 100}
                   className="relative h-[400px] lg:h-[400px] overflow-hidden"
                 >
                   <Image
@@ -47,14 +49,15 @@ export default function WildlifeSection({ data }: Props) {
                     className="object-cover hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
-                </div>
+                </FadeInView>
               ))}
             </div>
             {/* Right column - staggered */}
             <div className="flex-1 flex flex-col gap-4 mt-[30px]">
               {data.wildlife_images.filter((_, i) => i % 2 === 1).map((image, index) => (
-                <div
+                <FadeInView
                   key={index}
+                  delay={150 + index * 100}
                   className="relative h-[400px] lg:h-[400px] overflow-hidden"
                 >
                   <Image
@@ -64,7 +67,7 @@ export default function WildlifeSection({ data }: Props) {
                     className="object-cover hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
-                </div>
+                </FadeInView>
               ))}
             </div>
           </div>

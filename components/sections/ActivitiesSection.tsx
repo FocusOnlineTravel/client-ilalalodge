@@ -53,29 +53,30 @@ export default function ActivitiesSection({ data }: Props) {
         {/* Activities Grid */}
         <div className="flex flex-wrap justify-center gap-8 lg:gap-12 my-16 max-w-6xl mx-auto">
           {data.activities_items.map((activity, index) => (
-            <div
+            <FadeInView
               key={index}
+              delay={index * 80}
               className="flex flex-col items-center text-center gap-3 w-32 group cursor-pointer"
             >
               <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300">
                 {getActivityIcon(activity.activity_label)}
               </div>
               <span className="text-sm font-medium text-brand-forest group-hover:text-brand-gold transition-colors duration-200">{activity.activity_label}</span>
-            </div>
+            </FadeInView>
           ))}
         </div>
 
         {/* CTA Button */}
-        <div className="text-center">
+        <FadeInView delay={data.activities_items.length * 80 + 200} className="text-center">
           <a
             href={data.activities_cta.url}
             target={data.activities_cta.target}
             rel={data.activities_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
-            className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
+            className="inline-block border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
           >
             {data.activities_cta.label}
           </a>
-        </div>
+        </FadeInView>
       </div>
     </section>
   );

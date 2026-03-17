@@ -17,7 +17,7 @@ export default function Footer() {
               alt="Ilala Lodge Hotel"
               width={270}
               height={90}
-              className="h-32 w-auto"
+              className="h-[109px] w-auto"
             />
           </div>
 

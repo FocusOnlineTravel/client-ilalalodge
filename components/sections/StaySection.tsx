@@ -48,17 +48,24 @@ export default function StaySection({ data }: Props) {
                 }`}
               >
                 {/* Image */}
-                <div className={`relative aspect-[4/3] md:aspect-[1/1] ${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
+                <FadeInView
+                  delay={index * 100}
+                  className={`relative aspect-[4/3] md:aspect-[1/1] ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
+                >
                   <Image
                     src={room.room_image.url}
                     alt={room.room_image.alt}
                     fill
                     className="object-cover"
                   />
-                </div>
+                </FadeInView>
 
                 {/* Content */}
-                <div className={`px-4 md:px-8 lg:px-12 ${index % 2 === 1 ? 'md:col-start-1' : ''}`}>
+                <FadeInView
+                  direction={index % 2 === 1 ? 'left' : 'right'}
+                  delay={index * 100 + 100}
+                  className={`px-4 md:px-8 lg:px-12 ${index % 2 === 1 ? 'md:col-start-1' : ''}`}
+                >
                   <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-4">
                     {room.room_name}
                   </h2>
@@ -93,7 +100,7 @@ export default function StaySection({ data }: Props) {
                       Book Now
                     </a>
                   </div>
-                </div>
+                </FadeInView>
               </div>
             ))}
           </div>

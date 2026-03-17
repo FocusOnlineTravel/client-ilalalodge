@@ -2,13 +2,23 @@
 
 import { useEffect, useRef, ReactNode } from 'react';
 
+type AnimationDirection = 'up' | 'left' | 'right' | 'fade';
+
 interface Props {
   children: ReactNode;
   delay?: number;
   className?: string;
+  direction?: AnimationDirection;
 }
 
-export default function FadeInView({ children, delay = 0, className = '' }: Props) {
+const animationClasses: Record<AnimationDirection, string> = {
+  up: 'animate-fade-in-up',
+  left: 'animate-fade-in-left',
+  right: 'animate-fade-in-right',
+  fade: 'animate-fade-in',
+};
+
+export default function FadeInView({ children, delay = 0, className = '', direction = 'up' }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,7 +27,7 @@ export default function FadeInView({ children, delay = 0, className = '' }: Prop
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add('animate-fade-in-up');
+              entry.target.classList.add(animationClasses[direction]);
             }, delay);
             observer.unobserve(entry.target);
           }
@@ -31,7 +41,7 @@ export default function FadeInView({ children, delay = 0, className = '' }: Prop
     }
 
     return () => observer.disconnect();
-  }, [delay]);
+  }, [delay, direction]);
 
   return (
     <div ref={ref} className={`opacity-0 ${className}`}>
