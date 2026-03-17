@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { HeroBlock } from '@/types/acf';
 import { Play, X } from 'lucide-react';
@@ -11,6 +11,16 @@ interface Props {
 
 export default function HeroSection({ data }: Props) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const openVideo = () => {
     setIsVideoOpen(true);
@@ -22,14 +32,17 @@ export default function HeroSection({ data }: Props) {
 
   return (
     <>
-      <section className="relative h-screen w-full flex items-center justify-center mb-[100px]">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+      <section className="relative h-screen w-full flex items-center justify-center mb-[100px] overflow-hidden">
+        {/* Background Image with Parallax */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+        >
           <Image
             src={data.hero_background_image.url}
             alt={data.hero_background_image.alt}
             fill
-            className="object-cover"
+            className="object-cover scale-110"
             priority
             quality={90}
           />
