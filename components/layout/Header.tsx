@@ -11,6 +11,13 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredMenuItem, setHoveredMenuItem] = useState<string | null>(null);
 
+  // Show Stay submenu by default when menu opens
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setHoveredMenuItem('Stay');
+    }
+  }, [isMobileMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);

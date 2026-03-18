@@ -44,6 +44,9 @@ export default function ActivitiesSection({ data }: Props) {
         {/* Section Header */}
         <FadeInView>
           <div className="text-center mb-12 lg:mb-16">
+            <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
+              {data.activities_eyebrow}
+            </span>
             <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-8">
               {data.activities_heading}
             </h2>

@@ -18,34 +18,24 @@ interface Props {
 
 export default function StaySection({ data }: Props) {
   return (
-    <>
-      {/* Hero Banner Section */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center" id="accommodation">
-        <div className="absolute inset-0">
-          <Image
-            src={data.stay_rooms[0]?.room_image.url || '/images/banner-image-2-cropped.png'}
-            alt="Stay With Us"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            {data.stay_heading}
-          </h1>
-          {data.stay_subheading && (
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-              {data.stay_subheading}
-            </p>
-          )}
-        </div>
-      </section>
-
-      {/* Room Cards Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-brand-daisy">
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-brand-daisy" id="accommodation">
       <div className="container mx-auto px-4 lg:px-8">
+        {/* Section Header */}
+        <FadeInView>
+          <div className="text-center mb-12 lg:mb-16">
+            <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
+              {data.stay_eyebrow}
+            </span>
+            <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-4">
+              {data.stay_heading}
+            </h2>
+            {data.stay_subheading && (
+              <p className="text-brand-stem text-lg max-w-2xl mx-auto">
+                {data.stay_subheading}
+              </p>
+            )}
+          </div>
+        </FadeInView>
 
         {/* Room Listings */}
         <div className="max-w-7xl mx-auto">
@@ -118,7 +108,6 @@ export default function StaySection({ data }: Props) {
           </div>
         </div>
       </div>
-      </section>
-    </>
+    </section>
   );
 }
