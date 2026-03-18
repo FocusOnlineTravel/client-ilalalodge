@@ -155,7 +155,7 @@ export const homePage: HomePage = {
         'The Cassia Restaurant, located at Ilala Lodge Hotel, offers an unmatched menu and an extensive wine list featuring carefully selected wines from South Africa\'s top vineyards. The calming and tranquil ambience sets the stage for a truly unforgettable dining experience at one of the finest Victoria Falls restaurants, within earshot of the gentle rumble of Victoria Falls.',
       dining_cta: {
         label: 'Dining Options',
-        url: '#dining',
+        url: '/dining',
         target: '_self',
       },
       dining_cta_secondary: {

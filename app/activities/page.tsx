@@ -102,7 +102,7 @@ export default function ActivitiesPage() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <p className="font-serif text-[1.25rem] uppercase tracking-[0.3em] mb-1">
+          <p className="font-sans text-[1.25rem] uppercase tracking-[0.3em] mb-1">
             Adventure Capital of Africa
           </p>
           <h1 className="font-script text-[6rem] text-brand-gold leading-none">

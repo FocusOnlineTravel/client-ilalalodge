@@ -23,7 +23,7 @@ export default function DiningPage() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <p className="font-serif text-[1.25rem] uppercase tracking-[0.3em] mb-1">
+          <p className="font-sans text-[1.25rem] uppercase tracking-[0.3em] mb-1">
             Elevated Comfort Food
           </p>
           <h1 className="font-script text-[6rem] text-brand-gold leading-none">
@@ -37,13 +37,19 @@ export default function DiningPage() {
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-              Welcome to the Cassia Restaurant
+              Welcome to Cassia Restaurant
             </h2>
             <p className="text-lg text-brand-forest/80 leading-relaxed mb-6">
-              The Cassia Restaurant, located at Ilala Lodge Hotel, offers an unmatched menu and an extensive wine list featuring carefully selected wines from South Africa's top vineyards. The calming and tranquil ambience sets the stage for a truly unforgettable dining experience at one of the finest Victoria Falls restaurants, within earshot of the gentle rumble of Victoria Falls.
+              Located at Ilala Lodge Hotel, Cassia Restaurant offers a refined dining experience with a focus on quality cuisine and a carefully selected wine list from South Africa's leading vineyards. The setting is relaxed and traditional, with indoor and outdoor dining available.
+            </p>
+            <p className="text-lg text-brand-forest/80 leading-relaxed mb-6">
+              Set within the hotel's gardens and within earshot of Victoria Falls, the award-winning restaurant takes its name from the Cassia Fistula trees positioned in front of the property, facing towards the Falls.
+            </p>
+            <p className="text-lg text-brand-forest/80 leading-relaxed mb-6">
+              Guests can enjoy breakfast, lunch, and dinner daily. Mornings begin with a continental buffet, complemented by a cooked breakfast menu. Lunch is served beneath the shade of the Cassia trees or around the poolside bar, with a selection of lighter dishes and more substantial options.
             </p>
             <p className="text-lg text-brand-forest/80 leading-relaxed">
-              The restaurant is named after the African flowering trees, Cassia Fistula, which grow abundantly in the hotel gardens. The Cassia, or Golden Shower Tree as it is often called, displays a beautiful spray of sunshine-yellow flowers that cascade down the branches between February and May, resembling the majestic Victoria Falls in miniature and playing their own part in the hotel's special blend of nature and comfort.
+              In the evening, guests can dine al fresco under African skies, with the sound of the Falls in the background. The menu is supported by a curated wine list, along with a selection of beers, gins, and cocktails.
             </p>
           </div>
         </div>
@@ -63,11 +69,11 @@ export default function DiningPage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-serif text-2xl text-brand-forest mb-4">Breakfast</h3>
-              <p className="text-brand-forest/70 mb-4 leading-relaxed">
+              <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Breakfast</h3>
+              <p className="text-lg text-brand-stem font-semibold mb-4">06:30 - 10:00</p>
+              <p className="text-brand-forest/70 leading-relaxed">
                 Start your day with our sumptuous breakfast buffet, featuring a variety of hot and cold options. From fresh tropical fruits to traditional cooked breakfasts, we cater to every taste.
               </p>
-              <p className="text-sm text-brand-stem font-semibold">06:30 - 10:00</p>
             </div>
 
             {/* Lunch */}
@@ -80,11 +86,11 @@ export default function DiningPage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-serif text-2xl text-brand-forest mb-4">Lunch</h3>
-              <p className="text-brand-forest/70 mb-4 leading-relaxed">
+              <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Lunch</h3>
+              <p className="text-lg text-brand-stem font-semibold mb-4">12:00 - 14:00</p>
+              <p className="text-brand-forest/70 leading-relaxed">
                 Enjoy a leisurely lunch in our beautiful garden setting. Our menu features light meals, salads, and grilled specialties, perfect for refueling after morning adventures.
               </p>
-              <p className="text-sm text-brand-stem font-semibold">12:00 - 14:00</p>
             </div>
 
             {/* Dinner */}
@@ -97,52 +103,71 @@ export default function DiningPage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-serif text-2xl text-brand-forest mb-4">Dinner</h3>
-              <p className="text-brand-forest/70 mb-4 leading-relaxed">
+              <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Dinner</h3>
+              <p className="text-lg text-brand-stem font-semibold mb-4">18:30 - 21:30</p>
+              <p className="text-brand-forest/70 leading-relaxed">
                 Experience fine dining under the African stars. Our chef crafts exquisite dishes using the finest local and international ingredients, paired with exceptional wines.
               </p>
-              <p className="text-sm text-brand-stem font-semibold">18:30 - 21:30</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Additional Dining Options */}
+      {/* Riverside Dining Experience */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-daisy">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
-            More Dining Experiences
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16">
-            {/* High Tea */}
-            <div className="bg-white p-8 ">
-              <h3 className="font-serif text-2xl text-brand-forest mb-4">High Tea Experience</h3>
-              <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Indulge in a traditional afternoon tea experience with a selection of finger sandwiches, freshly baked scones with cream and jam, and an assortment of sweet treats. Perfectly complemented by your choice of fine teas or coffee.
-              </p>
-              <p className="text-sm text-brand-stem font-semibold">Available daily by reservation</p>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[400px] md:h-[500px]">
+              <Image
+                src="/images/wildlife-3.png"
+                alt="Riverside Dining Experience"
+                fill
+                className="object-cover"
+              />
             </div>
-
-            {/* Riverside Dining */}
-            <div className="bg-white p-8 ">
-              <h3 className="font-serif text-2xl text-brand-forest mb-4">Riverside Dining</h3>
-              <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Experience the magic of dining by the Zambezi River. Our riverside dining setup offers an intimate atmosphere with the sounds of nature as your soundtrack and the stars as your canopy.
+            <div>
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+                Riverside Dining Experience
+              </h2>
+              <p className="text-brand-forest/80 leading-relaxed">
+                Dine on the banks of the Zambezi River, on a multi-level wooden deck in the heart of the Zambezi National Park. Situated just a 5-minute drive from Ilala Lodge Hotel, the Riverside Dining Experience offers an open-fire, barbecue-style dinner under the stars, with freshly prepared dishes inspired by traditional Zimbabwean flavours and a selection of alcoholic and non-alcoholic beverages, served by dedicated staff.
               </p>
-              <p className="text-sm text-brand-stem font-semibold">Available on request</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="text-center">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 hover: rounded-full"
-            >
-              Book a Table
-            </a>
+      {/* Testimonials */}
+      <section className="py-16 md:py-24 bg-brand-daisy">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
+            What Our Guests Say
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8">
+              <h3 className="font-serif text-xl text-brand-forest mb-4">
+                Great evening with friends opposite entrance to Victoria Falls Hotel
+              </h3>
+              <p className="text-brand-forest/70 leading-relaxed text-sm">
+                What a wonderful restaurant in a beautiful garden setting with professional and courteous staff. There were 6 of us and everyone commented on how delicious their food was and the good service. Menu was very inventive…had the best oxtail main course ever.
+              </p>
+            </div>
+            <div className="bg-white p-8">
+              <h3 className="font-serif text-xl text-brand-forest mb-4">
+                Highly Recommended
+              </h3>
+              <p className="text-brand-forest/70 leading-relaxed text-sm">
+                We have been blessed to have eaten in some incredible restaurants world wide and still we are particularly impressed with the quality of cuisine at this restaurant in Victoria Falls. Kudos to the Head Chef!! The ambiance is fabulous and the staff most attentive and friendly. A must for that romantic dinner for 2 whilst in the Falls. Highly recommended.
+              </p>
+            </div>
+            <div className="bg-white p-8">
+              <h3 className="font-serif text-xl text-brand-forest mb-4">
+                Out of Africa feels the moment we walked in
+              </h3>
+              <p className="text-brand-forest/70 leading-relaxed text-sm">
+                The service we received was world class, to have dinner in a candle-lit setting with the roar of the Victoria falls in the background is truly magical. The chef is amazing and our food exceptional.
+              </p>
+            </div>
           </div>
         </div>
       </section>

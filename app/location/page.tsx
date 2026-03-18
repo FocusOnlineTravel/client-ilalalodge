@@ -65,7 +65,7 @@ export default function LocationPage() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <p className="font-serif text-[1.25rem] uppercase tracking-[0.3em] mb-1">
+          <p className="font-sans text-[1.25rem] uppercase tracking-[0.3em] mb-1">
             The Closest Hotel to the Falls
           </p>
           <h1 className="font-script text-[6rem] text-brand-gold leading-none">
@@ -78,13 +78,82 @@ export default function LocationPage() {
       <section className="py-16 md:py-24 bg-brand-daisy">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-            In the Heart of Victoria Falls
+            Closest Hotel to Victoria Falls
           </h2>
           <p className="text-lg text-brand-forest/80 leading-relaxed mb-6">
-            Ilala Lodge Hotel is a family-run luxury hotel offering accommodation in the heart of Victoria Falls, Zimbabwe. Nestled in attractive gardens, the well-appointed hotel is a mere eight-minute walk from Victoria Falls, one of the Seven Natural Wonders of the World.
+            Ilala Lodge Hotel is the closest hotel to Victoria Falls—just an eight-minute walk (approximately 936 steps) from the hotel lobby to the entrance gate.
+          </p>
+          <p className="text-lg text-brand-forest/80 leading-relaxed mb-6">
+            Positioned on the A8 (Mosi-Oa-Tunya Road), just before the Victoria Falls Bridge, the hotel offers easy access to both the Falls and the town centre, with restaurants, activities, and key attractions all within walking distance.
           </p>
           <p className="text-lg text-brand-forest/80 leading-relaxed">
-            The Victoria Falls National Park borders the front of the property and, as such, wild animals often graze on the hotel lawns. You might even be lucky enough to witness a herd of elephants feasting on the trees while you relax on your private balcony.
+            For those in search of hotels near Victoria Falls Zimbabwe, Ilala Lodge Hotel offers both convenience and a strategic location for exploring the wonders of this renowned destination.
+          </p>
+        </div>
+      </section>
+
+      {/* Getting Here */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
+            Getting Here
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <h3 className="font-serif text-2xl text-brand-forest mb-4">By Air</h3>
+              <p className="text-brand-forest/70 leading-relaxed">
+                Victoria Falls International Airport is located 25km from the hotel, with a transfer time of approximately 25 minutes. The airport connects to major regional hubs including Johannesburg, Cape Town, Harare, Nairobi, and Windhoek.
+              </p>
+            </div>
+            <div className="text-center p-6">
+              <h3 className="font-serif text-2xl text-brand-forest mb-4">Transfers</h3>
+              <p className="text-brand-forest/70 leading-relaxed">
+                Airport and local transfers can be arranged through the hotel's Activities Desk. Please note that transfers are not included and must be booked in advance.
+              </p>
+            </div>
+            <div className="text-center p-6">
+              <h3 className="font-serif text-2xl text-brand-forest mb-4">By Road</h3>
+              <p className="text-brand-forest/70 leading-relaxed">
+                Victoria Falls is accessible by road from neighbouring countries, including Botswana, South Africa, and Namibia, making it a convenient stop within a wider Southern Africa itinerary.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Regional Context */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-daisy">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-6">
+            Regional Context
+          </h2>
+          <p className="text-lg text-brand-forest/80 leading-relaxed text-center mb-8">
+            Victoria Falls is a central hub for exploring Southern Africa, with access to five national parks within 100km.
+          </p>
+          <ul className="space-y-3 max-w-xl mx-auto mb-8">
+            <li className="text-brand-forest/80 flex items-start gap-3">
+              <span className="text-brand-gold">•</span>
+              Victoria Falls National Park (Zimbabwe)
+            </li>
+            <li className="text-brand-forest/80 flex items-start gap-3">
+              <span className="text-brand-gold">•</span>
+              Mosi-oa-Tunya National Park (Zambia)
+            </li>
+            <li className="text-brand-forest/80 flex items-start gap-3">
+              <span className="text-brand-gold">•</span>
+              Zambezi National Park (Zimbabwe)
+            </li>
+            <li className="text-brand-forest/80 flex items-start gap-3">
+              <span className="text-brand-gold">•</span>
+              Chobe National Park (Botswana) – approximately 80 - 90km away
+            </li>
+            <li className="text-brand-forest/80 flex items-start gap-3">
+              <span className="text-brand-gold">•</span>
+              Hwange National Park (Zimbabwe) – within 100km
+            </li>
+          </ul>
+          <p className="text-lg text-brand-forest/80 leading-relaxed text-center">
+            Day trips and excursions to these destinations, including cross-border visits to Zambia and safaris in Botswana and Zimbabwe, can be arranged through the Activities Desk.
           </p>
         </div>
       </section>
@@ -115,92 +184,18 @@ export default function LocationPage() {
         </div>
       </section>
 
-      {/* About Victoria Falls */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-daisy">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-                The Smoke That Thunders
-              </h2>
-              <p className="text-brand-forest/80 leading-relaxed mb-4">
-                Victoria Falls, known locally as Mosi-oa-Tunya (The Smoke That Thunders), is one of the world's most spectacular waterfalls. At over 1,700 meters wide and 108 meters high, it creates the largest sheet of falling water in the world.
-              </p>
-              <p className="text-brand-forest/80 leading-relaxed mb-4">
-                The falls were named after Queen Victoria by Scottish explorer David Livingstone, who was the first European to view the falls in 1855. Today, they remain one of Africa's most iconic natural attractions.
-              </p>
-              <p className="text-brand-forest/80 leading-relaxed">
-                The spray from the falls can be seen from up to 50 kilometers away, and during peak flow, over 500 million liters of water cascade over the edge every minute.
-              </p>
-            </div>
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/wildlife-1.png"
-                alt="Victoria Falls"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Victoria Falls Bridge */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px] md:order-1">
-              <Image
-                src="/images/banner-image.png"
-                alt="Victoria Falls Bridge"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="md:order-2">
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-                The Historic Victoria Falls Bridge
-              </h2>
-              <p className="text-brand-forest/80 leading-relaxed mb-4">
-                Spanning the Zambezi River just below the falls, the Victoria Falls Bridge is an engineering marvel completed in 1905. The bridge connects Zimbabwe and Zambia and offers breathtaking views of the gorge.
-              </p>
-              <p className="text-brand-forest/80 leading-relaxed mb-4">
-                Today, the bridge is famous for hosting one of the world's highest bungee jumps at 111 meters. Whether you're seeking adventure or simply want to admire the architecture, the bridge is a must-visit landmark.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Best Time to Visit */}
       <section className="py-16 md:py-24 bg-brand-forest text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl mb-8">
             Best Time to Visit
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-serif text-xl text-brand-gold mb-3">High Water</h3>
-              <p className="text-sm text-white/90 mb-2 font-semibold">February - May</p>
-              <p className="text-white/80 text-sm">
-                Peak flow with maximum spray. The falls are at their most powerful, though mist can sometimes obscure views.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-xl text-brand-gold mb-3">Medium Water</h3>
-              <p className="text-sm text-white/90 mb-2 font-semibold">June - August</p>
-              <p className="text-white/80 text-sm">
-                Excellent viewing conditions with clear skies and moderate flow. Ideal for photography and sightseeing.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-xl text-brand-gold mb-3">Low Water</h3>
-              <p className="text-sm text-white/90 mb-2 font-semibold">September - January</p>
-              <p className="text-white/80 text-sm">
-                Lower water levels reveal the impressive rock formations. Perfect for swimming at Devil's Pool.
-              </p>
-            </div>
-          </div>
+          <p className="text-lg text-white/90 leading-relaxed mb-8">
+            Victoria Falls is a year-round destination, with each season offering a different experience.
+          </p>
+          <p className="text-white/80 leading-relaxed mb-4">
+            High water months (typically February to July) bring dramatic views of the Falls, with increased spray and volume. Lower water months (typically August to January) provide clearer visibility of the rock face and are ideal for activities such as Devil's Pool.
+          </p>
         </div>
       </section>
 
