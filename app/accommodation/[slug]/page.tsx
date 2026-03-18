@@ -46,7 +46,7 @@ export default async function RoomPage({ params }: Props) {
   return (
     <>
       {/* Hero Section with Breadcrumb */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
+      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
             src={room.image}

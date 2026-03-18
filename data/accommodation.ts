@@ -1,6 +1,6 @@
 export const accommodationData = {
-  title: "Victoria Falls Accommodation",
-  subtitle: "Our Rooms & Suites",
+  title: "Our Rooms & Suites",
+  subtitle: "Each of the 73 luxury rooms are designed to create a feeling of privacy here in Victoria Falls.",
   overview: "The well-appointed rooms at Ilala Lodge Hotel are spacious and offer the ultimate in comfort and luxury. Each of the 73 luxury rooms are designed to create a feeling of privacy here in Victoria Falls.",
   rooms: [
     {
