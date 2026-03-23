@@ -32,7 +32,7 @@ export default function FacilitiesPage() {
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/room-1.png"
+            src="/images/pool.png"
             alt="Our Facilities"
             fill
             className="object-cover"
@@ -56,29 +56,6 @@ export default function FacilitiesPage() {
           <p className="text-lg text-brand-forest/80 leading-relaxed">
             Ilala Lodge Hotel offers a range of facilities designed to enhance your stay. From relaxed poolside spaces to conferencing and curated activities, each element is designed for comfort and ease.
           </p>
-        </div>
-      </section>
-
-      {/* Room Facilities Icons */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
-            In-Room Amenities
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 lg:gap-10">
-            {roomFacilities.map((facility) => (
-              <div key={facility.icon} className="flex flex-col items-center text-center gap-4 p-4">
-                <Image
-                  src={`/icons/icons-facilities-${facility.icon}.png`}
-                  alt={facility.label}
-                  width={60}
-                  height={60}
-                  className="w-14 h-14 object-contain"
-                />
-                <span className="text-brand-forest text-sm">{facility.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -201,6 +178,29 @@ export default function FacilitiesPage() {
                 A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures - providing a convenient space to relax during your stay.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Room Facilities Icons */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
+            In-Room Amenities
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 lg:gap-10">
+            {roomFacilities.map((facility) => (
+              <div key={facility.icon} className="flex flex-col items-center text-center gap-4 p-4">
+                <Image
+                  src={`/icons/icons-facilities-${facility.icon}.png`}
+                  alt={facility.label}
+                  width={60}
+                  height={60}
+                  className="w-14 h-14 object-contain"
+                />
+                <span className="text-brand-forest text-sm">{facility.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

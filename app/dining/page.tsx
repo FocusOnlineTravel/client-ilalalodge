@@ -2,6 +2,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BOOKING_URL } from '@/lib/constants';
 
+const diningReviews = [
+  {
+    title: 'Great evening with friends opposite entrance to Victoria Falls Hotel',
+    body: 'What a wonderful restaurant in a beautiful garden setting with professional and courteous staff. There were 6 of us and everyone commented on how delicious their food was and the good service. Menu was very inventive…had the best oxtail main course ever.',
+    author: 'TripAdvisor Guest',
+    source: 'TripAdvisor',
+  },
+  {
+    title: 'Highly Recommended',
+    body: "We have been blessed to have eaten in some incredible restaurants world wide and still we are particularly impressed with the quality of cuisine at this restaurant in Victoria Falls. Kudos to the Head Chef!! The ambiance is fabulous and the staff most attentive and friendly. A must for that romantic dinner for 2 whilst in the Falls. Highly recommended.",
+    author: 'TripAdvisor Guest',
+    source: 'TripAdvisor',
+  },
+  {
+    title: 'Out of Africa feels the moment we walked in',
+    body: 'The service we received was world class, to have dinner in a candle-lit setting with the roar of the Victoria falls in the background is truly magical. The chef is amazing and our food exceptional.',
+    author: 'TripAdvisor Guest',
+    source: 'TripAdvisor',
+  },
+];
+
 export const metadata = {
   title: 'Dining at Cassia Restaurant | Ilala Lodge Hotel',
   description: 'Experience elevated comfort food at Cassia Restaurant. Enjoy breakfast, lunch, and dinner with stunning views of Victoria Falls.',
@@ -114,22 +135,22 @@ export default function DiningPage() {
       </section>
 
       {/* Riverside Dining Experience */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-daisy">
+      <section className="py-16 md:py-24 bg-brand-forest">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] md:h-[500px]">
               <Image
-                src="/images/wildlife-3.png"
+                src="/images/dining-5.png"
                 alt="Riverside Dining Experience"
                 fill
                 className="object-cover"
               />
             </div>
             <div>
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+              <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
                 Riverside Dining Experience
               </h2>
-              <p className="text-brand-forest/80 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 Dine on the banks of the Zambezi River, on a multi-level wooden deck in the heart of the Zambezi National Park. Situated just a 5-minute drive from Ilala Lodge Hotel, the Riverside Dining Experience offers an open-fire, barbecue-style dinner under the stars, with freshly prepared dishes inspired by traditional Zimbabwean flavours and a selection of alcoholic and non-alcoholic beverages, served by dedicated staff.
               </p>
             </div>
@@ -138,35 +159,48 @@ export default function DiningPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-24 bg-brand-daisy">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
-            What Our Guests Say
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8">
-              <h3 className="font-serif text-xl text-brand-forest mb-4">
-                Great evening with friends opposite entrance to Victoria Falls Hotel
-              </h3>
-              <p className="text-brand-forest/70 leading-relaxed text-sm">
-                What a wonderful restaurant in a beautiful garden setting with professional and courteous staff. There were 6 of us and everyone commented on how delicious their food was and the good service. Menu was very inventive…had the best oxtail main course ever.
-              </p>
-            </div>
-            <div className="bg-white p-8">
-              <h3 className="font-serif text-xl text-brand-forest mb-4">
-                Highly Recommended
-              </h3>
-              <p className="text-brand-forest/70 leading-relaxed text-sm">
-                We have been blessed to have eaten in some incredible restaurants world wide and still we are particularly impressed with the quality of cuisine at this restaurant in Victoria Falls. Kudos to the Head Chef!! The ambiance is fabulous and the staff most attentive and friendly. A must for that romantic dinner for 2 whilst in the Falls. Highly recommended.
-              </p>
-            </div>
-            <div className="bg-white p-8">
-              <h3 className="font-serif text-xl text-brand-forest mb-4">
-                Out of Africa feels the moment we walked in
-              </h3>
-              <p className="text-brand-forest/70 leading-relaxed text-sm">
-                The service we received was world class, to have dinner in a candle-lit setting with the roar of the Victoria falls in the background is truly magical. The chef is amazing and our food exceptional.
-              </p>
+      <section className="py-16 lg:py-24 bg-white" id="reviews">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12 lg:mb-16">
+            <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
+              Guest Reviews
+            </span>
+            <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest">
+              What Our Guests Say
+            </h2>
+          </div>
+
+          {/* Review Cards */}
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {diningReviews.map((review, index) => (
+                <div
+                  key={index}
+                  className="flex-1 bg-[#fafaf8] p-6 lg:p-8 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="relative w-8 h-8 lg:w-10 lg:h-10 mb-4">
+                    <Image
+                      src="/images/quote.png"
+                      alt="Quote icon"
+                      fill
+                      className="object-contain opacity-60"
+                    />
+                  </div>
+                  <h3 className="font-serif text-lg lg:text-xl text-brand-forest mb-3">
+                    {review.title}
+                  </h3>
+                  <p className="text-brand-stem leading-relaxed mb-4 text-sm lg:text-base line-clamp-4">
+                    {review.body}
+                  </p>
+                  <div className="pt-4 border-t border-brand-stem/20">
+                    <p className="font-semibold text-brand-forest">{review.author}</p>
+                    {review.source && (
+                      <p className="text-xs lg:text-sm text-brand-stem">{review.source}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

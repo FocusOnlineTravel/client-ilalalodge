@@ -5,7 +5,50 @@ import { accommodationData } from '@/data/accommodation';
 import { BOOKING_URL } from '@/lib/constants';
 import RoomGallery from '@/components/accommodation/RoomGallery';
 import OtherRoomsCarousel from '@/components/accommodation/OtherRoomsCarousel';
-import { Maximize2, Users } from 'lucide-react';
+import { Maximize2, Users, Circle } from 'lucide-react';
+
+// Map amenity names to icon files
+const amenityIconMap: Record<string, { file: string; prefix: 'facilities' | 'hotel' | 'none' }> = {
+  'Air-conditioning': { file: 'air-conditioning', prefix: 'facilities' },
+  'Mini Bar (with Complimentary Initial Stocking)': { file: 'min-bar', prefix: 'facilities' },
+  'Mini-Bar (with Complimentary Initial Stocking)': { file: 'min-bar', prefix: 'facilities' },
+  'Mini-Bar (with Complimentary Stocking)': { file: 'min-bar', prefix: 'facilities' },
+  'Complimentary Toiletries': { file: 'complimentary-toiletries', prefix: 'none' },
+  'In-room Dining': { file: 'in-room-dining', prefix: 'facilities' },
+  'Writing Desk': { file: 'writing-desk', prefix: 'facilities' },
+  'Free Wi-Fi': { file: 'complimentary-wifi', prefix: 'facilities' },
+  'Overhead Fans': { file: 'ceiling-fans', prefix: 'facilities' },
+  'Satellite Television': { file: 'satellite-television', prefix: 'facilities' },
+  'Laundry Service': { file: 'laundry-service', prefix: 'facilities' },
+  'Tea and Coffee Facilities': { file: 'tea-and-coffee-making-facilities', prefix: 'facilities' },
+  'Hairdryers': { file: 'hair-dryers', prefix: 'facilities' },
+  'Digital Safe': { file: 'digital-safe', prefix: 'facilities' },
+  'Private Patio Facing Victoria Falls': { file: 'garden-views', prefix: 'facilities' },
+  'Additional 3/4 bed': { file: 'additional-3-4-bed', prefix: 'none' },
+  'Interconnecting room options available': { file: 'interconnecting-rooms', prefix: 'none' },
+  'Large Bathtub': { file: 'large-bathtub', prefix: 'none' },
+  'Double Vanity Basins': { file: 'double-vanity-basins', prefix: 'none' },
+  'Private Lounge': { file: 'private-lounge', prefix: 'none' },
+  'Private Kitchen': { file: 'private-kitchen', prefix: 'none' },
+  'Spa Bath on Balcony': { file: 'beauty-spa', prefix: 'hotel' },
+  'Private Spacious Lounge': { file: 'private-spacious-lounge', prefix: 'none' },
+};
+
+const getAmenityIcon = (amenity: string): string | null => {
+  const iconData = amenityIconMap[amenity];
+  if (!iconData) return null;
+
+  switch (iconData.prefix) {
+    case 'facilities':
+      return `/icons/icons-facilities-${iconData.file}.png`;
+    case 'hotel':
+      return `/icons/icons-hotel-${iconData.file}.png`;
+    case 'none':
+      return `/icons/${iconData.file}.png`;
+    default:
+      return null;
+  }
+};
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -119,16 +162,28 @@ export default async function RoomPage({ params }: Props) {
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
             Room Amenities
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {room.amenities.map((amenity, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 bg-white p-4 rounded-lg transition-colors"
-              >
-                <div className="w-2 h-2 bg-brand-gold rounded-full flex-shrink-0" />
-                <span className="text-brand-forest">{amenity}</span>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 lg:gap-10">
+            {room.amenities.map((amenity, index) => {
+              const iconPath = getAmenityIcon(amenity);
+              return (
+                <div key={index} className="flex flex-col items-center text-center gap-4 p-4">
+                  {iconPath ? (
+                    <Image
+                      src={iconPath}
+                      alt={amenity}
+                      width={60}
+                      height={60}
+                      className="w-14 h-14 object-contain"
+                    />
+                  ) : (
+                    <div className="w-14 h-14 flex items-center justify-center">
+                      <Circle className="w-10 h-10 text-brand-gold" strokeWidth={1} />
+                    </div>
+                  )}
+                  <span className="text-brand-forest text-sm">{amenity}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

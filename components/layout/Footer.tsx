@@ -29,7 +29,7 @@ export default function Footer() {
             <ul className="space-y-1">
               <li>
                 <Link
-                  href="#accommodation"
+                  href="/accommodation/classic-rooms"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Classic Rooms
@@ -37,7 +37,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#accommodation"
+                  href="/accommodation/deluxe-rooms"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Deluxe Rooms
@@ -45,7 +45,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#accommodation"
+                  href="/accommodation/classic-suites"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Classic Suites
@@ -53,7 +53,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#accommodation"
+                  href="/accommodation/executive-suites"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Executive Suites
@@ -61,7 +61,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#accommodation"
+                  href="/accommodation/strathearn-suite"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Strathearn Suite
@@ -78,7 +78,7 @@ export default function Footer() {
             <ul className="space-y-1">
               <li>
                 <Link
-                  href="#dining"
+                  href="/dining"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Dining
@@ -86,7 +86,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#activities"
+                  href="/activities"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Day Trips
@@ -94,7 +94,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#dining"
+                  href="/dining"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   High Tea
@@ -102,7 +102,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#activities"
+                  href="/activities"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Activities
@@ -110,7 +110,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#activities"
+                  href="/activities"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Game Drives
@@ -118,7 +118,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#activities"
+                  href="/activities"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Cultural
@@ -135,7 +135,7 @@ export default function Footer() {
             <ul className="space-y-1">
               <li>
                 <Link
-                  href="#about"
+                  href="/the-hotel"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Our Story
@@ -143,7 +143,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#about"
+                  href="/location"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Location
@@ -151,7 +151,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#nature"
+                  href="/location"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Victoria Falls
@@ -159,7 +159,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#gallery"
+                  href="/the-hotel"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Gallery
