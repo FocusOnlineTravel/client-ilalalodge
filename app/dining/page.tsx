@@ -32,10 +32,10 @@ export default function DiningPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
+      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/dining-1.png"
+            src="/images/dining-banner.jpg"
             alt="Cassia Restaurant"
             fill
             className="object-cover"
@@ -44,12 +44,12 @@ export default function DiningPage() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <p className="font-sans text-[1.25rem] uppercase tracking-[0.3em] mb-1">
-            Elevated Comfort Food
-          </p>
-          <h1 className="font-script text-[6rem] text-brand-gold leading-none">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
             Cassia Restaurant
           </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+            Elevated Comfort Food
+          </p>
         </div>
       </section>
 
@@ -135,17 +135,17 @@ export default function DiningPage() {
       </section>
 
       {/* Riverside Dining Experience */}
-      <section className="py-16 md:py-24 bg-brand-forest">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/dining-5.png"
-                alt="Riverside Dining Experience"
-                fill
-                className="object-cover"
-              />
-            </div>
+      <section className="bg-brand-forest">
+        <div className="grid md:grid-cols-2">
+          <div className="relative h-[400px] md:h-[500px]">
+            <Image
+              src="/images/night5.jpg"
+              alt="Riverside Dining Experience"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex items-center px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
             <div>
               <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
                 Riverside Dining Experience

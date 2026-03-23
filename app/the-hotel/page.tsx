@@ -10,7 +10,7 @@ export default function TheHotelPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
+      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
             src="/images/banner-image.png"
@@ -22,12 +22,12 @@ export default function TheHotelPage() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <p className="font-sans text-[1.25rem] uppercase tracking-[0.3em] mb-1">
-            A Family-Run Luxury Hotel
-          </p>
-          <h1 className="font-script text-[6rem] text-brand-gold leading-none">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
             The Hotel
           </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+            A Family-Run Luxury Hotel
+          </p>
         </div>
       </section>
 
