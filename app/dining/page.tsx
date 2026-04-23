@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { BOOKING_URL } from '@/lib/constants';
+import WhatsAppTriggerButton from '@/components/ui/WhatsAppTriggerButton';
 
 const diningReviews = [
   {
@@ -134,13 +134,13 @@ export default function DiningPage() {
         </div>
       </section>
 
-      {/* Riverside Dining Experience */}
+      {/* Zambezi River Deck Experience */}
       <section className="bg-brand-forest">
         <div className="grid md:grid-cols-2">
           <div className="relative h-[400px] md:h-[500px]">
             <Image
               src="/images/night5.jpg"
-              alt="Riverside Dining Experience"
+              alt="Zambezi River Deck Experience"
               fill
               className="object-cover"
             />
@@ -148,12 +148,36 @@ export default function DiningPage() {
           <div className="flex items-center px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
             <div>
               <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
-                Riverside Dining Experience
+                Zambezi River Deck Experience
               </h2>
               <p className="text-white/80 leading-relaxed">
                 Dine on the banks of the Zambezi River, on a multi-level wooden deck in the heart of the Zambezi National Park. Situated just a 5-minute drive from Ilala Lodge Hotel, the Riverside Dining Experience offers an open-fire, barbecue-style dinner under the stars, with freshly prepared dishes inspired by traditional Zimbabwean flavours and a selection of alcoholic and non-alcoholic beverages, served by dedicated staff.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* High Tea at Palm River Hotel */}
+      <section className="bg-brand-forest">
+        <div className="grid md:grid-cols-2">
+          <div className="flex items-center px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
+            <div>
+              <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
+                High Tea at Palm River Hotel
+              </h2>
+              <p className="text-white/80 leading-relaxed">
+                Experience the refined elegance of High Tea at the Palm River Hotel on the Zambezi River. Begin with effervescent hibiscus prosecco or savour artisanal brews, from velvety cappuccinos to aromatic teas. Indulge in panna cottas, dainty sandwiches, mini macarons, buttery scones with whipped cream and strawberry preserves and more, all enjoyed under the shade of indigenous trees by the tranquil river.
+              </p>
+            </div>
+          </div>
+          <div className="relative h-[400px] md:h-[500px]">
+            <Image
+              src="/images/night5.jpg"
+              alt="High Tea at Palm River Hotel"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -218,14 +242,11 @@ export default function DiningPage() {
           <p className="text-white/80 mb-8">
             Join us at Cassia Restaurant for an exceptional culinary journey in the heart of Victoria Falls.
           </p>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-gold hover:text-white transition-all duration-200 hover: rounded-full"
+          <WhatsAppTriggerButton
+            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-gold hover:text-white transition-all duration-200 rounded-full cursor-pointer"
           >
             Make a Reservation
-          </a>
+          </WhatsAppTriggerButton>
         </div>
       </section>
     </>

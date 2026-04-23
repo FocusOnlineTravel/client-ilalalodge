@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -20,6 +20,12 @@ const WHATSAPP_NUMBERS = {
 
 export default function WhatsAppButton() {
   const [showOptions, setShowOptions] = useState(false);
+
+  useEffect(() => {
+    const handleOpenWhatsApp = () => setShowOptions(true);
+    window.addEventListener('openWhatsAppPopup', handleOpenWhatsApp);
+    return () => window.removeEventListener('openWhatsAppPopup', handleOpenWhatsApp);
+  }, []);
 
   return (
     <>
@@ -56,20 +62,6 @@ export default function WhatsAppButton() {
 
             <div className="flex flex-col gap-3">
               <a
-                href={WHATSAPP_NUMBERS.concierge}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-4 rounded-lg transition-all duration-200 group"
-                onClick={() => setShowOptions(false)}
-              >
-                <div>
-                  <div className="font-semibold">Concierge</div>
-                  <div className="text-xs text-white/80">General inquiries & assistance</div>
-                </div>
-                <WhatsAppIcon className="w-6 h-6 group-hover:scale-110 transition-transform" />
-              </a>
-
-              <a
                 href={WHATSAPP_NUMBERS.reservations}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -78,7 +70,21 @@ export default function WhatsAppButton() {
               >
                 <div>
                   <div className="font-semibold">Reservations</div>
-                  <div className="text-xs text-white/80">Bookings & room inquiries</div>
+                  <div className="text-xs text-white/80">Accommodation Bookings</div>
+                </div>
+                <WhatsAppIcon className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              </a>
+
+              <a
+                href={WHATSAPP_NUMBERS.concierge}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-4 rounded-lg transition-all duration-200 group"
+                onClick={() => setShowOptions(false)}
+              >
+                <div>
+                  <div className="font-semibold">Front Desk</div>
+                  <div className="text-xs text-white/80">Inhouse enquiries & activities</div>
                 </div>
                 <WhatsAppIcon className="w-6 h-6 group-hover:scale-110 transition-transform" />
               </a>
