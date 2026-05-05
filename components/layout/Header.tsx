@@ -47,9 +47,18 @@ export default function Header() {
       subItems: [
         { label: 'The Hotel', href: '/the-hotel' },
         { label: 'Facilities', href: '/facilities' },
-        { label: 'Dining', href: '/dining' },
       ]
     },
+    {
+      label: 'Overview',
+      href: '/facilities',
+      subItems: [
+        { label: 'Activities Desk', href: '/facilities#activities-desk' },
+        { label: 'Conferencing', href: '/facilities#conferencing' },
+        { label: 'Spa', href: '/facilities#spa' },
+      ]
+    },
+    { label: 'Dining', href: '/dining' },
     {
       label: 'Location',
       href: '/location',
@@ -60,7 +69,13 @@ export default function Header() {
       ]
     },
     { label: 'Gallery', href: '#gallery' },
-    { label: 'Our Story', href: '#our-story' },
+    {
+      label: 'Our Story',
+      href: '#our-story',
+      subItems: [
+        { label: 'History', href: '#history' },
+      ]
+    },
     { label: 'FAQs', href: '#faqs' },
     { label: 'Contact', href: '#contact' },
     { label: 'Agents', href: '#agents' },
@@ -179,23 +194,23 @@ export default function Header() {
             isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
-          <div className="min-h-full px-8 pt-32 pb-24 lg:px-20">
+          <div className="min-h-full px-8 pt-24 pb-24 lg:pt-28 lg:px-20">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 lg:gap-[250px]">
 
                 {/* Left Column - Main Navigation */}
-                <nav className="flex flex-col gap-4">
+                <nav className="flex flex-col gap-2">
                   {navLinks.map((link) => (
                     <div
                       key={link.href}
-                      onMouseEnter={() => link.subItems && setHoveredMenuItem(link.label)}
+                      onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
                     >
                       <Link
                         href={link.href}
                         onClick={handleLinkClick}
-                        className={`text-3xl lg:text-4xl font-normal font-serif uppercase transition-colors duration-200 block ${
+                        className={`text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 block ${
                           link.label === 'Agents'
-                            ? 'text-white/50 hover:text-brand-gold text-xl lg:text-2xl mt-6 tracking-widest'
+                            ? 'text-white/50 hover:text-brand-gold text-lg lg:text-xl mt-4 tracking-widest'
                             : hoveredMenuItem === link.label ? 'text-brand-gold' : 'text-white/80 hover:text-white'
                         }`}
                       >
@@ -249,7 +264,7 @@ export default function Header() {
               </div>
 
               {/* Contact Information - Bottom Section */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-24 pt-12 border-t border-white/20 text-white">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/20 text-white">
                 {/* Direct Bookings */}
                 <div>
                   <h3 className="text-sm uppercase tracking-wider font-semibold mb-4">Direct Bookings</h3>
