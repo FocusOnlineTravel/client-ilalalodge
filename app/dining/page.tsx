@@ -159,7 +159,15 @@ export default function DiningPage() {
 
       {/* High Tea at Palm River Hotel */}
       <section className="bg-brand-forest">
-        <div className="grid md:grid-cols-2">
+        <div className="grid md:grid-cols-2 md:[&>*:first-child]:order-last">
+          <div className="relative h-[400px] md:h-[500px]">
+            <Image
+              src="/images/dining-5.png"
+              alt="High Tea at Palm River Hotel"
+              fill
+              className="object-cover"
+            />
+          </div>
           <div className="flex items-center px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
             <div>
               <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
@@ -169,14 +177,6 @@ export default function DiningPage() {
                 Experience the refined elegance of High Tea at the Palm River Hotel on the Zambezi River. Begin with effervescent hibiscus prosecco or savour artisanal brews, from velvety cappuccinos to aromatic teas. Indulge in panna cottas, dainty sandwiches, mini macarons, buttery scones with whipped cream and strawberry preserves and more, all enjoyed under the shade of indigenous trees by the tranquil river.
               </p>
             </div>
-          </div>
-          <div className="relative h-[400px] md:h-[500px]">
-            <Image
-              src="/images/dining-5.png"
-              alt="High Tea at Palm River Hotel"
-              fill
-              className="object-cover"
-            />
           </div>
         </div>
       </section>

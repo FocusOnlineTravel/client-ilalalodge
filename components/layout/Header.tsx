@@ -93,14 +93,14 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="w-full px-4 lg:px-8">
+      <div className="w-full lg:px-8">
         <div className={`flex items-center justify-center relative transition-all duration-300 ${
           isScrolled ? 'h-16 lg:h-20' : 'h-24 lg:h-32'
         }`}>
           {/* Burger Menu Button - Left Side */}
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className={`absolute left-4 lg:left-8 z-10 p-2 group transition-colors flex items-center gap-3 ${
+            className={`absolute left-2 lg:left-8 z-10 p-2 group transition-colors flex items-center gap-3 ${
               isMobileMenuOpen ? 'opacity-0 pointer-events-none' : ''
             } ${
               isScrolled ? 'text-brand-forest' : 'text-white'
@@ -118,7 +118,7 @@ export default function Header() {
                 isScrolled ? 'bg-brand-forest' : 'bg-white'
               }`}></span>
             </div>
-            <span className={`text-lg font-semibold uppercase tracking-wider transition-colors ${
+            <span className={`hidden lg:inline text-lg font-semibold uppercase tracking-wider transition-colors ${
               isScrolled ? 'text-brand-forest' : 'text-white'
             } group-hover:text-brand-gold`}>
               Menu
@@ -139,12 +139,12 @@ export default function Header() {
             />
           </Link>
 
-          {/* Book Now Button - Right Side */}
+          {/* Book Now Button - Right Side (desktop only; mobile uses sticky bottom nav) */}
           <a
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`absolute right-4 lg:right-8 z-10 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide ${
+            className={`hidden lg:inline-block absolute right-8 z-10 px-6 pt-2 pb-1.5 text-base rounded-full font-semibold transition-all duration-200 uppercase tracking-wide ${
               isScrolled
                 ? 'bg-brand-forest hover:bg-brand-forest/90 text-white'
                 : 'bg-white hover:bg-white/90 text-brand-forest'
@@ -193,29 +193,69 @@ export default function Header() {
 
                 {/* Left Column - Main Navigation */}
                 <nav className="flex flex-col gap-2">
-                  {navLinks.map((link) => (
-                    <div
-                      key={link.href}
-                      onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={handleLinkClick}
-                        className={`text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 block ${
-                          link.label === 'Agents'
-                            ? 'text-white/50 hover:text-brand-gold text-lg lg:text-xl mt-4 tracking-widest'
-                            : hoveredMenuItem === link.label ? 'text-brand-gold' : 'text-white/80 hover:text-white'
-                        }`}
+                  {navLinks.map((link) => {
+                    const isExpanded = hoveredMenuItem === link.label;
+                    return (
+                      <div
+                        key={link.href}
+                        onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
                       >
-                        {link.label}
-                      </Link>
-                    </div>
-                  ))}
+                        {link.subItems ? (
+                          <button
+                            type="button"
+                            onClick={() => setHoveredMenuItem(isExpanded ? null : link.label)}
+                            className={`w-full flex items-center justify-between gap-3 text-left text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 ${
+                              isExpanded ? 'text-brand-gold' : 'text-white/80 hover:text-white'
+                            }`}
+                            aria-expanded={isExpanded}
+                          >
+                            <span>{link.label}</span>
+                            <span className={`lg:hidden text-xl transition-transform duration-200 ${isExpanded ? 'rotate-45' : ''}`} aria-hidden="true">+</span>
+                          </button>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            onClick={handleLinkClick}
+                            className={`text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 block ${
+                              link.label === 'Agents'
+                                ? 'text-white/50 hover:text-brand-gold text-lg lg:text-xl mt-4 tracking-widest'
+                                : 'text-white/80 hover:text-white'
+                            }`}
+                          >
+                            {link.label}
+                          </Link>
+                        )}
+
+                        {/* Mobile-only inline submenu (always rendered when expanded) */}
+                        {link.subItems && isExpanded && (
+                          <div className="lg:hidden pl-4 mt-2 mb-3 flex flex-col gap-2 border-l border-white/15 ml-1">
+                            <Link
+                              href={link.href}
+                              onClick={handleLinkClick}
+                              className="text-white/70 hover:text-brand-gold transition-colors duration-200 text-base font-sans block py-1"
+                            >
+                              View {link.label}
+                            </Link>
+                            {link.subItems.map((subItem) => (
+                              <Link
+                                key={subItem.href}
+                                href={subItem.href}
+                                onClick={handleLinkClick}
+                                className="text-white/85 hover:text-brand-gold transition-colors duration-200 text-base font-sans block py-1"
+                              >
+                                {subItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </nav>
 
-                {/* Right Column - Sub Items (appears on hover) */}
+                {/* Right Column - Sub Items (desktop only, hover-driven) */}
                 <div
-                  className="flex flex-col gap-6"
+                  className="hidden lg:flex flex-col gap-6"
                   onMouseLeave={() => setHoveredMenuItem(null)}
                 >
                   {navLinks.map((link) => (
@@ -224,7 +264,7 @@ export default function Header() {
                         key={`${link.href}-sub`}
                         className="flex flex-col gap-3 animate-fade-in"
                       >
-                        {link.subItems.map((subItem: any) => (
+                        {link.subItems.map((subItem) => (
                           <div key={subItem.href}>
                             <Link
                               href={subItem.href}
@@ -233,20 +273,6 @@ export default function Header() {
                             >
                               {subItem.label}
                             </Link>
-                            {subItem.subSubItems && (
-                              <div className="ml-6 mt-2 flex flex-col gap-2">
-                                {subItem.subSubItems.map((subSubItem: any) => (
-                                  <Link
-                                    key={subSubItem.href}
-                                    href={subSubItem.href}
-                                    onClick={handleLinkClick}
-                                    className="text-white/70 hover:text-brand-gold transition-colors duration-200 text-base lg:text-lg font-sans"
-                                  >
-                                    {subSubItem.label}
-                                  </Link>
-                                ))}
-                              </div>
-                            )}
                           </div>
                         ))}
                       </div>

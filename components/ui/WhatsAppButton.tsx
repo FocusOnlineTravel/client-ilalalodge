@@ -34,7 +34,7 @@ export default function WhatsAppButton() {
       {/* Main WhatsApp Button */}
       <button
         onClick={() => setShowOptions(true)}
-        className="fixed bottom-12 right-12 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white h-11 px-5 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center justify-center gap-2.5 uppercase tracking-wide shadow-lg"
+        className="hidden lg:inline-flex fixed bottom-12 right-12 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white h-11 px-5 rounded-full transition-all duration-300 hover:scale-105 items-center justify-center gap-2.5 uppercase tracking-wide shadow-lg"
         aria-label="Contact us on WhatsApp"
       >
         <WhatsAppIcon className="w-5 h-5" />

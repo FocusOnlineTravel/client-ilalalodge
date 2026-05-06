@@ -56,7 +56,7 @@ export default function OurStoryPage() {
       </section>
 
       {/* Image Grid Break */}
-      <section className="grid grid-cols-4">
+      <section className="grid grid-cols-2 md:grid-cols-4">
         {[
           { src: '/images/intr0-image.png', alt: 'Ilala Lodge Hotel gardens' },
           { src: '/images/pool.png', alt: 'Hotel poolside' },
