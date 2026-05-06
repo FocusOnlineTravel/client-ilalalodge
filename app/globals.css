@@ -83,21 +83,7 @@ a[class*="py-"] {
   font-weight: 400 !important;
 }
 
-/* Icon styles - reduce size and add circle */
-svg:not(.map-marker) {
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-}
-
-/* Circle background for navigation and action icons */
-button svg:not(.map-marker),
-a svg {
-  padding: 0.5rem;
-  background-color: transparent;
-  border-radius: 50%;
-  width: 2.5rem !important;
-  height: 2.5rem !important;
-}
+/* SVG icons size themselves via component classes (w-x h-x) or attributes — no global override here. */
 
 /* Map marker pin SVG - exempt from global icon styles */
 svg.map-marker {
