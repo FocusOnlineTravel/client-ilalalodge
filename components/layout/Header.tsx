@@ -69,7 +69,7 @@ export default function Header() {
       ]
     },
     { label: 'Gallery', href: '/gallery' },
-    { label: 'FAQs', href: '#faqs' },
+    { label: 'FAQs', href: '/faqs' },
     { label: 'Contact', href: '/contact' },
     { label: 'Agents', href: '#agents' },
   ];
