@@ -159,7 +159,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/our-story"
+                  href="/gallery"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Gallery

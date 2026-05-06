@@ -68,7 +68,7 @@ export default function Header() {
         { label: 'Activities', href: '/activities' },
       ]
     },
-    { label: 'Gallery', href: '#gallery' },
+    { label: 'Gallery', href: '/gallery' },
     { label: 'FAQs', href: '#faqs' },
     { label: 'Contact', href: '/contact' },
     { label: 'Agents', href: '#agents' },
