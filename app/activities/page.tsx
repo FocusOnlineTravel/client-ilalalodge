@@ -132,9 +132,11 @@ interface CategoryProps {
   items: { title: string; description: string }[];
   bg: string;
   cardBg: string;
+  columns?: 2 | 3;
 }
 
-function CategorySection({ id, eyebrow, heading, intro, items, bg, cardBg }: CategoryProps) {
+function CategorySection({ id, eyebrow, heading, intro, items, bg, cardBg, columns = 3 }: CategoryProps) {
+  const gridCols = columns === 2 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3';
   return (
     <section id={id} className={`py-16 md:py-24 ${bg} scroll-mt-24`}>
       <div className="max-w-7xl mx-auto px-4">
@@ -143,7 +145,7 @@ function CategorySection({ id, eyebrow, heading, intro, items, bg, cardBg }: Cat
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">{heading}</h2>
           <p className="text-lg text-brand-forest/70 leading-relaxed">{intro}</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className={`grid ${gridCols} gap-6 lg:gap-8`}>
           {items.map((item) => (
             <div key={item.title} className={`${cardBg} p-6 lg:p-8`}>
               <h3 className="font-serif text-xl lg:text-2xl text-brand-forest mb-3">{item.title}</h3>
@@ -217,6 +219,7 @@ export default function ActivitiesPage() {
         items={wildlifeActivities}
         bg="bg-gradient-to-b from-white to-brand-daisy"
         cardBg="bg-white border-l-4 border-brand-gold"
+        columns={2}
       />
 
       <CategorySection
@@ -227,6 +230,7 @@ export default function ActivitiesPage() {
         items={relaxationActivities}
         bg="bg-white"
         cardBg="bg-brand-daisy"
+        columns={2}
       />
 
       <CategorySection
@@ -237,51 +241,47 @@ export default function ActivitiesPage() {
         items={culturalActivities}
         bg="bg-gradient-to-b from-white to-brand-daisy"
         cardBg="bg-white"
+        columns={2}
       />
 
-      {/* Featured Experiences */}
-      <section id="featured-experiences" className="py-20 md:py-32 bg-brand-forest text-white scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <p className="font-script text-4xl md:text-6xl text-brand-gold mb-2">
-              Featured experiences
-            </p>
-            <h2 className="font-serif text-2xl md:text-3xl uppercase tracking-wider">
-              Plan Something Special
-            </h2>
-          </div>
-
-          <div className="space-y-12 md:space-y-16">
-            {featuredExperiences.map((exp, i) => (
-              <div
-                key={exp.id}
-                id={exp.id}
-                className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center scroll-mt-24 ${
-                  i % 2 === 1 ? 'md:[&>*:first-child]:order-last' : ''
-                }`}
-              >
-                <div className="relative h-[300px] md:h-[400px]">
-                  <Image
-                    src={exp.image}
-                    alt={exp.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-serif text-2xl md:text-3xl mb-4">{exp.title}</h3>
-                  <p className="text-white/80 leading-relaxed mb-4">{exp.description}</p>
-                  {exp.contact && (
-                    <p className="text-sm text-white/60">
-                      Contact: <a href={`mailto:${exp.contact}`} className="text-brand-gold hover:underline">{exp.contact}</a>
-                    </p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Featured Experiences Header */}
+      <section id="featured-experiences" className="py-16 md:py-20 bg-brand-forest text-white scroll-mt-24">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <p className="font-script text-4xl md:text-6xl text-brand-gold mb-2">
+            Featured experiences
+          </p>
+          <h2 className="font-serif text-2xl md:text-3xl uppercase tracking-wider">
+            Plan Something Special
+          </h2>
         </div>
       </section>
+
+      {/* Featured Experience Blocks (full-bleed, alternating) */}
+      {featuredExperiences.map((exp, i) => (
+        <section key={exp.id} id={exp.id} className="bg-brand-forest scroll-mt-24">
+          <div className={`grid md:grid-cols-2 ${i % 2 === 1 ? 'md:[&>*:first-child]:order-last' : ''}`}>
+            <div className="relative h-[400px] md:h-[500px]">
+              <Image
+                src={exp.image}
+                alt={exp.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex items-center px-8 py-12 md:px-16 md:py-20 lg:px-24 lg:py-24">
+              <div>
+                <h3 className="font-serif text-3xl md:text-4xl text-white mb-6">{exp.title}</h3>
+                <p className="text-white/80 leading-relaxed mb-4">{exp.description}</p>
+                {exp.contact && (
+                  <p className="text-sm text-white/60">
+                    Contact: <a href={`mailto:${exp.contact}`} className="text-brand-gold hover:underline">{exp.contact}</a>
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
 
       {/* Plan Your Stay / Activities Desk */}
       <section id="plan-your-stay" className="py-16 md:py-24 bg-brand-daisy scroll-mt-24">
@@ -299,18 +299,18 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Booking CTA */}
-      <section className="py-24 md:py-32 bg-white text-center">
+      <section className="py-24 md:py-32 bg-brand-forest text-white text-center">
         <div className="max-w-[72rem] mx-auto px-4">
           <p className="font-script text-5xl md:text-[6.5rem] text-brand-gold mb-4">
             Start Your Adventure
           </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest uppercase tracking-wide mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-wide mb-6">
             Let Us Help Plan Your Perfect Experience
           </h2>
-          <p className="text-brand-forest/70 mb-8 max-w-2xl mx-auto">
-            Our Activities Desk can arrange every excursion, transfer, and cross-border trip — get in touch to start planning your stay.
+          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+            Our Activities Desk can arrange every excursion, transfer, and cross-border trip &mdash; get in touch to start planning your stay.
           </p>
-          <ServiceCTAs theme="light" />
+          <ServiceCTAs theme="dark" />
         </div>
       </section>
     </>

@@ -63,7 +63,7 @@ export default function Header() {
       label: 'Location',
       href: '/location',
       subItems: [
-        { label: 'Victoria Falls', href: '/location' },
+        { label: 'Victoria Falls', href: '/victoria-falls' },
         { label: 'Map', href: '/map' },
         { label: 'Activities', href: '/activities' },
       ]
