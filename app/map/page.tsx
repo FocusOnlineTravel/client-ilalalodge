@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { BOOKING_URL, CONTACT } from '@/lib/constants';
+import InteractiveMap from '@/components/InteractiveMap';
 
 export const metadata = {
   title: 'Map & Directions | Ilala Lodge Hotel',
@@ -31,7 +32,23 @@ export default function MapPage() {
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Interactive Town Map */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+              Explore Victoria Falls
+            </h2>
+            <p className="text-lg text-brand-forest/80 leading-relaxed max-w-3xl mx-auto">
+              Discover the best attractions, restaurants, and activities around Ilala Lodge Hotel.
+            </p>
+          </div>
+
+          <InteractiveMap />
+        </div>
+      </section>
+
+      {/* Google Map Section */}
       <section className="py-16 md:py-24 bg-brand-daisy">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
