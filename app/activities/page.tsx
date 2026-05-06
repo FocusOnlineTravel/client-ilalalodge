@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BOOKING_URL } from '@/lib/constants';
+import ServiceCTAs from '@/components/ui/ServiceCTAs';
 
 export const metadata = {
   title: 'Activities & Experiences | Ilala Lodge Hotel Victoria Falls',
@@ -310,22 +310,7 @@ export default function ActivitiesPage() {
           <p className="text-brand-forest/70 mb-8 max-w-2xl mx-auto">
             Our Activities Desk can arrange every excursion, transfer, and cross-border trip — get in touch to start planning your stay.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 rounded-full"
-            >
-              Book Your Stay
-            </a>
-            <a
-              href="/contact"
-              className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 border border-brand-forest text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
-            >
-              Contact Us
-            </a>
-          </div>
+          <ServiceCTAs theme="light" />
         </div>
       </section>
     </>

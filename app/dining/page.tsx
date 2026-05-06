@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import WhatsAppTriggerButton from '@/components/ui/WhatsAppTriggerButton';
+import ServiceCTAs from '@/components/ui/ServiceCTAs';
 
 const diningReviews = [
   {
@@ -242,11 +241,7 @@ export default function DiningPage() {
           <p className="text-white/80 mb-8">
             Join us at Cassia Restaurant for an exceptional culinary journey in the heart of Victoria Falls.
           </p>
-          <WhatsAppTriggerButton
-            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-gold hover:text-white transition-all duration-200 rounded-full cursor-pointer"
-          >
-            Make a Reservation
-          </WhatsAppTriggerButton>
+          <ServiceCTAs theme="dark" />
         </div>
       </section>
     </>
