@@ -81,7 +81,7 @@ export default function TheHotelPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] md:h-[500px]">
               <Image
-                src="/images/room-1.png"
+                src="/images/accommodation-luxury.png"
                 alt="Ilala Lodge Room"
                 fill
                 className="object-cover"

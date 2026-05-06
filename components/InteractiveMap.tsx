@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { ZoomIn, ZoomOut, X, Maximize2, Camera, TreePine, ShoppingBag, Utensils, Waves, Landmark, Building2 } from 'lucide-react';
+import { ZoomIn, ZoomOut, X, Maximize2 } from 'lucide-react';
 
 // Image dimensions - update these if the source image changes
 const IMAGE_WIDTH = 2793;
@@ -16,7 +16,7 @@ interface MapMarker {
   blurb?: string;
   category?: 'hotel' | 'attraction' | 'restaurant' | 'activity';
   label?: string; // Letter or number to display in marker
-  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum'; // Icon for POI markers
+  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum' | 'medical' | 'police'; // Icon for POI markers
   isPrimary?: boolean; // If true, marker is larger
   tooltipPosition?: 'up' | 'down'; // Default is 'up'
   pinColor?: string; // Custom pin color
@@ -153,6 +153,42 @@ const markers: MapMarker[] = [
     icon: 'shopping',
     pinColor: '#f01d79', // Purple
   },
+  {
+    id: 'poi-7',
+    x: 1130,
+    y: 1628,
+    title: 'Shopping Center',
+    blurb: '',
+    icon: 'shopping',
+    pinColor: '#f01d79', // Purple
+  },
+  {
+    id: 'poi-8',
+    x: 1254,
+    y: 1489,
+    title: 'Pharmacy',
+    blurb: '',
+    icon: 'medical',
+    pinColor: '#ff0000', // Purple
+  },
+  {
+    id: 'poi-9',
+    x: 1160,
+    y: 1656,
+    title: 'Pharmacy',
+    blurb: '',
+    icon: 'medical',
+    pinColor: '#ff0000', // Purple
+  },
+  {
+    id: 'poi-10',
+    x: 1216,
+    y: 1594,
+    title: 'Police',
+    blurb: '',
+    icon: 'police',
+    pinColor: '#311caa', // Purple
+  },
 ];
 
 const categoryColors: Record<string, { bg: string; fill: string }> = {
@@ -169,7 +205,10 @@ export default function InteractiveMap() {
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>('fit');
   const [activeMarker, setActiveMarker] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [isHoveringPreview, setIsHoveringPreview] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 });
 
   const handleZoomChange = (level: ZoomLevel) => {
@@ -343,8 +382,8 @@ export default function InteractiveMap() {
             >
               {/* Map pin with icon/label */}
               <div className="relative" style={{
-                width: marker.isPrimary ? '48px' : '32px',
-                height: marker.isPrimary ? '64px' : '43px',
+                width: marker.isPrimary ? '48px' : marker.icon ? '28px' : '32px',
+                height: marker.isPrimary ? '64px' : marker.icon ? '37px' : '43px',
               }}>
                 {/* Pin SVG */}
                 <svg
@@ -371,25 +410,64 @@ export default function InteractiveMap() {
                     </text>
                   )}
                 </svg>
-                {/* Lucide icon overlay */}
+                {/* Custom solid SVG icon overlay */}
                 {marker.icon && (
                   <div
                     className="absolute flex items-center justify-center map-marker-icon"
                     style={{
-                      top: marker.isPrimary ? '10px' : '5px',
+                      top: marker.isPrimary ? '10px' : '3px',
                       left: '50%',
                       transform: 'translateX(-50%)',
                       color: marker.pinColor || '#5A645B',
                       ['--icon-size' as string]: marker.isPrimary ? '27px' : '18px',
                     }}
                   >
-                    {marker.icon === 'camera' && <Camera strokeWidth={2.5} />}
-                    {marker.icon === 'tree' && <TreePine strokeWidth={2.5} />}
-                    {marker.icon === 'shopping' && <ShoppingBag strokeWidth={2.5} />}
-                    {marker.icon === 'food' && <Utensils strokeWidth={2.5} />}
-                    {marker.icon === 'waterfall' && <Waves strokeWidth={2.5} />}
-                    {marker.icon === 'bridge' && <Landmark strokeWidth={2.5} />}
-                    {marker.icon === 'museum' && <Building2 strokeWidth={2.5} />}
+                    {marker.icon === 'camera' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/>
+                        <path d="M20 4h-3.17L15 2H9L7.17 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm-8 13a5 5 0 110-10 5 5 0 010 10z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'tree' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M12 2L4 12h3v4H4l8 8 8-8h-3v-4h3L12 2z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'shopping' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zm0 2h12l1.5 2H4.5L6 4zm1 6a1 1 0 012 0 3 3 0 006 0 1 1 0 012 0 5 5 0 01-10 0z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'food' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'waterfall' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M5 3c0 2.5 1.5 4 1.5 6.5S5 13 5 15.5 6.5 20 6.5 20H8s-1.5-2-1.5-4.5S8 11 8 8.5 6.5 3 6.5 3H5zm5.5 0c0 2.5 1.5 4 1.5 6.5s-1.5 4-1.5 6.5 1.5 4.5 1.5 4.5h1.5s-1.5-2-1.5-4.5 1.5-4 1.5-6.5-1.5-6.5-1.5-6.5h-1.5zm5.5 0c0 2.5 1.5 4 1.5 6.5S16 13 16 15.5s1.5 4.5 1.5 4.5H19s-1.5-2-1.5-4.5S19 11 19 8.5 17.5 3 17.5 3H16z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'bridge' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M2 18h2v2H2v-2zm4 0h2v2H6v-2zm10 0h2v2h-2v-2zm4 0h2v2h-2v-2zM2 6h20v2H2V6zm0 4c2 0 3 2 5 2s3-2 5-2 3 2 5 2 3-2 5-2v2c-2 0-3 2-5 2s-3-2-5-2-3 2-5 2-3-2-5-2v-2z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'museum' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M12 3L2 8v2h20V8L12 3zM4 12v6h3v-6H4zm5 0v6h3v-6H9zm5 0v6h3v-6h-3zm5 0v6h3v-6h-3zM2 20v2h20v-2H2z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'medical' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'police' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.74-5 8-2.67-1.26-5-4.5-5-8V7.18L12 5zm-1 3v2H9v2h2v2h2v-2h2v-2h-2V8h-2z"/>
+                      </svg>
+                    )}
                   </div>
                 )}
               </div>
@@ -437,8 +515,20 @@ export default function InteractiveMap() {
       {/* Preview Map (clickable to open modal) */}
       <div className="relative w-full">
         <div
-          className="relative cursor-pointer group"
+          ref={previewRef}
+          className="relative cursor-none"
           onClick={() => setIsModalOpen(true)}
+          onMouseMove={(e) => {
+            if (previewRef.current) {
+              const rect = previewRef.current.getBoundingClientRect();
+              setCursorPos({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+              });
+            }
+          }}
+          onMouseEnter={() => setIsHoveringPreview(true)}
+          onMouseLeave={() => setIsHoveringPreview(false)}
         >
           <Image
             src="/images/VF_Town-Map-6-v2-cropped.jpg"
@@ -448,9 +538,20 @@ export default function InteractiveMap() {
             className="w-full h-auto"
             draggable={false}
           />
-          {/* Overlay with expand icon */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-4 shadow-lg">
+          {/* Overlay */}
+          <div className={`absolute inset-0 transition-all duration-300 ${isHoveringPreview ? 'bg-black/20' : 'bg-black/0'}`} />
+          {/* Cursor-following expand icon */}
+          <div
+            className={`absolute pointer-events-none transition-all duration-150 ease-out ${
+              isHoveringPreview ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}
+            style={{
+              left: cursorPos.x,
+              top: cursorPos.y,
+              transform: 'translate(-50%, -50%)',
+            }}
+          >
+            <div className="bg-white/90 rounded-full p-4 shadow-lg">
               <Maximize2 className="w-8 h-8 text-brand-forest" />
             </div>
           </div>
@@ -521,7 +622,12 @@ export default function InteractiveMap() {
                   <MapContent inModal />
                 </div>
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
+                <div
+                  className="w-full h-full flex items-center justify-center"
+                  onClick={(e) => {
+                    if (e.target === e.currentTarget) handleModalClose();
+                  }}
+                >
                   <div className="relative h-full">
                     <MapContent inModal fitHeight />
                   </div>
