@@ -359,7 +359,7 @@ export default function InteractiveMap() {
           onClick={() => setIsModalOpen(true)}
         >
           <Image
-            src="/images/VF_Town-Map-6-cropped.jpg"
+            src="/images/VF_Town-Map-6-v2-cropped.jpg"
             alt="Victoria Falls Town Map"
             width={IMAGE_WIDTH}
             height={IMAGE_HEIGHT}
