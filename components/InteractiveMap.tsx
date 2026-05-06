@@ -413,16 +413,6 @@ export default function InteractiveMap() {
                 Fit
               </button>
               <button
-                onClick={() => handleZoomChange('50')}
-                className={`px-4 py-2 rounded-full shadow-lg transition-all duration-200 font-semibold text-sm ${
-                  zoomLevel === '50'
-                    ? 'bg-brand-forest text-white'
-                    : 'bg-white/90 hover:bg-white text-brand-forest'
-                }`}
-              >
-                50%
-              </button>
-              <button
                 onClick={() => handleZoomChange('100')}
                 className={`px-4 py-2 rounded-full shadow-lg transition-all duration-200 font-semibold text-sm ${
                   zoomLevel === '100'
