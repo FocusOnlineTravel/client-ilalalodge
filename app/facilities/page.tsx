@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { BOOKING_URL } from '@/lib/constants';
+import ServiceCTAs from '@/components/ui/ServiceCTAs';
 
 export const metadata = {
   title: 'Our Facilities | Ilala Lodge Hotel',
@@ -150,9 +151,10 @@ export default function FacilitiesPage() {
               <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
                 Conferencing & Event Facilities
               </h2>
-              <p className="text-brand-forest/80 leading-relaxed">
+              <p className="text-brand-forest/80 leading-relaxed mb-8">
                 The hotel's conferencing space offers a private setting for meetings, events, and small gatherings. Suitable for up to 30 guests, facilities include Wi-Fi, projector screens, USB connection points, and tea and coffee service.
               </p>
+              <ServiceCTAs theme="light" align="start" />
             </div>
           </div>
         </div>
@@ -174,9 +176,10 @@ export default function FacilitiesPage() {
               <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
                 Spa Treatments
               </h2>
-              <p className="text-brand-forest/80 leading-relaxed">
+              <p className="text-brand-forest/80 leading-relaxed mb-8">
                 A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures - providing a convenient space to relax during your stay.
               </p>
+              <ServiceCTAs theme="light" align="start" />
             </div>
           </div>
         </div>
