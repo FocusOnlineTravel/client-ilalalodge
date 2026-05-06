@@ -126,6 +126,33 @@ const markers: MapMarker[] = [
     icon: 'camera',
     pinColor: '#2563EB', // Purple
   },
+  {
+    id: 'poi-4',
+    x: 1476,
+    y: 760,
+    title: 'The Big Tree',
+    blurb: '',
+    icon: 'tree',
+    pinColor: '#16A34A', // Purple
+  },
+  {
+    id: 'poi-5',
+    x: 1414,
+    y: 1381,
+    title: 'Shopping Center',
+    blurb: '',
+    icon: 'shopping',
+    pinColor: '#f01d79', // Purple
+  },
+  {
+    id: 'poi-6',
+    x: 1364,
+    y: 1541,
+    title: 'Shopping Center',
+    blurb: '',
+    icon: 'shopping',
+    pinColor: '#f01d79', // Purple
+  },
 ];
 
 const categoryColors: Record<string, { bg: string; fill: string }> = {
@@ -298,7 +325,7 @@ export default function InteractiveMap() {
           <div
             key={marker.id}
             className={`absolute transform -translate-x-1/2 -translate-y-full ${
-              isActive ? 'z-30' : 'z-10'
+              isActive ? 'z-30' : marker.icon ? 'z-10' : 'z-20'
             }`}
             style={{
               left: `${xPercent}%`,
