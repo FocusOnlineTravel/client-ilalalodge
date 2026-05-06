@@ -86,7 +86,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/activities"
+                  href="/activities#day-trips"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Day Trips
@@ -94,7 +94,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/dining"
+                  href="/activities#high-tea"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   High Tea
@@ -110,7 +110,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/activities"
+                  href="/activities#wildlife"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Game Drives
@@ -118,7 +118,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/activities"
+                  href="/activities#cultural"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Cultural
@@ -135,7 +135,7 @@ export default function Footer() {
             <ul className="space-y-1">
               <li>
                 <Link
-                  href="/the-hotel"
+                  href="/our-story"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Our Story
@@ -159,7 +159,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/the-hotel"
+                  href="/our-story"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Gallery

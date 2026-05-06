@@ -43,9 +43,9 @@ export default function Header() {
     },
     {
       label: 'The Hotel',
-      href: '/the-hotel',
+      href: '/our-story',
       subItems: [
-        { label: 'The Hotel', href: '/the-hotel' },
+        { label: 'Our Story', href: '/our-story' },
         { label: 'Facilities', href: '/facilities' },
       ]
     },

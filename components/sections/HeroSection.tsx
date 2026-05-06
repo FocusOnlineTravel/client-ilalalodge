@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { HeroBlock } from '@/types/acf';
 import { Play, X } from 'lucide-react';
+
+const HERO_VIDEO_URL = 'https://streamable.com/l/iprhyt/mp4.mp4';
 
 interface Props {
   data: HeroBlock;
@@ -33,18 +34,21 @@ export default function HeroSection({ data }: Props) {
   return (
     <>
       <section className="relative h-screen w-full flex items-center justify-center mb-[100px] overflow-hidden">
-        {/* Background Image with Parallax */}
+        {/* Background Video with Parallax */}
         <div
           className="absolute inset-0 z-0"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
-          <Image
-            src={data.hero_background_image.url}
-            alt={data.hero_background_image.alt}
-            fill
-            className="object-cover scale-110"
-            priority
-            quality={90}
+          <video
+            src={HERO_VIDEO_URL}
+            poster={data.hero_background_image.url}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover scale-110"
+            aria-label={data.hero_background_image.alt}
           />
           {/* Dark overlay for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/40"></div>
@@ -94,10 +98,10 @@ export default function HeroSection({ data }: Props) {
           >
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/3ZfwpQDT93M?autoplay=1"
+              src="https://streamable.com/e/iprhyt?autoplay=1"
               title="Ilala Lodge Hotel Video"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="autoplay; fullscreen"
               allowFullScreen
             ></iframe>
           </div>

@@ -1,53 +1,9 @@
 import Image from 'next/image';
-import { BOOKING_URL } from '@/lib/constants';
 
 export const metadata = {
   title: 'Location & Victoria Falls | Ilala Lodge Hotel',
   description: 'Discover the closest hotel to Victoria Falls. Located just an 8-minute walk from one of the Seven Natural Wonders of the World.',
 };
-
-const viewpoints = [
-  {
-    number: '1',
-    name: 'Devils Cataract',
-    description: 'The westernmost viewpoint offers dramatic views of the powerful Devils Cataract, where the Zambezi River begins its spectacular plunge.',
-  },
-  {
-    number: '2',
-    name: 'Cataract Island',
-    description: 'A peaceful vantage point providing unique perspectives of the falls and the surrounding gorge.',
-  },
-  {
-    number: '3',
-    name: 'Main Falls',
-    description: 'The centerpiece of Victoria Falls, where the majority of the Zambezi River crashes down in thunderous glory.',
-  },
-  {
-    number: '4',
-    name: 'Horseshoe Falls',
-    description: 'Named for its distinctive curved shape, this section offers some of the most photogenic views of the falls.',
-  },
-  {
-    number: '5',
-    name: 'Rainbow Falls',
-    description: 'Famous for the spectacular rainbows created by the mist, especially stunning in the afternoon light.',
-  },
-  {
-    number: '6',
-    name: 'Armchair',
-    description: 'A comfortable viewing spot that allows you to take in the majesty of the falls at your leisure.',
-  },
-  {
-    number: '7',
-    name: 'Eastern Cataract',
-    description: 'The easternmost section of the Zimbabwe side, offering a different perspective of the falls.',
-  },
-  {
-    number: '8',
-    name: 'Danger Point',
-    description: 'An aptly named viewpoint that gets you incredibly close to the edge for thrilling views.',
-  },
-];
 
 export default function LocationPage() {
   return (
@@ -56,8 +12,8 @@ export default function LocationPage() {
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/wildlife-3.png"
-            alt="Victoria Falls"
+            src="/images/banner-image-2-cropped.png"
+            alt="Victoria Falls landscape"
             fill
             className="object-cover"
             priority
@@ -93,7 +49,7 @@ export default function LocationPage() {
       </section>
 
       {/* Getting Here */}
-      <section className="py-16 md:py-24 bg-white">
+      <section id="getting-here" className="py-16 md:py-24 bg-white scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
             Getting Here
@@ -122,7 +78,7 @@ export default function LocationPage() {
       </section>
 
       {/* Regional Context */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-daisy">
+      <section id="regional-context" className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-6">
             Regional Context
@@ -158,34 +114,8 @@ export default function LocationPage() {
         </div>
       </section>
 
-      {/* Victoria Falls Viewpoints */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-4">
-              Victoria Falls Viewpoints
-            </h2>
-            <p className="text-lg text-brand-forest/70">
-              Explore the magnificent Victoria Falls from multiple vantage points along the Zimbabwe side
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {viewpoints.map((viewpoint) => (
-              <div key={viewpoint.number} className="bg-brand-daisy p-6 border-l-4 border-brand-gold">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-4xl font-serif text-brand-gold">{viewpoint.number}</span>
-                  <h3 className="font-serif text-xl text-brand-forest">{viewpoint.name}</h3>
-                </div>
-                <p className="text-brand-forest/70 text-sm leading-relaxed">{viewpoint.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Best Time to Visit */}
-      <section className="py-16 md:py-24 bg-brand-forest text-white">
+      <section id="best-time" className="py-16 md:py-24 bg-brand-forest text-white scroll-mt-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl mb-8">
             Best Time to Visit

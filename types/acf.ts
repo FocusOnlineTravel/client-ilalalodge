@@ -86,6 +86,7 @@ export interface ActivitiesBlock {
   activities_items: {
     activity_icon?: AcfImage;
     activity_label: string;
+    activity_url?: string;
   }[];
   activities_cta: AcfCta;
 }

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { accommodationData } from '@/data/accommodation';
 import { BOOKING_URL } from '@/lib/constants';
+import { Maximize2, Users, BedDouble, Tag } from 'lucide-react';
 
 export const metadata = {
   title: 'Accommodation | Ilala Lodge Hotel Victoria Falls',
@@ -35,10 +36,12 @@ export default function AccommodationPage() {
 
       {/* Overview Section */}
       <section className="py-16 md:py-24 bg-brand-daisy">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-lg md:text-xl text-brand-forest/80 leading-relaxed">
-            {accommodationData.overview}
-          </p>
+        <div className="max-w-3xl mx-auto px-4">
+          {accommodationData.overview.split('\n\n').map((paragraph, i) => (
+            <p key={i} className="text-lg text-brand-forest/80 leading-relaxed mb-6 last:mb-0">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </section>
 
@@ -73,18 +76,34 @@ export default function AccommodationPage() {
                   </p>
 
                   {/* Room Details */}
-                  <div className="flex flex-wrap gap-6 mb-6 pb-6 border-b border-brand-stem/20">
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">Size</div>
-                      <div className="text-lg font-serif text-brand-forest">{room.size}</div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 pb-6 border-b border-brand-stem/20">
+                    <div className="flex items-start gap-3">
+                      <Maximize2 className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
+                      <div>
+                        <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Size</div>
+                        <div className="text-base font-serif text-brand-forest">{room.size}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">Sleeps</div>
-                      <div className="text-lg font-serif text-brand-forest">{room.sleeps} Guests</div>
+                    <div className="flex items-start gap-3">
+                      <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
+                      <div>
+                        <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Sleeps</div>
+                        <div className="text-base font-serif text-brand-forest">{room.sleeps}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">From</div>
-                      <div className="text-lg font-serif text-brand-forest">{room.priceFrom} <span className="text-sm text-brand-stem/70">per night</span></div>
+                    <div className="flex items-start gap-3">
+                      <BedDouble className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
+                      <div>
+                        <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Beds</div>
+                        <div className="text-base font-serif text-brand-forest">{room.beds}</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Tag className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
+                      <div>
+                        <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">From</div>
+                        <div className="text-base font-serif text-brand-forest">{room.priceFrom}<span className="text-xs text-brand-stem/70"> /night</span></div>
+                      </div>
                     </div>
                   </div>
 

@@ -5,7 +5,7 @@ import { accommodationData } from '@/data/accommodation';
 import { BOOKING_URL } from '@/lib/constants';
 import RoomGallery from '@/components/accommodation/RoomGallery';
 import OtherRoomsCarousel from '@/components/accommodation/OtherRoomsCarousel';
-import { Maximize2, Users, Circle } from 'lucide-react';
+import { Maximize2, Users, BedDouble, Tag, Circle } from 'lucide-react';
 
 // Map amenity names to icon files
 const amenityIconMap: Record<string, { file: string; prefix: 'facilities' | 'hotel' | 'none' }> = {
@@ -13,6 +13,7 @@ const amenityIconMap: Record<string, { file: string; prefix: 'facilities' | 'hot
   'Mini Bar (with Complimentary Initial Stocking)': { file: 'min-bar', prefix: 'facilities' },
   'Mini-Bar (with Complimentary Initial Stocking)': { file: 'min-bar', prefix: 'facilities' },
   'Mini-Bar (with Complimentary Stocking)': { file: 'min-bar', prefix: 'facilities' },
+  'Complimentary Mini-Bar – replenished daily': { file: 'min-bar', prefix: 'facilities' },
   'Complimentary Toiletries': { file: 'complimentary-toiletries', prefix: 'none' },
   'In-room Dining': { file: 'in-room-dining', prefix: 'facilities' },
   'Writing Desk': { file: 'writing-desk', prefix: 'facilities' },
@@ -24,13 +25,18 @@ const amenityIconMap: Record<string, { file: string; prefix: 'facilities' | 'hot
   'Hairdryers': { file: 'hair-dryers', prefix: 'facilities' },
   'Digital Safe': { file: 'digital-safe', prefix: 'facilities' },
   'Private Patio Facing Victoria Falls': { file: 'garden-views', prefix: 'facilities' },
+  'Private Patio/Balcony': { file: 'garden-views', prefix: 'facilities' },
+  'Private Patio/Balcony Facing Victoria Falls': { file: 'garden-views', prefix: 'facilities' },
+  'Private Balcony Facing Victoria Falls': { file: 'garden-views', prefix: 'facilities' },
   'Additional 3/4 bed': { file: 'additional-3-4-bed', prefix: 'none' },
   'Interconnecting room options available': { file: 'interconnecting-rooms', prefix: 'none' },
   'Large Bathtub': { file: 'large-bathtub', prefix: 'none' },
   'Double Vanity Basins': { file: 'double-vanity-basins', prefix: 'none' },
   'Private Lounge': { file: 'private-lounge', prefix: 'none' },
   'Private Kitchen': { file: 'private-kitchen', prefix: 'none' },
+  'Private Kitchen stocked with Snacks': { file: 'private-kitchen', prefix: 'none' },
   'Spa Bath on Balcony': { file: 'beauty-spa', prefix: 'hotel' },
+  'Heated Spa Bath on Balcony': { file: 'beauty-spa', prefix: 'hotel' },
   'Private Spacious Lounge': { file: 'private-spacious-lounge', prefix: 'none' },
 };
 
@@ -117,24 +123,28 @@ export default async function RoomPage({ params }: Props) {
       </section>
 
       {/* Quick Info Bar */}
-      <section className="bg-white border-b border-brand-stem/10 py-8">
+      <section className="bg-white border-b border-brand-stem/10 py-10 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-12 md:gap-20">
-            <div className="text-center">
-              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-2">Room Size</div>
-              <div className="text-2xl font-light text-brand-forest font-serif">{room.size}</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 max-w-4xl mx-auto divide-y divide-brand-stem/15 md:divide-y-0 md:divide-x">
+            <div className="text-center px-4 py-6 md:py-2">
+              <Maximize2 className="w-6 h-6 text-brand-gold mx-auto mb-3" strokeWidth={1.5} />
+              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">Size</div>
+              <div className="text-xl font-light text-brand-forest font-serif">{room.size}</div>
             </div>
-            <div className="text-center">
-              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-2">
-                {room.roomCount === 1 ? 'Suite' : 'Available Rooms'}
-              </div>
-              <div className="text-2xl font-light text-brand-forest font-serif">
-                {room.roomCount} {room.roomCount === 1 ? 'Suite' : 'Rooms'}
-              </div>
+            <div className="text-center px-4 py-6 md:py-2">
+              <Users className="w-6 h-6 text-brand-gold mx-auto mb-3" strokeWidth={1.5} />
+              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">Sleeps Up To</div>
+              <div className="text-xl font-light text-brand-forest font-serif">{room.sleeps} Guests</div>
             </div>
-            <div className="text-center">
-              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-2">From Price</div>
-              <div className="text-2xl font-light text-brand-forest font-serif">{room.priceFrom}</div>
+            <div className="text-center px-4 py-6 md:py-2">
+              <BedDouble className="w-6 h-6 text-brand-gold mx-auto mb-3" strokeWidth={1.5} />
+              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">Beds</div>
+              <div className="text-xl font-light text-brand-forest font-serif">{room.beds}</div>
+            </div>
+            <div className="text-center px-4 py-6 md:py-2">
+              <Tag className="w-6 h-6 text-brand-gold mx-auto mb-3" strokeWidth={1.5} />
+              <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">From</div>
+              <div className="text-xl font-light text-brand-forest font-serif">{room.priceFrom} <span className="text-sm text-brand-stem/70">/ night</span></div>
             </div>
           </div>
         </div>

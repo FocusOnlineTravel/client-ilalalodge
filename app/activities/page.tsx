@@ -2,89 +2,159 @@ import Image from 'next/image';
 import { BOOKING_URL } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Activities & Adventures | Ilala Lodge Hotel Victoria Falls',
-  description: 'Experience the adventure capital of Africa. From helicopter flights to bungee jumping, white water rafting to sunset cruises, discover unforgettable activities at Victoria Falls.',
+  title: 'Activities & Experiences | Ilala Lodge Hotel Victoria Falls',
+  description:
+    'Adventure, wildlife, relaxation and culture at Victoria Falls. From rafting and helicopter flights to game drives, river cruises and high tea — all bookable through the Activities Desk at Ilala Lodge Hotel.',
 };
 
-const adrenalineActivities = [
+const adventureActivities = [
   {
-    title: 'Bungee Jumping',
-    description: 'Take the ultimate leap of faith from the historic Victoria Falls Bridge. At 111 meters, this is one of the world\'s highest commercial bungee jumps.',
+    title: 'White-water Rafting',
+    description: "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
   },
   {
-    title: 'White Water Rafting',
-    description: 'Navigate the mighty Zambezi River through Grade 5 rapids. This world-class rafting experience is not for the faint-hearted.',
+    title: 'Bungee Jumping',
+    description: "Take the leap from the Victoria Falls Bridge — one of the world's highest commercial bungee jumps at 111 metres.",
   },
   {
     title: 'Gorge Swing',
-    description: 'Experience a 70-meter free fall followed by a massive swing across the gorge. An adrenaline rush like no other.',
+    description: 'A 70-metre free fall followed by a swing across the Batoka Gorge.',
   },
   {
-    title: 'Zip Lining',
-    description: 'Soar across the Batoka Gorge on a high-speed zip line, taking in breathtaking views of the Zambezi River below.',
+    title: 'Zip Lines & Canopy Tours',
+    description: 'Soar across the Batoka Gorge on a high-speed zip line, or follow walkways through the rainforest canopy.',
   },
-  {
-    title: 'Abseiling',
-    description: 'Descend into the gorge on a controlled rope descent. A thrilling way to experience the raw beauty of the Batoka Gorge.',
-  },
-];
-
-const scenicActivities = [
   {
     title: 'Helicopter Flights',
-    description: 'The Flight of Angels offers unparalleled aerial views of Victoria Falls and the Zambezi River. Available in 15, 25, or 45-minute flights.',
-    icon: '🚁',
+    description: 'The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.',
   },
   {
-    title: 'Microlight Flights',
-    description: 'Experience the freedom of open-air flying as you soar above the falls in a microlight aircraft.',
-    icon: '✈️',
-  },
-  {
-    title: 'Sunset Cruises',
-    description: 'Drift along the Upper Zambezi as the sun sets, enjoying drinks and snacks while spotting hippos and elephants.',
-    icon: '🌅',
-  },
-  {
-    title: 'Ra-Ikane River Cruise',
-    description: 'Enjoy a luxury cruise on the Zambezi River aboard the elegant Ra-Ikane vessel, with gourmet dining and premium beverages.',
-    icon: '⛵',
+    title: "Devil's Pool",
+    description: 'Accessible during lower water months — a unique vantage point at the very edge of the Falls.',
   },
 ];
 
 const wildlifeActivities = [
   {
     title: 'Game Drives',
-    description: 'Explore the Zambezi National Park on morning or evening game drives. Spot elephants, lions, buffalo, and more in their natural habitat.',
+    description: 'Morning, afternoon, or evening drives in nearby national parks — opportunities for both short excursions and full-day safaris.',
   },
   {
-    title: 'Big Five Safari',
-    description: 'Venture to nearby national parks for the chance to see all of Africa\'s Big Five: lion, leopard, elephant, rhino, and buffalo.',
+    title: 'Chobe National Park',
+    description: "Day trips into Botswana to one of Africa's densest elephant populations.",
   },
   {
-    title: 'Chobe Day Trip',
-    description: 'Cross into Botswana for a day trip to Chobe National Park, home to one of Africa\'s largest elephant populations.',
+    title: 'Hwange National Park',
+    description: "Extended trips for exceptional game viewing in Zimbabwe's largest national park, within 100km of the hotel.",
   },
   {
-    title: 'Walking Safaris',
-    description: 'Get up close to nature on guided walking safaris through the bush, learning about tracks, plants, and smaller wildlife.',
+    title: 'Zambezi Wildlife Cruises',
+    description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities.',
+  },
+];
+
+const relaxationActivities = [
+  {
+    title: 'Sunrise River Cruise',
+    description: 'A quiet way to start the day on the Zambezi, with the landscape unfolding around you.',
+  },
+  {
+    title: 'Lunch Cruise',
+    description: 'A leisurely cruise over lunch, taking in the river at a relaxed pace.',
+  },
+  {
+    title: 'Sunset Cruise',
+    description: 'Drift along the Upper Zambezi as the sun sets, with drinks and snacks served on board.',
+  },
+  {
+    title: 'Intimate Cruises',
+    description: 'Smaller, more private cruise options for a quieter setting on the river.',
   },
 ];
 
 const culturalActivities = [
   {
-    title: 'Village Tours',
-    description: 'Visit local villages to learn about traditional Zimbabwean life, crafts, and customs.',
+    title: 'Rainforest Tour',
+    description: 'Guided tours of the Victoria Falls rainforest — historical and environmental context for the World Heritage site.',
   },
   {
-    title: 'Boma Dinner',
-    description: 'Experience a traditional African feast with drumming, dancing, and entertainment under the stars.',
+    title: 'Village Visits',
+    description: 'Insight into local life and traditions in surrounding communities.',
   },
   {
-    title: 'Craft Markets',
-    description: 'Browse local craft markets for handmade souvenirs, from wooden carvings to traditional textiles.',
+    title: 'Township Dining',
+    description: "An introduction to the region's communities through shared meals.",
+  },
+  {
+    title: 'Traditional Performances',
+    description: 'Evening experiences combining traditional dinners with music and dance.',
   },
 ];
+
+const featuredExperiences = [
+  {
+    id: 'high-tea',
+    title: 'High Tea Experience',
+    description:
+      'Enjoy High Tea at Palm River Hotel on the banks of the Zambezi River. Set beneath indigenous trees, this riverside experience offers a relaxed setting to enjoy a selection of sweet and savoury treats. Advanced reservations are essential.',
+    contact: 'fnb@palmriverhotel.com',
+    image: '/images/dining-5.png',
+  },
+  {
+    id: 'riverside-dining',
+    title: 'Riverside Dining Experience',
+    description:
+      'An African-style barbecue dinner beside the Zambezi River at Palm River Hotel. The three-course menu includes locally sourced options such as crocodile and kudu, prepared over open coals. Dine outdoors in a lantern-lit riverside setting.',
+    contact: 'fnb@palmriverhotel.com',
+    image: '/images/night5.jpg',
+  },
+  {
+    id: 'ra-ikane',
+    title: 'Ra-Ikane River Cruise',
+    description:
+      'Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.',
+    image: '/images/wildlife-2.png',
+  },
+  {
+    id: 'day-trips',
+    title: 'Day Trips',
+    description:
+      'Victoria Falls lies at the meeting point of Zimbabwe, Zambia, and Botswana, with Hwange National Park also within easy reach. Day trips to Chobe National Park and Hwange offer extended game viewing, along with cultural experiences across the region.',
+    image: '/images/wildlife-3.png',
+  },
+];
+
+interface CategoryProps {
+  id: string;
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  items: { title: string; description: string }[];
+  bg: string;
+  cardBg: string;
+}
+
+function CategorySection({ id, eyebrow, heading, intro, items, bg, cardBg }: CategoryProps) {
+  return (
+    <section id={id} className={`py-16 md:py-24 ${bg} scroll-mt-24`}>
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <p className="text-sm uppercase tracking-[0.2em] text-brand-gold mb-3">{eyebrow}</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">{heading}</h2>
+          <p className="text-lg text-brand-forest/70 leading-relaxed">{intro}</p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {items.map((item) => (
+            <div key={item.title} className={`${cardBg} p-6 lg:p-8`}>
+              <h3 className="font-serif text-xl lg:text-2xl text-brand-forest mb-3">{item.title}</h3>
+              <p className="text-brand-forest/70 leading-relaxed text-sm lg:text-base">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function ActivitiesPage() {
   return (
@@ -111,60 +181,101 @@ export default function ActivitiesPage() {
         </div>
       </section>
 
-      {/* Overview */}
+      {/* Intro */}
       <section className="py-16 md:py-24 bg-brand-daisy">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-            Unforgettable Experiences Await
+            Victoria Falls Activities
           </h2>
+          <p className="text-lg text-brand-forest/80 leading-relaxed mb-6">
+            Victoria Falls is one of Africa&rsquo;s leading destinations for adventure, wildlife, and culture, and Ilala Lodge Hotel is ideally positioned to experience it all.
+          </p>
+          <p className="text-lg text-brand-forest/80 leading-relaxed mb-6">
+            From the Zambezi River to the surrounding national parks, the region offers a wide range of experiences to suit every pace of travel. Our Activities Desk is available to assist with planning and booking, including transfers and cross-border excursions.
+          </p>
           <p className="text-lg text-brand-forest/80 leading-relaxed">
-            Victoria Falls is renowned as the adventure capital of Africa, offering an incredible array of activities for every type of traveler. From heart-pounding adrenaline adventures to serene sunset cruises, cultural experiences to wildlife encounters, there's something for everyone.
+            Among the most popular experiences are Zambezi River cruises, helicopter flights over the Falls, Chobe Day Trips, and guided game drives &mdash; each offering a different perspective of this remarkable destination.
           </p>
         </div>
       </section>
 
-      {/* Adrenaline Activities */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-4">
-              Adrenaline Adventures
-            </h2>
-            <p className="text-lg text-brand-forest/70">
-              For the thrill-seekers and adventure enthusiasts
+      <CategorySection
+        id="adventure"
+        eyebrow="Adventure"
+        heading="Africa's Adventure Capital"
+        intro="High-adrenaline experiences set against a dramatic natural backdrop — from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and Devil's Pool."
+        items={adventureActivities}
+        bg="bg-white"
+        cardBg="bg-brand-daisy"
+      />
+
+      <CategorySection
+        id="wildlife"
+        eyebrow="Wildlife"
+        heading="Game viewing in every direction"
+        intro="The area surrounding Victoria Falls is rich in wildlife, with opportunities for both short excursions and full-day safaris. Game drives, cross-border trips to Chobe and Hwange, and Zambezi cruises each open up a different angle on the region's wildlife."
+        items={wildlifeActivities}
+        bg="bg-gradient-to-b from-white to-brand-daisy"
+        cardBg="bg-white border-l-4 border-brand-gold"
+      />
+
+      <CategorySection
+        id="relaxation"
+        eyebrow="Relaxation"
+        heading="A slower pace on the Zambezi"
+        intro="River cruises at sunrise, over lunch, or at sunset allow guests to take in the landscape at leisure. Smaller, more intimate cruise options offer a quieter setting still — see the Featured Experiences below for riverside dining and high tea."
+        items={relaxationActivities}
+        bg="bg-white"
+        cardBg="bg-brand-daisy"
+      />
+
+      <CategorySection
+        id="cultural"
+        eyebrow="Cultural"
+        heading="A strong sense of place"
+        intro="Cultural experiences that provide insight into local life and traditions — from guided rainforest tours and village visits to township dining and traditional evening performances."
+        items={culturalActivities}
+        bg="bg-gradient-to-b from-white to-brand-daisy"
+        cardBg="bg-white"
+      />
+
+      {/* Featured Experiences */}
+      <section id="featured-experiences" className="py-20 md:py-32 bg-brand-forest text-white scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <p className="font-script text-4xl md:text-6xl text-brand-gold mb-2">
+              Featured experiences
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {adrenalineActivities.map((activity) => (
-              <div key={activity.title} className="bg-brand-daisy p-6 transition-colors">
-                <h3 className="font-serif text-2xl text-brand-forest mb-4">{activity.title}</h3>
-                <p className="text-brand-forest/70 leading-relaxed">{activity.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Scenic Activities */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-daisy">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-4">
-              Scenic Experiences
+            <h2 className="font-serif text-2xl md:text-3xl uppercase tracking-wider">
+              Plan Something Special
             </h2>
-            <p className="text-lg text-brand-forest/70">
-              Take in the beauty of Victoria Falls from unique perspectives
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {scenicActivities.map((activity) => (
-              <div key={activity.title} className="bg-white p-8 flex gap-6">
-                <div className="text-5xl">{activity.icon}</div>
-                <div className="flex-1">
-                  <h3 className="font-serif text-2xl text-brand-forest mb-3">{activity.title}</h3>
-                  <p className="text-brand-forest/70 leading-relaxed">{activity.description}</p>
+          <div className="space-y-12 md:space-y-16">
+            {featuredExperiences.map((exp, i) => (
+              <div
+                key={exp.id}
+                id={exp.id}
+                className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center scroll-mt-24 ${
+                  i % 2 === 1 ? 'md:[&>*:first-child]:order-last' : ''
+                }`}
+              >
+                <div className="relative h-[300px] md:h-[400px]">
+                  <Image
+                    src={exp.image}
+                    alt={exp.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-2xl md:text-3xl mb-4">{exp.title}</h3>
+                  <p className="text-white/80 leading-relaxed mb-4">{exp.description}</p>
+                  {exp.contact && (
+                    <p className="text-sm text-white/60">
+                      Contact: <a href={`mailto:${exp.contact}`} className="text-brand-gold hover:underline">{exp.contact}</a>
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -172,84 +283,18 @@ export default function ActivitiesPage() {
         </div>
       </section>
 
-      {/* Wildlife Activities */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-4">
-              Wildlife Encounters
-            </h2>
-            <p className="text-lg text-brand-forest/70">
-              Get close to Africa's magnificent wildlife
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {wildlifeActivities.map((activity) => (
-              <div key={activity.title} className="border-l-4 border-brand-gold bg-brand-daisy p-6">
-                <h3 className="font-serif text-2xl text-brand-forest mb-3">{activity.title}</h3>
-                <p className="text-brand-forest/70 leading-relaxed">{activity.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Cultural Activities */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-daisy">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-4">
-              Cultural Experiences
-            </h2>
-            <p className="text-lg text-brand-forest/70">
-              Immerse yourself in local culture and traditions
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {culturalActivities.map((activity) => (
-              <div key={activity.title} className="bg-white p-6 text-center">
-                <h3 className="font-serif text-xl text-brand-forest mb-3">{activity.title}</h3>
-                <p className="text-brand-forest/70 text-sm leading-relaxed">{activity.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ra-Ikane River Cruise Highlight */}
-      <section className="py-16 md:py-24 bg-brand-forest text-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">
-                Ra-Ikane River Cruise
-              </h2>
-              <p className="text-white/90 leading-relaxed mb-4">
-                Experience the ultimate luxury on the Zambezi River aboard the elegant Ra-Ikane vessel. This premium cruise offers an intimate setting with gourmet canapés, premium beverages, and exceptional service.
-              </p>
-              <p className="text-white/90 leading-relaxed mb-6">
-                As you glide along the river, watch the sun set over the African horizon while elephants, hippos, and crocodiles make appearances along the riverbanks. The perfect way to end an adventurous day.
-              </p>
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-gold text-white font-semibold uppercase tracking-wide hover:bg-brand-gold/90 transition-all duration-200 rounded-full"
-              >
-                Book Your Cruise
-              </a>
-            </div>
-            <div className="relative h-[400px]">
-              <Image
-                src="/images/wildlife-2.png"
-                alt="Ra-Ikane River Cruise"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+      {/* Plan Your Stay / Activities Desk */}
+      <section id="plan-your-stay" className="py-16 md:py-24 bg-brand-daisy scroll-mt-24">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+            Plan Your Stay
+          </h2>
+          <p className="text-lg text-brand-forest/80 leading-relaxed mb-4">
+            All activities can be arranged through the Activities Desk at Ilala Lodge Hotel, where the team can assist with recommendations, bookings, and logistics.
+          </p>
+          <p className="text-lg text-brand-forest/80 leading-relaxed">
+            Advance booking is recommended, particularly for popular experiences and during peak travel periods.
+          </p>
         </div>
       </section>
 
@@ -263,7 +308,7 @@ export default function ActivitiesPage() {
             Let Us Help Plan Your Perfect Experience
           </h2>
           <p className="text-brand-forest/70 mb-8 max-w-2xl mx-auto">
-            Our concierge team can arrange all activities and excursions, ensuring you make the most of your time in Victoria Falls. Contact us to start planning your adventure.
+            Our Activities Desk can arrange every excursion, transfer, and cross-border trip — get in touch to start planning your stay.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
