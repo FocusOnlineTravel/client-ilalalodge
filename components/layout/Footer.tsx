@@ -151,7 +151,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/location"
+                  href="/victoria-falls"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Victoria Falls
@@ -159,7 +159,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/our-story"
+                  href="/gallery"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Gallery
