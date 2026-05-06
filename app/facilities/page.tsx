@@ -60,7 +60,7 @@ export default function FacilitiesPage() {
       </section>
 
       {/* Poolside Bar */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-white to-brand-daisy">
+      <section id="poolside-bar" className="py-12 md:py-16 bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] md:h-[500px]">
@@ -84,7 +84,7 @@ export default function FacilitiesPage() {
       </section>
 
       {/* Swimming Pools */}
-      <section className="py-12 md:py-16 bg-brand-daisy">
+      <section id="swimming-pools" className="py-12 md:py-16 bg-brand-daisy scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="md:order-2 relative h-[400px] md:h-[500px]">
@@ -111,7 +111,7 @@ export default function FacilitiesPage() {
       </section>
 
       {/* Tours & Activities Desk */}
-      <section className="py-12 md:py-16 bg-white">
+      <section id="activities-desk" className="py-12 md:py-16 bg-white scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] md:h-[500px]">
@@ -135,7 +135,7 @@ export default function FacilitiesPage() {
       </section>
 
       {/* Conferencing & Event Facilities */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-white to-brand-daisy">
+      <section id="conferencing" className="py-12 md:py-16 bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="md:order-2 relative h-[400px] md:h-[500px]">
@@ -159,7 +159,7 @@ export default function FacilitiesPage() {
       </section>
 
       {/* Spa Treatments */}
-      <section className="py-12 md:py-16 bg-brand-daisy">
+      <section id="spa" className="py-12 md:py-16 bg-brand-daisy scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] md:h-[500px]">

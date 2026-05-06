@@ -1,5 +1,6 @@
 import { ActivitiesBlock } from '@/types/acf';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import FadeInView from '@/components/animations/FadeInView';
 
@@ -55,18 +56,28 @@ export default function ActivitiesSection({ data }: Props) {
 
         {/* Activities Grid */}
         <div className="flex flex-wrap justify-center gap-8 lg:gap-12 my-16 max-w-6xl mx-auto">
-          {data.activities_items.map((activity, index) => (
-            <FadeInView
-              key={index}
-              delay={index * 80}
-              className="flex flex-col items-center text-center gap-3 w-32 group cursor-pointer"
-            >
-              <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300">
-                {getActivityIcon(activity.activity_label)}
-              </div>
-              <span className="text-sm font-medium text-brand-forest group-hover:text-brand-gold transition-colors duration-200">{activity.activity_label}</span>
-            </FadeInView>
-          ))}
+          {data.activities_items.map((activity, index) => {
+            const inner = (
+              <>
+                <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300">
+                  {getActivityIcon(activity.activity_label)}
+                </div>
+                <span className="text-sm font-medium text-brand-forest group-hover:text-brand-gold transition-colors duration-200">{activity.activity_label}</span>
+              </>
+            );
+            const wrapperClass = 'flex flex-col items-center text-center gap-3 w-32 group cursor-pointer';
+            return (
+              <FadeInView key={index} delay={index * 80}>
+                {activity.activity_url ? (
+                  <Link href={activity.activity_url} className={wrapperClass}>
+                    {inner}
+                  </Link>
+                ) : (
+                  <div className={wrapperClass}>{inner}</div>
+                )}
+              </FadeInView>
+            );
+          })}
         </div>
 
         {/* CTA Button */}

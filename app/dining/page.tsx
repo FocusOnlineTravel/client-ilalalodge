@@ -48,7 +48,7 @@ export default function DiningPage() {
             Cassia Restaurant
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            Elevated Comfort Food
+            Refined dining beneath the Cassia trees
           </p>
         </div>
       </section>
@@ -93,7 +93,7 @@ export default function DiningPage() {
               <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Breakfast</h3>
               <p className="text-lg text-brand-stem font-semibold mb-4">06:30 - 10:00</p>
               <p className="text-brand-forest/70 leading-relaxed">
-                Start your day with our sumptuous breakfast buffet, featuring a variety of hot and cold options. From fresh tropical fruits to traditional cooked breakfasts, we cater to every taste.
+                Begin the day with a continental buffet, complemented by a cooked breakfast menu, served in the relaxed setting of Cassia Restaurant.
               </p>
             </div>
 
@@ -110,7 +110,7 @@ export default function DiningPage() {
               <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Lunch</h3>
               <p className="text-lg text-brand-stem font-semibold mb-4">12:00 - 14:00</p>
               <p className="text-brand-forest/70 leading-relaxed">
-                Enjoy a leisurely lunch in our beautiful garden setting. Our menu features light meals, salads, and grilled specialties, perfect for refueling after morning adventures.
+                Served beneath the shade of the Cassia trees or around the poolside bar, with a selection of lighter dishes and more substantial options.
               </p>
             </div>
 
@@ -127,7 +127,7 @@ export default function DiningPage() {
               <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Dinner</h3>
               <p className="text-lg text-brand-stem font-semibold mb-4">18:30 - 21:30</p>
               <p className="text-brand-forest/70 leading-relaxed">
-                Experience fine dining under the African stars. Our chef crafts exquisite dishes using the finest local and international ingredients, paired with exceptional wines.
+                Dine al fresco under African skies with the sound of the Falls in the background, supported by a curated wine list, beers, gins, and cocktails.
               </p>
             </div>
           </div>
@@ -173,7 +173,7 @@ export default function DiningPage() {
           </div>
           <div className="relative h-[400px] md:h-[500px]">
             <Image
-              src="/images/night5.jpg"
+              src="/images/dining-5.png"
               alt="High Tea at Palm River Hotel"
               fill
               className="object-cover"

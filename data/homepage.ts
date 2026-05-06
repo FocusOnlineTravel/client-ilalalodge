@@ -30,10 +30,10 @@ export const homePage: HomePage = {
       intro_eyebrow: 'Closest Hotel to the Falls',
       intro_heading: 'A family-run hotel that offers luxury and comfort in the heart of Victoria Falls',
       intro_body_copy:
-        'Nestled in attractive gardens, the well-appointed hotel is a mere eight-minute walk from Victoria Falls, one of the Seven Natural Wonders of the World.',
+        'Ilala Lodge Hotel is a family-run hotel offering luxury and comfort in the heart of Victoria Falls, Zimbabwe. Set within established gardens, the hotel is the closest to Victoria Falls, just an 8-minute walk from one of the Seven Natural Wonders of the World. Ideally located within walking distance of key historical sites, restaurants, and activities, our team brings warm, attentive service and genuine African hospitality to ensure a seamless and memorable stay.',
       intro_cta: {
-        label: 'Offers',
-        url: '#about',
+        label: 'Our Story',
+        url: '/our-story',
         target: '_self',
       },
       intro_image: {
@@ -47,7 +47,7 @@ export const homePage: HomePage = {
       acf_fc_layout: 'stay_section',
       stay_eyebrow: 'Stay with us',
       stay_heading: 'At Ilala Lodge Hotel',
-      stay_subheading: 'Choose from our selection of 67 beautifully appointed rooms',
+      stay_subheading: 'Choose from our selection of 73 beautifully appointed rooms',
       stay_rooms: [
         {
           room_name: 'Classic Rooms',
@@ -152,7 +152,7 @@ export const homePage: HomePage = {
       dining_heading: 'Elevated Comfort Food',
       dining_subheading: '',
       dining_body_copy:
-        'The Cassia Restaurant, located at Ilala Lodge Hotel, offers an unmatched menu and an extensive wine list featuring carefully selected wines from South Africa\'s top vineyards. The calming and tranquil ambience sets the stage for a truly unforgettable dining experience at one of the finest Victoria Falls restaurants, within earshot of the gentle rumble of Victoria Falls.',
+        'Located at Ilala Lodge Hotel, Cassia Restaurant offers a refined dining experience with a focus on quality cuisine and a carefully selected wine list from South Africa\'s leading vineyards. The setting is relaxed and traditional, with indoor and outdoor dining available. Set within the hotel\'s gardens and within earshot of Victoria Falls, the award-winning restaurant takes its name from the Cassia Fistula trees positioned in front of the property, facing towards the Falls.',
       dining_cta: {
         label: 'Dining Options',
         url: '/dining',
@@ -201,10 +201,10 @@ export const homePage: HomePage = {
       wildlife_eyebrow: 'The Victoria Falls',
       wildlife_heading: 'Nature on Your Doorstep',
       wildlife_body_copy:
-        'The Victoria Falls National Park borders the front of the property and, as such, wild animals often graze on the hotel lawns. Warthogs, in particular, are common visitors and they are sure to delight and entertain you. You might even be lucky enough to witness a herd of elephants feasting on the trees while you relax on your private balcony.',
+        'The Victoria Falls National Park borders the front of the property, and wildlife is a daily presence on the hotel lawns. Warthog, impala, bushbuck, elephant, hippo, and the occasional leopard are drawn to the onsite waterhole. You might even be lucky enough to watch a herd of elephants feasting on the trees while you relax on your private balcony.',
       wildlife_cta: {
         label: 'Explore Wildlife',
-        url: '#nature',
+        url: '/activities#wildlife',
         target: '_self',
       },
       wildlife_images: [
@@ -239,20 +239,20 @@ export const homePage: HomePage = {
       activities_eyebrow: 'Plenty to do',
       activities_heading: 'Victoria Falls Activities',
       activities_items: [
-        { activity_label: 'Helicopter Flights' },
-        { activity_label: 'Bungee Jumping' },
-        { activity_label: 'White Water Rafting' },
-        { activity_label: 'Game Drives' },
-        { activity_label: 'River Cruises' },
-        { activity_label: 'Cultural Tours' },
-        { activity_label: 'Gorge Swing' },
-        { activity_label: 'Zip Lining' },
-        { activity_label: 'Big Five Safari' },
-        { activity_label: 'Chobe Day Trip' },
+        { activity_label: 'Helicopter Flights', activity_url: '/activities#adventure' },
+        { activity_label: 'Bungee Jumping', activity_url: '/activities#adventure' },
+        { activity_label: 'White Water Rafting', activity_url: '/activities#adventure' },
+        { activity_label: 'Game Drives', activity_url: '/activities#wildlife' },
+        { activity_label: 'River Cruises', activity_url: '/activities#relaxation' },
+        { activity_label: 'Cultural Tours', activity_url: '/activities#cultural' },
+        { activity_label: 'Gorge Swing', activity_url: '/activities#adventure' },
+        { activity_label: 'Zip Lining', activity_url: '/activities#adventure' },
+        { activity_label: 'Big Five Safari', activity_url: '/activities#wildlife' },
+        { activity_label: 'Chobe Day Trip', activity_url: '/activities#wildlife' },
       ],
       activities_cta: {
         label: 'View All Activities',
-        url: '#activities',
+        url: '/activities',
         target: '_self',
       },
     },
