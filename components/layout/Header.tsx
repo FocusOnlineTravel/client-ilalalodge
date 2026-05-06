@@ -69,13 +69,6 @@ export default function Header() {
       ]
     },
     { label: 'Gallery', href: '#gallery' },
-    {
-      label: 'Our Story',
-      href: '#our-story',
-      subItems: [
-        { label: 'History', href: '#history' },
-      ]
-    },
     { label: 'FAQs', href: '#faqs' },
     { label: 'Contact', href: '#contact' },
     { label: 'Agents', href: '#agents' },
