@@ -547,7 +547,12 @@ export default function InteractiveMap() {
                   <MapContent inModal />
                 </div>
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
+                <div
+                  className="w-full h-full flex items-center justify-center"
+                  onClick={(e) => {
+                    if (e.target === e.currentTarget) handleModalClose();
+                  }}
+                >
                   <div className="relative h-full">
                     <MapContent inModal fitHeight />
                   </div>
