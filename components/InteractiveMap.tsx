@@ -169,7 +169,10 @@ export default function InteractiveMap() {
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>('fit');
   const [activeMarker, setActiveMarker] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [isHoveringPreview, setIsHoveringPreview] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 });
 
   const handleZoomChange = (level: ZoomLevel) => {
@@ -437,8 +440,20 @@ export default function InteractiveMap() {
       {/* Preview Map (clickable to open modal) */}
       <div className="relative w-full">
         <div
-          className="relative cursor-pointer group"
+          ref={previewRef}
+          className="relative cursor-none"
           onClick={() => setIsModalOpen(true)}
+          onMouseMove={(e) => {
+            if (previewRef.current) {
+              const rect = previewRef.current.getBoundingClientRect();
+              setCursorPos({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+              });
+            }
+          }}
+          onMouseEnter={() => setIsHoveringPreview(true)}
+          onMouseLeave={() => setIsHoveringPreview(false)}
         >
           <Image
             src="/images/VF_Town-Map-6-v2-cropped.jpg"
@@ -448,9 +463,20 @@ export default function InteractiveMap() {
             className="w-full h-auto"
             draggable={false}
           />
-          {/* Overlay with expand icon */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-4 shadow-lg">
+          {/* Overlay */}
+          <div className={`absolute inset-0 transition-all duration-300 ${isHoveringPreview ? 'bg-black/20' : 'bg-black/0'}`} />
+          {/* Cursor-following expand icon */}
+          <div
+            className={`absolute pointer-events-none transition-all duration-150 ease-out ${
+              isHoveringPreview ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}
+            style={{
+              left: cursorPos.x,
+              top: cursorPos.y,
+              transform: 'translate(-50%, -50%)',
+            }}
+          >
+            <div className="bg-white/90 rounded-full p-4 shadow-lg">
               <Maximize2 className="w-8 h-8 text-brand-forest" />
             </div>
           </div>
