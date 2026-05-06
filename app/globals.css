@@ -99,11 +99,23 @@ a svg {
   height: 2.5rem !important;
 }
 
-/* Map marker icons - exempt from global icon styles */
+/* Map marker pin SVG - exempt from global icon styles */
 svg.map-marker {
   padding: 0 !important;
   background-color: transparent !important;
   border-radius: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Lucide icons inside map markers */
+.map-marker-icon svg,
+button .map-marker-icon svg {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  width: var(--icon-size, 14px) !important;
+  height: var(--icon-size, 14px) !important;
 }
 
 /* Smooth scroll offset for fixed header */

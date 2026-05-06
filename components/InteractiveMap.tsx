@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { ZoomIn, ZoomOut, X, Maximize2 } from 'lucide-react';
+import { ZoomIn, ZoomOut, X, Maximize2, Camera, TreePine, ShoppingBag, Utensils, Waves, Landmark, Building2 } from 'lucide-react';
 
 // Image dimensions - update these if the source image changes
 const IMAGE_WIDTH = 2793;
@@ -13,11 +13,13 @@ interface MapMarker {
   x: number; // pixel x coordinate based on IMAGE_WIDTH
   y: number; // pixel y coordinate based on IMAGE_HEIGHT
   title: string;
-  blurb: string;
+  blurb?: string;
   category?: 'hotel' | 'attraction' | 'restaurant' | 'activity';
   label?: string; // Letter or number to display in marker
+  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum'; // Icon for POI markers
   isPrimary?: boolean; // If true, marker is larger
   tooltipPosition?: 'up' | 'down'; // Default is 'up'
+  pinColor?: string; // Custom pin color
 }
 
 // Sample markers - update coordinates based on your 2500px wide image
@@ -95,6 +97,34 @@ const markers: MapMarker[] = [
     blurb: 'Local arts, crafts, and souvenirs. Experience authentic Zimbabwean craftsmanship.',
     category: 'activity',
     label: 'H',
+  },
+  // Places of Interest - sample markers (update coordinates as needed)
+  {
+    id: 'poi-1',
+    x: 1700,
+    y: 1377,
+    title: 'Rainforest Entrance',
+    blurb: 'xx Spectacular views of the falls.',
+    icon: 'tree',
+    pinColor: '#16A34A', // Blue
+  },
+  {
+    id: 'poi-2',
+    x: 1705,
+    y: 1583,
+    title: 'Batoka Gorge',
+    blurb: 'Wildlife and natural beauty.',
+    icon: 'camera',
+    pinColor: '#2563EB', // Green
+  },
+  {
+    id: 'poi-3',
+    x: 2155,
+    y: 1516,
+    title: 'Victoria Falls Bridge',
+    blurb: '',
+    icon: 'camera',
+    pinColor: '#2563EB', // Purple
   },
 ];
 
@@ -284,35 +314,58 @@ export default function InteractiveMap() {
                 isActive ? 'scale-110' : ''
               }`}
             >
-              {/* Map pin icon */}
-              <svg
-                viewBox="0 0 24 32"
-                className="map-marker"
-                style={{
-                  width: marker.isPrimary ? '48px' : '32px',
-                  height: marker.isPrimary ? '64px' : '43px',
-                  filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.4))'
-                }}
-              >
-                {/* Pin shape */}
-                <path
-                  d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20s12-11 12-20c0-6.627-5.373-12-12-12z"
-                  fill="#5A645B"
-                />
-                {/* White circle */}
-                <circle cx="12" cy="11" r="9" fill="white" />
-                {/* Label letter */}
-                <text
-                  x="12"
-                  y="15"
-                  textAnchor="middle"
-                  fill="#222715"
-                  fontWeight="600"
-                  style={{ fontSize: '12px' }}
+              {/* Map pin with icon/label */}
+              <div className="relative" style={{
+                width: marker.isPrimary ? '48px' : '32px',
+                height: marker.isPrimary ? '64px' : '43px',
+              }}>
+                {/* Pin SVG */}
+                <svg
+                  viewBox="0 0 24 32"
+                  className="map-marker absolute inset-0 w-full h-full"
+                  style={{ filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.4))' }}
                 >
-                  {marker.label || ''}
-                </text>
-              </svg>
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20s12-11 12-20c0-6.627-5.373-12-12-12z"
+                    fill={marker.pinColor || '#5A645B'}
+                  />
+                  <circle cx="12" cy="11" r="9" fill="white" />
+                  {/* Letter label (if no icon) */}
+                  {!marker.icon && (
+                    <text
+                      x="12"
+                      y="15"
+                      textAnchor="middle"
+                      fill="#222715"
+                      fontWeight="600"
+                      style={{ fontSize: '12px' }}
+                    >
+                      {marker.label || ''}
+                    </text>
+                  )}
+                </svg>
+                {/* Lucide icon overlay */}
+                {marker.icon && (
+                  <div
+                    className="absolute flex items-center justify-center map-marker-icon"
+                    style={{
+                      top: marker.isPrimary ? '10px' : '5px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      color: marker.pinColor || '#5A645B',
+                      ['--icon-size' as string]: marker.isPrimary ? '27px' : '18px',
+                    }}
+                  >
+                    {marker.icon === 'camera' && <Camera strokeWidth={2.5} />}
+                    {marker.icon === 'tree' && <TreePine strokeWidth={2.5} />}
+                    {marker.icon === 'shopping' && <ShoppingBag strokeWidth={2.5} />}
+                    {marker.icon === 'food' && <Utensils strokeWidth={2.5} />}
+                    {marker.icon === 'waterfall' && <Waves strokeWidth={2.5} />}
+                    {marker.icon === 'bridge' && <Landmark strokeWidth={2.5} />}
+                    {marker.icon === 'museum' && <Building2 strokeWidth={2.5} />}
+                  </div>
+                )}
+              </div>
             </button>
 
             {/* Tooltip */}
@@ -332,12 +385,14 @@ export default function InteractiveMap() {
                 <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-white" />
               )}
               <div className="bg-white rounded-lg shadow-xl p-4 text-left">
-                <h3 className="font-serif text-lg text-brand-forest font-semibold mb-2">
+                <h3 className={`font-serif text-xl text-brand-forest font-bold ${marker.blurb ? 'mb-2' : ''}`}>
                   {marker.title}
                 </h3>
-                <p className="text-sm text-brand-forest/70 leading-relaxed">
-                  {marker.blurb}
-                </p>
+                {marker.blurb && (
+                  <p className="text-sm text-brand-forest/70 leading-relaxed">
+                    {marker.blurb}
+                  </p>
+                )}
               </div>
               {/* Arrow at bottom for up-pointing tooltip */}
               {marker.tooltipPosition !== 'down' && (
