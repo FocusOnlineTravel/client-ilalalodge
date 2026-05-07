@@ -16,7 +16,7 @@ interface MapMarker {
   blurb?: string;
   category?: 'hotel' | 'attraction' | 'restaurant' | 'activity';
   label?: string; // Letter or number to display in marker
-  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum' | 'medical' | 'police'; // Icon for POI markers
+  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum' | 'medical' | 'police' | 'boat' | 'pill' | 'storefront'; // Icon for POI markers
   isPrimary?: boolean; // If true, marker is larger
   tooltipPosition?: 'up' | 'down'; // Default is 'up'
   pinColor?: string; // Custom pin color
@@ -165,10 +165,10 @@ const markers: MapMarker[] = [
   {
     id: 'poi-8',
     x: 1254,
-    y: 1489,
+    y: 1500,
     title: 'Pharmacy',
     blurb: '',
-    icon: 'medical',
+    icon: 'pill',
     pinColor: '#ff0000', // Purple
   },
   {
@@ -177,7 +177,7 @@ const markers: MapMarker[] = [
     y: 1656,
     title: 'Pharmacy',
     blurb: '',
-    icon: 'medical',
+    icon: 'pill',
     pinColor: '#ff0000', // Purple
   },
   {
@@ -188,6 +188,87 @@ const markers: MapMarker[] = [
     blurb: '',
     icon: 'police',
     pinColor: '#311caa', // Purple
+  },
+  {
+    id: 'poi-11',
+    x: 838,
+    y: 1926,
+    title: 'Pharmacy',
+    blurb: '',
+    icon: 'pill',
+    pinColor: '#ff0000', // Purple
+  },
+  {
+    id: 'poi-12',
+    x: 1102,
+    y: 1432,
+    title: 'Hospital',
+    blurb: '',
+    icon: 'medical',
+    pinColor: '#ff0000', // Purple
+  },
+  {
+    id: 'poi-13',
+    x: 1440,
+    y: 1335,
+    title: 'Curio Market',
+    blurb: '',
+    icon: 'storefront',
+    pinColor: '#f01d79', // Purple
+  },
+  {
+    id: 'poi-14',
+    x: 1806,
+    y: 1397,
+    title: 'Victoria Falls Rainforest',
+    blurb: '',
+    icon: 'camera',
+    pinColor: '#2563EB', // Purple
+  },
+  {
+    id: 'poi-15',
+    x: 1806,
+    y: 1397,
+    title: 'Victoria Falls Rainforest',
+    blurb: '',
+    icon: 'camera',
+    pinColor: '#2563EB', // Purple
+  },
+  {
+    id: 'poi-16',
+    x: 820,
+    y: 1970,
+    title: 'Dusty Road Township Experience',
+    blurb: '',
+    icon: 'camera',
+    pinColor: '#2563EB', // Purple
+  },
+  {
+    id: 'poi-17',
+    x: 377,
+    y: 1005,
+    title: 'Vulture Feeding',
+    blurb: '',
+    icon: 'camera',
+    pinColor: '#2563EB', // Purple
+  },
+  {
+    id: 'poi-18',
+    x: 284,
+    y: 173,
+    title: 'Zambezi National Park',
+    blurb: '',
+    icon: 'camera',
+    pinColor: '#2563EB', // Purple
+  },
+  {
+    id: 'poi-19',
+    x: 791,
+    y: 227,
+    title: 'Ra-Ikane Jetty',
+    blurb: '',
+    icon: 'boat',
+    pinColor: '#0891B2', // Cyan for water/boat
   },
 ];
 
@@ -466,6 +547,21 @@ export default function InteractiveMap() {
                     {marker.icon === 'police' && (
                       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.74-5 8-2.67-1.26-5-4.5-5-8V7.18L12 5zm-1 3v2H9v2h2v2h2v-2h2v-2h-2V8h-2z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'boat' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.64 2.63.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.34-.42-.6-.5L20 10.62V6c0-1.1-.9-2-2-2h-3V1H9v3H6c-1.1 0-2 .9-2 2v4.62l-1.29.42c-.26.08-.48.26-.6.5s-.15.52-.06.78L3.95 19zM6 6h12v3.97L12 8 6 9.97V6z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'pill' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M4.22 11.29l6.07-6.07a5.003 5.003 0 017.07 0 5.003 5.003 0 010 7.07l-6.07 6.07a5.003 5.003 0 01-7.07 0 5.003 5.003 0 010-7.07zm1.41 5.66a3 3 0 004.24 0l3.54-3.54-4.24-4.24-3.54 3.54a3 3 0 000 4.24z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'storefront' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/>
                       </svg>
                     )}
                   </div>
