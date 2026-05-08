@@ -10,19 +10,21 @@ const IMAGE_HEIGHT = 3663;
 
 // Icon types available
 const ICON_TYPES = [
-  { value: 'camera', label: 'Camera (Sightseeing)', color: '#2563EB' },
-  { value: 'tree', label: 'Tree (Nature)', color: '#16A34A' },
+  { value: 'camera', label: 'Sightseeing', color: '#2563EB' },
+  { value: 'tree', label: 'Nature', color: '#16A34A' },
   { value: 'shopping', label: 'Shopping', color: '#f01d79' },
   { value: 'dining', label: 'Dining', color: '#F97316' },
   { value: 'food', label: 'Food', color: '#F97316' },
   { value: 'waterfall', label: 'Waterfall', color: '#0891B2' },
   { value: 'bridge', label: 'Bridge', color: '#6B7280' },
   { value: 'museum', label: 'Museum', color: '#8B5CF6' },
-  { value: 'medical', label: 'Medical/Hospital', color: '#ff0000' },
+  { value: 'medical', label: 'Hospital', color: '#ff0000' },
   { value: 'pill', label: 'Pharmacy', color: '#ff0000' },
   { value: 'police', label: 'Police', color: '#311caa' },
-  { value: 'boat', label: 'Boat/Jetty', color: '#0891B2' },
-  { value: 'storefront', label: 'Storefront/Market', color: '#f01d79' },
+  { value: 'boat', label: 'Jetty', color: '#0891B2' },
+  { value: 'storefront', label: 'Market', color: '#f01d79' },
+  { value: 'activity', label: 'Activity', color: '#22C55E' },
+  { value: 'golf', label: 'Golf', color: '#22C55E' },
 ] as const;
 
 // Color presets
@@ -685,23 +687,38 @@ export default function MapEditorPage() {
             {selectedMarker.icon && (
               <>
                 <div className="mb-4">
-                  <label className="block text-sm text-gray-400 mb-1">Icon</label>
-                  <select
-                    value={selectedMarker.icon}
-                    onChange={(e) => {
-                      const iconType = ICON_TYPES.find(i => i.value === e.target.value);
-                      setSelectedMarker({
-                        ...selectedMarker,
-                        icon: e.target.value,
-                        pinColor: iconType?.color || selectedMarker.pinColor
-                      });
-                    }}
-                    className="w-full bg-gray-700 rounded px-3 py-2"
-                  >
-                    {ICON_TYPES.map(icon => (
-                      <option key={icon.value} value={icon.value}>{icon.label}</option>
+                  <label className="block text-sm text-gray-400 mb-2">Icon</label>
+                  <div className="grid grid-cols-5 gap-2">
+                    {ICON_TYPES.map(iconType => (
+                      <button
+                        key={iconType.value}
+                        onClick={() => {
+                          setSelectedMarker({
+                            ...selectedMarker,
+                            icon: iconType.value,
+                            pinColor: iconType.color
+                          });
+                        }}
+                        className={`relative group p-2 rounded-lg transition-all ${
+                          selectedMarker.icon === iconType.value
+                            ? 'bg-blue-600 ring-2 ring-blue-400'
+                            : 'bg-gray-700 hover:bg-gray-600'
+                        }`}
+                        title={iconType.label}
+                      >
+                        <div
+                          className="w-6 h-6 mx-auto"
+                          style={{ color: selectedMarker.icon === iconType.value ? 'white' : iconType.color }}
+                        >
+                          <IconRenderer icon={iconType.value} />
+                        </div>
+                        {/* Tooltip on hover */}
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                          {iconType.label}
+                        </div>
+                      </button>
                     ))}
-                  </select>
+                  </div>
                 </div>
 
                 <div className="mb-4">
@@ -711,8 +728,8 @@ export default function MapEditorPage() {
                       <button
                         key={color.value}
                         onClick={() => setSelectedMarker({ ...selectedMarker, pinColor: color.value })}
-                        className={`w-8 h-8 rounded-full border-2 ${
-                          selectedMarker.pinColor === color.value ? 'border-white' : 'border-transparent'
+                        className={`w-8 h-8 rounded-full border-2 transition-all ${
+                          selectedMarker.pinColor === color.value ? 'border-white scale-110' : 'border-transparent hover:border-gray-400'
                         }`}
                         style={{ backgroundColor: color.value }}
                         title={color.label}
@@ -855,6 +872,16 @@ function IconRenderer({ icon }: { icon: string }) {
     storefront: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
         <path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/>
+      </svg>
+    ),
+    activity: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/>
+      </svg>
+    ),
+    golf: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M14 2v9l-4-2v-5l4-2zm-3 16c-3.31 0-6 1.79-6 4h14c0-2.21-2.69-4-6-4h-2zm1-2V9.97l1 .5V15c0 .55-.45 1-1 1z"/>
       </svg>
     ),
   };

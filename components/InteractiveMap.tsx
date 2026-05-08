@@ -16,7 +16,7 @@ interface MapMarker {
   blurb?: string;
   category?: 'hotel' | 'attraction' | 'restaurant' | 'activity';
   label?: string; // Letter or number to display in marker
-  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum' | 'medical' | 'police' | 'boat' | 'pill' | 'storefront' | 'dining'; // Icon for POI markers
+  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum' | 'medical' | 'police' | 'boat' | 'pill' | 'storefront' | 'dining' | 'activity' | 'golf'; // Icon for POI markers
   isPrimary?: boolean; // If true, marker is larger
   tooltipPosition?: 'up' | 'down'; // Default is 'up'
   pinColor?: string; // Custom pin color
@@ -848,6 +848,16 @@ export default function InteractiveMap() {
                     {marker.icon === 'dining' && (
                       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                         <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'activity' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/>
+                      </svg>
+                    )}
+                    {marker.icon === 'golf' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M14 2v9l-4-2v-5l4-2zm-3 16c-3.31 0-6 1.79-6 4h14c0-2.21-2.69-4-6-4h-2zm1-2V9.97l1 .5V15c0 .55-.45 1-1 1z"/>
                       </svg>
                     )}
                   </div>
