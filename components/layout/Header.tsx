@@ -9,14 +9,14 @@ import { BOOKING_URL } from '@/lib/constants';
 
 export default function Header() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredMenuItem, setHoveredMenuItem] = useState<string | null>(null);
 
   // Hide on map-editor page (it has its own header)
   if (pathname === '/map-editor') {
     return null;
   }
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hoveredMenuItem, setHoveredMenuItem] = useState<string | null>(null);
 
   // Show Stay submenu by default when menu opens
   useEffect(() => {
