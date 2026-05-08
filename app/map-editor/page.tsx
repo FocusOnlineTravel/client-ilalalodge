@@ -790,7 +790,7 @@ export default function MapEditorPage() {
 
 // Icon renderer component
 function IconRenderer({ icon }: { icon: string }) {
-  const icons: Record<string, JSX.Element> = {
+  const icons: Record<string, React.ReactNode> = {
     camera: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
         <path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/>
