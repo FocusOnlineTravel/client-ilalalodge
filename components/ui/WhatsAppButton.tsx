@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -22,12 +23,18 @@ const WHATSAPP_NUMBERS = {
 
 export default function WhatsAppButton() {
   const [showOptions, setShowOptions] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleOpenWhatsApp = () => setShowOptions(true);
     window.addEventListener('openWhatsAppPopup', handleOpenWhatsApp);
     return () => window.removeEventListener('openWhatsAppPopup', handleOpenWhatsApp);
   }, []);
+
+  // Hide on map-editor page
+  if (pathname === '/map-editor') {
+    return null;
+  }
 
   return (
     <>
