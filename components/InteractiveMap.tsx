@@ -543,19 +543,37 @@ export default function InteractiveMap() {
   const previewRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 });
 
-  const handleZoomChange = (level: ZoomLevel) => {
-    setZoomLevel(level);
+  const handleZoomChange = (newLevel: ZoomLevel) => {
+    const container = containerRef.current;
+
+    // Capture current center position as percentage (if zoomed)
+    let centerXPercent = 0.5;
+    let centerYPercent = 0.5;
+
+    if (container && zoomLevel !== 'fit') {
+      const scrollCenterX = container.scrollLeft + container.clientWidth / 2;
+      const scrollCenterY = container.scrollTop + container.clientHeight / 2;
+      centerXPercent = scrollCenterX / container.scrollWidth;
+      centerYPercent = scrollCenterY / container.scrollHeight;
+    }
+
+    setZoomLevel(newLevel);
     setActiveMarker(null);
 
-    // Scroll to center when zooming in
-    if (level !== 'fit' && containerRef.current) {
+    // Scroll to maintain same center position
+    if (newLevel !== 'fit' && container) {
       setTimeout(() => {
         if (containerRef.current) {
-          const container = containerRef.current;
-          container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
-          container.scrollTop = (container.scrollHeight - container.clientHeight) / 2;
+          const c = containerRef.current;
+          const targetScrollX = (c.scrollWidth * centerXPercent) - (c.clientWidth / 2);
+          const targetScrollY = (c.scrollHeight * centerYPercent) - (c.clientHeight / 2);
+          c.scrollTo({
+            left: targetScrollX,
+            top: targetScrollY,
+            behavior: 'smooth'
+          });
         }
-      }, 100);
+      }, 50);
     }
   };
 
@@ -671,7 +689,7 @@ export default function InteractiveMap() {
       className="relative transition-all duration-300"
       style={
         zoomLevel !== 'fit'
-          ? { width: `${getZoomWidth()}px` }
+          ? { width: `${getZoomWidth()}px`, minWidth: `${getZoomWidth()}px` }
           : fitHeight
           ? { height: '100%' }
           : { width: '100%' }
@@ -686,7 +704,7 @@ export default function InteractiveMap() {
         className="transition-all duration-300 pointer-events-none"
         style={
           zoomLevel !== 'fit'
-            ? { width: '100%', height: 'auto' }
+            ? { width: `${getZoomWidth()}px`, height: 'auto' }
             : fitHeight
             ? { height: '100%', width: 'auto' }
             : { width: '100%', height: 'auto' }
