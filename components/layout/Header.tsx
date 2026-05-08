@@ -1,12 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { X, Facebook, Instagram } from 'lucide-react';
 import { BOOKING_URL } from '@/lib/constants';
 
 export default function Header() {
+  const pathname = usePathname();
+
+  // Hide on map-editor page (it has its own header)
+  if (pathname === '/map-editor') {
+    return null;
+  }
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredMenuItem, setHoveredMenuItem] = useState<string | null>(null);
