@@ -661,9 +661,9 @@ export default function InteractiveMap() {
 
   // Map content component (reused in both preview and modal)
   const getZoomWidth = () => {
-    if (zoomLevel === '100') return IMAGE_WIDTH; // 5000px - full size
-    if (zoomLevel === '50') return Math.round(IMAGE_WIDTH * 0.35); // ~1750px - comfortable viewing
-    return undefined;
+    if (zoomLevel === '100') return IMAGE_WIDTH; // 5000px full size
+    if (zoomLevel === '50') return Math.round(IMAGE_WIDTH * 0.35); // ~1750px comfortable mid-zoom
+    return undefined; // fit mode
   };
 
   const MapContent = ({ inModal = false, fitHeight = false }: { inModal?: boolean; fitHeight?: boolean }) => (
