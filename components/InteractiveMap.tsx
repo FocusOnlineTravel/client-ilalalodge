@@ -680,7 +680,7 @@ export default function InteractiveMap() {
         width={IMAGE_WIDTH}
         height={IMAGE_HEIGHT}
         className={`transition-all duration-300 pointer-events-none ${
-          zoomLevel !== 'fit' ? 'w-auto' : fitHeight ? 'h-full w-auto' : 'w-full h-auto'
+          zoomLevel !== 'fit' ? 'w-full h-auto' : fitHeight ? 'h-full w-auto' : 'w-full h-auto'
         }`}
         draggable={false}
         priority
