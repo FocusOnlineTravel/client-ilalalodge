@@ -543,35 +543,15 @@ export default function InteractiveMap() {
   const previewRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 });
 
-  const handleZoomChange = (newLevel: ZoomLevel) => {
-    const container = containerRef.current;
-
-    // Capture current center position as percentage (if zoomed)
-    let centerXPercent = 0.5;
-    let centerYPercent = 0.5;
-
-    if (container && zoomLevel !== 'fit') {
-      const scrollCenterX = container.scrollLeft + container.clientWidth / 2;
-      const scrollCenterY = container.scrollTop + container.clientHeight / 2;
-      centerXPercent = scrollCenterX / container.scrollWidth;
-      centerYPercent = scrollCenterY / container.scrollHeight;
-    }
-
-    setZoomLevel(newLevel);
+  const handleZoomChange = (level: ZoomLevel) => {
+    setZoomLevel(level);
     setActiveMarker(null);
 
-    // Scroll to maintain same center position
-    if (newLevel !== 'fit' && container) {
+    // Reset scroll to top-left when changing zoom
+    if (level !== 'fit' && containerRef.current) {
       setTimeout(() => {
         if (containerRef.current) {
-          const c = containerRef.current;
-          const targetScrollX = (c.scrollWidth * centerXPercent) - (c.clientWidth / 2);
-          const targetScrollY = (c.scrollHeight * centerYPercent) - (c.clientHeight / 2);
-          c.scrollTo({
-            left: targetScrollX,
-            top: targetScrollY,
-            behavior: 'smooth'
-          });
+          containerRef.current.scrollTo(0, 0);
         }
       }, 50);
     }
@@ -1007,9 +987,7 @@ export default function InteractiveMap() {
               style={zoomLevel !== 'fit' ? { scrollbarWidth: 'none', msOverflowStyle: 'none' } : {}}
             >
               {zoomLevel !== 'fit' ? (
-                <div className="min-w-full min-h-full flex items-center justify-center">
-                  <MapContent inModal />
-                </div>
+                <MapContent inModal />
               ) : (
                 <div
                   className="w-full h-full flex items-center justify-center"
