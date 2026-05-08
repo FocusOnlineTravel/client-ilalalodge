@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Calendar, Mail } from 'lucide-react';
 import WhatsAppTriggerButton from '@/components/ui/WhatsAppTriggerButton';
 import { BOOKING_URL } from '@/lib/constants';
@@ -25,6 +26,13 @@ const itemClass =
   'flex-1 flex flex-col items-center justify-center gap-1 text-white hover:text-brand-gold transition-colors';
 
 export default function MobileBottomNav() {
+  const pathname = usePathname();
+
+  // Hide on map-editor page
+  if (pathname === '/map-editor') {
+    return null;
+  }
+
   return (
     <nav
       className="lg:hidden fixed bottom-0 left-0 right-0 z-40 h-16 bg-brand-forest border-t border-white/10 flex items-stretch shadow-[0_-2px_10px_rgba(0,0,0,0.15)] pb-[env(safe-area-inset-bottom)]"

@@ -701,16 +701,19 @@ export default function MapEditorPage() {
                         }}
                         className={`relative group p-2 rounded-lg transition-all ${
                           selectedMarker.icon === iconType.value
-                            ? 'bg-blue-600 ring-2 ring-blue-400'
+                            ? 'ring-2 ring-blue-400 bg-blue-600'
                             : 'bg-gray-700 hover:bg-gray-600'
                         }`}
                         title={iconType.label}
                       >
-                        <div
-                          className="w-6 h-6 mx-auto"
-                          style={{ color: selectedMarker.icon === iconType.value ? 'white' : iconType.color }}
-                        >
-                          <IconRenderer icon={iconType.value} />
+                        {/* White circle background like map markers */}
+                        <div className="w-8 h-8 mx-auto bg-white rounded-full flex items-center justify-center">
+                          <div
+                            className="w-5 h-5"
+                            style={{ color: iconType.color }}
+                          >
+                            <IconRenderer icon={iconType.value} />
+                          </div>
                         </div>
                         {/* Tooltip on hover */}
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
