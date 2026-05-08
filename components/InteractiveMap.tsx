@@ -558,37 +558,24 @@ export default function InteractiveMap() {
       centerYPercent = scrollCenterY / container.scrollHeight;
     }
 
-    // When going from fit to zoomed, start from center
-    if (oldLevel === 'fit' && newLevel !== 'fit') {
-      centerXPercent = 0.5;
-      centerYPercent = 0.5;
-    }
-
     setZoomLevel(newLevel);
     setActiveMarker(null);
 
-    // Restore center position after zoom with smooth scrolling
+    // Restore center position after zoom
     if (newLevel !== 'fit') {
       // Calculate target scroll position based on new zoom level
       const newWidth = newLevel === '100' ? IMAGE_WIDTH : 2500;
       const newHeight = (newWidth / IMAGE_WIDTH) * IMAGE_HEIGHT;
 
-      // Wait for DOM update, then scroll smoothly
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          if (containerRef.current) {
-            const c = containerRef.current;
-            const targetScrollX = Math.max(0, (newWidth * centerXPercent) - (c.clientWidth / 2));
-            const targetScrollY = Math.max(0, (newHeight * centerYPercent) - (c.clientHeight / 2));
+        if (containerRef.current) {
+          const c = containerRef.current;
+          const targetScrollX = Math.max(0, (newWidth * centerXPercent) - (c.clientWidth / 2));
+          const targetScrollY = Math.max(0, (newHeight * centerYPercent) - (c.clientHeight / 2));
 
-            // Use smooth scrolling
-            c.scrollTo({
-              left: targetScrollX,
-              top: targetScrollY,
-              behavior: 'smooth'
-            });
-          }
-        });
+          c.scrollLeft = targetScrollX;
+          c.scrollTop = targetScrollY;
+        }
       });
     }
   };
