@@ -668,10 +668,14 @@ export default function InteractiveMap() {
 
   const MapContent = ({ inModal = false, fitHeight = false }: { inModal?: boolean; fitHeight?: boolean }) => (
     <div
-      className={`relative transition-all duration-300 ${
-        zoomLevel !== 'fit' ? '' : fitHeight ? 'h-full' : 'w-full'
-      }`}
-      style={zoomLevel !== 'fit' ? { width: `${getZoomWidth()}px` } : {}}
+      className="relative transition-all duration-300"
+      style={
+        zoomLevel !== 'fit'
+          ? { width: `${getZoomWidth()}px` }
+          : fitHeight
+          ? { height: '100%' }
+          : { width: '100%' }
+      }
     >
       {/* Map Image */}
       <Image
@@ -679,9 +683,14 @@ export default function InteractiveMap() {
         alt="Victoria Falls Town Map"
         width={IMAGE_WIDTH}
         height={IMAGE_HEIGHT}
-        className={`transition-all duration-300 pointer-events-none ${
-          zoomLevel !== 'fit' ? 'w-full h-auto' : fitHeight ? 'h-full w-auto' : 'w-full h-auto'
-        }`}
+        className="transition-all duration-300 pointer-events-none"
+        style={
+          zoomLevel !== 'fit'
+            ? { width: '100%', height: 'auto' }
+            : fitHeight
+            ? { height: '100%', width: 'auto' }
+            : { width: '100%', height: 'auto' }
+        }
         draggable={false}
         priority
       />
