@@ -543,17 +543,42 @@ export default function InteractiveMap() {
   const previewRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 });
 
-  const handleZoomChange = (level: ZoomLevel) => {
-    setZoomLevel(level);
+  const handleZoomChange = (newLevel: ZoomLevel) => {
+    const container = containerRef.current;
+    const oldLevel = zoomLevel;
+
+    // Calculate current center position as percentage of content
+    let centerXPercent = 0.5;
+    let centerYPercent = 0.5;
+
+    if (container && oldLevel !== 'fit' && container.scrollWidth > 0) {
+      const scrollCenterX = container.scrollLeft + container.clientWidth / 2;
+      const scrollCenterY = container.scrollTop + container.clientHeight / 2;
+      centerXPercent = scrollCenterX / container.scrollWidth;
+      centerYPercent = scrollCenterY / container.scrollHeight;
+    }
+
+    setZoomLevel(newLevel);
     setActiveMarker(null);
 
-    // Reset scroll to top-left when changing zoom
-    if (level !== 'fit' && containerRef.current) {
-      setTimeout(() => {
+    // Restore center position after zoom with smooth scrolling
+    if (newLevel !== 'fit') {
+      // Calculate target scroll position based on new zoom level
+      const newWidth = newLevel === '100' ? IMAGE_WIDTH : 2500;
+      const newHeight = (newWidth / IMAGE_WIDTH) * IMAGE_HEIGHT;
+
+      // Wait for next frame to get proper dimensions, then scroll smoothly
+      requestAnimationFrame(() => {
         if (containerRef.current) {
-          containerRef.current.scrollTo(0, 0);
+          const c = containerRef.current;
+          const targetScrollX = Math.max(0, (newWidth * centerXPercent) - (c.clientWidth / 2));
+          const targetScrollY = Math.max(0, (newHeight * centerYPercent) - (c.clientHeight / 2));
+
+          // Set initial position instantly to prevent jump
+          c.scrollLeft = targetScrollX;
+          c.scrollTop = targetScrollY;
         }
-      }, 50);
+      });
     }
   };
 
@@ -660,7 +685,7 @@ export default function InteractiveMap() {
   // Map content component (reused in both preview and modal)
   const getZoomWidth = () => {
     if (zoomLevel === '100') return IMAGE_WIDTH; // 5000px full size
-    if (zoomLevel === '50') return 2500; // Half size - noticeable difference from 100%
+    if (zoomLevel === '50') return 2500; // Half size
     return undefined; // fit mode
   };
 
