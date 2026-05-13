@@ -30,14 +30,14 @@ export const homePage: HomePage = {
       intro_eyebrow: 'Closest Hotel to the Falls',
       intro_heading: 'A family-run hotel that offers luxury and comfort in the heart of Victoria Falls',
       intro_body_copy:
-        'Ilala Lodge Hotel is a family-run hotel offering luxury and comfort in the heart of Victoria Falls, Zimbabwe. Set within established gardens, the hotel is the closest to Victoria Falls, just an 8-minute walk from one of the Seven Natural Wonders of the World. Ideally located within walking distance of key historical sites, restaurants, and activities, our team brings warm, attentive service and genuine African hospitality to ensure a seamless and memorable stay.',
+        'Ilala Lodge Hotel is a family-run hotel offering luxury and comfort in the heart of Victoria Falls, Zimbabwe. Set within established gardens, the hotel is the closest to Victoria Falls, just an 8-minute walk from one of the Seven Natural Wonders of the World.',
       intro_cta: {
         label: 'Our Story',
         url: '/our-story',
         target: '_self',
       },
       intro_image: {
-        url: '/images/intr0-image.png',
+        url: '/images/mike-preview/lodge-Ilala-Lodge-2026-03-MvR-15.jpg',
         alt: 'Ilala Lodge Hotel gardens',
         width: 800,
         height: 600,
@@ -57,10 +57,10 @@ export const homePage: HomePage = {
           room_price_from: 'From $180',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/accommodation-classic.png',
+            url: '/images/mike-preview/Room-Ilala-Lodge-2026-03-MvR-05.jpg',
             alt: 'Classic Room at Ilala Lodge Hotel',
-            width: 600,
-            height: 400,
+            width: 1500,
+            height: 1000,
           },
           room_cta: {
             label: 'Book Room',
@@ -76,7 +76,7 @@ export const homePage: HomePage = {
           room_price_from: 'From $240',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/Deluxe-Room-King-ILH--1500x1000.jpeg',
+            url: '/images/mike-preview/Room-Ilala-Lodge-2026-03-MvR-07.jpg',
             alt: 'Deluxe Room at Ilala Lodge Hotel',
             width: 1500,
             height: 1000,
@@ -133,7 +133,7 @@ export const homePage: HomePage = {
           room_price_from: 'From $650',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/Strathern-Suite-Bedroom.jpeg',
+            url: '/images/mike-preview/Penthouse-Ilala-Lodge-2026-03-MvR-04.jpg',
             alt: 'Strathearn Suite at Ilala Lodge Hotel',
             width: 1500,
             height: 1000,
@@ -165,31 +165,31 @@ export const homePage: HomePage = {
       },
       dining_images: [
         {
-          url: '/images/dining-1.png',
+          url: '/images/mike-preview/Dining-Ilala-Lodge-2026-03-MvR-02.jpg',
           alt: 'Cassia Restaurant outdoor dining',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/dining-2.png',
+          url: '/images/mike-preview/Restaurant-Ilala-Lodge-2026-03-MvR-12.jpg',
           alt: 'Gourmet dish at Cassia Restaurant',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/dining-3.png',
+          url: '/images/mike-preview/Food-Ilala-Lodge-2026-03-MvR-08.jpg',
           alt: 'Cassia Restaurant ambience',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/dining-4.png',
+          url: '/images/mike-preview/Dining-Ilala-Lodge-2026-03-MvR-17.jpg',
           alt: 'Fine dining experience',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/dining-5.png',
+          url: '/images/mike-preview/Food-Ilala-Lodge-2026-03-MvR-11.jpg',
           alt: 'Restaurant setting',
           width: 400,
           height: 300,
@@ -209,26 +209,27 @@ export const homePage: HomePage = {
       },
       wildlife_images: [
         {
-          url: '/images/wildlife-1.png',
-          alt: 'Elephants at Ilala Lodge',
+          url: '/images/mike-preview/Zambezi-river-Ilala-Lodge-2026-03-MvR-01.jpg',
+          alt: 'Zambezi River at Ilala Lodge',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/wildlife-2.png',
-          alt: 'Warthogs on hotel lawn',
+          url: '/images/mike-preview/Raikane-Ilala-Lodge-2026-03-MvR-21.jpg',
+          alt: 'Raikane riverboat experience',
+          width: 400,
+          height: 300,
+          video_url: '/videos/binoculars.mp4',
+        },
+        {
+          url: '/images/mike-preview/Zambezi-river-Ilala-Lodge-2026-03-MvR-19.jpg',
+          alt: 'Zambezi River views',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/wildlife-3.png',
-          alt: 'Victoria Falls National Park',
-          width: 400,
-          height: 300,
-        },
-        {
-          url: '/images/wildlife-4.png',
-          alt: 'Wildlife viewing',
+          url: '/images/mike-preview/Zambezi-river-Raikane-Ilala-Lodge-2026-03-MvR-22.jpg',
+          alt: 'Raikane on the Zambezi River',
           width: 400,
           height: 300,
         },
@@ -331,8 +332,8 @@ export const homePage: HomePage = {
       cta_banner_heading: 'Ready to Experience Victoria Falls?',
       cta_banner_subheading: 'Book your stay at the closest hotel to the Falls',
       cta_banner_image: {
-        url: '/images/pool.png',
-        alt: 'Ilala Lodge Hotel pool area',
+        url: '/images/mike-preview/lodge-Ilala-Lodge-2026-03-MvR-16.jpg',
+        alt: 'Ilala Lodge Hotel',
         width: 1200,
         height: 600,
       },

@@ -61,126 +61,116 @@ export default function FacilitiesPage() {
       </section>
 
       {/* Poolside Bar */}
-      <section id="poolside-bar" className="py-12 md:py-16 bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/dining-1.png"
-                alt="Poolside Bar"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-                Poolside Bar
-              </h2>
-              <p className="text-brand-forest/80 leading-relaxed">
-                Open daily from 10h00 to 22h00, the Poolside Bar is set alongside the hotel's two swimming pools. The teak bar, crafted from locally sourced railway sleepers, creates a relaxed setting for afternoon drinks and sundowners. Guests can enjoy views over the Victoria Falls National Park and the rising mist of the Falls.
-              </p>
-            </div>
+      <section id="poolside-bar" className="bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
+        <div className="grid md:grid-cols-2 items-center">
+          <div className="relative h-[400px] md:h-[600px] lg:h-[700px]">
+            <Image
+              src="/images/mike-preview/Bar-Ilala-Lodge-2026-03-MvR-18.jpg"
+              alt="Poolside Bar"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="px-6 md:px-12 lg:px-20 py-12 md:py-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+              Poolside Bar
+            </h2>
+            <p className="text-brand-forest/80 leading-relaxed">
+              Open daily from 10h00 to 22h00, the Poolside Bar is set alongside the hotel's two swimming pools. The teak bar, crafted from locally sourced railway sleepers, creates a relaxed setting for afternoon drinks and sundowners. Guests can enjoy views over the Victoria Falls National Park and the rising mist of the Falls.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Swimming Pools */}
-      <section id="swimming-pools" className="py-12 md:py-16 bg-brand-daisy scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="md:order-2 relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/wildlife-1.png"
-                alt="Swimming Pools"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="md:order-1">
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-                Swimming Pools
-              </h2>
-              <p className="text-brand-forest/80 leading-relaxed mb-4">
-                Guests can choose between two swimming pools: a larger pool with a shallow end and gentle slope, and a plunge pool on a lower deck overlooking the gardens, National Park, and spray from Victoria Falls.
-              </p>
-              <p className="text-brand-forest/80 leading-relaxed">
-                Both pools are surrounded by timber decks with loungers, umbrellas, and cabana day beds. A poolside lounge offers open-plan seating, a writing desk, games table, books, USB chargers, and plug points, all conveniently located next to the Poolside Bar.
-              </p>
-            </div>
+      <section id="swimming-pools" className="bg-brand-daisy scroll-mt-24">
+        <div className="grid md:grid-cols-2 items-center">
+          <div className="md:order-2 relative h-[400px] md:h-[600px] lg:h-[700px]">
+            <Image
+              src="/images/wildlife-1.png"
+              alt="Swimming Pools"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="md:order-1 px-6 md:px-12 lg:px-20 py-12 md:py-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+              Swimming Pools
+            </h2>
+            <p className="text-brand-forest/80 leading-relaxed mb-4">
+              Guests can choose between two swimming pools: a larger pool with a shallow end and gentle slope, and a plunge pool on a lower deck overlooking the gardens, National Park, and spray from Victoria Falls.
+            </p>
+            <p className="text-brand-forest/80 leading-relaxed">
+              Both pools are surrounded by timber decks with loungers, umbrellas, and cabana day beds. A poolside lounge offers open-plan seating, a writing desk, games table, books, USB chargers, and plug points, all conveniently located next to the Poolside Bar.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Tours & Activities Desk */}
-      <section id="activities-desk" className="py-12 md:py-16 bg-white scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/wildlife-3.png"
-                alt="Tours & Activities Desk"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-                Tours & Activities Desk
-              </h2>
-              <p className="text-brand-forest/80 leading-relaxed">
-                The Tours & Activities Desk provides assistance with planning and booking experiences in and around Victoria Falls. The team can arrange activities, transfers, and river cruises, offering a convenient in-house service.
-              </p>
-            </div>
+      <section id="activities-desk" className="bg-white scroll-mt-24">
+        <div className="grid md:grid-cols-2 items-center">
+          <div className="relative h-[400px] md:h-[600px] lg:h-[700px]">
+            <Image
+              src="/images/wildlife-3.png"
+              alt="Tours & Activities Desk"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="px-6 md:px-12 lg:px-20 py-12 md:py-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+              Tours & Activities Desk
+            </h2>
+            <p className="text-brand-forest/80 leading-relaxed">
+              The Tours & Activities Desk provides assistance with planning and booking experiences in and around Victoria Falls. The team can arrange activities, transfers, and river cruises, offering a convenient in-house service.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Conferencing & Event Facilities */}
-      <section id="conferencing" className="py-12 md:py-16 bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="md:order-2 relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/banner-image.png"
-                alt="Conferencing & Event Facilities"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="md:order-1">
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-                Conferencing & Event Facilities
-              </h2>
-              <p className="text-brand-forest/80 leading-relaxed mb-8">
-                The hotel's conferencing space offers a private setting for meetings, events, and small gatherings. Suitable for up to 30 guests, facilities include Wi-Fi, projector screens, USB connection points, and tea and coffee service.
-              </p>
-              <ServiceCTAs theme="light" align="start" />
-            </div>
+      <section id="conferencing" className="bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
+        <div className="grid md:grid-cols-2 items-center">
+          <div className="md:order-2 relative h-[400px] md:h-[600px] lg:h-[700px]">
+            <Image
+              src="/images/banner-image.png"
+              alt="Conferencing & Event Facilities"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="md:order-1 px-6 md:px-12 lg:px-20 py-12 md:py-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+              Conferencing & Event Facilities
+            </h2>
+            <p className="text-brand-forest/80 leading-relaxed mb-8">
+              The hotel's conferencing space offers a private setting for meetings, events, and small gatherings. Suitable for up to 30 guests, facilities include Wi-Fi, projector screens, USB connection points, and tea and coffee service.
+            </p>
+            <ServiceCTAs theme="light" align="start" />
           </div>
         </div>
       </section>
 
       {/* Spa Treatments */}
-      <section id="spa" className="py-12 md:py-16 bg-brand-daisy scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/dining-2.png"
-                alt="Spa Treatments"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-                Spa Treatments
-              </h2>
-              <p className="text-brand-forest/80 leading-relaxed mb-8">
-                A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures - providing a convenient space to relax during your stay.
-              </p>
-              <ServiceCTAs theme="light" align="start" />
-            </div>
+      <section id="spa" className="bg-brand-daisy scroll-mt-24">
+        <div className="grid md:grid-cols-2 items-center">
+          <div className="relative h-[400px] md:h-[600px] lg:h-[700px]">
+            <Image
+              src="/images/dining-2.png"
+              alt="Spa Treatments"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="px-6 md:px-12 lg:px-20 py-12 md:py-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+              Spa Treatments
+            </h2>
+            <p className="text-brand-forest/80 leading-relaxed mb-8">
+              A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures - providing a convenient space to relax during your stay.
+            </p>
+            <ServiceCTAs theme="light" align="start" />
           </div>
         </div>
       </section>
