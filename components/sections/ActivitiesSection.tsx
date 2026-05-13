@@ -11,17 +11,17 @@ interface Props {
 // Map activity labels to custom icons
 const getActivityIcon = (label: string) => {
   const iconMap: Record<string, string> = {
-    'Helicopter Flights': '/icons/icon-chopper 1.png',
-    'Bungee Jumping': '/icons/waterfall 1.png',
-    'White Water Rafting': '/icons/icon-boat 1.png',
-    'Game Drives': '/icons/family-car 2.png',
+    'Helicopter Flights': '/icons/helicopter-flights.png',
+    'Bungee Jumping': '/icons/bungee-jumping.png',
+    'White Water Rafting': '/icons/white-river-rafting.png',
+    'Game Drives': '/icons/game-drives.png',
     'River Cruises': '/icons/icon-boat 1.png',
-    'Cultural Tours': '/icons/quiver 1.png',
-    'Gorge Swing': '/icons/walk 1.png',
-    'Zip Lining': '/icons/waterfall 1.png',
-    'Big Five Safari': '/icons/pawprint 1.png',
-    'Chobe Day Trip': '/icons/family-car 2.png',
-    'Hwange Day Trip': '/icons/family-car 2.png',
+    'Cultural Tours': '/icons/cultural-tours.png',
+    'Gorge Swing': '/icons/gorge-swing.png',
+    'Zip Lining': '/icons/zip-lining.png',
+    'Big Five Safari': '/icons/big-five-safari.png',
+    'Chobe Day Trip': '/icons/chobe-day-trip.png',
+    'Hwange Day Trip': '/icons/jeep.png',
     'Fishing': '/icons/icon-boat 1.png',
   };
 
