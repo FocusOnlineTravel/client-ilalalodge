@@ -3,6 +3,7 @@ export interface AcfImage {
   alt: string;
   width?: number;
   height?: number;
+  video_url?: string;
 }
 
 export interface AcfCta {

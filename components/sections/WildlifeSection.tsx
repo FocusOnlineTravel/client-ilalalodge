@@ -42,13 +42,24 @@ export default function WildlifeSection({ data }: Props) {
                   delay={index * 100}
                   className="relative h-[400px] lg:h-[400px] overflow-hidden"
                 >
-                  <Image
-                    src={image.url}
-                    alt={image.alt}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
+                  {image.video_url ? (
+                    <video
+                      src={image.video_url}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <Image
+                      src={image.url}
+                      alt={image.alt}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  )}
                 </FadeInView>
               ))}
             </div>
@@ -60,13 +71,24 @@ export default function WildlifeSection({ data }: Props) {
                   delay={150 + index * 100}
                   className="relative h-[400px] lg:h-[400px] overflow-hidden"
                 >
-                  <Image
-                    src={image.url}
-                    alt={image.alt}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
+                  {image.video_url ? (
+                    <video
+                      src={image.video_url}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <Image
+                      src={image.url}
+                      alt={image.alt}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  )}
                 </FadeInView>
               ))}
             </div>

@@ -97,14 +97,16 @@ export default function VictoriaFallsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
+      <section className="relative h-[80vh] min-h-[500px] flex items-end justify-center pb-16 md:pb-24">
         <div className="absolute inset-0">
-          <Image
-            src="/images/banner-image-2-cropped.png"
-            alt="Victoria Falls"
-            fill
-            className="object-cover"
-            priority
+          <video
+            src="/videos/victoria-falls-banner.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/banner-image-2-cropped.png"
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
