@@ -3,525 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { ZoomIn, ZoomOut, X, Maximize2 } from 'lucide-react';
+import { markers, MapMarker } from './mapMarkers';
 
 // Image dimensions - update these if the source image changes
 const IMAGE_WIDTH = 5000;
 const IMAGE_HEIGHT = 3663;
-
-interface MapMarker {
-  id: string;
-  x: number; // pixel x coordinate based on IMAGE_WIDTH
-  y: number; // pixel y coordinate based on IMAGE_HEIGHT
-  title: string;
-  blurb?: string;
-  category?: 'hotel' | 'attraction' | 'restaurant' | 'activity';
-  label?: string; // Letter or number to display in marker
-  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum' | 'medical' | 'police' | 'boat' | 'pill' | 'storefront' | 'dining' | 'activity' | 'golf'; // Icon for POI markers
-  isPrimary?: boolean; // If true, marker is larger
-  tooltipPosition?: 'up' | 'down'; // Default is 'up'
-  pinColor?: string; // Custom pin color
-}
-
-// Markers - coordinates scaled for 5000px width image
-const markers: MapMarker[] = [
-  {
-    "id": "1",
-    "x": 2646,
-    "y": 2503,
-    "title": "Ilala Lodge Hotel",
-    "blurb": "Boutique hotel within walking distance of Victoria Falls and the rainforest entrance.",
-    "category": "hotel",
-    "label": "A",
-    "isPrimary": true
-  },
-  {
-    "id": "2",
-    "x": 1260,
-    "y": 476,
-    "title": "The Palm River Hotel",
-    "blurb": "Elegant riverside hotel blending luxury accommodation with peaceful Zambezi River surroundings.",
-    "category": "attraction",
-    "label": "B",
-    "tooltipPosition": "down"
-  },
-  {
-    "id": "3",
-    "x": 2696,
-    "y": 2979,
-    "title": "Victoria Falls Hotel",
-    "blurb": "Historic colonial-style hotel overlooking the Victoria Falls Bridge and Batoka Gorge.",
-    "category": "activity",
-    "label": "C"
-  },
-  {
-    "id": "4",
-    "x": 2709,
-    "y": 2762,
-    "title": "Stanley and Livingstone",
-    "blurb": "Exclusive safari-style boutique retreat located within a private wildlife reserve.",
-    "category": "activity",
-    "label": "D"
-  },
-  {
-    "id": "5",
-    "x": 815,
-    "y": 1731,
-    "title": "Victoria Falls Safari Lodge",
-    "blurb": "Safari lodge famous for sunset views and wildlife visiting its waterhole.",
-    "category": "activity",
-    "label": "E"
-  },
-  {
-    "id": "6",
-    "x": 1699,
-    "y": 1055,
-    "title": "Elephant Hills Hotel",
-    "blurb": "Resort hotel with golf course, river views, and family-friendly facilities.",
-    "category": "activity",
-    "label": "F"
-  },
-  {
-    "id": "7",
-    "x": 1570,
-    "y": 2977,
-    "title": "Victoria Falls River Lodge",
-    "blurb": "Luxury tented lodge offering immersive safari experiences along the Zambezi River.",
-    "category": "activity",
-    "label": "G"
-  },
-  {
-    "id": "8",
-    "x": 2229,
-    "y": 2245,
-    "title": "Zambezi Sands River Lodge",
-    "blurb": "Local arts, crafts, and souvenirs. Experience authentic Zimbabwean craftsmanship.",
-    "category": "activity",
-    "label": "H"
-  },
-  {
-    "id": "poi-1",
-    "x": 3077,
-    "y": 2450,
-    "title": "Rainforest Entrance",
-    "blurb": "Main entrance to the rainforest and iconic Victoria Falls viewpoints.",
-    "icon": "tree",
-    "pinColor": "#16A34A"
-  },
-  {
-    "id": "poi-2",
-    "x": 3053,
-    "y": 2834,
-    "title": "Batoka Gorge",
-    "blurb": "Dramatic gorge carved by the Zambezi River below Victoria Falls.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-3",
-    "x": 3938,
-    "y": 2706,
-    "title": "Victoria Falls Bridge",
-    "blurb": "Historic bridge connecting Zimbabwe and Zambia above the dramatic Batoka Gorge.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-4",
-    "x": 2643,
-    "y": 1361,
-    "title": "The Big Tree",
-    "blurb": "Massive ancient baobab tree popular for photographs and historical significance.",
-    "icon": "tree",
-    "pinColor": "#16A34A"
-  },
-  {
-    "id": "poi-5",
-    "x": 2531,
-    "y": 2472,
-    "title": "Shopping Center",
-    "icon": "shopping",
-    "pinColor": "#f01d79"
-  },
-  {
-    "id": "poi-6",
-    "x": 2452,
-    "y": 2732,
-    "title": "Shopping Center",
-    "icon": "shopping",
-    "pinColor": "#f01d79"
-  },
-  {
-    "id": "poi-7",
-    "x": 2023,
-    "y": 2914,
-    "title": "Shopping Center",
-    "icon": "shopping",
-    "pinColor": "#f01d79"
-  },
-  {
-    "id": "poi-8",
-    "x": 2245,
-    "y": 2685,
-    "title": "Pharmacy",
-    "icon": "pill",
-    "pinColor": "#ff0000"
-  },
-  {
-    "id": "poi-9",
-    "x": 2077,
-    "y": 2964,
-    "title": "Pharmacy",
-    "icon": "pill",
-    "pinColor": "#ff0000"
-  },
-  {
-    "id": "poi-10",
-    "x": 2177,
-    "y": 2853,
-    "title": "Police",
-    "icon": "police",
-    "pinColor": "#311caa"
-  },
-  {
-    "id": "poi-11",
-    "x": 1508,
-    "y": 3422,
-    "title": "Pharmacy",
-    "icon": "pill",
-    "pinColor": "#ff0000"
-  },
-  {
-    "id": "poi-12",
-    "x": 1973,
-    "y": 2564,
-    "title": "Hospital",
-    "icon": "medical",
-    "pinColor": "#ff0000"
-  },
-  {
-    "id": "poi-13",
-    "x": 2578,
-    "y": 2390,
-    "title": "Curio Market",
-    "icon": "storefront",
-    "pinColor": "#f01d79"
-  },
-  {
-    "id": "poi-14",
-    "x": 3233,
-    "y": 2501,
-    "title": "Victoria Falls Rainforest",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-15",
-    "x": 1495,
-    "y": 3392,
-    "title": "Dusty Road Township Experience",
-    "blurb": "Community-based cultural dining experience showcasing township cuisine, music, and storytelling.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-16",
-    "x": 675,
-    "y": 1799,
-    "title": "Vulture Feeding",
-    "blurb": "Educational conservation experience observing wild vultures during scheduled feeding sessions.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-17",
-    "x": 508,
-    "y": 310,
-    "title": "Zambezi National Park",
-    "blurb": "Wildlife-rich national park offering game drives, birdwatching, and river safari experiences.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-18",
-    "x": 1416,
-    "y": 406,
-    "title": "Ra-Ikane Jetty",
-    "blurb": "Departure point for luxury sunset cruises on the Zambezi River.",
-    "icon": "boat",
-    "pinColor": "#0891B2"
-  },
-  {
-    "id": "poi-19",
-    "x": 762,
-    "y": 2100,
-    "title": "The Boma - Dinner & Drum Show",
-    "blurb": "Interactive cultural dining experience featuring traditional food, drumming, and dancing performances.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-20",
-    "x": 2441,
-    "y": 2704,
-    "title": "GOAT at Mama Africa Restaurant",
-    "blurb": "Popular African fusion restaurant specialising in grilled meats and vibrant atmosphere.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-21",
-    "x": 1722,
-    "y": 2565,
-    "title": "Nyota Zimbabwean Cuisine",
-    "blurb": "Authentic Zimbabwean restaurant celebrating local flavours and traditional regional dishes.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-22",
-    "x": 2420,
-    "y": 2713,
-    "title": "Zulu Bistro Bar",
-    "blurb": "Trendy African-inspired bistro offering cocktails, tapas, and stylish evening dining.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-23",
-    "x": 2228,
-    "y": 2566,
-    "title": "La Piazza Victoria Falls",
-    "blurb": "Casual Italian-inspired restaurant serving pizzas, pasta, and family-friendly meals.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-24",
-    "x": 769,
-    "y": 2557,
-    "title": "The Social Kitchen",
-    "blurb": "Contemporary cafe-style restaurant known for fresh breakfasts, lunches, and relaxed dining.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-25",
-    "x": 3045,
-    "y": 2778,
-    "title": "The Lookout Cafe - Wild Horizons",
-    "blurb": "Gorge-edge cafe with spectacular views overlooking the Batoka Gorge and bridge.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-26",
-    "x": 2484,
-    "y": 2618,
-    "title": "The Three Monkeys Restaurant & Bar",
-    "blurb": "Vibrant restaurant serving wood-fired pizzas, burgers, cocktails, and lively social dining.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-27",
-    "x": 2629,
-    "y": 2449,
-    "title": "The Cassia Restaurant",
-    "blurb": "Elegant fine dining restaurant at Ilala Lodge Hotel overlooking lush indigenous gardens.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-28",
-    "x": 3099,
-    "y": 2049,
-    "title": "Baines Restaurant",
-    "blurb": "Sophisticated riverside restaurant offering refined cuisine and beautiful sunset dining experiences.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-29",
-    "x": 719,
-    "y": 1780,
-    "title": "MaKuwa-Kuwa Restaurant",
-    "blurb": "Safari lodge restaurant overlooking a busy waterhole frequented by wildlife.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-30",
-    "x": 2666,
-    "y": 2927,
-    "title": "Stanley's Terrace",
-    "blurb": "Historic terrace restaurant serving high tea and classic meals with scenic views.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-31",
-    "x": 2304,
-    "y": 2716,
-    "title": "Marula Cafe",
-    "blurb": "Relaxed cafe popular for quality coffee, brunches, and lighter meals.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-32",
-    "x": 3066,
-    "y": 2498,
-    "title": "Malonga Cafe",
-    "blurb": "Casual cafe serving coffee, light meals, desserts, and refreshing drinks.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-33",
-    "x": 2497,
-    "y": 2533,
-    "title": "Active Sushi Victoria Falls",
-    "blurb": "Contemporary sushi restaurant offering fresh Japanese-inspired dishes in central Victoria Falls.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-34",
-    "x": 3114,
-    "y": 2454,
-    "title": "The Rainforest Cafe",
-    "blurb": "Convenient cafe near the rainforest entrance serving snacks, meals, and refreshments.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-35",
-    "x": 2524,
-    "y": 2486,
-    "title": "The River",
-    "blurb": "Relaxed riverside dining venue with scenic Zambezi views and contemporary cuisine.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-36",
-    "x": 2530,
-    "y": 2552,
-    "title": "The Smokehouse at River Brewery Victoria Falls",
-    "blurb": "Craft brewery restaurant specialising in smoked meats, burgers, and local beers.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-37",
-    "x": 2266,
-    "y": 2617,
-    "title": "The Little Monkey Takeaway",
-    "blurb": "Casual eatery serving quick bites, coffee, and relaxed daytime dining.",
-    "icon": "food",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-38",
-    "x": 2063,
-    "y": 2562,
-    "title": "Shoestrings Restaurant",
-    "blurb": "Backpacker-friendly restaurant and bar with casual meals and lively evening entertainment.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-39",
-    "x": 3980,
-    "y": 2841,
-    "title": "Shearwater Cafe",
-    "blurb": "Central cafe popular for coffee, breakfasts, and quick light meals.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-40",
-    "x": 2429,
-    "y": 2727,
-    "title": "Mama Africa",
-    "blurb": "Vibrant local restaurant celebrating African cuisine, music, and warm hospitality.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-41",
-    "x": 2667,
-    "y": 2942,
-    "title": "Jungle Junction Restaurant",
-    "blurb": "Buffet-style restaurant at Victoria Falls Hotel featuring African-inspired and international cuisine.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-42",
-    "x": 2551,
-    "y": 2433,
-    "title": "Namtook Restaurant",
-    "blurb": "Thai-inspired restaurant offering flavourful curries, stir-fries, and Asian-inspired dishes.",
-    "icon": "dining",
-    "pinColor": "#F97316"
-  },
-  {
-    "id": "poi-43",
-    "x": 2565,
-    "y": 2474,
-    "title": "Elephant's Walk Shopping & Artist's Village",
-    "blurb": "Open-air shopping village featuring local artists, crafts, jewellery, and souvenir boutiques.",
-    "icon": "storefront",
-    "pinColor": "#f01d79"
-  },
-  {
-    "id": "poi-44",
-    "x": 3945,
-    "y": 87,
-    "title": "Crocodile Farm",
-    "blurb": "Educational crocodile farm showcasing Nile crocodiles and local reptile conservation.",
-    "icon": "camera",
-    "tooltipPosition": "down",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-45",
-    "x": 1719,
-    "y": 985,
-    "title": "Elephant Hills Golf Course",
-    "blurb": "Championship golf course surrounded by wildlife, indigenous bush, and scenic landscapes.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-46",
-    "x": 2771,
-    "y": 414,
-    "title": "Princess Elizabeth Island",
-    "blurb": "Small Zambezi River island associated with historical royal visits and river cruises.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-47",
-    "x": 2467,
-    "y": 2745,
-    "title": "Bushtracks Express",
-    "blurb": "Luxury steam train experience combining fine dining with scenic sunset journeys.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  },
-  {
-    "id": "poi-48",
-    "x": 3300,
-    "y": 1378,
-    "title": "Princess Christian Island",
-    "blurb": "Scenic Zambezi River island often viewed during luxury river cruise experiences.",
-    "icon": "camera",
-    "pinColor": "#2563EB"
-  }
-]
 
 const categoryColors: Record<string, { bg: string; fill: string }> = {
   hotel: { bg: 'bg-brand-gold', fill: '#C9A227' },
@@ -726,18 +212,18 @@ export default function InteractiveMap() {
           <div
             key={marker.id}
             className={`absolute transform -translate-x-1/2 -translate-y-full ${
-              isActive ? 'z-30' : marker.icon ? 'z-10' : 'z-20'
+              isActive ? 'z-30' : !marker.icon ? 'z-20' : marker.icon === 'tree' ? 'z-[15]' : 'z-10'
             }`}
             style={{
               left: `${xPercent}%`,
               top: `${yPercent}%`,
             }}
+            onMouseEnter={() => setActiveMarker(marker.id)}
+            onMouseLeave={() => setActiveMarker(null)}
           >
             {/* Marker Pin */}
             <button
               onClick={() => setActiveMarker(isActive ? null : marker.id)}
-              onMouseEnter={() => setActiveMarker(marker.id)}
-              onMouseLeave={() => setActiveMarker(null)}
               className={`relative group transition-transform duration-200 hover:scale-110 ${
                 isActive ? 'scale-110' : ''
               }`}
@@ -860,6 +346,11 @@ export default function InteractiveMap() {
                         <path d="M14 2v9l-4-2v-5l4-2zm-3 16c-3.31 0-6 1.79-6 4h14c0-2.21-2.69-4-6-4h-2zm1-2V9.97l1 .5V15c0 .55-.45 1-1 1z"/>
                       </svg>
                     )}
+                    {marker.icon === 'plane' && (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                      </svg>
+                    )}
                   </div>
                 )}
               </div>
@@ -867,10 +358,12 @@ export default function InteractiveMap() {
 
             {/* Tooltip */}
             <div
-              className={`absolute left-1/2 -translate-x-1/2 w-64 transition-all duration-200 ${
+              className={`absolute left-1/2 -translate-x-1/2 transition-all duration-200 ${
+                marker.blurb || marker.isPrimary ? 'w-64' : 'w-auto'
+              } ${
                 marker.tooltipPosition === 'down'
-                  ? 'top-full mt-3'
-                  : 'bottom-full mb-3'
+                  ? 'top-full pt-3'
+                  : 'bottom-full pb-3'
               } ${
                 isActive
                   ? 'opacity-100 translate-y-0 pointer-events-auto'
@@ -878,11 +371,18 @@ export default function InteractiveMap() {
               }`}
             >
               {/* Arrow at top for down-pointing tooltip */}
-              {marker.tooltipPosition === 'down' && (
-                <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-white" />
-              )}
-              <div className="bg-white rounded-lg shadow-xl p-4 text-left">
-                <h3 className={`font-serif text-xl text-brand-forest font-bold ${marker.blurb ? 'mb-2' : ''}`}>
+              <div className={`bg-white rounded-lg shadow-xl text-center relative ${marker.blurb || marker.isPrimary ? 'p-4' : 'px-3 py-2 whitespace-nowrap'}`}>
+                {marker.tooltipPosition === 'down' && (
+                  <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-white" />
+                )}
+                {marker.isPrimary && (
+                  <img
+                    src={marker.id === '2' ? '/images/the-palm-river-hotel-logo-web.png' : '/images/logo-black.png'}
+                    alt="Logo"
+                    className="h-16 w-auto mb-2 mx-auto"
+                  />
+                )}
+                <h3 className={`font-serif text-brand-forest font-bold ${marker.blurb || marker.isPrimary ? 'text-xl mb-2' : 'text-base'}`}>
                   {marker.title}
                 </h3>
                 {marker.blurb && (
@@ -890,11 +390,22 @@ export default function InteractiveMap() {
                     {marker.blurb}
                   </p>
                 )}
+                {marker.link && (
+                  <a
+                    href={marker.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-sm font-semibold text-brand-gold hover:text-brand-gold/80 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {marker.linkText || 'Learn more'} →
+                  </a>
+                )}
+                {/* Arrow at bottom for up-pointing tooltip */}
+                {marker.tooltipPosition !== 'down' && (
+                  <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white" />
+                )}
               </div>
-              {/* Arrow at bottom for up-pointing tooltip */}
-              {marker.tooltipPosition !== 'down' && (
-                <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white" />
-              )}
             </div>
           </div>
         );
@@ -934,8 +445,8 @@ export default function InteractiveMap() {
           <div className={`absolute inset-0 transition-all duration-300 ${isHoveringPreview ? 'bg-black/20' : 'bg-black/0'}`} />
           {/* Cursor-following expand icon */}
           <div
-            className={`absolute pointer-events-none transition-all duration-150 ease-out ${
-              isHoveringPreview ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            className={`absolute pointer-events-none transition-opacity duration-150 ${
+              isHoveringPreview ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
               left: cursorPos.x,

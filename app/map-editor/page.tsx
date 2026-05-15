@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { X, Plus, Trash2, Copy, Check, GripVertical } from 'lucide-react';
+import { markers as importedMarkers } from '@/components/mapMarkers';
 
 // Image dimensions - must match InteractiveMap.tsx
 const IMAGE_WIDTH = 5000;
@@ -25,6 +26,7 @@ const ICON_TYPES = [
   { value: 'storefront', label: 'Market', color: '#f01d79' },
   { value: 'activity', label: 'Activity', color: '#22C55E' },
   { value: 'golf', label: 'Golf', color: '#22C55E' },
+  { value: 'plane', label: 'Airport', color: '#0891B2' },
 ] as const;
 
 // Color presets
@@ -45,6 +47,8 @@ interface MapMarker {
   y: number;
   title: string;
   blurb?: string;
+  link?: string;
+  linkText?: string;
   category?: 'hotel' | 'attraction' | 'restaurant' | 'activity';
   label?: string;
   icon?: string;
@@ -53,46 +57,10 @@ interface MapMarker {
   pinColor?: string;
 }
 
-// Initial markers from InteractiveMap - synced with current state
-const initialMarkers: MapMarker[] = [
-  { id: '1', x: 2648, y: 2564, title: 'Ilala Lodge Hotel', blurb: 'Boutique hotel within walking distance of Victoria Falls and the rainforest entrance.', category: 'hotel', label: 'A', isPrimary: true },
-  { id: '2', x: 1260, y: 476, title: 'The Palm River Hotel', blurb: 'Elegant riverside hotel blending luxury accommodation with peaceful Zambezi River surroundings.', category: 'attraction', label: 'B', tooltipPosition: 'down' },
-  { id: '3', x: 2696, y: 2979, title: 'Victoria Falls Hotel', blurb: 'Historic colonial-style hotel overlooking the Victoria Falls Bridge and Batoka Gorge.', category: 'activity', label: 'C' },
-  { id: '4', x: 2709, y: 2762, title: 'Stanley and Livingstone', blurb: 'Exclusive safari-style boutique retreat located within a private wildlife reserve.', category: 'activity', label: 'D' },
-  { id: '5', x: 815, y: 1731, title: 'Victoria Falls Safari Lodge', blurb: 'Safari lodge famous for sunset views and wildlife visiting its waterhole.', category: 'activity', label: 'E' },
-  { id: '6', x: 1699, y: 1055, title: 'Elephant Hills Hotel', blurb: 'Resort hotel with golf course, river views, and family-friendly facilities.', category: 'activity', label: 'F' },
-  { id: '7', x: 1570, y: 2977, title: 'Victoria Falls River Lodge', blurb: 'Luxury tented lodge offering immersive safari experiences along the Zambezi River.', category: 'activity', label: 'G' },
-  { id: '8', x: 2229, y: 2245, title: 'Zambezi Sands River Lodge', blurb: 'Local arts, crafts, and souvenirs. Experience authentic Zimbabwean craftsmanship.', category: 'activity', label: 'H' },
-  { id: 'poi-1', x: 3044, y: 2465, title: 'Rainforest Entrance', blurb: 'Main entrance to the rainforest and iconic Victoria Falls viewpoints.', icon: 'tree', pinColor: '#16A34A' },
-  { id: 'poi-2', x: 3053, y: 2834, title: 'Batoka Gorge', blurb: 'Dramatic gorge carved by the Zambezi River below Victoria Falls.', icon: 'camera', pinColor: '#2563EB' },
-  { id: 'poi-3', x: 3859, y: 2714, title: 'Victoria Falls Bridge', icon: 'camera', pinColor: '#2563EB' },
-  { id: 'poi-4', x: 2643, y: 1361, title: 'The Big Tree', blurb: 'Massive ancient baobab tree popular for photographs and historical significance.', icon: 'tree', pinColor: '#16A34A' },
-  { id: 'poi-5', x: 2531, y: 2472, title: 'Shopping Center', icon: 'shopping', pinColor: '#f01d79' },
-  { id: 'poi-6', x: 2452, y: 2732, title: 'Shopping Center', icon: 'shopping', pinColor: '#f01d79' },
-  { id: 'poi-7', x: 2023, y: 2914, title: 'Shopping Center', icon: 'shopping', pinColor: '#f01d79' },
-  { id: 'poi-8', x: 2245, y: 2685, title: 'Pharmacy', icon: 'pill', pinColor: '#ff0000' },
-  { id: 'poi-9', x: 2077, y: 2964, title: 'Pharmacy', icon: 'pill', pinColor: '#ff0000' },
-  { id: 'poi-10', x: 2177, y: 2853, title: 'Police', icon: 'police', pinColor: '#311caa' },
-  { id: 'poi-11', x: 1500, y: 3448, title: 'Pharmacy', icon: 'pill', pinColor: '#ff0000' },
-  { id: 'poi-12', x: 1973, y: 2564, title: 'Hospital', icon: 'medical', pinColor: '#ff0000' },
-  { id: 'poi-13', x: 2578, y: 2390, title: 'Curio Market', icon: 'storefront', pinColor: '#f01d79' },
-  { id: 'poi-14', x: 3233, y: 2501, title: 'Victoria Falls Rainforest', icon: 'camera', pinColor: '#2563EB' },
-  { id: 'poi-15', x: 1468, y: 3526, title: 'Dusty Road Township Experience', blurb: 'Community-based cultural dining experience showcasing township cuisine, music, and storytelling.', icon: 'camera', pinColor: '#2563EB' },
-  { id: 'poi-16', x: 675, y: 1799, title: 'Vulture Feeding', blurb: 'Educational conservation experience observing wild vultures during scheduled feeding sessions.', icon: 'camera', pinColor: '#2563EB' },
-  { id: 'poi-17', x: 508, y: 310, title: 'Zambezi National Park', blurb: 'Wildlife-rich national park offering game drives, birdwatching, and river safari experiences.', icon: 'camera', pinColor: '#2563EB' },
-  { id: 'poi-18', x: 1416, y: 406, title: 'Ra-Ikane Jetty', blurb: 'Departure point for luxury sunset cruises on the Zambezi River.', icon: 'boat', pinColor: '#0891B2' },
-  { id: 'poi-19', x: 762, y: 2100, title: 'The Boma - Dinner & Drum Show', blurb: 'Interactive cultural dining experience featuring traditional food, drumming, and dancing performances.', icon: 'dining', pinColor: '#F97316' },
-  { id: 'poi-20', x: 2441, y: 2704, title: 'GOAT at Mama Africa Restaurant', blurb: 'Popular African fusion restaurant specialising in grilled meats and vibrant atmosphere.', icon: 'dining', pinColor: '#F97316' },
-  { id: 'poi-21', x: 1722, y: 2565, title: 'Nyota Zimbabwean Cuisine', blurb: 'Authentic Zimbabwean restaurant celebrating local flavours and traditional regional dishes.', icon: 'dining', pinColor: '#F97316' },
-  { id: 'poi-22', x: 2420, y: 2713, title: 'Zulu Bistro Bar', blurb: 'Trendy African-inspired bistro offering cocktails, tapas, and stylish evening dining.', icon: 'dining', pinColor: '#F97316' },
-  { id: 'poi-23', x: 2228, y: 2566, title: 'La Piazza Victoria Falls', blurb: 'Casual Italian-inspired restaurant serving pizzas, pasta, and family-friendly meals.', icon: 'dining', pinColor: '#F97316' },
-  { id: 'poi-24', x: 769, y: 2557, title: 'The Social Kitchen', blurb: 'Contemporary cafe-style restaurant known for fresh breakfasts, lunches, and relaxed dining.', icon: 'dining', pinColor: '#F97316' },
-  { id: 'poi-25', x: 3045, y: 2778, title: 'The Lookout Cafe - Wild Horizons', blurb: 'Gorge-edge cafe with spectacular views overlooking the Batoka Gorge and bridge.', icon: 'dining', pinColor: '#F97316' },
-  { id: 'poi-26', x: 2484, y: 2618, title: 'The Three Monkeys Restaurant & Bar', blurb: 'Vibrant restaurant serving wood-fired pizzas, burgers, cocktails, and lively social dining.', icon: 'dining', pinColor: '#F97316' },
-];
+// Markers are now imported from mapMarkers.ts
 
 export default function MapEditorPage() {
-  const [markers, setMarkers] = useState<MapMarker[]>(initialMarkers);
+  const [markers, setMarkers] = useState<MapMarker[]>([...importedMarkers]);
   const [selectedMarker, setSelectedMarker] = useState<MapMarker | null>(null);
   const [originalPosition, setOriginalPosition] = useState<{ x: number; y: number } | null>(null);
   const [isAddingMarker, setIsAddingMarker] = useState(false);
@@ -295,7 +263,7 @@ export default function MapEditorPage() {
     setPendingPosition(null);
   };
 
-  // Export JSON
+  // Export full mapMarkers.ts file content
   const exportJSON = () => {
     const output = markers.map(m => {
       const marker: Record<string, unknown> = {
@@ -305,6 +273,8 @@ export default function MapEditorPage() {
         title: m.title,
       };
       if (m.blurb) marker.blurb = m.blurb;
+      if (m.link) marker.link = m.link;
+      if (m.linkText) marker.linkText = m.linkText;
       if (m.category) marker.category = m.category;
       if (m.label) marker.label = m.label;
       if (m.icon) marker.icon = m.icon;
@@ -315,7 +285,30 @@ export default function MapEditorPage() {
     });
 
     const json = JSON.stringify(output, null, 2);
-    navigator.clipboard.writeText(json);
+
+    // Build full file content for mapMarkers.ts
+    const fileContent = `// Map markers data - exported from /map-editor
+
+export interface MapMarker {
+  id: string;
+  x: number;
+  y: number;
+  title: string;
+  blurb?: string;
+  link?: string;
+  linkText?: string;
+  category?: 'hotel' | 'attraction' | 'restaurant' | 'activity';
+  label?: string;
+  icon?: 'camera' | 'tree' | 'shopping' | 'food' | 'waterfall' | 'bridge' | 'museum' | 'medical' | 'police' | 'boat' | 'pill' | 'storefront' | 'dining' | 'activity' | 'golf' | 'plane';
+  isPrimary?: boolean;
+  tooltipPosition?: 'up' | 'down';
+  pinColor?: string;
+}
+
+export const markers: MapMarker[] = ${json}
+`;
+
+    navigator.clipboard.writeText(fileContent);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -431,7 +424,7 @@ export default function MapEditorPage() {
                 <div
                   key={marker.id}
                   className={`absolute transform -translate-x-1/2 -translate-y-full transition-all ${
-                    isSelected ? 'z-50 scale-125' : 'z-10 hover:z-40 hover:scale-110'
+                    isSelected ? 'z-50 scale-125' : isHotel ? 'z-20 hover:z-40 hover:scale-110' : marker.icon === 'tree' ? 'z-[15] hover:z-40 hover:scale-110' : 'z-10 hover:z-40 hover:scale-110'
                   }`}
                   style={{
                     left: `${xPercent}%`,
@@ -495,8 +488,23 @@ export default function MapEditorPage() {
                         </div>
                       )}
                     </div>
+                    {/* Quick delete button */}
+                    <div
+                      className="absolute -top-1 -left-1 opacity-0 group-hover:opacity-100 transition-opacity bg-red-600 hover:bg-red-500 rounded p-0.5 cursor-pointer z-10"
+                      onMouseDown={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteMarker(marker.id);
+                      }}
+                      title="Delete marker"
+                    >
+                      <Trash2 size={12} className="text-white" />
+                    </div>
                     {/* Drag handle indicator */}
-                    <div className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 rounded p-0.5">
+                    <div
+                      className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 rounded p-0.5 z-10"
+                      onMouseDown={(e) => e.stopPropagation()}
+                    >
                       <GripVertical size={12} className="text-gray-400" />
                     </div>
                   </button>
@@ -619,6 +627,30 @@ export default function MapEditorPage() {
               />
             </div>
 
+            {/* Link */}
+            <div className="mb-4">
+              <label className="block text-sm text-gray-400 mb-1">Link URL</label>
+              <input
+                type="text"
+                value={selectedMarker.link || ''}
+                onChange={(e) => setSelectedMarker({ ...selectedMarker, link: e.target.value })}
+                className="w-full bg-gray-700 rounded px-3 py-2"
+                placeholder="https://..."
+              />
+            </div>
+
+            {/* Link Text */}
+            <div className="mb-4">
+              <label className="block text-sm text-gray-400 mb-1">Link Text</label>
+              <input
+                type="text"
+                value={selectedMarker.linkText || ''}
+                onChange={(e) => setSelectedMarker({ ...selectedMarker, linkText: e.target.value })}
+                className="w-full bg-gray-700 rounded px-3 py-2"
+                placeholder="e.g. View more, Book now..."
+              />
+            </div>
+
             {/* Marker Type Toggle */}
             <div className="mb-4">
               <label className="block text-sm text-gray-400 mb-1">Marker Type</label>
@@ -688,7 +720,19 @@ export default function MapEditorPage() {
               <>
                 <div className="mb-4">
                   <label className="block text-sm text-gray-400 mb-2">Icon</label>
-                  <div className="grid grid-cols-5 gap-2">
+                  <div className="flex gap-1 overflow-x-auto pb-2 cursor-grab active:cursor-grabbing" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} onMouseDown={(e) => {
+                      const el = e.currentTarget;
+                      el.dataset.dragging = 'true';
+                      el.dataset.startX = String(e.pageX - el.offsetLeft);
+                      el.dataset.scrollLeft = String(el.scrollLeft);
+                    }} onMouseMove={(e) => {
+                      const el = e.currentTarget;
+                      if (el.dataset.dragging !== 'true') return;
+                      e.preventDefault();
+                      const x = e.pageX - el.offsetLeft;
+                      const walk = (x - Number(el.dataset.startX)) * 1.5;
+                      el.scrollLeft = Number(el.dataset.scrollLeft) - walk;
+                    }} onMouseUp={(e) => { e.currentTarget.dataset.dragging = 'false'; }} onMouseLeave={(e) => { e.currentTarget.dataset.dragging = 'false'; }}>
                     {ICON_TYPES.map(iconType => (
                       <button
                         key={iconType.value}
@@ -699,7 +743,7 @@ export default function MapEditorPage() {
                             pinColor: iconType.color
                           });
                         }}
-                        className={`relative group p-2 rounded-lg transition-all ${
+                        className={`relative group p-2 rounded-lg transition-all flex-shrink-0 ${
                           selectedMarker.icon === iconType.value
                             ? 'ring-2 ring-blue-400 bg-blue-600'
                             : 'bg-gray-700 hover:bg-gray-600'
@@ -726,7 +770,7 @@ export default function MapEditorPage() {
 
                 <div className="mb-4">
                   <label className="block text-sm text-gray-400 mb-1">Color</label>
-                  <div className="flex flex-wrap gap-2 mb-2">
+                  <div className="flex flex-wrap gap-2 items-center">
                     {COLOR_PRESETS.map(color => (
                       <button
                         key={color.value}
@@ -738,13 +782,14 @@ export default function MapEditorPage() {
                         title={color.label}
                       />
                     ))}
+                    <input
+                      type="color"
+                      value={selectedMarker.pinColor || '#2563EB'}
+                      onChange={(e) => setSelectedMarker({ ...selectedMarker, pinColor: e.target.value })}
+                      className="w-8 h-8 rounded cursor-pointer border-2 border-dashed border-gray-500 hover:border-gray-300"
+                      title="Custom color"
+                    />
                   </div>
-                  <input
-                    type="color"
-                    value={selectedMarker.pinColor || '#2563EB'}
-                    onChange={(e) => setSelectedMarker({ ...selectedMarker, pinColor: e.target.value })}
-                    className="w-full h-10 bg-gray-700 rounded cursor-pointer"
-                  />
                 </div>
               </>
             )}
@@ -885,6 +930,11 @@ function IconRenderer({ icon }: { icon: string }) {
     golf: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
         <path d="M14 2v9l-4-2v-5l4-2zm-3 16c-3.31 0-6 1.79-6 4h14c0-2.21-2.69-4-6-4h-2zm1-2V9.97l1 .5V15c0 .55-.45 1-1 1z"/>
+      </svg>
+    ),
+    plane: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
       </svg>
     ),
   };
