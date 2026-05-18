@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import InteractiveMap from '@/components/InteractiveMap';
+import RouteMap from '@/components/RouteMap';
 
 export const metadata = {
   title: 'Victoria Falls | Ilala Lodge Hotel',
@@ -132,16 +132,16 @@ export default function VictoriaFallsPage() {
         </div>
       </section>
 
-      {/* Interactive Map */}
+      {/* Footpath Map */}
       <section id="map" className="py-16 md:py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="font-script text-4xl md:text-5xl text-brand-gold mb-2">Explore the area</p>
+            <p className="font-script text-4xl md:text-5xl text-brand-gold mb-2">Follow the path</p>
             <h2 className="font-serif text-2xl md:text-3xl text-brand-forest uppercase tracking-wider">
-              Victoria Falls Town & Surrounds
+              The Falls Walking Trail
             </h2>
           </div>
-          <InteractiveMap />
+          <RouteMap />
         </div>
       </section>
 
