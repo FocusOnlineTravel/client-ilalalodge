@@ -194,7 +194,7 @@ export default function DiningPage() {
         <div className="grid md:grid-cols-2 md:[&>*:first-child]:order-last">
           <div className="relative h-[400px] md:h-[500px]">
             <Image
-              src="/images/dining-5.png"
+              src="/images/High-Tea-Sep24-6-1350x900.jpg"
               alt="High Tea at Palm River Hotel"
               fill
               className="object-cover"

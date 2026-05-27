@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { BOOKING_URL } from '@/lib/constants';
+import ImageLightbox from '@/components/gallery/ImageLightbox';
 
 export const metadata = {
   title: 'Our Story | Ilala Lodge Hotel',
@@ -55,18 +56,30 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* Image Grid Break */}
-      <section className="grid grid-cols-2 md:grid-cols-4">
-        {[
-          { src: '/images/intr0-image.png', alt: 'Ilala Lodge Hotel gardens' },
-          { src: '/images/pool.png', alt: 'Hotel poolside' },
-          { src: '/images/wildlife-1.png', alt: 'Wildlife on the hotel lawns' },
-          { src: '/images/Classic-Suite-ILH--1334x1000.jpg', alt: 'Classic Suite at Ilala Lodge Hotel' },
-        ].map((img) => (
-          <div key={img.src} className="relative aspect-square">
-            <Image src={img.src} alt={img.alt} fill className="object-cover" />
-          </div>
-        ))}
+      {/* History Image Gallery */}
+      <section>
+        <ImageLightbox
+          images={[
+            { src: '/documents/Basecamp Download/Attachments/871323363-ilala-lodge-hotel-history-16.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323367-ilala-lodge-hotel-history-17.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323374-ilala-lodge-hotel-history-18.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323296-ilala-lodge-hotel-history-1.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323306-ilala-lodge-hotel-history-2.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323309-ilala-lodge-hotel-history-3.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323313-ilala-lodge-hotel-history-4.jpg', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323317-ilala-lodge-hotel-history-5.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323319-ilala-lodge-hotel-history-6.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323321-ilala-lodge-hotel-history-7.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323328-ilala-lodge-hotel-history-8.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323332-ilala-lodge-hotel-history-9.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323338-ilala-lodge-hotel-history-10.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323340-ilala-lodge-hotel-history-11.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323342-ilala-lodge-hotel-history-12.jpg', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323345-ilala-lodge-hotel-history-13.jpg', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323357-ilala-lodge-hotel-history-14.JPG', alt: 'Ilala Lodge Hotel history' },
+            { src: '/documents/Basecamp Download/Attachments/871323361-ilala-lodge-hotel-history-15.JPG', alt: 'Ilala Lodge Hotel history' },
+          ]}
+        />
       </section>
 
       {/* Our Story Narrative - Part 2 */}
