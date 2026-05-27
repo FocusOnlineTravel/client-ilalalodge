@@ -151,10 +151,20 @@ export default function FacilitiesPage() {
             <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
               Spa Treatments
             </h2>
-            <p className="text-brand-forest/80 leading-relaxed mb-8">
+            <p className="text-brand-forest/80 leading-relaxed mb-6">
               A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures - providing a convenient space to relax during your stay.
             </p>
-            <ServiceCTAs theme="light" align="start" />
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/documents/Ilala-Spa-Menu_Final.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Menu
+              </a>
+              <ServiceCTAs theme="light" align="start" />
+            </div>
           </div>
         </div>
       </section>
