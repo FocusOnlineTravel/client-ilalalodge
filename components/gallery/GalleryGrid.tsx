@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
-type Category = 'rooms' | 'dining' | 'wildlife' | 'hotel';
+type Category = 'rooms' | 'dining' | 'pool' | 'conferencing' | 'wildlife' | 'hotel';
 
 interface GalleryImage {
   src: string;
@@ -16,6 +16,8 @@ const FILTERS: { id: Category | 'all'; label: string }[] = [
   { id: 'all', label: 'All' },
   { id: 'rooms', label: 'Rooms & Suites' },
   { id: 'dining', label: 'Dining' },
+  { id: 'pool', label: 'Pool & Bar' },
+  { id: 'conferencing', label: 'Conferencing' },
   { id: 'wildlife', label: 'Wildlife' },
   { id: 'hotel', label: 'Hotel & Grounds' },
 ];
@@ -34,6 +36,13 @@ const galleryImages: GalleryImage[] = [
   { src: '/images/dining-3.png', alt: 'Lunch at Cassia', category: 'dining' },
   { src: '/images/dining-4.png', alt: 'Dinner under African skies', category: 'dining' },
   { src: '/images/dining-5.png', alt: 'High Tea at Palm River Hotel', category: 'dining' },
+
+  { src: '/images/pool.png', alt: 'Hotel swimming pool', category: 'pool' },
+  { src: '/images/mike-preview/Bar-Ilala-Lodge-2026-03-MvR-18.jpg', alt: 'Poolside Bar', category: 'pool' },
+  { src: '/images/mike-preview/Lounge-Ilala-Lodge-2026-03-MvR-03.jpg', alt: 'Poolside Lounge', category: 'pool' },
+
+  { src: '/images/mike-preview/lodge-Ilala-Lodge-2026-03-MvR-15.jpg', alt: 'Conferencing facilities', category: 'conferencing' },
+  { src: '/images/mike-preview/lodge-Ilala-Lodge-2026-03-MvR-16.jpg', alt: 'Event space at Ilala Lodge', category: 'conferencing' },
 
   { src: '/images/wildlife-1.png', alt: 'Elephants on the hotel lawns', category: 'wildlife' },
   { src: '/images/wildlife-2.png', alt: 'Wildlife at Ilala Lodge', category: 'wildlife' },

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { BOOKING_URL } from '@/lib/constants';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 
@@ -122,40 +123,23 @@ export default function FacilitiesPage() {
             <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
               Tours & Activities Desk
             </h2>
-            <p className="text-brand-forest/80 leading-relaxed">
+            <p className="text-brand-forest/80 leading-relaxed mb-6">
               The Tours & Activities Desk provides assistance with planning and booking experiences in and around Victoria Falls. The team can arrange activities, transfers, and river cruises, offering a convenient in-house service.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Conferencing & Event Facilities */}
-      <section id="conferencing" className="bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
-        <div className="grid md:grid-cols-2 items-center">
-          <div className="md:order-2 relative h-[400px] md:h-[600px] lg:h-[700px]">
-            <Image
-              src="/images/banner-image.png"
-              alt="Conferencing & Event Facilities"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="md:order-1 px-6 md:px-12 lg:px-20 py-12 md:py-16">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-              Conferencing & Event Facilities
-            </h2>
-            <p className="text-brand-forest/80 leading-relaxed mb-8">
-              The hotel's conferencing space offers a private setting for meetings, events, and small gatherings. Suitable for up to 30 guests, facilities include Wi-Fi, projector screens, USB connection points, and tea and coffee service.
-            </p>
-            <ServiceCTAs theme="light" align="start" />
+            <Link
+              href="/activities"
+              className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+            >
+              View Activities
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Spa Treatments */}
-      <section id="spa" className="bg-brand-daisy scroll-mt-24">
+      <section id="spa" className="bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
         <div className="grid md:grid-cols-2 items-center">
-          <div className="relative h-[400px] md:h-[600px] lg:h-[700px]">
+          <div className="md:order-2 relative h-[400px] md:h-[600px] lg:h-[700px]">
             <Image
               src="/images/dining-2.png"
               alt="Spa Treatments"
@@ -163,7 +147,7 @@ export default function FacilitiesPage() {
               className="object-cover"
             />
           </div>
-          <div className="px-6 md:px-12 lg:px-20 py-12 md:py-16">
+          <div className="md:order-1 px-6 md:px-12 lg:px-20 py-12 md:py-16">
             <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
               Spa Treatments
             </h2>
@@ -171,6 +155,40 @@ export default function FacilitiesPage() {
               A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures - providing a convenient space to relax during your stay.
             </p>
             <ServiceCTAs theme="light" align="start" />
+          </div>
+        </div>
+      </section>
+
+      {/* Conferencing & Event Facilities */}
+      <section id="conferencing" className="bg-brand-daisy scroll-mt-24">
+        <div className="grid md:grid-cols-2 items-center">
+          <div className="relative h-[400px] md:h-[600px] lg:h-[700px]">
+            <Image
+              src="/images/banner-image.png"
+              alt="Conferencing & Event Facilities"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="px-6 md:px-12 lg:px-20 py-12 md:py-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+              Conferencing & Event Facilities
+            </h2>
+            <p className="text-brand-forest/80 leading-relaxed mb-4">
+              The hotel's conferencing space offers a private setting for meetings, events, and small gatherings. Facilities include Wi-Fi, projector screens, USB connection points, and tea and coffee service.
+            </p>
+            <p className="text-brand-forest/80 leading-relaxed mb-6">
+              Within the spacious suite, the conferencing room can be arranged in a variation of formats, from U-shape, boardroom, theatre style and more. The suite is suitable for a maximum of 30 guests.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/gallery?filter=conferencing"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Gallery
+              </Link>
+              <ServiceCTAs theme="light" align="start" />
+            </div>
           </div>
         </div>
       </section>

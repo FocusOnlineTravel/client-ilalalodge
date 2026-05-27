@@ -91,9 +91,17 @@ export default function DiningPage() {
               </div>
               <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Breakfast</h3>
               <p className="text-lg text-brand-stem font-semibold mb-4">06:30 - 10:00</p>
-              <p className="text-brand-forest/70 leading-relaxed">
+              <p className="text-brand-forest/70 leading-relaxed mb-4">
                 Begin the day with a continental buffet, complemented by a cooked breakfast menu, served in the relaxed setting of Cassia Restaurant.
               </p>
+              <a
+                href="/documents/ILH_BreakfastMenu_2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Menu
+              </a>
             </div>
 
             {/* Lunch */}
@@ -108,9 +116,17 @@ export default function DiningPage() {
               </div>
               <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Lunch</h3>
               <p className="text-lg text-brand-stem font-semibold mb-4">12:00 - 14:00</p>
-              <p className="text-brand-forest/70 leading-relaxed">
+              <p className="text-brand-forest/70 leading-relaxed mb-4">
                 Served beneath the shade of the Cassia trees or around the poolside bar, with a selection of lighter dishes and more substantial options.
               </p>
+              <a
+                href="/documents/ILH_LunchMenu_2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Menu
+              </a>
             </div>
 
             {/* Dinner */}
@@ -125,9 +141,17 @@ export default function DiningPage() {
               </div>
               <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Dinner</h3>
               <p className="text-lg text-brand-stem font-semibold mb-4">18:30 - 21:30</p>
-              <p className="text-brand-forest/70 leading-relaxed">
+              <p className="text-brand-forest/70 leading-relaxed mb-4">
                 Dine al fresco under African skies with the sound of the Falls in the background, supported by a curated wine list, beers, gins, and cocktails.
               </p>
+              <a
+                href="/documents/ILH_Dinner-Menu_2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Menu
+              </a>
             </div>
           </div>
         </div>
@@ -149,9 +173,17 @@ export default function DiningPage() {
               <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
                 Zambezi River Deck Experience
               </h2>
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-white/80 leading-relaxed mb-6">
                 Dine on the banks of the Zambezi River, on a multi-level wooden deck in the heart of the Zambezi National Park. Situated just a 5-minute drive from Ilala Lodge Hotel, the Riverside Dining Experience offers an open-fire, barbecue-style dinner under the stars, with freshly prepared dishes inspired by traditional Zimbabwean flavours and a selection of alcoholic and non-alcoholic beverages, served by dedicated staff.
               </p>
+              <a
+                href="https://www.palmriverhotel.com/dining/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-white hover:bg-brand-gold hover:text-white hover:border-brand-gold"
+              >
+                Learn More
+              </a>
             </div>
           </div>
         </div>
@@ -173,9 +205,17 @@ export default function DiningPage() {
               <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
                 High Tea at Palm River Hotel
               </h2>
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-white/80 leading-relaxed mb-6">
                 Experience the refined elegance of High Tea at the Palm River Hotel on the Zambezi River. Begin with effervescent hibiscus prosecco or savour artisanal brews, from velvety cappuccinos to aromatic teas. Indulge in panna cottas, dainty sandwiches, mini macarons, buttery scones with whipped cream and strawberry preserves and more, all enjoyed under the shade of indigenous trees by the tranquil river.
               </p>
+              <a
+                href="https://www.palmriverhotel.com/experiences/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-white hover:bg-brand-gold hover:text-white hover:border-brand-gold"
+              >
+                Learn More
+              </a>
             </div>
           </div>
         </div>

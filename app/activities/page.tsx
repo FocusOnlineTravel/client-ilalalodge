@@ -9,85 +9,85 @@ export const metadata = {
 
 const adventureActivities = [
   {
-    title: 'White-water Rafting',
-    description: "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
+    title: 'Helicopter Flights',
+    description: 'The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.',
   },
   {
     title: 'Bungee Jumping',
     description: "Take the leap from the Victoria Falls Bridge — one of the world's highest commercial bungee jumps at 111 metres.",
   },
   {
-    title: 'Gorge Swing',
-    description: 'A 70-metre free fall followed by a swing across the Batoka Gorge.',
-  },
-  {
-    title: 'Zip Lines & Canopy Tours',
+    title: 'Ziplining',
     description: 'Soar across the Batoka Gorge on a high-speed zip line, or follow walkways through the rainforest canopy.',
   },
   {
-    title: 'Helicopter Flights',
-    description: 'The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.',
+    title: 'Gorge Swing',
+    description: 'A 70-metre free fall followed by a swing across the Batoka Gorge.',
   },
   {
     title: "Devil's Pool",
     description: 'Accessible during lower water months — a unique vantage point at the very edge of the Falls.',
   },
+  {
+    title: 'White Water Rafting',
+    description: "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
+  },
 ];
 
 const wildlifeActivities = [
+  {
+    title: 'Zambezi River Cruises',
+    description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities.',
+  },
   {
     title: 'Game Drives',
     description: 'Morning, afternoon, or evening drives in nearby national parks — opportunities for both short excursions and full-day safaris.',
   },
   {
-    title: 'Chobe National Park',
+    title: 'Chobe Day Trips',
     description: "Day trips into Botswana to one of Africa's densest elephant populations.",
   },
   {
-    title: 'Hwange National Park',
+    title: 'Hwange Day Trip',
     description: "Extended trips for exceptional game viewing in Zimbabwe's largest national park, within 100km of the hotel.",
-  },
-  {
-    title: 'Zambezi Wildlife Cruises',
-    description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities.',
   },
 ];
 
 const relaxationActivities = [
   {
-    title: 'Sunrise River Cruise',
-    description: 'A quiet way to start the day on the Zambezi, with the landscape unfolding around you.',
+    title: 'Guided Tour of Victoria Falls',
+    description: 'Guided tours of the Victoria Falls rainforest — historical and environmental context for the World Heritage site.',
   },
   {
-    title: 'Lunch Cruise',
-    description: 'A leisurely cruise over lunch, taking in the river at a relaxed pace.',
-  },
-  {
-    title: 'Sunset Cruise',
+    title: 'Sunset River Cruise',
     description: 'Drift along the Upper Zambezi as the sun sets, with drinks and snacks served on board.',
   },
   {
-    title: 'Intimate Cruises',
-    description: 'Smaller, more private cruise options for a quieter setting on the river.',
+    title: 'Breakfast/Lunch River Cruise',
+    description: 'A leisurely cruise over breakfast or lunch, taking in the river at a relaxed pace.',
+  },
+  {
+    title: 'Spa Treatments',
+    description: 'A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures.',
   },
 ];
 
 const culturalActivities = [
   {
-    title: 'Rainforest Tour',
-    description: 'Guided tours of the Victoria Falls rainforest — historical and environmental context for the World Heritage site.',
-  },
-  {
-    title: 'Village Visits',
+    title: 'Cultural Village Tour',
     description: 'Insight into local life and traditions in surrounding communities.',
   },
   {
-    title: 'Township Dining',
+    title: 'Boma Dinner',
+    description: 'Evening experiences combining traditional dinners with music and dance.',
+  },
+  {
+    title: 'Dusty Road Township',
     description: "An introduction to the region's communities through shared meals.",
   },
   {
-    title: 'Traditional Performances',
-    description: 'Evening experiences combining traditional dinners with music and dance.',
+    title: 'Shearwater Simunye',
+    description: 'A cultural experience celebrating the heritage and traditions of Victoria Falls.',
   },
 ];
 
@@ -201,14 +201,38 @@ export default function ActivitiesPage() {
         </div>
       </section>
 
+      {/* Anchor Links */}
+      <section className="py-8 md:py-10 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            {[
+              { id: 'relaxation', label: 'Relaxation' },
+              { id: 'wildlife', label: 'Wildlife' },
+              { id: 'cultural', label: 'Cultural' },
+              { id: 'adventure', label: 'Adventure' },
+              { id: 'featured-experiences', label: 'Featured Experiences' },
+            ].map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className="px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CategorySection
-        id="adventure"
-        eyebrow="Adventure"
-        heading="Africa's Adventure Capital"
-        intro="High-adrenaline experiences set against a dramatic natural backdrop — from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and Devil's Pool."
-        items={adventureActivities}
+        id="relaxation"
+        eyebrow="Relaxation"
+        heading="A slower pace on the Zambezi"
+        intro="River cruises at sunrise, over lunch, or at sunset allow guests to take in the landscape at leisure. Smaller, more intimate cruise options offer a quieter setting still — see the Featured Experiences below for riverside dining and high tea."
+        items={relaxationActivities}
         bg="bg-white"
         cardBg="bg-brand-daisy"
+        columns={2}
       />
 
       <CategorySection
@@ -223,25 +247,24 @@ export default function ActivitiesPage() {
       />
 
       <CategorySection
-        id="relaxation"
-        eyebrow="Relaxation"
-        heading="A slower pace on the Zambezi"
-        intro="River cruises at sunrise, over lunch, or at sunset allow guests to take in the landscape at leisure. Smaller, more intimate cruise options offer a quieter setting still — see the Featured Experiences below for riverside dining and high tea."
-        items={relaxationActivities}
+        id="cultural"
+        eyebrow="Cultural"
+        heading="A strong sense of place"
+        intro="Cultural experiences that provide insight into local life and traditions — from guided rainforest tours and village visits to township dining and traditional evening performances."
+        items={culturalActivities}
         bg="bg-white"
         cardBg="bg-brand-daisy"
         columns={2}
       />
 
       <CategorySection
-        id="cultural"
-        eyebrow="Cultural"
-        heading="A strong sense of place"
-        intro="Cultural experiences that provide insight into local life and traditions — from guided rainforest tours and village visits to township dining and traditional evening performances."
-        items={culturalActivities}
+        id="adventure"
+        eyebrow="Adventure"
+        heading="Africa's Adventure Capital"
+        intro="High-adrenaline experiences set against a dramatic natural backdrop — from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and Devil's Pool."
+        items={adventureActivities}
         bg="bg-gradient-to-b from-white to-brand-daisy"
         cardBg="bg-white"
-        columns={2}
       />
 
       {/* Featured Experiences Header */}
