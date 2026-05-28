@@ -214,7 +214,14 @@ export default function FacilitiesPage() {
                 >
                   View Gallery
                 </Link>
-                <ServiceCTAs theme="light" align="start" />
+                <a
+                  href="/documents/ILALA-Conferencing-and-Meeting-Suites-Flyer.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+                >
+                  Download Factsheet
+                </a>
               </div>
             </div>
           </div>

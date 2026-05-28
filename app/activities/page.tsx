@@ -106,7 +106,7 @@ const featuredExperiences = [
     description:
       'Enjoy High Tea at Palm River Hotel on the banks of the Zambezi River. Set beneath indigenous trees, this riverside experience offers a relaxed setting to enjoy a selection of sweet and savoury treats. Advanced reservations are essential.',
     contact: 'fnb@palmriverhotel.com',
-    image: '/images/dining-5.png',
+    image: '/images/High-Tea-Sep24-6-1350x900.jpg',
   },
   {
     id: 'riverside-dining',
