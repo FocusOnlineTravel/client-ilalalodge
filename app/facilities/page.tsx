@@ -76,9 +76,17 @@ export default function FacilitiesPage() {
             <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
               Poolside Bar
             </h2>
-            <p className="text-brand-forest/80 leading-relaxed">
+            <p className="text-brand-forest/80 leading-relaxed mb-6">
               Open daily from 10h00 to 22h00, the Poolside Bar is set alongside the hotel's two swimming pools. The teak bar, crafted from locally sourced railway sleepers, creates a relaxed setting for afternoon drinks and sundowners. Guests can enjoy views over the Victoria Falls National Park and the rising mist of the Falls.
             </p>
+            <a
+              href="/documents/ILH_SnackMenu_July-2024.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+            >
+              View Menu
+            </a>
           </div>
         </div>
       </section>
