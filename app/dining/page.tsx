@@ -1,26 +1,31 @@
 import Image from 'next/image';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
-const diningReviews = [
-  {
-    title: 'Great evening with friends opposite entrance to Victoria Falls Hotel',
-    body: 'What a wonderful restaurant in a beautiful garden setting with professional and courteous staff. There were 6 of us and everyone commented on how delicious their food was and the good service. Menu was very inventive…had the best oxtail main course ever.',
-    author: 'TripAdvisor Guest',
-    source: 'TripAdvisor',
-  },
-  {
-    title: 'Highly Recommended',
-    body: "We have been blessed to have eaten in some incredible restaurants world wide and still we are particularly impressed with the quality of cuisine at this restaurant in Victoria Falls. Kudos to the Head Chef!! The ambiance is fabulous and the staff most attentive and friendly. A must for that romantic dinner for 2 whilst in the Falls. Highly recommended.",
-    author: 'TripAdvisor Guest',
-    source: 'TripAdvisor',
-  },
-  {
-    title: 'Out of Africa feels the moment we walked in',
-    body: 'The service we received was world class, to have dinner in a candle-lit setting with the roar of the Victoria falls in the background is truly magical. The chef is amazing and our food exceptional.',
-    author: 'TripAdvisor Guest',
-    source: 'TripAdvisor',
-  },
-];
+const diningReviewsData = {
+  reviews_eyebrow: 'Guest Reviews',
+  reviews_heading: 'What Our Guests Say',
+  reviews_items: [
+    {
+      review_title: 'Great evening with friends opposite entrance to Victoria Falls Hotel',
+      review_body: 'What a wonderful restaurant in a beautiful garden setting with professional and courteous staff. There were 6 of us and everyone commented on how delicious their food was and the good service. Menu was very inventive…had the best oxtail main course ever.',
+      review_author: 'TripAdvisor Guest',
+      review_source: 'TripAdvisor',
+    },
+    {
+      review_title: 'Highly Recommended',
+      review_body: "We have been blessed to have eaten in some incredible restaurants world wide and still we are particularly impressed with the quality of cuisine at this restaurant in Victoria Falls. Kudos to the Head Chef!! The ambiance is fabulous and the staff most attentive and friendly. A must for that romantic dinner for 2 whilst in the Falls. Highly recommended.",
+      review_author: 'TripAdvisor Guest',
+      review_source: 'TripAdvisor',
+    },
+    {
+      review_title: 'Out of Africa feels the moment we walked in',
+      review_body: 'The service we received was world class, to have dinner in a candle-lit setting with the roar of the Victoria falls in the background is truly magical. The chef is amazing and our food exceptional.',
+      review_author: 'TripAdvisor Guest',
+      review_source: 'TripAdvisor',
+    },
+  ],
+};
 
 export const metadata = {
   title: 'Dining at Cassia Restaurant | Ilala Lodge Hotel',
@@ -221,53 +226,8 @@ export default function DiningPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 lg:py-24 bg-white" id="reviews">
-        <div className="container mx-auto px-4 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-12 lg:mb-16">
-            <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
-              Guest Reviews
-            </span>
-            <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest">
-              What Our Guests Say
-            </h2>
-          </div>
-
-          {/* Review Cards */}
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-              {diningReviews.map((review, index) => (
-                <div
-                  key={index}
-                  className="flex-1 bg-[#fafaf8] p-6 lg:p-8 transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="relative w-8 h-8 lg:w-10 lg:h-10 mb-4">
-                    <Image
-                      src="/images/quote.png"
-                      alt="Quote icon"
-                      fill
-                      className="object-contain opacity-60"
-                    />
-                  </div>
-                  <h3 className="font-serif text-lg lg:text-xl text-brand-forest mb-3">
-                    {review.title}
-                  </h3>
-                  <p className="text-brand-stem leading-relaxed mb-4 text-sm lg:text-base line-clamp-4">
-                    {review.body}
-                  </p>
-                  <div className="pt-4 border-t border-brand-stem/20">
-                    <p className="font-semibold text-brand-forest">{review.author}</p>
-                    {review.source && (
-                      <p className="text-xs lg:text-sm text-brand-stem">{review.source}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Reviews */}
+      <ReviewsSection data={diningReviewsData} />
 
       {/* CTA Section */}
       <section className="py-24 md:py-32 bg-brand-forest text-white text-center">

@@ -11,26 +11,22 @@ const adventureActivities = [
   {
     title: 'Helicopter Flights',
     description: 'The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.',
+    image: '/images/banner-image.png', // PLACEHOLDER
   },
   {
-    title: 'Bungee Jumping',
-    description: "Take the leap from the Victoria Falls Bridge — one of the world's highest commercial bungee jumps at 111 metres.",
+    title: 'Bungee Jumping & Gorge Swing',
+    description: "Take the leap from the Victoria Falls Bridge — one of the world's highest commercial bungee jumps at 111 metres — or experience a 70-metre free fall followed by a swing across the Batoka Gorge.",
+    image: '/images/banner-image.png', // PLACEHOLDER
   },
   {
     title: 'Ziplining',
     description: 'Soar across the Batoka Gorge on a high-speed zip line, or follow walkways through the rainforest canopy.',
-  },
-  {
-    title: 'Gorge Swing',
-    description: 'A 70-metre free fall followed by a swing across the Batoka Gorge.',
-  },
-  {
-    title: "Devil's Pool",
-    description: 'Accessible during lower water months — a unique vantage point at the very edge of the Falls.',
+    image: '/images/banner-image.png', // PLACEHOLDER
   },
   {
     title: 'White Water Rafting',
     description: "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
+    image: '/images/banner-image.png', // PLACEHOLDER
   },
 ];
 
@@ -38,18 +34,22 @@ const wildlifeActivities = [
   {
     title: 'Zambezi River Cruises',
     description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities.',
+    image: '/images/mike-preview/Zambezi-river-Ilala-Lodge-2026-03-MvR-19.jpg',
   },
   {
     title: 'Game Drives',
     description: 'Morning, afternoon, or evening drives in nearby national parks — opportunities for both short excursions and full-day safaris.',
+    image: '/images/wildlife-3.png',
   },
   {
     title: 'Chobe Day Trips',
     description: "Day trips into Botswana to one of Africa's densest elephant populations.",
+    image: '/images/wildlife-1.png',
   },
   {
     title: 'Hwange Day Trip',
     description: "Extended trips for exceptional game viewing in Zimbabwe's largest national park, within 100km of the hotel.",
+    image: '/images/wildlife-2.png',
   },
 ];
 
@@ -57,18 +57,22 @@ const relaxationActivities = [
   {
     title: 'Guided Tour of Victoria Falls',
     description: 'Guided tours of the Victoria Falls rainforest — historical and environmental context for the World Heritage site.',
+    image: '/images/banner-image.png', // PLACEHOLDER
   },
   {
     title: 'Sunset River Cruise',
     description: 'Drift along the Upper Zambezi as the sun sets, with drinks and snacks served on board.',
+    image: '/images/mike-preview/Zambezi-river-Ilala-Lodge-2026-03-MvR-20.jpg',
   },
   {
     title: 'Breakfast/Lunch River Cruise',
     description: 'A leisurely cruise over breakfast or lunch, taking in the river at a relaxed pace.',
+    image: '/images/mike-preview/Raikane-Ilala-Lodge-2026-03-MvR-21.jpg',
   },
   {
     title: 'Spa Treatments',
     description: 'A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures.',
+    image: '/images/dining-2.png',
   },
 ];
 
@@ -76,18 +80,22 @@ const culturalActivities = [
   {
     title: 'Cultural Village Tour',
     description: 'Insight into local life and traditions in surrounding communities.',
+    image: '/images/banner-image.png', // PLACEHOLDER
   },
   {
     title: 'Boma Dinner',
     description: 'Evening experiences combining traditional dinners with music and dance.',
+    image: '/images/night5.jpg',
   },
   {
     title: 'Dusty Road Township',
     description: "An introduction to the region's communities through shared meals.",
+    image: '/images/banner-image.png', // PLACEHOLDER
   },
   {
     title: 'Shearwater Simunye',
     description: 'A cultural experience celebrating the heritage and traditions of Victoria Falls.',
+    image: '/images/banner-image.png', // PLACEHOLDER
   },
 ];
 
@@ -129,7 +137,7 @@ interface CategoryProps {
   eyebrow: string;
   heading: string;
   intro: string;
-  items: { title: string; description: string }[];
+  items: { title: string; description: string; image: string }[];
   bg: string;
   cardBg: string;
   columns?: 2 | 3;
@@ -147,9 +155,19 @@ function CategorySection({ id, eyebrow, heading, intro, items, bg, cardBg, colum
         </div>
         <div className={`grid ${gridCols} gap-6 lg:gap-8`}>
           {items.map((item) => (
-            <div key={item.title} className={`${cardBg} p-6 lg:p-8`}>
-              <h3 className="font-serif text-xl lg:text-2xl text-brand-forest mb-3">{item.title}</h3>
-              <p className="text-brand-forest/70 leading-relaxed text-sm lg:text-base">{item.description}</p>
+            <div key={item.title} className={`${cardBg} overflow-hidden`}>
+              <div className="relative aspect-[3/2]">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 lg:p-8">
+                <h3 className="font-serif text-xl lg:text-2xl text-brand-forest mb-3">{item.title}</h3>
+                <p className="text-brand-forest/70 leading-relaxed text-sm lg:text-base">{item.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -226,8 +244,8 @@ export default function ActivitiesPage() {
 
       <CategorySection
         id="relaxation"
-        eyebrow="Relaxation"
-        heading="A slower pace on the Zambezi"
+        eyebrow="A slower pace on the Zambezi"
+        heading="Relaxation"
         intro="River cruises at sunrise, over lunch, or at sunset allow guests to take in the landscape at leisure. Smaller, more intimate cruise options offer a quieter setting still — see the Featured Experiences below for riverside dining and high tea."
         items={relaxationActivities}
         bg="bg-white"
@@ -237,19 +255,19 @@ export default function ActivitiesPage() {
 
       <CategorySection
         id="wildlife"
-        eyebrow="Wildlife"
-        heading="Game viewing in every direction"
+        eyebrow="Game viewing in every direction"
+        heading="Wildlife"
         intro="The area surrounding Victoria Falls is rich in wildlife, with opportunities for both short excursions and full-day safaris. Game drives, cross-border trips to Chobe and Hwange, and Zambezi cruises each open up a different angle on the region's wildlife."
         items={wildlifeActivities}
         bg="bg-gradient-to-b from-white to-brand-daisy"
-        cardBg="bg-white border-l-4 border-brand-gold"
+        cardBg="bg-white"
         columns={2}
       />
 
       <CategorySection
         id="cultural"
-        eyebrow="Cultural"
-        heading="A strong sense of place"
+        eyebrow="A strong sense of place"
+        heading="Cultural"
         intro="Cultural experiences that provide insight into local life and traditions — from guided rainforest tours and village visits to township dining and traditional evening performances."
         items={culturalActivities}
         bg="bg-white"
@@ -259,12 +277,13 @@ export default function ActivitiesPage() {
 
       <CategorySection
         id="adventure"
-        eyebrow="Adventure"
-        heading="Africa's Adventure Capital"
+        eyebrow="Africa's Adventure Capital"
+        heading="Adventure"
         intro="High-adrenaline experiences set against a dramatic natural backdrop — from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and Devil's Pool."
         items={adventureActivities}
         bg="bg-gradient-to-b from-white to-brand-daisy"
         cardBg="bg-white"
+        columns={2}
       />
 
       {/* Featured Experiences Header */}
