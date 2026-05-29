@@ -56,29 +56,17 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* History Image Gallery */}
+      {/* Hotel Today Gallery */}
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <ImageLightbox
             images={[
-            { src: '/documents/Basecamp Download/Attachments/871323363-ilala-lodge-hotel-history-16.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323367-ilala-lodge-hotel-history-17.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323374-ilala-lodge-hotel-history-18.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323296-ilala-lodge-hotel-history-1.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323306-ilala-lodge-hotel-history-2.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323309-ilala-lodge-hotel-history-3.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323313-ilala-lodge-hotel-history-4.jpg', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323317-ilala-lodge-hotel-history-5.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323319-ilala-lodge-hotel-history-6.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323321-ilala-lodge-hotel-history-7.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323332-ilala-lodge-hotel-history-9.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323338-ilala-lodge-hotel-history-10.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323342-ilala-lodge-hotel-history-12.jpg', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323345-ilala-lodge-hotel-history-13.jpg', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323357-ilala-lodge-hotel-history-14.JPG', alt: 'Ilala Lodge Hotel history' },
-            { src: '/documents/Basecamp Download/Attachments/871323361-ilala-lodge-hotel-history-15.JPG', alt: 'Ilala Lodge Hotel history' },
-          ]}
-          columns="grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
+              { src: '/images/Ilala-Lodge-Exteriors-01.jpg', alt: 'Ilala Lodge Hotel' },
+              { src: '/images/Ilala-Lodge-Exteriors-24.jpg', alt: 'Ilala Lodge Hotel' },
+              { src: '/images/Ilala-Lodge-Facilities-Pools-07.jpg', alt: 'Ilala Lodge Hotel' },
+              { src: '/images/IlalaLodgeHotel Exterior (2).jpg', alt: 'Ilala Lodge Hotel' },
+            ]}
+            columns="grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
           />
         </div>
       </section>
@@ -144,6 +132,29 @@ export default function OurStoryPage() {
           <p className="max-w-3xl mx-auto text-base md:text-lg text-brand-forest/70 leading-relaxed text-center mt-16 md:mt-20 italic">
             In 1994, Strathearn&rsquo;s daughter, Laura, oversaw the expansion to 34 rooms. The hotel today offers 73 rooms across a range of Classic and Deluxe Rooms and Suites &mdash; the result of further renovations completed in 2015 and 2018.
           </p>
+        </div>
+      </section>
+
+      {/* History Image Gallery */}
+      <section className="py-8 md:py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <ImageLightbox
+            images={[
+              { src: '/documents/Basecamp Download/Attachments/871323374-ilala-lodge-hotel-history-18.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323296-ilala-lodge-hotel-history-1.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323306-ilala-lodge-hotel-history-2.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323309-ilala-lodge-hotel-history-3.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323313-ilala-lodge-hotel-history-4.jpg', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323319-ilala-lodge-hotel-history-6.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323321-ilala-lodge-hotel-history-7.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323332-ilala-lodge-hotel-history-9.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323338-ilala-lodge-hotel-history-10.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323345-ilala-lodge-hotel-history-13.jpg', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323357-ilala-lodge-hotel-history-14.JPG', alt: 'Ilala Lodge Hotel history' },
+              { src: '/documents/Basecamp Download/Attachments/871323361-ilala-lodge-hotel-history-15.JPG', alt: 'Ilala Lodge Hotel history' },
+            ]}
+            columns="grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
+          />
         </div>
       </section>
 
