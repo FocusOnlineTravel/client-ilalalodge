@@ -23,7 +23,7 @@ export default function OurStoryPage() {
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/banner-image.png"
+            src="/images/Ilala-Lodge-Exteriors-14.jpg"
             alt="Ilala Lodge Hotel"
             fill
             className="object-cover"

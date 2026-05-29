@@ -53,7 +53,7 @@ export default function ContactPage() {
       <section className="relative h-[70vh] min-h-[450px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/intr0-image.png"
+            src="/images/Ilala-Lodge-Exteriors-16.jpg"
             alt="Ilala Lodge Hotel"
             fill
             className="object-cover"
