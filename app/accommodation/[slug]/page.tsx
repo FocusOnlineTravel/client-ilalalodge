@@ -35,9 +35,10 @@ const amenityIconMap: Record<string, { file: string; prefix: 'facilities' | 'hot
   'Private Lounge': { file: 'private-lounge', prefix: 'none' },
   'Private Kitchen': { file: 'private-kitchen', prefix: 'none' },
   'Private Kitchen stocked with Snacks': { file: 'private-kitchen', prefix: 'none' },
-  'Spa Bath on Balcony': { file: 'beauty-spa', prefix: 'hotel' },
-  'Heated Spa Bath on Balcony': { file: 'beauty-spa', prefix: 'hotel' },
+  'Spa Bath on Balcony': { file: 'heated-spa-bath-on-balcony', prefix: 'none' },
+  'Heated Spa Bath on Balcony': { file: 'heated-spa-bath-on-balcony', prefix: 'none' },
   'Private Spacious Lounge': { file: 'private-spacious-lounge', prefix: 'none' },
+  'Mineral water replenished twice daily': { file: 'mineral-water', prefix: 'none' },
 };
 
 const getAmenityIcon = (amenity: string): string | null => {

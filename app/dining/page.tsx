@@ -3,6 +3,7 @@ import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 
 const diningReviewsData = {
+  acf_fc_layout: 'reviews_section' as const,
   reviews_eyebrow: 'Guest Reviews',
   reviews_heading: 'What Our Guests Say',
   reviews_items: [
