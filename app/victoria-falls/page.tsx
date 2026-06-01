@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import RouteMap from '@/components/RouteMap';
+import ImageLightbox from '@/components/gallery/ImageLightbox';
 
 export const metadata = {
   title: 'Victoria Falls | Ilala Lodge Hotel',
@@ -286,7 +287,7 @@ export default function VictoriaFallsPage() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="relative h-[300px] md:h-[420px]">
               <Image
-                src="/images/banner-image.png"
+                src="/images/Ilala-Lodge-Experience-Vic-Falls-05.jpg"
                 alt="Victoria Falls Bridge"
                 fill
                 className="object-cover"
@@ -305,6 +306,25 @@ export default function VictoriaFallsPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Victoria Falls Gallery */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <ImageLightbox
+            images={[
+              { src: '/images/Ilala-Lodge-Experience-Vic-Falls-46.jpg', alt: 'Victoria Falls' },
+              { src: '/images/Ilala-Lodge-Experience-Vic-Falls-26.jpg', alt: 'Victoria Falls' },
+              { src: '/images/Ilala-Lodge-Experience-Vic-Falls-31.jpg', alt: 'Victoria Falls' },
+              { src: '/images/Ilala-Lodge-Experience-Vic-Falls-24.jpg', alt: 'Victoria Falls' },
+              { src: '/images/Ilala-Lodge-Experience-Vic-Falls-02.jpg', alt: 'Victoria Falls' },
+              { src: '/images/Ilala-Lodge-Experience-Vic-Falls-04.jpg', alt: 'Victoria Falls' },
+              { src: '/images/Ilala-Lodge-Experience-Vic-Falls-18.jpg', alt: 'Victoria Falls' },
+              { src: '/images/Ilala-Lodge-Experience-Vic-Falls-21.jpg', alt: 'Victoria Falls' },
+            ]}
+            columns="grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
+          />
         </div>
       </section>
 
