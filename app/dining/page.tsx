@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import ReviewsSection from '@/components/sections/ReviewsSection';
+import ImageLightbox from '@/components/gallery/ImageLightbox';
 
 const diningReviewsData = {
   acf_fc_layout: 'reviews_section' as const,
@@ -40,7 +41,7 @@ export default function DiningPage() {
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/dining-banner.jpg"
+            src="/images/CassiaRestaurant (2).jpg"
             alt="Cassia Restaurant"
             fill
             className="object-cover"
@@ -89,7 +90,7 @@ export default function DiningPage() {
             <div className="text-center">
               <div className="relative h-64 mb-6 overflow-hidden">
                 <Image
-                  src="/images/dining-2.png"
+                  src="/images/Ilala-Lodge-Dining-1-Breakfast-25.jpg"
                   alt="Breakfast at Cassia Restaurant"
                   fill
                   className="object-cover"
@@ -114,7 +115,7 @@ export default function DiningPage() {
             <div className="text-center">
               <div className="relative h-64 mb-6 overflow-hidden">
                 <Image
-                  src="/images/dining-3.png"
+                  src="/images/Ilala-Lodge-Dining-2-Lunch-03.jpg"
                   alt="Lunch at Cassia Restaurant"
                   fill
                   className="object-cover"
@@ -139,7 +140,7 @@ export default function DiningPage() {
             <div className="text-center">
               <div className="relative h-64 mb-6 overflow-hidden">
                 <Image
-                  src="/images/dining-4.png"
+                  src="/images/Ilala-Lodge-Dining-3-Dinner-05.jpg"
                   alt="Dinner at Cassia Restaurant"
                   fill
                   className="object-cover"
@@ -200,7 +201,7 @@ export default function DiningPage() {
         <div className="grid md:grid-cols-2 md:[&>*:first-child]:order-last">
           <div className="relative h-[400px] md:h-[500px]">
             <Image
-              src="/images/High-Tea-Sep24-6-1350x900.jpg"
+              src="/images/Ilala-Lodge-Experience-High-Tea-01.jpg"
               alt="High Tea at Palm River Hotel"
               fill
               className="object-cover"
@@ -229,6 +230,25 @@ export default function DiningPage() {
 
       {/* Reviews */}
       <ReviewsSection data={diningReviewsData} />
+
+      {/* Dining Gallery */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <ImageLightbox
+            images={[
+              { src: '/images/Ilala-Lodge-Dining-1-Breakfast-07.jpg', alt: 'Breakfast at Cassia Restaurant' },
+              { src: '/images/Ilala-Lodge-Dining-1-Breakfast-32.jpg', alt: 'Breakfast at Cassia Restaurant' },
+              { src: '/images/Ilala-Lodge-Dining-2-Lunch-09.jpg', alt: 'Lunch at Cassia Restaurant' },
+              { src: '/images/Ilala-Lodge-Dining-3-Dinner-28.jpg', alt: 'Dinner at Cassia Restaurant' },
+              { src: '/images/Ilala-Lodge-Dining-3-Dinner-21.jpg', alt: 'Dinner at Cassia Restaurant' },
+              { src: '/images/Ilala-Lodge-Dining-3-Dinner-01.jpg', alt: 'Dinner at Cassia Restaurant' },
+              { src: '/images/Ilala-Lodge-Dining-1-Breakfast-13.jpg', alt: 'Breakfast at Cassia Restaurant' },
+              { src: '/images/CassiaRestaurant (1).jpg', alt: 'Cassia Restaurant' },
+            ]}
+            columns="grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
+          />
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-24 md:py-32 bg-brand-forest text-white text-center">

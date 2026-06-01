@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BOOKING_URL } from '@/lib/constants';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
+import ImageSlider from '@/components/ui/ImageSlider';
 
 export const metadata = {
   title: 'Our Facilities | Ilala Lodge Hotel',
@@ -27,6 +28,24 @@ const roomFacilities = [
   { icon: 'daily-serviced-rooms-with-evening-turndown', label: 'Daily Service & Evening Turndown' },
 ];
 
+const poolsideBarImages = [
+  { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-06.jpg', alt: 'Poolside Bar' },
+  { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-05.jpg', alt: 'Poolside Bar' },
+  { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-02.jpg', alt: 'Poolside Bar' },
+  { src: '/images/IlalaLodgeHotel Poolside Lounge (2).jpg', alt: 'Poolside Lounge' },
+];
+
+const swimmingPoolsImages = [
+  { src: '/images/Ilala-Lodge-Facilities-Pools-05.jpg', alt: 'Swimming Pools' },
+  { src: '/images/Ilala-Lodge-Facilities-Pools-30.jpg', alt: 'Swimming Pools' },
+  { src: '/images/Ilala-Lodge-Facilities-Pools-01.jpg', alt: 'Swimming Pools' },
+];
+
+const conferencingImages = [
+  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-02.jpg', alt: 'Conference Room' },
+  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-04.jpg', alt: 'Conference Room' },
+];
+
 export default function FacilitiesPage() {
   return (
     <>
@@ -34,7 +53,7 @@ export default function FacilitiesPage() {
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/pool.png"
+            src="/images/Ilala-Lodge-Reception-04.jpg"
             alt="Our Facilities"
             fill
             className="object-cover"
@@ -65,14 +84,7 @@ export default function FacilitiesPage() {
       <section id="poolside-bar" className="py-12 md:py-16 bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/mike-preview/Bar-Ilala-Lodge-2026-03-MvR-18.jpg"
-                alt="Poolside Bar"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <ImageSlider images={poolsideBarImages} className="h-[400px] md:h-[500px]" />
             <div>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
                 Poolside Bar
@@ -97,13 +109,8 @@ export default function FacilitiesPage() {
       <section id="swimming-pools" className="py-12 md:py-16 bg-brand-daisy scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="md:order-2 relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/wildlife-1.png"
-                alt="Swimming Pools"
-                fill
-                className="object-cover"
-              />
+            <div className="md:order-2">
+              <ImageSlider images={swimmingPoolsImages} className="h-[400px] md:h-[500px]" />
             </div>
             <div className="md:order-1">
               <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
@@ -126,7 +133,7 @@ export default function FacilitiesPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] md:h-[500px]">
               <Image
-                src="/images/wildlife-3.png"
+                src="/images/Ilala-Lodge-Facilities-Activity-Desk-02.jpg"
                 alt="Tours & Activities Desk"
                 fill
                 className="object-cover"
@@ -156,7 +163,7 @@ export default function FacilitiesPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="md:order-2 relative h-[400px] md:h-[500px]">
               <Image
-                src="/images/dining-2.png"
+                src="/images/Ilala-Lodge-Facilities-Spa-01.jpg"
                 alt="Spa Treatments"
                 fill
                 className="object-cover"
@@ -189,14 +196,7 @@ export default function FacilitiesPage() {
       <section id="conferencing" className="py-12 md:py-16 bg-brand-daisy scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/banner-image.png"
-                alt="Conferencing & Event Facilities"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <ImageSlider images={conferencingImages} className="h-[400px] md:h-[500px]" />
             <div>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
                 Conferencing & Event Facilities

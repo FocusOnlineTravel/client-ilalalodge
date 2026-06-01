@@ -37,7 +37,7 @@ export const homePage: HomePage = {
         target: '_self',
       },
       intro_image: {
-        url: '/images/mike-preview/lodge-Ilala-Lodge-2026-03-MvR-15.jpg',
+        url: '/images/Ilala-Lodge-Exteriors-16.jpg',
         alt: 'Ilala Lodge Hotel gardens',
         width: 800,
         height: 600,
@@ -57,7 +57,7 @@ export const homePage: HomePage = {
           room_price_from: 'From $180',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/mike-preview/Room-Ilala-Lodge-2026-03-MvR-05.jpg',
+            url: '/images/Ilala-Lodge-Accommodation-Classic-Double-02.jpg',
             alt: 'Classic Room at Ilala Lodge Hotel',
             width: 1500,
             height: 1000,
@@ -76,7 +76,7 @@ export const homePage: HomePage = {
           room_price_from: 'From $240',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/mike-preview/Room-Ilala-Lodge-2026-03-MvR-07.jpg',
+            url: '/images/Ilala-Lodge-Accommodation-Deluxe-Double-01.jpg',
             alt: 'Deluxe Room at Ilala Lodge Hotel',
             width: 1500,
             height: 1000,
@@ -95,7 +95,7 @@ export const homePage: HomePage = {
           room_price_from: 'From $320',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/Classic-Suite-ILH--1334x1000.jpg',
+            url: '/images/Ilala-Lodge-Accommodation-Classic-Suite-04.jpg',
             alt: 'Classic Suite at Ilala Lodge Hotel',
             width: 1334,
             height: 1000,
@@ -114,7 +114,7 @@ export const homePage: HomePage = {
           room_price_from: 'From $450',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/Executive-Suite-Bedroom-ILH-1500x1000.jpeg',
+            url: '/images/Ilala-Lodge-Accommodation-Executive-Suite-01.jpg',
             alt: 'Executive Suite at Ilala Lodge Hotel',
             width: 1500,
             height: 1000,
@@ -133,7 +133,7 @@ export const homePage: HomePage = {
           room_price_from: 'From $650',
           room_price_suffix: 'per night',
           room_image: {
-            url: '/images/mike-preview/Penthouse-Ilala-Lodge-2026-03-MvR-04.jpg',
+            url: '/images/Ilala-Lodge-Accommodation-Strathearn-Suite-01.jpg',
             alt: 'Strathearn Suite at Ilala Lodge Hotel',
             width: 1500,
             height: 1000,
@@ -165,31 +165,31 @@ export const homePage: HomePage = {
       },
       dining_images: [
         {
-          url: '/images/mike-preview/Dining-Ilala-Lodge-2026-03-MvR-02.jpg',
+          url: '/images/Ilala-Lodge-Dining-3-Dinner-28.jpg',
           alt: 'Cassia Restaurant outdoor dining',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/mike-preview/Restaurant-Ilala-Lodge-2026-03-MvR-12.jpg',
-          alt: 'Gourmet dish at Cassia Restaurant',
+          url: '/images/Ilala-Lodge-Dining-2-Lunch-01.jpg',
+          alt: 'Lunch at Cassia Restaurant',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/mike-preview/Food-Ilala-Lodge-2026-03-MvR-08.jpg',
+          url: '/images/Ilala-Lodge-Dining-3-Dinner-05.jpg',
           alt: 'Cassia Restaurant ambience',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/mike-preview/Dining-Ilala-Lodge-2026-03-MvR-17.jpg',
+          url: '/images/Ilala-Lodge-Dining-3-Dinner-09.jpg',
           alt: 'Fine dining experience',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/mike-preview/Food-Ilala-Lodge-2026-03-MvR-11.jpg',
+          url: '/images/Ilala-Lodge-Dining-3-Dinner-06.jpg',
           alt: 'Restaurant setting',
           width: 400,
           height: 300,
@@ -209,27 +209,26 @@ export const homePage: HomePage = {
       },
       wildlife_images: [
         {
-          url: '/images/mike-preview/Zambezi-river-Ilala-Lodge-2026-03-MvR-01.jpg',
-          alt: 'Zambezi River at Ilala Lodge',
+          url: '/images/IlalaLodgeHotelWildlife (7).jpg',
+          alt: 'Wildlife at Ilala Lodge',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/mike-preview/Raikane-Ilala-Lodge-2026-03-MvR-21.jpg',
-          alt: 'Raikane riverboat experience',
-          width: 400,
-          height: 300,
-          video_url: '/videos/binoculars.mp4',
-        },
-        {
-          url: '/images/mike-preview/Zambezi-river-Ilala-Lodge-2026-03-MvR-19.jpg',
-          alt: 'Zambezi River views',
+          url: '/images/IlalaLodgeHotelWildlife (5).jpg',
+          alt: 'Wildlife at Ilala Lodge',
           width: 400,
           height: 300,
         },
         {
-          url: '/images/mike-preview/Zambezi-river-Raikane-Ilala-Lodge-2026-03-MvR-22.jpg',
-          alt: 'Raikane on the Zambezi River',
+          url: '/images/IlalaLodgeHotelWildlife (4).jpg',
+          alt: 'Wildlife at Ilala Lodge',
+          width: 400,
+          height: 300,
+        },
+        {
+          url: '/images/wildlife-placeholder.jpg', // PLACEHOLDER - 4th image coming
+          alt: 'Wildlife at Ilala Lodge',
           width: 400,
           height: 300,
         },
@@ -332,7 +331,7 @@ export const homePage: HomePage = {
       cta_banner_heading: 'Ready to Experience Victoria Falls?',
       cta_banner_subheading: 'Book your stay at the closest hotel to the Falls',
       cta_banner_image: {
-        url: '/images/mike-preview/lodge-Ilala-Lodge-2026-03-MvR-16.jpg',
+        url: '/images/Ilala-Lodge-Exteriors-05.jpg',
         alt: 'Ilala Lodge Hotel',
         width: 1200,
         height: 600,
