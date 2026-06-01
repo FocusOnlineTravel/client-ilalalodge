@@ -227,7 +227,7 @@ export const homePage: HomePage = {
           height: 300,
         },
         {
-          url: '/images/wildlife-placeholder.jpg', // PLACEHOLDER - 4th image coming
+          url: '/images/ILH Elephant.jpg',
           alt: 'Wildlife at Ilala Lodge',
           width: 400,
           height: 300,
