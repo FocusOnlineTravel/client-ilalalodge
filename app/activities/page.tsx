@@ -9,47 +9,52 @@ export const metadata = {
 
 const adventureActivities = [
   {
-    title: 'Helicopter Flights',
-    description: 'The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.',
-    image: '/images/banner-image.png', // PLACEHOLDER
+    title: 'White Water Rafting',
+    description: "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
+    image: '/images/anna-sullivan-c_w_Q3kxgic-unsplash.jpg',
   },
   {
     title: 'Bungee Jumping & Gorge Swing',
     description: "Take the leap from the Victoria Falls Bridge — one of the world's highest commercial bungee jumps at 111 metres — or experience a 70-metre free fall followed by a swing across the Batoka Gorge.",
-    image: '/images/banner-image.png', // PLACEHOLDER
+    image: '/images/Bungee Jumping.jpg',
   },
   {
-    title: 'Ziplining',
-    description: 'Soar across the Batoka Gorge on a high-speed zip line, or follow walkways through the rainforest canopy.',
-    image: '/images/banner-image.png', // PLACEHOLDER
+    title: 'Zip Lining',
+    description: 'Soar across the Batoka Gorge on a high-speed zip line, taking in dramatic views of the gorge below.',
+    image: '/images/Ziplining.jpg',
   },
   {
-    title: 'White Water Rafting',
-    description: "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
-    image: '/images/banner-image.png', // PLACEHOLDER
+    title: 'Helicopter Flights',
+    description: 'The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.',
+    image: '/images/Ilala-Lodge-Experience-Helicopter-Tour-10.jpg',
+  },
+  {
+    title: 'Canopy Tour',
+    description: 'Follow walkways and zip lines through the rainforest canopy, experiencing the gorge environment from a unique perspective.',
+    image: '/images/Canopy Tour.jpg',
   },
 ];
 
 const wildlifeActivities = [
   {
-    title: 'Zambezi River Cruises',
-    description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities.',
-    image: '/images/mike-preview/Zambezi-river-Ilala-Lodge-2026-03-MvR-19.jpg',
-  },
-  {
     title: 'Game Drives',
     description: 'Morning, afternoon, or evening drives in nearby national parks — opportunities for both short excursions and full-day safaris.',
-    image: '/images/wildlife-3.png',
+    image: '/images/tourists-on-land-cruise-victoria-falls-zimbabwe-2026-03-25-02-18-59-utc.jpg',
   },
   {
-    title: 'Chobe Day Trips',
-    description: "Day trips into Botswana to one of Africa's densest elephant populations.",
-    image: '/images/wildlife-1.png',
+    title: 'Chobe & Hwange National Parks',
+    description: "Day trips into Botswana to Chobe National Park, home to one of Africa's densest elephant populations, or extended trips for exceptional game viewing in Zimbabwe's largest national park, Hwange, within 100km of the hotel.",
+    image: '/images/ian-mackey-CIlaNRne0DE-unsplash.jpg',
   },
   {
-    title: 'Hwange Day Trip',
-    description: "Extended trips for exceptional game viewing in Zimbabwe's largest national park, within 100km of the hotel.",
-    image: '/images/wildlife-2.png',
+    title: 'Walk with Elephants',
+    description: 'An unforgettable opportunity to walk alongside these gentle giants, learning about their behaviour and conservation in a natural setting.',
+    image: '/images/Ilala-Lodge-Experience-Elephant-Walk-12.jpg',
+  },
+  {
+    title: 'Zambezi Wildlife Cruises',
+    description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities, with opportunities to spot hippos, crocodiles, and diverse birdlife.',
+    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-41.jpg',
   },
 ];
 
@@ -60,14 +65,14 @@ const relaxationActivities = [
     image: '/images/banner-image.png', // PLACEHOLDER
   },
   {
-    title: 'Sunset River Cruise',
+    title: 'Sunset Cruise',
     description: 'Drift along the Upper Zambezi as the sun sets, with drinks and snacks served on board.',
-    image: '/images/mike-preview/Zambezi-river-Ilala-Lodge-2026-03-MvR-20.jpg',
+    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-15.jpg',
   },
   {
-    title: 'Breakfast/Lunch River Cruise',
-    description: 'A leisurely cruise over breakfast or lunch, taking in the river at a relaxed pace.',
-    image: '/images/mike-preview/Raikane-Ilala-Lodge-2026-03-MvR-21.jpg',
+    title: 'Lunch Cruise',
+    description: 'A leisurely cruise over lunch, taking in the river at a relaxed pace.',
+    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-02.jpg',
   },
   {
     title: 'Spa Treatments',
@@ -88,9 +93,9 @@ const culturalActivities = [
     image: '/images/night5.jpg',
   },
   {
-    title: 'Dusty Road Township',
-    description: "An introduction to the region's communities through shared meals.",
-    image: '/images/banner-image.png', // PLACEHOLDER
+    title: 'Township Dining',
+    description: "An introduction to the region's communities through shared meals at Dusty Road Township.",
+    image: '/images/Dusty Road.jpg',
   },
   {
     title: 'Shearwater Simunye',
@@ -279,7 +284,7 @@ export default function ActivitiesPage() {
         id="adventure"
         eyebrow="Africa's Adventure Capital"
         heading="Adventure"
-        intro="High-adrenaline experiences set against a dramatic natural backdrop — from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and Devil's Pool."
+        intro="High-adrenaline experiences set against a dramatic natural backdrop — from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and canopy tours."
         items={adventureActivities}
         bg="bg-gradient-to-b from-white to-brand-daisy"
         cardBg="bg-white"
