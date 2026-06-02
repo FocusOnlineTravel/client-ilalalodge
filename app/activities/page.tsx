@@ -83,14 +83,14 @@ const relaxationActivities = [
 
 const culturalActivities = [
   {
-    title: 'Cultural Village Tour',
-    description: 'Insight into local life and traditions in surrounding communities.',
-    image: '/images/banner-image.png', // PLACEHOLDER
+    title: 'Curio Shopping',
+    description: 'Browse local crafts, artwork, and souvenirs at markets and shops throughout Victoria Falls.',
+    image: '/images/Ilala-Lodge-Experience-Shopping-02.jpg',
   },
   {
     title: 'Boma Dinner',
     description: 'Evening experiences combining traditional dinners with music and dance.',
-    image: '/images/night5.jpg',
+    image: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-17.jpg',
   },
   {
     title: 'Township Dining',
@@ -98,9 +98,9 @@ const culturalActivities = [
     image: '/images/Dusty Road.jpg',
   },
   {
-    title: 'Shearwater Simunye',
-    description: 'A cultural experience celebrating the heritage and traditions of Victoria Falls.',
-    image: '/images/banner-image.png', // PLACEHOLDER
+    title: 'Rainforest Tour',
+    description: 'A guided walk through the Victoria Falls rainforest, exploring its unique ecosystem and the heritage of the region.',
+    image: '/images/Ilala-Lodge-Experience-Vic-Falls-02.jpg',
   },
 ];
 
