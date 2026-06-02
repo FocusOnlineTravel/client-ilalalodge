@@ -60,9 +60,9 @@ const wildlifeActivities = [
 
 const relaxationActivities = [
   {
-    title: 'Guided Tour of Victoria Falls',
-    description: 'Guided tours of the Victoria Falls rainforest — historical and environmental context for the World Heritage site.',
-    image: '/images/banner-image.png', // PLACEHOLDER
+    title: 'Sunrise River Cruise',
+    description: 'Begin the day on the Zambezi River as the sun rises, with tea, coffee, and pastries served on board while the bush comes alive around you.',
+    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-12.jpg',
   },
   {
     title: 'Sunset Cruise',
@@ -75,9 +75,9 @@ const relaxationActivities = [
     image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-02.jpg',
   },
   {
-    title: 'Spa Treatments',
-    description: 'A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures.',
-    image: '/images/dining-2.png',
+    title: 'Intimate Cruises',
+    description: 'Private or small-group cruises on the Zambezi for a more exclusive experience, ideal for special occasions or those seeking a quieter setting.',
+    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-26.jpg',
   },
 ];
 
