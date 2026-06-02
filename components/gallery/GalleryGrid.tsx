@@ -41,10 +41,10 @@ const galleryImages: GalleryImage[] = [
   { src: '/images/mike-preview/Bar-Ilala-Lodge-2026-03-MvR-18.jpg', alt: 'Poolside Bar', category: 'pool' },
   { src: '/images/mike-preview/Lounge-Ilala-Lodge-2026-03-MvR-03.jpg', alt: 'Poolside Lounge', category: 'pool' },
 
-  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-04.jpg', alt: 'Conference Room', category: 'conferencing' },
-  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-05.jpg', alt: 'Conference Room', category: 'conferencing' },
   { src: '/images/Ilala-Lodge-Facilities-Conference-Room-01.jpg', alt: 'Conference Room', category: 'conferencing' },
   { src: '/images/Ilala-Lodge-Facilities-Conference-Room-02.jpg', alt: 'Conference Room', category: 'conferencing' },
+  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-04.jpg', alt: 'Conference Room', category: 'conferencing' },
+  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-05.jpg', alt: 'Conference Room', category: 'conferencing' },
 
   { src: '/images/wildlife-1.png', alt: 'Elephants on the hotel lawns', category: 'wildlife' },
   { src: '/images/wildlife-2.png', alt: 'Wildlife at Ilala Lodge', category: 'wildlife' },
