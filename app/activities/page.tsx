@@ -28,11 +28,11 @@ const adventureActivities = [
     description: 'The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.',
     image: '/images/Ilala-Lodge-Experience-Helicopter-Tour-10.jpg',
   },
-  {
-    title: 'Canopy Tour',
-    description: 'Follow walkways and zip lines through the rainforest canopy, experiencing the gorge environment from a unique perspective.',
-    image: '/images/Canopy Tour.jpg',
-  },
+  // {
+  //   title: 'Canopy Tour',
+  //   description: 'Follow walkways and zip lines through the rainforest canopy, experiencing the gorge environment from a unique perspective.',
+  //   image: '/images/Canopy Tour.jpg',
+  // },
 ];
 
 const wildlifeActivities = [
