@@ -126,7 +126,7 @@ const featuredExperiences = [
     title: 'Ra-Ikane River Cruise',
     description:
       'Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.',
-    image: '/images/wildlife-2.png',
+    image: '/images/ilala boats_1.JPG',
   },
   {
     id: 'day-trips',
