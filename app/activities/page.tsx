@@ -189,7 +189,6 @@ export default function ActivitiesPage() {
         <div className="absolute inset-0">
           <video
             src="https://streamable.com/l/0sspng/mp4-high.mp4"
-            poster="/images/pool.png"
             autoPlay
             loop
             muted

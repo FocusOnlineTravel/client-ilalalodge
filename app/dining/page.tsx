@@ -170,7 +170,6 @@ export default function DiningPage() {
           <div className="relative h-[400px] md:h-[500px] overflow-hidden">
             <video
               src="https://streamable.com/l/e07f94/mp4.mp4"
-              poster="/images/night5.jpg"
               autoPlay
               loop
               muted

@@ -11,7 +11,6 @@ export default function LocationPage() {
         <div className="absolute inset-0">
           <video
             src="https://streamable.com/l/rf7jki/mp4-high.mp4"
-            poster="/images/banner-image-2-cropped.png"
             autoPlay
             loop
             muted
