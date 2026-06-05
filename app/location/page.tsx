@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export const metadata = {
   title: 'Location & Victoria Falls | Ilala Lodge Hotel',
   description: 'Discover the closest hotel to Victoria Falls. Located just an 8-minute walk from one of the Seven Natural Wonders of the World.',
@@ -9,14 +7,18 @@ export default function LocationPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
+      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/images/banner-image-2-cropped.png"
-            alt="Victoria Falls landscape"
-            fill
-            className="object-cover"
-            priority
+          <video
+            src="https://streamable.com/l/rf7jki/mp4-high.mp4"
+            poster="/images/banner-image-2-cropped.png"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-label="Victoria Falls landscape"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>

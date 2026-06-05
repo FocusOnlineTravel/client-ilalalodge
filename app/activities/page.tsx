@@ -185,14 +185,18 @@ export default function ActivitiesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
+      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/images/pool.png"
-            alt="Victoria Falls Activities"
-            fill
-            className="object-cover"
-            priority
+          <video
+            src="https://streamable.com/l/0sspng/mp4-high.mp4"
+            poster="/images/pool.png"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-label="Victoria Falls Activities"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
