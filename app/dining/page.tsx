@@ -167,12 +167,17 @@ export default function DiningPage() {
       {/* Zambezi River Deck Experience */}
       <section className="bg-brand-forest">
         <div className="grid md:grid-cols-2">
-          <div className="relative h-[400px] md:h-[500px]">
-            <Image
-              src="/images/night5.jpg"
-              alt="Zambezi River Deck Experience"
-              fill
-              className="object-cover"
+          <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+            <video
+              src="https://streamable.com/l/e07f94/mp4.mp4"
+              poster="/images/night5.jpg"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+              aria-label="Zambezi River Deck Experience"
             />
           </div>
           <div className="flex items-center px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
