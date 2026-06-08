@@ -88,7 +88,7 @@ const culturalActivities = [
     image: '/images/Ilala-Lodge-Experience-Shopping-02.jpg',
   },
   {
-    title: 'Boma Dinner',
+    title: 'Traditional Dining & Performances',
     description: 'Evening experiences combining traditional dinners with music and dance.',
     image: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-17.jpg',
   },
@@ -115,11 +115,12 @@ const featuredExperiences = [
   },
   {
     id: 'riverside-dining',
-    title: 'Riverside Dining Experience',
+    title: 'Zambezi River Deck Experience',
     description:
       'An African-style barbecue dinner beside the Zambezi River at Palm River Hotel. The three-course menu includes locally sourced options such as crocodile and kudu, prepared over open coals. Dine outdoors in a lantern-lit riverside setting.',
     contact: 'fnb@palmriverhotel.com',
     image: '/images/night5.jpg',
+    video: 'https://streamable.com/l/e07f94/mp4.mp4',
   },
   {
     id: 'ra-ikane',
@@ -303,13 +304,26 @@ export default function ActivitiesPage() {
       {featuredExperiences.map((exp, i) => (
         <section key={exp.id} id={exp.id} className="bg-brand-forest scroll-mt-24">
           <div className={`grid md:grid-cols-2 ${i % 2 === 1 ? 'md:[&>*:first-child]:order-last' : ''}`}>
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src={exp.image}
-                alt={exp.title}
-                fill
-                className="object-cover"
-              />
+            <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+              {exp.video ? (
+                <video
+                  src={exp.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  aria-label={exp.title}
+                />
+              ) : (
+                <Image
+                  src={exp.image}
+                  alt={exp.title}
+                  fill
+                  className="object-cover"
+                />
+              )}
             </div>
             <div className="flex items-center px-8 py-12 md:px-16 md:py-20 lg:px-24 lg:py-24">
               <div>
