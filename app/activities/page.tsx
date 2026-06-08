@@ -128,13 +128,6 @@ const featuredExperiences = [
       'Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.',
     image: '/images/ilala boats_1.JPG',
   },
-  {
-    id: 'day-trips',
-    title: 'Day Trips',
-    description:
-      'Victoria Falls lies at the meeting point of Zimbabwe, Zambia, and Botswana, with Hwange National Park also within easy reach. Day trips to Chobe National Park and Hwange offer extended game viewing, along with cultural experiences across the region.',
-    image: '/images/wildlife-3.png',
-  },
 ];
 
 interface CategoryProps {
