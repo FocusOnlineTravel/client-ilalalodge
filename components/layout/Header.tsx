@@ -295,11 +295,11 @@ export default function Header() {
                 <div>
                   <h3 className="text-sm uppercase tracking-wider font-semibold mb-4">Direct Bookings</h3>
                   <div className="flex flex-col gap-2">
-                    <a href="tel:+263788097346" className="hover:text-brand-gold transition-colors text-sm">
-                      +263 788 097 346
+                    <a href="tel:+263719384920" className="hover:text-brand-gold transition-colors text-sm">
+                      +263 719 384 920
                     </a>
                     <a
-                      href="https://wa.me/263788097346"
+                      href="https://wa.me/263719384920"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-brand-gold hover:text-brand-gold/80 transition-colors text-sm"
