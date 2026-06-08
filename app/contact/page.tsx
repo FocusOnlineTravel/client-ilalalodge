@@ -28,8 +28,8 @@ const contactCards = [
     title: 'Direct Bookings',
     intent: 'Accommodation enquiries and online reservations.',
     email: 'onlinereservations@ilalalodge.com',
-    phones: ['+263 719 384 920'],
-    whatsapp: '263719384920',
+    phones: ['+263 788 097 346'],
+    whatsapp: '263788097346',
   },
   {
     title: 'Hotel Reception & Restaurant',

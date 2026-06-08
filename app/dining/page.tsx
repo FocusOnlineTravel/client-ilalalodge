@@ -241,7 +241,7 @@ export default function DiningPage() {
           <ImageLightbox
             images={[
               { src: '/images/Ilala-Lodge-Dining-1-Breakfast-07.jpg', alt: 'Breakfast at Cassia Restaurant' },
-              { src: '/images/Ilala-Lodge-Dining-1-Breakfast-32.jpg', alt: 'Breakfast at Cassia Restaurant' },
+              { src: '/images/Ilala-Lodge-Dining-1-Breakfast-28.jpg', alt: 'Breakfast at Cassia Restaurant' },
               { src: '/images/Ilala-Lodge-Dining-2-Lunch-09.jpg', alt: 'Lunch at Cassia Restaurant' },
               { src: '/images/Ilala-Lodge-Dining-3-Dinner-28.jpg', alt: 'Dinner at Cassia Restaurant' },
               { src: '/images/Ilala-Lodge-Dining-3-Dinner-21.jpg', alt: 'Dinner at Cassia Restaurant' },

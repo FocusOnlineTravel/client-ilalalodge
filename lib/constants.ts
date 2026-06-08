@@ -3,8 +3,8 @@ export const BOOKING_URL =
 
 export const CONTACT = {
   email: 'onlinereservations@ilalalodge.com',
-  phone: '+263 719 384 920',
-  whatsapp: 'https://wa.me/263719384920',
+  phone: '+263 788 097 346',
+  whatsapp: 'https://wa.me/263788097346',
   address: '413 Livingstone Way, Victoria Falls, Zimbabwe',
 };
 

@@ -51,11 +51,14 @@ export default function StaySection({ data }: Props) {
                 }`}
               >
                 {/* Image with Price Pill */}
-                <div className={`relative mb-6 ${
-                  index === data.stay_rooms.length - 1 && data.stay_rooms.length % 2 !== 0
-                    ? 'aspect-[8/3]'
-                    : 'aspect-[4/3]'
-                }`}>
+                <Link
+                  href={`/accommodation/${roomSlugMap[room.room_name] || '#'}`}
+                  className={`relative mb-6 block ${
+                    index === data.stay_rooms.length - 1 && data.stay_rooms.length % 2 !== 0
+                      ? 'aspect-[8/3]'
+                      : 'aspect-[4/3]'
+                  }`}
+                >
                   <Image
                     src={room.room_image.url}
                     alt={room.room_image.alt}
@@ -72,7 +75,7 @@ export default function StaySection({ data }: Props) {
                       )}
                     </div>
                   </div>
-                </div>
+                </Link>
 
                 {/* Content */}
                 <div className="flex flex-col flex-grow">
