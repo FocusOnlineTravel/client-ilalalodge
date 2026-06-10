@@ -101,7 +101,7 @@ export default function VictoriaFallsPage() {
       <section className="relative h-[80vh] min-h-[500px] flex items-end justify-center pb-16 md:pb-24">
         <div className="absolute inset-0">
           <video
-            src="/videos/victoria-falls-banner.mp4"
+            src="https://streamable.com/l/y0nw2s/mp4.mp4"
             autoPlay
             loop
             muted
