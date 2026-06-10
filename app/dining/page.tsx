@@ -244,8 +244,8 @@ export default function DiningPage() {
               { src: '/images/Ilala-Lodge-Dining-1-Breakfast-28.jpg', alt: 'Breakfast at Cassia Restaurant' },
               { src: '/images/Ilala-Lodge-Dining-2-Lunch-09.jpg', alt: 'Lunch at Cassia Restaurant' },
               { src: '/images/Ilala-Lodge-Dining-3-Dinner-28.jpg', alt: 'Dinner at Cassia Restaurant' },
-              { src: '/images/Ilala-Lodge-Dining-3-Dinner-21.jpg', alt: 'Dinner at Cassia Restaurant' },
-              { src: '/images/Ilala-Lodge-Dining-3-Dinner-01.jpg', alt: 'Dinner at Cassia Restaurant' },
+              { src: '/images/dining-4.png', alt: 'Dining at Cassia Restaurant' },
+              { src: '/images/dining-3.png', alt: 'Dining at Cassia Restaurant' },
               { src: '/images/Ilala-Lodge-Dining-1-Breakfast-13.jpg', alt: 'Breakfast at Cassia Restaurant' },
               { src: '/images/CassiaRestaurant (1).jpg', alt: 'Cassia Restaurant' },
             ]}
