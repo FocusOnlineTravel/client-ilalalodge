@@ -214,8 +214,8 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-17",
-    "x": 508,
-    "y": 310,
+    "x": 503,
+    "y": 314,
     "title": "Zambezi National Park",
     "blurb": "Wildlife-rich national park offering game drives, birdwatching, and river safari experiences.",
     "icon": "camera",
@@ -223,11 +223,12 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-18",
-    "x": 1416,
-    "y": 406,
+    "x": 1417,
+    "y": 409,
     "title": "Ra-Ikane Jetty",
     "blurb": "Departure point for luxury sunset cruises on the Zambezi River.",
     "icon": "boat",
+    "tooltipPosition": "down",
     "pinColor": "#0891B2"
   },
   {
@@ -241,8 +242,8 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-44",
-    "x": 3917,
-    "y": 166,
+    "x": 3891,
+    "y": 192,
     "title": "Crocodile Farm",
     "blurb": "Educational crocodile farm showcasing Nile crocodiles and local reptile conservation.",
     "icon": "camera",
@@ -260,8 +261,8 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-46",
-    "x": 2771,
-    "y": 414,
+    "x": 2763,
+    "y": 420,
     "title": "Princess Elizabeth Island",
     "blurb": "Small Zambezi River island associated with historical royal visits and river cruises.",
     "icon": "camera",
@@ -312,8 +313,8 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-27",
-    "x": 74,
-    "y": 189,
+    "x": 129,
+    "y": 209,
     "title": "Botswana Border Post (75km)",
     "icon": "museum",
     "tooltipPosition": "down",
