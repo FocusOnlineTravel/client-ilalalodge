@@ -165,8 +165,8 @@ export const homePage: HomePage = {
       },
       dining_images: [
         {
-          url: '/images/Ilala-Lodge-Dining-3-Dinner-28.jpg',
-          alt: 'Cassia Restaurant outdoor dining',
+          url: '/images/Ilala-Lodge-Dining-3-Dinner-06.jpg',
+          alt: 'Restaurant setting',
           width: 400,
           height: 300,
         },
@@ -189,8 +189,8 @@ export const homePage: HomePage = {
           height: 300,
         },
         {
-          url: '/images/Ilala-Lodge-Dining-3-Dinner-06.jpg',
-          alt: 'Restaurant setting',
+          url: '/images/Ilala-Lodge-Dining-3-Dinner-28.jpg',
+          alt: 'Cassia Restaurant outdoor dining',
           width: 400,
           height: 300,
         },

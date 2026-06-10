@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { IntroBlock } from '@/types/acf';
 import FadeInView from '@/components/animations/FadeInView';
 
@@ -36,7 +37,7 @@ export default function IntroSection({ data }: Props) {
         </div>
 
         {/* Image - 60% width, bleeds to edge */}
-        <div className="relative w-full lg:w-[60%] h-[400px] lg:h-[600px] overflow-hidden">
+        <Link href="/our-story" className="relative w-full lg:w-[60%] h-[400px] lg:h-[600px] overflow-hidden block cursor-pointer">
           <Image
             src={data.intro_image.url}
             alt={data.intro_image.alt}
@@ -44,7 +45,7 @@ export default function IntroSection({ data }: Props) {
             className="object-cover hover:scale-110 transition-transform duration-700 ease-out"
             sizes="(max-width: 768px) 100vw, 60vw"
           />
-        </div>
+        </Link>
       </div>
     </section>
   );
