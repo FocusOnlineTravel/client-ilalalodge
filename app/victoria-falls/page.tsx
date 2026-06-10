@@ -106,7 +106,6 @@ export default function VictoriaFallsPage() {
             loop
             muted
             playsInline
-            poster="/images/banner-image-2-cropped.png"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
