@@ -60,7 +60,7 @@ export default function DiningPage() {
       </section>
 
       {/* Restaurant Story */}
-      <section className="py-16 md:py-24 bg-brand-daisy">
+      <section id="cassia-restaurant" className="py-16 md:py-24 bg-brand-daisy scroll-mt-24">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
@@ -83,7 +83,7 @@ export default function DiningPage() {
       </section>
 
       {/* Dining Experience */}
-      <section className="py-16 md:py-24 bg-white">
+      <section id="menus" className="py-16 md:py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             {/* Breakfast */}
@@ -165,7 +165,7 @@ export default function DiningPage() {
       </section>
 
       {/* Zambezi River Deck Experience */}
-      <section className="bg-brand-forest">
+      <section id="zambezi-river-deck" className="bg-brand-forest scroll-mt-24">
         <div className="grid md:grid-cols-2">
           <div className="relative h-[400px] md:h-[500px] overflow-hidden">
             <video
@@ -201,7 +201,7 @@ export default function DiningPage() {
       </section>
 
       {/* High Tea at Palm River Hotel */}
-      <section className="bg-brand-forest">
+      <section id="high-tea" className="bg-brand-forest scroll-mt-24">
         <div className="grid md:grid-cols-2 md:[&>*:first-child]:order-last">
           <div className="relative h-[400px] md:h-[500px]">
             <Image
