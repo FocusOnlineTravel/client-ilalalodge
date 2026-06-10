@@ -14,7 +14,7 @@ export default function MapPage() {
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/wildlife-3.png"
+            src="/images/Ilala-Lodge-Exteriors-09.jpg"
             alt="Victoria Falls Location"
             fill
             className="object-cover"
