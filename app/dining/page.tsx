@@ -41,13 +41,13 @@ export default function DiningPage() {
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/CassiaRestaurant (2).jpg"
+            src="/images/Ilala-Lodge-Dining-1-Breakfast-07.jpg"
             alt="Cassia Restaurant"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
