@@ -197,7 +197,10 @@ export default function Header() {
           <div className="min-h-full px-8 pt-24 pb-24 lg:pt-28 lg:px-20">
             <div className="max-w-7xl mx-auto">
               {/* Navigation with absolutely positioned submenus */}
-              <nav className="flex flex-col gap-2">
+              <nav
+                className="flex flex-col gap-2"
+                onMouseLeave={() => setHoveredMenuItem(null)}
+              >
                 {navLinks.map((link) => {
                   const isExpanded = hoveredMenuItem === link.label;
                   return (
@@ -205,7 +208,6 @@ export default function Header() {
                       key={link.href}
                       className={link.subItems ? 'relative' : ''}
                       onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
-                      onMouseLeave={() => setHoveredMenuItem(null)}
                     >
                       {link.subItems ? (
                         <>
