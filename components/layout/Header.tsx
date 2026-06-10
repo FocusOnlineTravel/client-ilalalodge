@@ -299,9 +299,6 @@ export default function Header() {
                   ))}
                 </div>
               </div>
-                  );
-                })}
-              </nav>
 
               {/* Contact Information - Bottom Section */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/20 text-white">
