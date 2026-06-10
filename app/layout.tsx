@@ -6,6 +6,9 @@ import MobileBottomNav from "@/components/layout/MobileBottomNav";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/images/il-favicon.png",
+  },
   title: "Ilala Lodge Hotel | The Closest Hotel to Victoria Falls",
   description:
     "Ilala Lodge Hotel is a family-run luxury hotel offering accommodation in the heart of Victoria Falls, Zimbabwe. Just an 8-minute walk from the Falls, one of the Seven Natural Wonders of the World.",
