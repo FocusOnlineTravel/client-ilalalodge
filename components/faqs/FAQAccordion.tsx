@@ -3,18 +3,18 @@
 import { useState, ReactNode } from 'react';
 import { Plus } from 'lucide-react';
 
-interface FAQ {
+export interface FAQ {
   q: string;
   a: ReactNode;
 }
 
-interface FAQCategory {
+export interface FAQCategory {
   id: string;
   title: string;
   faqs: FAQ[];
 }
 
-const categories: FAQCategory[] = [
+export const categories: FAQCategory[] = [
   {
     id: 'getting-here',
     title: 'Getting Here & Transfers',
@@ -56,7 +56,7 @@ const categories: FAQCategory[] = [
           <>
             Yes, there is. Stay ahead of the queues by completing the Zimbabwean Immigration Declaration form online before you fly. Find the form{' '}
             <a
-              href="https://evisa.gov.zw/app/index.html#/standby-kiosk"
+              href="https://evisa.gov.zw"
               target="_blank"
               rel="noopener noreferrer"
               className="text-brand-gold hover:underline"
@@ -83,7 +83,7 @@ const categories: FAQCategory[] = [
       },
       {
         q: 'Do you have mosquito nets over the beds?',
-        a: 'Our Classic Suites and Executive Suites have 4-poster mosquito netting over each bed. Our Classic Rooms and Deluxe Rooms do not, but each room has air conditioning, gauzed sliding doors, and extra mosquito spray and cream available.',
+        a: 'Our Classic Suites and Executive Suites have 4-poster mosquito netting over each bed. Our Classic Rooms and Deluxe Rooms do not, but each room has air conditioning, gauzed sliding doors, and extra mosquito spray and cream available. All rooms are equipped with mosquito control devices, and the hotel undertakes seasonal fogging programmes throughout the property to help minimise mosquito activity.',
       },
       {
         q: 'Are there fridges in the rooms?',
@@ -99,7 +99,7 @@ const categories: FAQCategory[] = [
       },
       {
         q: 'What type of plug points do you have at the hotel? Should I bring an adaptor?',
-        a: 'We mostly have Type D (round) and Type G (square) plug points. Universal plug points and USB ports are available in all rooms.',
+        a: 'We mostly have Type D (round) and Type G (square) plug points. Universal plug points and USB ports are available in all rooms. Plug points are available next to the bed.',
       },
     ],
   },
@@ -118,6 +118,14 @@ const categories: FAQCategory[] = [
       {
         q: 'Do you offer babysitting services?',
         a: 'A babysitter can be arranged on request. Please advise the hotel at least 24 hours before.',
+      },
+      {
+        q: 'Do you offer cots for infants?',
+        a: 'Yes, we have cots for infants available on request, arranged in advance.',
+      },
+      {
+        q: 'Do you offer car seats for airport transfers?',
+        a: 'Yes, we have car seats available for children on request, arranged in advance.',
       },
     ],
   },
