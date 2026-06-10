@@ -210,17 +210,30 @@ export default function Header() {
                       {/* Main menu item */}
                       <div>
                         {link.subItems ? (
-                          <button
-                            type="button"
-                            onClick={() => setHoveredMenuItem(isExpanded ? null : link.label)}
-                            className={`w-full flex items-center justify-between gap-3 text-left text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 ${
-                              isExpanded ? 'text-brand-gold' : 'text-white/80 hover:text-white'
-                            }`}
-                            aria-expanded={isExpanded}
-                          >
-                            <span>{link.label}</span>
-                            <span className={`lg:hidden text-xl transition-transform duration-200 ${isExpanded ? 'rotate-45' : ''}`} aria-hidden="true">+</span>
-                          </button>
+                          <>
+                            {/* Desktop: clickable link */}
+                            <Link
+                              href={link.href}
+                              onClick={handleLinkClick}
+                              className={`hidden lg:block text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 ${
+                                isExpanded ? 'text-brand-gold' : 'text-white/80 hover:text-brand-gold'
+                              }`}
+                            >
+                              {link.label}
+                            </Link>
+                            {/* Mobile: toggle button */}
+                            <button
+                              type="button"
+                              onClick={() => setHoveredMenuItem(isExpanded ? null : link.label)}
+                              className={`lg:hidden w-full flex items-center justify-between gap-3 text-left text-2xl font-normal font-serif uppercase transition-colors duration-200 ${
+                                isExpanded ? 'text-brand-gold' : 'text-white/80 hover:text-white'
+                              }`}
+                              aria-expanded={isExpanded}
+                            >
+                              <span>{link.label}</span>
+                              <span className={`text-xl transition-transform duration-200 ${isExpanded ? 'rotate-45' : ''}`} aria-hidden="true">+</span>
+                            </button>
+                          </>
                         ) : (
                           <Link
                             href={link.href}
