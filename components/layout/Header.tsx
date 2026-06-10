@@ -35,6 +35,7 @@ export default function Header() {
   }, []);
 
   const navLinks = [
+    { label: 'Home', href: '/' },
     {
       label: 'Our Rooms',
       href: '/accommodation',
@@ -50,29 +51,41 @@ export default function Header() {
     },
     {
       label: 'The Hotel',
-      href: '/our-story',
+      href: '/facilities',
       subItems: [
         { label: 'Our Story', href: '/our-story' },
         { label: 'Facilities', href: '/facilities' },
-      ]
-    },
-    {
-      label: 'Overview',
-      href: '/facilities',
-      subItems: [
-        { label: 'Activities Desk', href: '/facilities#activities-desk' },
         { label: 'Conferencing', href: '/facilities#conferencing' },
         { label: 'Spa', href: '/facilities#spa' },
       ]
     },
-    { label: 'Dining', href: '/dining' },
+    {
+      label: 'Dining',
+      href: '/dining',
+      subItems: [
+        { label: 'Cassia Restaurant', href: '/dining#cassia-restaurant' },
+        { label: 'Zambezi River Deck Experience', href: '/dining#zambezi-river-deck' },
+        { label: 'Palm River Hotel High Tea', href: '/dining#high-tea' },
+        { label: 'Our Menus', href: '/dining#menus' },
+      ]
+    },
+    {
+      label: 'Activities',
+      href: '/activities',
+      subItems: [
+        { label: 'Relaxation', href: '/activities#relaxation' },
+        { label: 'Wildlife', href: '/activities#wildlife' },
+        { label: 'Cultural', href: '/activities#cultural' },
+        { label: 'Adventure', href: '/activities#adventure' },
+        { label: 'Featured Experiences', href: '/activities#featured-experiences' },
+      ]
+    },
     {
       label: 'Location',
       href: '/location',
       subItems: [
         { label: 'Victoria Falls', href: '/victoria-falls' },
         { label: 'Map', href: '/map' },
-        { label: 'Activities', href: '/activities' },
       ]
     },
     { label: 'Gallery', href: '/gallery' },
