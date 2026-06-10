@@ -52,7 +52,7 @@ const wildlifeActivities = [
     image: '/images/Ilala-Lodge-Experience-Elephant-Walk-12.jpg',
   },
   {
-    title: 'Zambezi Wildlife Cruises',
+    title: 'Cruises on the Zambezi River',
     description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities, with opportunities to spot hippos, crocodiles, and diverse birdlife.',
     image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-41.jpg',
   },
@@ -127,7 +127,7 @@ const featuredExperiences = [
     title: 'Ra-Ikane River Cruise',
     description:
       'Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.',
-    image: '/images/ilala boats_1.JPG',
+    image: '/images/ilala-boats.jpg',
   },
 ];
 
