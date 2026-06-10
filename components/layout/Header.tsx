@@ -197,96 +197,108 @@ export default function Header() {
           <div className="min-h-full px-8 pt-24 pb-24 lg:pt-28 lg:px-20">
             <div className="max-w-7xl mx-auto">
               {/* Navigation with absolutely positioned submenus */}
-              <nav
-                className="flex flex-col gap-2"
-                onMouseLeave={() => setHoveredMenuItem(null)}
-              >
-                {navLinks.map((link) => {
-                  const isExpanded = hoveredMenuItem === link.label;
-                  return (
-                    <div
-                      key={link.href}
-                      className={link.subItems ? 'relative' : ''}
-                      onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
-                    >
-                      {link.subItems ? (
-                        <>
-                          {/* Desktop: clickable link with hover zone extending right */}
+              <div className="lg:flex lg:gap-16">
+                {/* Left Column - Main Navigation */}
+                <nav className="flex flex-col gap-2">
+                  {navLinks.map((link) => {
+                    const isExpanded = hoveredMenuItem === link.label;
+                    return (
+                      <div
+                        key={link.href}
+                        onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
+                      >
+                        {link.subItems ? (
+                          <>
+                            {/* Desktop: clickable link */}
+                            <Link
+                              href={link.href}
+                              onClick={handleLinkClick}
+                              className={`hidden lg:block text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 ${
+                                isExpanded ? 'text-brand-gold' : 'text-white/80 hover:text-brand-gold'
+                              }`}
+                            >
+                              {link.label}
+                            </Link>
+                            {/* Mobile: toggle button */}
+                            <button
+                              type="button"
+                              onClick={() => setHoveredMenuItem(isExpanded ? null : link.label)}
+                              className={`lg:hidden w-full flex items-center justify-between gap-3 text-left text-2xl font-normal font-serif uppercase transition-colors duration-200 ${
+                                isExpanded ? 'text-brand-gold' : 'text-white/80 hover:text-white'
+                              }`}
+                              aria-expanded={isExpanded}
+                            >
+                              <span>{link.label}</span>
+                              <span className={`text-xl transition-transform duration-200 ${isExpanded ? 'rotate-45' : ''}`} aria-hidden="true">+</span>
+                            </button>
+                          </>
+                        ) : (
                           <Link
                             href={link.href}
                             onClick={handleLinkClick}
-                            className={`hidden lg:block text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 lg:pr-32 ${
-                              isExpanded ? 'text-brand-gold' : 'text-white/80 hover:text-brand-gold'
+                            className={`text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 block ${
+                              link.label === 'Agents'
+                                ? 'text-white/50 hover:text-brand-gold text-lg lg:text-xl mt-4 tracking-widest'
+                                : 'text-white/80 hover:text-brand-gold'
                             }`}
                           >
                             {link.label}
                           </Link>
-                          {/* Mobile: toggle button */}
-                          <button
-                            type="button"
-                            onClick={() => setHoveredMenuItem(isExpanded ? null : link.label)}
-                            className={`lg:hidden w-full flex items-center justify-between gap-3 text-left text-2xl font-normal font-serif uppercase transition-colors duration-200 ${
-                              isExpanded ? 'text-brand-gold' : 'text-white/80 hover:text-white'
-                            }`}
-                            aria-expanded={isExpanded}
-                          >
-                            <span>{link.label}</span>
-                            <span className={`text-xl transition-transform duration-200 ${isExpanded ? 'rotate-45' : ''}`} aria-hidden="true">+</span>
-                          </button>
+                        )}
 
-                          {/* Desktop submenu - absolutely positioned */}
-                          {isExpanded && (
-                            <div className="hidden lg:flex flex-col gap-1 absolute left-64 top-0 pl-8 animate-fade-in">
-                              {link.subItems.map((subItem) => (
-                                <Link
-                                  key={subItem.href}
-                                  href={subItem.href}
-                                  onClick={handleLinkClick}
-                                  className="text-white/90 hover:text-brand-gold transition-colors duration-200 text-xl lg:text-2xl font-sans block whitespace-nowrap"
-                                >
-                                  {subItem.label}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          onClick={handleLinkClick}
-                          className={`text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 block ${
-                            link.label === 'Agents'
-                              ? 'text-white/50 hover:text-brand-gold text-lg lg:text-xl mt-4 tracking-widest'
-                              : 'text-white/80 hover:text-brand-gold'
-                          }`}
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-
-                      {/* Mobile-only inline submenu */}
-                      {link.subItems && isExpanded && (
-                        <div className="lg:hidden pl-4 mt-2 mb-3 flex flex-col gap-2 border-l border-white/15 ml-1">
-                          <Link
-                            href={link.href}
-                            onClick={handleLinkClick}
-                            className="text-white/70 hover:text-brand-gold transition-colors duration-200 text-base font-sans block py-1"
-                          >
-                            View {link.label}
-                          </Link>
-                          {link.subItems.map((subItem) => (
+                        {/* Mobile-only inline submenu (always rendered when expanded) */}
+                        {link.subItems && isExpanded && (
+                          <div className="lg:hidden pl-4 mt-2 mb-3 flex flex-col gap-2 border-l border-white/15 ml-1">
                             <Link
-                              key={subItem.href}
-                              href={subItem.href}
+                              href={link.href}
                               onClick={handleLinkClick}
-                              className="text-white/85 hover:text-brand-gold transition-colors duration-200 text-base font-sans block py-1"
+                              className="text-white/70 hover:text-brand-gold transition-colors duration-200 text-base font-sans block py-1"
                             >
-                              {subItem.label}
+                              View {link.label}
                             </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                            {link.subItems.map((subItem) => (
+                              <Link
+                                key={subItem.href}
+                                href={subItem.href}
+                                onClick={handleLinkClick}
+                                className="text-white/85 hover:text-brand-gold transition-colors duration-200 text-base font-sans block py-1"
+                              >
+                                {subItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </nav>
+
+                {/* Right Column - Sub Items (desktop only) */}
+                <div
+                  className="hidden lg:block"
+                  onMouseLeave={() => setHoveredMenuItem(null)}
+                >
+                  {navLinks.map((link) => (
+                    link.subItems && hoveredMenuItem === link.label && (
+                      <div
+                        key={`${link.href}-sub`}
+                        className="flex flex-col gap-1 animate-fade-in"
+                      >
+                        {link.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            onClick={handleLinkClick}
+                            className="text-white/90 hover:text-brand-gold transition-colors duration-200 text-xl lg:text-2xl font-sans block"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )
+                  ))}
+                </div>
+              </div>
                   );
                 })}
               </nav>
