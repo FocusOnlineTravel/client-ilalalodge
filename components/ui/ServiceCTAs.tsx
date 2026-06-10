@@ -51,9 +51,11 @@ interface Props {
   theme?: 'dark' | 'light';
   align?: 'center' | 'start';
   className?: string;
+  email?: string;
 }
 
-export default function ServiceCTAs({ theme = 'light', align = 'center', className = '' }: Props) {
+export default function ServiceCTAs({ theme = 'light', align = 'center', className = '', email }: Props) {
+  const emailAddress = email || EMAIL;
   const isDark = theme === 'dark';
   // Same height + minimum width on every button for visual balance
   const base =
@@ -62,7 +64,7 @@ export default function ServiceCTAs({ theme = 'light', align = 'center', classNa
   const call = isDark
     ? `${base} bg-white text-brand-forest hover:bg-brand-gold hover:text-white`
     : `${base} bg-brand-forest text-white hover:bg-brand-forest/90`;
-  const email = isDark
+  const emailStyle = isDark
     ? `${base} border border-white/60 text-white hover:bg-white hover:text-brand-forest`
     : `${base} border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white`;
   const justify = align === 'start' ? 'justify-start' : 'justify-center';
@@ -78,9 +80,9 @@ export default function ServiceCTAs({ theme = 'light', align = 'center', classNa
         <span>Call Us</span>
       </a>
       <a
-        href={`mailto:${EMAIL}`}
-        className={email}
-        aria-label={`Email ${EMAIL}`}
+        href={`mailto:${emailAddress}`}
+        className={emailStyle}
+        aria-label={`Email ${emailAddress}`}
         title="Office hours only"
       >
         <MailIcon size={22} />

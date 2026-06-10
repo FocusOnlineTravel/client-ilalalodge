@@ -367,7 +367,7 @@ export default function ActivitiesPage() {
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
             Our Activities Desk can arrange every excursion, transfer, and cross-border trip &mdash; get in touch to start planning your stay.
           </p>
-          <ServiceCTAs theme="dark" />
+          <ServiceCTAs theme="dark" email="activities@palmhospitality.co.zw" />
         </div>
       </section>
     </>

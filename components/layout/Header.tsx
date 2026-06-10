@@ -226,7 +226,7 @@ export default function Header() {
                             className={`text-2xl lg:text-3xl font-normal font-serif uppercase transition-colors duration-200 block ${
                               link.label === 'Agents'
                                 ? 'text-white/50 hover:text-brand-gold text-lg lg:text-xl mt-4 tracking-widest'
-                                : 'text-white/80 hover:text-white'
+                                : 'text-white/80 hover:text-brand-gold'
                             }`}
                           >
                             {link.label}
@@ -262,14 +262,14 @@ export default function Header() {
 
                 {/* Right Column - Sub Items (desktop only, hover-driven) */}
                 <div
-                  className="hidden lg:flex flex-col gap-6"
+                  className="hidden lg:flex flex-col gap-2"
                   onMouseLeave={() => setHoveredMenuItem(null)}
                 >
                   {navLinks.map((link) => (
                     link.subItems && hoveredMenuItem === link.label && (
                       <div
                         key={`${link.href}-sub`}
-                        className="flex flex-col gap-3 animate-fade-in"
+                        className="flex flex-col gap-1 animate-fade-in"
                       >
                         {link.subItems.map((subItem) => (
                           <div key={subItem.href}>
