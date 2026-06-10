@@ -111,7 +111,7 @@ For families of more than 3, the Classic Suite can interconnect with a Classic T
 
 Twin Deluxe Rooms feature two three-quarter beds, while King Deluxe Rooms include a king-size bed. Each room has an en-suite bathroom with a walk-in shower and double vanities, providing added space and comfort.
 
-Private patios or balconies overlook the hotel's lush gardens as they extend into the neighbouring National Park. From this vantage point, guests can enjoy regular wildlife sightings, along with early morning views of the mist rising from Victoria Falls.`,
+Patio/Balconies overlook the hotel's lush gardens as they extend into the neighbouring National Park. From this vantage point, guests can enjoy regular wildlife sightings, along with early morning views of the mist rising from Victoria Falls.`,
       image: "/images/Ilala-Lodge-Accommodation-Deluxe-Double-01.jpg",
       heroImages: [
         "/images/Ilala-Lodge-Accommodation-Deluxe-Double-01.jpg",
@@ -131,7 +131,6 @@ Private patios or balconies overlook the hotel's lush gardens as they extend int
         "/images/Ilala-Lodge-Accommodation-Deluxe-Twin-02.jpg",
         "/images/Ilala-Lodge-Accommodation-Deluxe-Double-04.jpg",
         "/images/Ilala-Lodge-Accommodation-Deluxe-Double-09.jpg",
-        "/images/Ilala-Lodge-Accommodation-Deluxe-Double-07.jpg",
         "/images/Ilala-Lodge-Accommodation-Deluxe-Double-10.jpg",
         "/images/Ilala-Lodge-Accommodation-Deluxe-Double-11.jpg",
       ],
@@ -155,12 +154,12 @@ Private patios or balconies overlook the hotel's lush gardens as they extend int
     {
       slug: "executive-suites",
       title: "Executive Suites",
-      shortDescription: "Spacious suites in the Deluxe Wing with a separate lounge, king-size bedroom, and a private patio facing Victoria Falls.",
+      shortDescription: "Spacious suites in the Deluxe Wing with a separate lounge, king-size bedroom, and a private balcony facing Victoria Falls.",
       description: `Located in the Deluxe Wing, the Executive Suites offer a spacious, elevated stay with a separate lounge and bedroom.
 
 The bedroom features a king-size bed and an en-suite bathroom with a walk-in shower, separate bathtub, and his-and-hers basins. The adjoining lounge provides a comfortable, private space to relax, complemented by local artwork and décor.
 
-A private patio extends from the bedroom and wraps around to the lounge, offering views towards Victoria Falls. From here, guests can enjoy regular wildlife sightings and the surrounding natural setting.`,
+A private balcony extends from the bedroom and wraps around to the lounge, offering views towards Victoria Falls. From here, guests can enjoy regular wildlife sightings and the surrounding natural setting.`,
       image: "/images/Ilala-Lodge-Accommodation-Executive-Suite-01.jpg",
       heroImages: [
         "/images/Ilala-Lodge-Accommodation-Executive-Suite-01.jpg",

@@ -63,7 +63,7 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
 
                     {/* Room Info */}
                     <div className="p-6 lg:p-8 space-y-4">
-                      <Link href={`/accommodation/${room.slug}`}>
+                      <Link href={`/our-rooms/${room.slug}`}>
                         <h3 className="font-serif text-2xl lg:text-3xl text-brand-forest hover:text-brand-gold transition-colors">
                           {room.title}
                         </h3>
@@ -82,7 +82,7 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
                         </div>
                         <div className="flex gap-2">
                           <Link
-                            href={`/accommodation/${room.slug}`}
+                            href={`/our-rooms/${room.slug}`}
                             className="border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
                           >
                             View Room

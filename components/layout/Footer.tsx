@@ -29,7 +29,7 @@ export default function Footer() {
             <ul className="space-y-1">
               <li>
                 <Link
-                  href="/accommodation/classic-rooms"
+                  href="/our-rooms/classic-rooms"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Classic Rooms
@@ -37,7 +37,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/accommodation/deluxe-rooms"
+                  href="/our-rooms/deluxe-rooms"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Deluxe Rooms
@@ -45,7 +45,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/accommodation/classic-suites"
+                  href="/our-rooms/classic-suites"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Classic Suites
@@ -53,7 +53,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/accommodation/executive-suites"
+                  href="/our-rooms/executive-suites"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Executive Suites
@@ -61,7 +61,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/accommodation/strathearn-suite"
+                  href="/our-rooms/strathearn-suite"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >
                   Strathearn Suite

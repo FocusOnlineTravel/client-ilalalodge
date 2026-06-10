@@ -38,13 +38,13 @@ export default function Header() {
     { label: 'Home', href: '/' },
     {
       label: 'Our Rooms',
-      href: '/accommodation',
+      href: '/our-rooms',
       subItems: [
-        { label: 'Classic Rooms', href: '/accommodation/classic-rooms' },
-        { label: 'Classic Suites', href: '/accommodation/classic-suites' },
-        { label: 'Deluxe Rooms', href: '/accommodation/deluxe-rooms' },
-        { label: 'Executive Suites', href: '/accommodation/executive-suites' },
-        { label: 'Strathearn Suite', href: '/accommodation/strathearn-suite' },
+        { label: 'Classic Rooms', href: '/our-rooms/classic-rooms' },
+        { label: 'Classic Suites', href: '/our-rooms/classic-suites' },
+        { label: 'Deluxe Rooms', href: '/our-rooms/deluxe-rooms' },
+        { label: 'Executive Suites', href: '/our-rooms/executive-suites' },
+        { label: 'Strathearn Suite', href: '/our-rooms/strathearn-suite' },
         { label: 'Rates', href: '#rates' },
         { label: 'Specials', href: '#specials' },
       ]

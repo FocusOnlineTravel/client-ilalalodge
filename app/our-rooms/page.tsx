@@ -58,7 +58,7 @@ export default function AccommodationPage() {
               >
                 {/* Image */}
                 <Link
-                  href={`/accommodation/${room.slug}`}
+                  href={`/our-rooms/${room.slug}`}
                   className={`relative aspect-[4/3] md:aspect-[1/1] block overflow-hidden group ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
                 >
                   <Image
@@ -112,7 +112,7 @@ export default function AccommodationPage() {
 
                   <div className="flex flex-wrap gap-4">
                     <Link
-                      href={`/accommodation/${room.slug}`}
+                      href={`/our-rooms/${room.slug}`}
                       className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 border border-brand-forest text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
                     >
                       View Details

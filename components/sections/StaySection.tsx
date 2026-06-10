@@ -52,7 +52,7 @@ export default function StaySection({ data }: Props) {
               >
                 {/* Image with Price Pill */}
                 <Link
-                  href={`/accommodation/${roomSlugMap[room.room_name] || '#'}`}
+                  href={`/our-rooms/${roomSlugMap[room.room_name] || '#'}`}
                   className={`relative mb-6 block ${
                     index === data.stay_rooms.length - 1 && data.stay_rooms.length % 2 !== 0
                       ? 'aspect-[8/3]'
@@ -91,7 +91,7 @@ export default function StaySection({ data }: Props) {
                   {/* Buttons */}
                   <div className="flex flex-wrap gap-4 mt-auto">
                     <Link
-                      href={`/accommodation/${roomSlugMap[room.room_name] || '#'}`}
+                      href={`/our-rooms/${roomSlugMap[room.room_name] || '#'}`}
                       className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 border border-brand-forest text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
                     >
                       View Details
