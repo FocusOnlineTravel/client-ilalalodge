@@ -161,6 +161,57 @@ export default function DiningPage() {
               </a>
             </div>
           </div>
+
+          {/* Additional Menus */}
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 mt-12 pt-12 border-t border-brand-stem/20">
+            {/* Snack Menu */}
+            <div className="text-center">
+              <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-3">Snack Menu</h3>
+              <p className="text-brand-forest/70 leading-relaxed mb-4">
+                Light bites and poolside snacks available throughout the day.
+              </p>
+              <a
+                href="/documents/ILH_SnackMenu_July-2024.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Menu
+              </a>
+            </div>
+
+            {/* Bar Menu */}
+            <div className="text-center">
+              <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-3">Bar Menu</h3>
+              <p className="text-brand-forest/70 leading-relaxed mb-4">
+                Beers, gins, cocktails, and refreshments from the poolside bar.
+              </p>
+              <a
+                href="/documents/ILH_BarMenu_2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Menu
+              </a>
+            </div>
+
+            {/* Wine Menu */}
+            <div className="text-center">
+              <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-3">Wine Menu</h3>
+              <p className="text-brand-forest/70 leading-relaxed mb-4">
+                A curated selection from South Africa's leading vineyards.
+              </p>
+              <a
+                href="/documents/ILH_WineMenu_2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Menu
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
