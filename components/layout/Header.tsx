@@ -196,17 +196,19 @@ export default function Header() {
         >
           <div className="min-h-full px-8 pt-24 pb-24 lg:pt-28 lg:px-20">
             <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 lg:gap-16">
-
-                {/* Left Column - Main Navigation */}
-                <nav className="flex flex-col gap-2">
-                  {navLinks.map((link) => {
-                    const isExpanded = hoveredMenuItem === link.label;
-                    return (
-                      <div
-                        key={link.href}
-                        onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
-                      >
+              {/* Navigation - Each item in its own row with submenu aligned */}
+              <nav className="flex flex-col gap-2">
+                {navLinks.map((link) => {
+                  const isExpanded = hoveredMenuItem === link.label;
+                  return (
+                    <div
+                      key={link.href}
+                      className="lg:grid lg:grid-cols-[auto_1fr] lg:gap-16"
+                      onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
+                      onMouseLeave={() => setHoveredMenuItem(null)}
+                    >
+                      {/* Main menu item */}
+                      <div>
                         {link.subItems ? (
                           <button
                             type="button"
@@ -256,38 +258,30 @@ export default function Header() {
                           </div>
                         )}
                       </div>
-                    );
-                  })}
-                </nav>
 
-                {/* Right Column - Sub Items (desktop only, hover-driven) */}
-                <div
-                  className="hidden lg:flex flex-col gap-2"
-                  onMouseLeave={() => setHoveredMenuItem(null)}
-                >
-                  {navLinks.map((link) => (
-                    link.subItems && hoveredMenuItem === link.label && (
-                      <div
-                        key={`${link.href}-sub`}
-                        className="flex flex-col gap-1 animate-fade-in"
-                      >
-                        {link.subItems.map((subItem) => (
-                          <div key={subItem.href}>
+                      {/* Desktop submenu - aligned to parent row */}
+                      {link.subItems && (
+                        <div
+                          className={`hidden lg:flex flex-col gap-1 transition-opacity duration-200 ${
+                            isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                          }`}
+                        >
+                          {link.subItems.map((subItem) => (
                             <Link
+                              key={subItem.href}
                               href={subItem.href}
                               onClick={handleLinkClick}
                               className="text-white/90 hover:text-brand-gold transition-colors duration-200 text-xl lg:text-2xl font-sans block"
                             >
                               {subItem.label}
                             </Link>
-                          </div>
-                        ))}
-                      </div>
-                    )
-                  ))}
-                </div>
-
-              </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </nav>
 
               {/* Contact Information - Bottom Section */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/20 text-white">
