@@ -18,10 +18,10 @@ export default function Header() {
     return null;
   }
 
-  // Show Stay submenu by default when menu opens
+  // Show Our Rooms submenu by default when menu opens
   useEffect(() => {
     if (isMobileMenuOpen) {
-      setHoveredMenuItem('Stay');
+      setHoveredMenuItem('Our Rooms');
     }
   }, [isMobileMenuOpen]);
 
@@ -36,7 +36,7 @@ export default function Header() {
 
   const navLinks = [
     {
-      label: 'Stay',
+      label: 'Our Rooms',
       href: '/accommodation',
       subItems: [
         { label: 'Classic Rooms', href: '/accommodation/classic-rooms' },

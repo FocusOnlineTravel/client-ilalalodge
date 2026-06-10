@@ -5,7 +5,8 @@ import { accommodationData } from '@/data/accommodation';
 import { BOOKING_URL } from '@/lib/constants';
 import RoomGallery from '@/components/accommodation/RoomGallery';
 import OtherRoomsCarousel from '@/components/accommodation/OtherRoomsCarousel';
-import { Maximize2, Users, BedDouble, Tag, Circle } from 'lucide-react';
+import HeroCarousel from '@/components/accommodation/HeroCarousel';
+import { Maximize2, Users, BedDouble, Tag, Circle, FileText } from 'lucide-react';
 
 // Map amenity names to icon files
 const amenityIconMap: Record<string, { file: string; prefix: 'facilities' | 'hotel' | 'none' }> = {
@@ -95,18 +96,12 @@ export default async function RoomPage({ params }: Props) {
 
   return (
     <>
-      {/* Hero Section with Breadcrumb */}
+      {/* Hero Section with Carousel */}
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <Image
-            src={room.image}
-            alt={room.title}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
-        </div>
+        <HeroCarousel
+          images={room.heroImages || [room.image]}
+          title={room.title}
+        />
         <div className="relative z-10 text-center text-white px-4">
           <Link
             href="/accommodation"
@@ -145,7 +140,7 @@ export default async function RoomPage({ params }: Props) {
             <div className="text-center px-4 py-6 md:py-2">
               <Tag className="w-6 h-6 text-brand-gold mx-auto mb-3" strokeWidth={1.5} />
               <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">From</div>
-              <div className="text-xl font-light text-brand-forest font-serif">{room.priceFrom} <span className="text-sm text-brand-stem/70">/ night</span></div>
+              <div className="text-xl font-light text-brand-forest font-serif">{room.priceFrom} <span className="text-sm text-brand-stem/70">pppn</span></div>
             </div>
           </div>
         </div>
@@ -206,6 +201,21 @@ export default async function RoomPage({ params }: Props) {
               );
             })}
           </div>
+
+          {/* Floorplan Download */}
+          {room.floorplan && (
+            <div className="mt-12 text-center">
+              <a
+                href={room.floorplan}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
+              >
+                <FileText className="w-5 h-5" />
+                View Floorplan
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
