@@ -214,11 +214,12 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-17",
-    "x": 503,
-    "y": 314,
+    "x": 514,
+    "y": 252,
     "title": "Zambezi National Park",
     "blurb": "Wildlife-rich national park offering game drives, birdwatching, and river safari experiences.",
     "icon": "camera",
+    "tooltipPosition": "down",
     "pinColor": "#2563EB"
   },
   {
@@ -261,11 +262,12 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-46",
-    "x": 2763,
-    "y": 420,
+    "x": 2734,
+    "y": 326,
     "title": "Princess Elizabeth Island",
     "blurb": "Small Zambezi River island associated with historical royal visits and river cruises.",
     "icon": "camera",
+    "tooltipPosition": "down",
     "pinColor": "#2563EB"
   },
   {
