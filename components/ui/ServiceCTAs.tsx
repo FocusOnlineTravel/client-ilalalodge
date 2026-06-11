@@ -2,8 +2,8 @@
 
 import WhatsAppTriggerButton from './WhatsAppTriggerButton';
 
-const PHONE_TEL = '+263832844737';
-const PHONE_DISPLAY = '+263 83 2844737';
+const PHONE_TEL = '+263788097346';
+const PHONE_DISPLAY = '+263 78 8097346';
 const EMAIL = 'guestrelations@ilalalodge.co.zw';
 
 const WhatsAppIcon = ({ size = 18 }: { size?: number }) => (

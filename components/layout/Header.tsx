@@ -343,11 +343,11 @@ export default function Header() {
                 <div>
                   <h3 className="text-sm uppercase tracking-wider font-semibold mb-4">Front Desk & Restaurant</h3>
                   <div className="flex flex-col gap-2">
-                    <a href="tel:+263832844737" className="hover:text-brand-gold transition-colors text-sm">
-                      +263 83 2844737/8/9
+                    <a href="tel:+263788097346" className="hover:text-brand-gold transition-colors text-sm">
+                      +263 78 8097346
                     </a>
                     <a
-                      href="https://wa.me/263832844737"
+                      href="https://wa.me/263788097346"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-brand-gold hover:text-brand-gold/80 transition-colors text-sm"
@@ -367,8 +367,8 @@ export default function Header() {
                 <div>
                   <h3 className="text-sm uppercase tracking-wider font-semibold mb-4">Agent Reservations</h3>
                   <div className="flex flex-col gap-2 mb-6">
-                    <a href="tel:+263832844737" className="hover:text-brand-gold transition-colors text-sm">
-                      +263 83 2844737/8/9
+                    <a href="tel:+263788097346" className="hover:text-brand-gold transition-colors text-sm">
+                      +263 78 8097346
                     </a>
                     <a href="mailto:reservations@ilalalodge.co.zw" className="hover:text-brand-gold transition-colors text-sm">
                       reservations@ilalalodge.co.zw

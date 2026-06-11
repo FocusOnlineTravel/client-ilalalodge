@@ -17,7 +17,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const WHATSAPP_NUMBERS = {
-  concierge: 'https://wa.me/263832844737',
+  concierge: 'https://wa.me/263788097346',
   reservations: 'https://wa.me/263719384920',
 };
 

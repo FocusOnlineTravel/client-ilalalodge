@@ -35,14 +35,14 @@ const contactCards = [
     title: 'Hotel Reception & Restaurant',
     intent: 'Front desk, restaurant bookings, and in-house enquiries.',
     email: 'guestrelations@ilalalodge.co.zw',
-    phones: ['+263 83 2844737', '+263 83 2844738', '+263 83 2844739'],
-    whatsapp: '263832844737',
+    phones: ['+263 78 8097346', '+263 83 2844738', '+263 83 2844739'],
+    whatsapp: '263788097346',
   },
   {
     title: 'Agent Reservations',
     intent: 'Travel agents and tour operators.',
     email: 'reservations@ilalalodge.co.zw',
-    phones: ['+263 83 2844737', '+263 83 2842650', '+263 712 401 814'],
+    phones: ['+263 78 8097346', '+263 83 2842650', '+263 712 401 814'],
   },
 ];
 
