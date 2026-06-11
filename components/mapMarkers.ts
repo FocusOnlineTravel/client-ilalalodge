@@ -243,8 +243,8 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-44",
-    "x": 3891,
-    "y": 192,
+    "x": 3851,
+    "y": 223,
     "title": "Crocodile Farm",
     "blurb": "Educational crocodile farm showcasing Nile crocodiles and local reptile conservation.",
     "icon": "camera",
@@ -315,9 +315,9 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-27",
-    "x": 129,
-    "y": 209,
-    "title": "Botswana Border Post (75km)",
+    "x": 237,
+    "y": 246,
+    "title": "« Botswana Border Post (75km)",
     "icon": "museum",
     "tooltipPosition": "down",
     "pinColor": "#311caa"
