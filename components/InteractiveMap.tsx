@@ -175,7 +175,7 @@ export default function InteractiveMap() {
 
   const MapContent = ({ inModal = false, fitHeight = false }: { inModal?: boolean; fitHeight?: boolean }) => (
     <div
-      className="relative transition-all duration-300"
+      className="relative"
       style={
         zoomLevel !== 'fit'
           ? { width: `${getZoomWidth()}px`, minWidth: `${getZoomWidth()}px` }
@@ -190,7 +190,7 @@ export default function InteractiveMap() {
         alt="Victoria Falls Town Map"
         width={IMAGE_WIDTH}
         height={IMAGE_HEIGHT}
-        className="transition-all duration-300 pointer-events-none"
+        className="pointer-events-none"
         style={
           zoomLevel !== 'fit'
             ? { width: `${getZoomWidth()}px`, height: 'auto' }
