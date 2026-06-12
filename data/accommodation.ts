@@ -7,7 +7,7 @@ Rooms on the upper level open onto private balconies, while ground floor rooms l
 
 Accommodation is available across the Deluxe Wing, Garden Wing, and Pool Wing. The Deluxe and Pool Wings offer views of the rising spray from Victoria Falls, along with the hotel's gardens. The Garden Wing provides direct access to the lawns.
 
-All rooms feature teak furnishings crafted from local Zimbabwean railway sleepers, adding to the hotel's traditional character. High-quality cotton linens and plush pillows ensure a comfortable stay, complemented by attentive service throughout.`,
+All rooms feature teak furnishings, high-quality cotton linens and plush pillows to ensure a comfortable stay, complemented by attentive service throughout.`,
   rooms: [
     {
       slug: "classic-rooms",
@@ -106,7 +106,7 @@ For families of more than 3, the Classic Suite can interconnect with a Classic T
     {
       slug: "deluxe-rooms",
       title: "Deluxe Rooms",
-      shortDescription: "Set within the Deluxe Wing — refined teak accents and contemporary furnishings, with private patios overlooking the gardens.",
+      shortDescription: "Set within the Deluxe Wing — refined teak accents and contemporary furnishings, with patios/balconies overlooking the gardens.",
       description: `Set within the Deluxe Wing, the Deluxe Rooms offer a more refined stay, combining rich teak accents with contemporary furnishings.
 
 Twin Deluxe Rooms feature two three-quarter beds, while King Deluxe Rooms include a king-size bed. Each room has an en-suite bathroom with a walk-in shower and double vanities, providing added space and comfort.
@@ -196,7 +196,7 @@ A private balcony extends from the bedroom and wraps around to the lounge, offer
         "Laundry Service",
         "Overhead Fans",
         "Digital Safe",
-        "Private Patio/Balcony Facing Victoria Falls",
+        "Private Balcony Facing Victoria Falls",
         "Double Vanity Basins",
         "Large Bathtub",
         "Private Lounge"

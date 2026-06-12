@@ -228,7 +228,7 @@ export default async function RoomPage({ params }: Props) {
           <p className="text-brand-stem text-lg mb-8 max-w-2xl mx-auto">
             Experience luxury and comfort at {room.title}. Book directly for the best rates and exclusive benefits.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center mb-6">
             <a
               href={BOOKING_URL}
               target="_blank"
@@ -237,13 +237,19 @@ export default async function RoomPage({ params }: Props) {
             >
               Book This Room
             </a>
-            <Link
-              href="/our-rooms"
+            <a
+              href="mailto:onlinereservations@ilalalodge.com"
               className="inline-block border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
             >
-              Back to All Accommodation
-            </Link>
+              Email Us
+            </a>
           </div>
+          <Link
+            href="/our-rooms"
+            className="text-sm uppercase tracking-wider text-brand-stem hover:text-brand-gold transition-colors"
+          >
+            &larr; Back to All Accommodation
+          </Link>
         </div>
       </section>
 

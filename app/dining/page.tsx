@@ -239,7 +239,7 @@ export default function DiningPage() {
                 Dine on the banks of the Zambezi River, on a multi-level wooden deck in the heart of the Zambezi National Park. Situated just a 5-minute drive from Ilala Lodge Hotel, the Riverside Dining Experience offers an open-fire, barbecue-style dinner under the stars, with freshly prepared dishes inspired by traditional Zimbabwean flavours and a selection of alcoholic and non-alcoholic beverages, served by dedicated staff.
               </p>
               <a
-                href="https://www.palmriverhotel.com/dining/"
+                href="https://www.palmriverhotel.com/dining/#zambezi-river-deck"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-white hover:bg-brand-gold hover:text-white hover:border-brand-gold"
@@ -271,7 +271,7 @@ export default function DiningPage() {
                 Experience the refined elegance of High Tea at the Palm River Hotel on the Zambezi River. Begin with effervescent hibiscus prosecco or savour artisanal brews, from velvety cappuccinos to aromatic teas. Indulge in panna cottas, dainty sandwiches, mini macarons, buttery scones with whipped cream and strawberry preserves and more, all enjoyed under the shade of indigenous trees by the tranquil river.
               </p>
               <a
-                href="https://www.palmriverhotel.com/experiences/"
+                href="https://www.palmriverhotel.com/experiences#high-tea"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-white hover:bg-brand-gold hover:text-white hover:border-brand-gold"
@@ -336,7 +336,7 @@ export default function DiningPage() {
           <p className="text-white/80 mb-8">
             Join us at Cassia Restaurant for an exceptional culinary journey in the heart of Victoria Falls.
           </p>
-          <ServiceCTAs theme="dark" />
+          <ServiceCTAs theme="dark" email="fnb@ilalalodge.co.zw" />
         </div>
       </section>
     </>
