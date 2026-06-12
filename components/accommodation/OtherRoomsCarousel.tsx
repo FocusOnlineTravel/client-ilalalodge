@@ -51,7 +51,7 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
                     className="w-full lg:w-[calc(50%-1rem)] flex-shrink-0 bg-white overflow-hidden transition-all duration-300 group"
                   >
                     {/* Room Image */}
-                    <div className="relative h-[250px] lg:h-[350px]">
+                    <Link href={`/our-rooms/${room.slug}`} className="block relative h-[250px] lg:h-[350px]">
                       <Image
                         src={room.image}
                         alt={room.title}
@@ -59,7 +59,7 @@ export default function OtherRoomsCarousel({ rooms }: OtherRoomsCarouselProps) {
                         className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
-                    </div>
+                    </Link>
 
                     {/* Room Info */}
                     <div className="p-6 lg:p-8 space-y-4">
