@@ -152,7 +152,7 @@ export default function DiningPage() {
                 Dine al fresco under African skies with the sound of the Falls in the background, supported by a curated wine list, beers, gins, and cocktails.
               </p>
               <a
-                href="/documents/ILH_Dinner-Menu_2025.pdf"
+                href="/documents/ILH_DinnerMenu_2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
@@ -171,7 +171,7 @@ export default function DiningPage() {
                 Light bites and poolside snacks available throughout the day.
               </p>
               <a
-                href="/documents/ILH_SnackMenu_July-2024.pdf"
+                href="/documents/ILH_SnackMenu_2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
@@ -187,7 +187,7 @@ export default function DiningPage() {
                 Beers, gins, cocktails, and refreshments from the poolside bar.
               </p>
               <a
-                href="/documents/ILH_BarMenu_2025.pdf"
+                href="/documents/ILH_BeverageList_2026 (Online).pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
@@ -203,7 +203,7 @@ export default function DiningPage() {
                 A curated selection from South Africa's leading vineyards.
               </p>
               <a
-                href="/documents/ILH_WineMenu_2025.pdf"
+                href="/documents/ILH_WineList_2026 (Online).pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
