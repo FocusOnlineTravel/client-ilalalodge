@@ -44,7 +44,7 @@ const wildlifeActivities = [
   {
     title: 'Chobe & Hwange National Parks',
     description: "Day trips into Botswana to Chobe National Park, home to one of Africa's densest elephant populations, or extended trips for exceptional game viewing in Zimbabwe's largest national park, Hwange, within 100km of the hotel.",
-    image: '/images/ian-mackey-CIlaNRne0DE-unsplash.jpg',
+    image: '/images/game-parks.jpg',
   },
   {
     title: 'Walk with Elephants',
