@@ -65,6 +65,13 @@ const galleryImages: GalleryImage[] = [
   { src: '/images/pool.png', alt: 'Hotel pool', category: 'hotel' },
   { src: '/images/night5.jpg', alt: 'Ilala Lodge at night', category: 'hotel' },
   { src: '/images/banner-image-2-cropped.png', alt: 'Hotel landscape view', category: 'hotel' },
+  { src: '/images/Ilala-Lodge-Exteriors-07.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
+  { src: '/images/Ilala-Lodge-Exteriors-08.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
+  { src: '/images/Ilala-Lodge-Exteriors-12.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
+  { src: '/images/Ilala-Lodge-Exteriors-16.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
+  { src: '/images/Ilala-Lodge-Exteriors-19.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
+  { src: '/images/Ilala-Lodge-Exteriors-20.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
+  { src: '/images/Ilala-Lodge-Exteriors-23.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
 ];
 
 export default function GalleryGrid() {
