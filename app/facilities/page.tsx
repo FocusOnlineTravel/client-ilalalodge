@@ -46,6 +46,14 @@ const conferencingImages = [
   { src: '/images/Ilala-Lodge-Facilities-Conference-Room-04.jpg', alt: 'Conference Room' },
 ];
 
+const spaImages = [
+  { src: '/images/Ilala-Lodge-Facilities-Spa-01.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-10.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-11.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-12.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-05.jpg', alt: 'Spa Treatments' },
+];
+
 export default function FacilitiesPage() {
   return (
     <>
@@ -161,13 +169,8 @@ export default function FacilitiesPage() {
       <section id="spa" className="py-12 md:py-16 bg-gradient-to-b from-white to-brand-daisy scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="md:order-2 relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/Ilala-Lodge-Facilities-Spa-01.jpg"
-                alt="Spa Treatments"
-                fill
-                className="object-cover"
-              />
+            <div className="md:order-2">
+              <ImageSlider images={spaImages} className="h-[400px] md:h-[500px]" />
             </div>
             <div className="md:order-1">
               <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
