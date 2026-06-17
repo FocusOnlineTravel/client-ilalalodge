@@ -36,6 +36,9 @@ Both room types are furnished with traditional railway teak pieces, paired with 
         "/images/Ilala-Lodge-Accommodation-Classic-Double-01.jpg",
         "/images/Ilala-Lodge-Accommodation-Classic-Twin-01.jpg",
         "/images/Ilala-Lodge-Accommodation-Classic-Twin-03.jpg",
+        "/images/Ilala-Lodge-Accommodation-Classic-Twin-Adjoined-02.jpg",
+        "/images/Ilala-Lodge-Accommodation-Classic-Twin-Adjoined-01.jpg",
+        "/images/Ilala-Lodge-Exteriors-16.jpg",
       ],
       amenities: [
         "Mini-Bar (with Complimentary Initial Stocking)",
@@ -82,6 +85,7 @@ For families of more than 3, the Classic Suite can interconnect with a Classic T
         "/images/Ilala-Lodge-Accommodation-Classic-Twin-Adjoined-02.jpg",
         "/images/Ilala-Lodge-Accommodation-Classic-Suite-02.jpg",
         "/images/Ilala-Lodge-Accommodation-Classic-Suite-01.jpg",
+        "/images/Ilala-Lodge-Accommodation-Classic-Double-04.jpg",
       ],
       amenities: [
         "Complimentary Mini-Bar – replenished daily",
@@ -181,7 +185,6 @@ A private balcony extends from the bedroom and wraps around to the lounge, offer
         "/images/Ilala-Lodge-Accommodation-Executive-Suite-09.jpg",
         "/images/Ilala-Lodge-Accommodation-Executive-Suite-11.jpg",
         "/images/Ilala-Lodge-Accommodation-Executive-Suite-10.jpg",
-        "/images/Ilala-Lodge-Accommodation-Executive-Suite-12.jpg",
       ],
       amenities: [
         "Complimentary Mini-Bar – replenished daily",
@@ -235,6 +238,8 @@ Ideal for couples, the suite can also be configured for families through interle
         "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-05.jpg",
         "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-04.jpg",
         "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-03.jpg",
+        "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-09.jpg",
+        "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-02.jpg",
       ],
       amenities: [
         "Complimentary Mini-Bar – replenished daily",
