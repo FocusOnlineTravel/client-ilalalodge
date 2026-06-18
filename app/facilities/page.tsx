@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { BOOKING_URL } from '@/lib/constants';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import ImageSlider from '@/components/ui/ImageSlider';
+import HeroCarousel from '@/components/accommodation/HeroCarousel';
 
 export const metadata = {
   title: 'Our Facilities | Ilala Lodge Hotel',
@@ -54,21 +55,18 @@ const spaImages = [
   { src: '/images/Ilala-Lodge-Facilities-Spa-05.jpg', alt: 'Spa Treatments' },
 ];
 
+const heroImages = [
+  '/images/Ilala-Lodge-Reception-04.jpg',
+  '/images/Ilala-Lodge-Facilities-Poolside-Bar-08.jpg',
+  '/images/Ilala-Lodge-Facilities-Pools-07.jpg',
+];
+
 export default function FacilitiesPage() {
   return (
     <>
       {/* Hero Section */}
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/Ilala-Lodge-Reception-04.jpg"
-            alt="Our Facilities"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
+        <HeroCarousel images={heroImages} title="Our Facilities" />
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
             Our Facilities
