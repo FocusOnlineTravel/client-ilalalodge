@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,6 +12,9 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredMenuItem, setHoveredMenuItem] = useState<string | null>(null);
+  const [submenuOffset, setSubmenuOffset] = useState(0);
+  const navRef = useRef<HTMLElement>(null);
+  const menuItemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   // Hide on map-editor page (it has its own header)
   if (pathname === '/map-editor') {
@@ -212,13 +215,32 @@ export default function Header() {
               {/* Navigation with absolutely positioned submenus */}
               <div className="lg:flex lg:gap-16">
                 {/* Left Column - Main Navigation */}
-                <nav className="flex flex-col gap-2">
+                <nav ref={navRef} className="flex flex-col gap-2">
                   {navLinks.map((link) => {
                     const isExpanded = hoveredMenuItem === link.label;
                     return (
                       <div
                         key={link.href}
-                        onMouseEnter={() => setHoveredMenuItem(link.subItems ? link.label : null)}
+                        ref={(el) => {
+                          if (el) {
+                            menuItemRefs.current.set(link.label, el);
+                          }
+                        }}
+                        onMouseEnter={() => {
+                          if (link.subItems) {
+                            setHoveredMenuItem(link.label);
+                            // Calculate offset relative to nav container
+                            const navEl = navRef.current;
+                            const itemEl = menuItemRefs.current.get(link.label);
+                            if (navEl && itemEl) {
+                              const navRect = navEl.getBoundingClientRect();
+                              const itemRect = itemEl.getBoundingClientRect();
+                              setSubmenuOffset(itemRect.top - navRect.top);
+                            }
+                          } else {
+                            setHoveredMenuItem(null);
+                          }
+                        }}
                       >
                         {link.subItems ? (
                           <>
@@ -288,7 +310,7 @@ export default function Header() {
 
                 {/* Right Column - Sub Items (desktop only) */}
                 <div
-                  className="hidden lg:block"
+                  className="hidden lg:block relative"
                   onMouseLeave={() => setHoveredMenuItem(null)}
                 >
                   {navLinks.map((link) => (
@@ -296,6 +318,7 @@ export default function Header() {
                       <div
                         key={`${link.href}-sub`}
                         className="flex flex-col gap-1 animate-fade-in"
+                        style={{ marginTop: submenuOffset }}
                       >
                         {link.subItems.map((subItem) => (
                           <Link
