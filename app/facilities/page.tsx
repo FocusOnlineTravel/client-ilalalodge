@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { BOOKING_URL } from '@/lib/constants';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import ImageSlider from '@/components/ui/ImageSlider';
-import HeroCarousel from '@/components/accommodation/HeroCarousel';
 
 export const metadata = {
   title: 'Our Facilities | Ilala Lodge Hotel',
@@ -48,18 +47,22 @@ const spaImages = [
   { src: '/images/Ilala-Lodge-Facilities-Spa-12.jpg', alt: 'Spa Treatments' },
 ];
 
-const heroImages = [
-  '/images/Ilala-Lodge-Reception-04.jpg',
-  '/images/Ilala-Lodge-Facilities-Poolside-Bar-08.jpg',
-  '/images/Ilala-Lodge-Facilities-Pools-07.jpg',
-];
-
 export default function FacilitiesPage() {
   return (
     <>
       {/* Hero Section */}
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
-        <HeroCarousel images={heroImages} title="Our Facilities" />
+        <div className="absolute inset-0">
+          <video
+            src="https://streamable.com/l/683t2l/mp4-high.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
             Our Facilities
@@ -148,12 +151,26 @@ export default function FacilitiesPage() {
               <p className="text-brand-forest/80 leading-relaxed mb-6">
                 The Tours & Activities Desk provides assistance with planning and booking experiences in and around Victoria Falls. The team can arrange activities, transfers, and river cruises, offering a convenient in-house service.
               </p>
-              <Link
-                href="/activities"
-                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-              >
-                View Activities
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/activities"
+                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+                >
+                  View Activities
+                </Link>
+                <a
+                  href="tel:+263788097346"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-brand-forest text-white hover:bg-brand-forest/90"
+                >
+                  Call Us
+                </a>
+                <a
+                  href="mailto:activities@palmhospitality.co.zw"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white"
+                >
+                  Email Us
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -66,8 +66,8 @@ export default function Header() {
       href: '/dining',
       subItems: [
         { label: 'Cassia Restaurant', href: '/dining' },
-        { label: 'Zambezi River Deck Experience', href: '/dining#zambezi-river-deck' },
-        { label: 'Palm River Hotel High Tea', href: '/dining#high-tea' },
+        { label: 'Zambezi River Deck Experience', href: '/dining/zambezi-river-deck' },
+        { label: 'Palm River Hotel High Tea', href: '/dining/high-tea' },
         { label: 'Our Menus', href: '/dining#menus' },
       ]
     },

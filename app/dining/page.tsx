@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import ImageLightbox from '@/components/gallery/ImageLightbox';
@@ -64,12 +65,13 @@ export default function DiningPage() {
       {/* Hero Section */}
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
-          <Image
-            src="/images/Ilala-Lodge-Dining-1-Breakfast-07.jpg"
-            alt="Cassia Restaurant"
-            fill
-            className="object-cover"
-            priority
+          <video
+            src="https://streamable.com/l/gm0ph0/mp4-high.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/30" />
         </div>
@@ -262,14 +264,12 @@ export default function DiningPage() {
               <p className="text-white/80 leading-relaxed mb-6">
                 Dine on the banks of the Zambezi River, on a multi-level wooden deck in the heart of the Zambezi National Park. Situated just a 5-minute drive from Ilala Lodge Hotel, the Riverside Dining Experience offers an open-fire, barbecue-style dinner under the stars, with freshly prepared dishes inspired by traditional Zimbabwean flavours and a selection of alcoholic and non-alcoholic beverages, served by dedicated staff.
               </p>
-              <a
-                href="https://www.palmriverhotel.com/dining/#zambezi-river-deck"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/dining/zambezi-river-deck"
                 className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-white hover:bg-brand-gold hover:text-white hover:border-brand-gold"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -294,14 +294,12 @@ export default function DiningPage() {
               <p className="text-white/80 leading-relaxed mb-6">
                 Experience the refined elegance of High Tea at the Palm River Hotel on the Zambezi River. Begin with effervescent hibiscus prosecco or savour artisanal brews, from velvety cappuccinos to aromatic teas. Indulge in panna cottas, dainty sandwiches, mini macarons, buttery scones with whipped cream and strawberry preserves and more, all enjoyed under the shade of indigenous trees by the tranquil river.
               </p>
-              <a
-                href="https://www.palmriverhotel.com/experiences#high-tea"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/dining/high-tea"
                 className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-white hover:bg-brand-gold hover:text-white hover:border-brand-gold"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
         </div>
