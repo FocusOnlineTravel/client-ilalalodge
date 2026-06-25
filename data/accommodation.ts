@@ -215,7 +215,7 @@ Designed with a contemporary, sophisticated finish, the suite offers a private l
 
 Guests enjoy added inclusions such as in-room continental breakfast, welcome sparkling wine, and a complimentary river cruise (subject to availability). Private in-room dining is also available on request.
 
-Ideal for couples, the suite can also be configured for families through interleading doors to a secondary suite and Deluxe Room, creating a more spacious, connected layout.`,
+Ideal for couples, the suite can also be configured for families through interleading doors to an Executive suite and Deluxe Room, creating a more spacious, connected layout.`,
       image: "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-01.jpg",
       heroImages: [
         "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-01.jpg",

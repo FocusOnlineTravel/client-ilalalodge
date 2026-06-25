@@ -57,9 +57,9 @@ interface Props {
 export default function ServiceCTAs({ theme = 'light', align = 'center', className = '', email }: Props) {
   const emailAddress = email || EMAIL;
   const isDark = theme === 'dark';
-  // Same height + minimum width on every button for visual balance
+  // Match View Menu button sizing
   const base =
-    'inline-flex items-center justify-center gap-2.5 h-11 min-w-[160px] px-5 rounded-full text-sm font-semibold uppercase tracking-wide transition-all duration-200';
+    'inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200';
   const whatsapp = `${base} bg-[#25D366] text-white hover:bg-[#20BA5A]`;
   const call = isDark
     ? `${base} bg-white text-brand-forest hover:bg-brand-gold hover:text-white`

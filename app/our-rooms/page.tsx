@@ -15,12 +15,13 @@ export default function AccommodationPage() {
       {/* Hero Section */}
       <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0">
-          <Image
-            src="/images/Classic-Suite-ILH--1334x1000.jpg"
-            alt="Ilala Lodge Accommodation"
-            fill
-            className="object-cover"
-            priority
+          <video
+            src="https://streamable.com/l/sb2boa/mp4-high.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
@@ -145,14 +146,22 @@ export default function AccommodationPage() {
           <p className="text-white/80 mb-8">
             Contact our reservations team or book directly online for the best rates.
           </p>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-gold hover:text-white transition-all duration-200 rounded-full"
-          >
-            Book Now
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-white text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-gold hover:text-white transition-all duration-200 rounded-full"
+            >
+              Book Now
+            </a>
+            <a
+              href="mailto:onlinereservations@ilalalodge.com"
+              className="inline-block px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 border border-white text-white font-semibold uppercase tracking-wide hover:bg-white hover:text-brand-forest transition-all duration-200 rounded-full"
+            >
+              Email Us
+            </a>
+          </div>
         </div>
       </section>
     </>

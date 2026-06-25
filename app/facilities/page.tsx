@@ -10,30 +10,16 @@ export const metadata = {
   description: 'Discover the facilities at Ilala Lodge Hotel - poolside bar, swimming pools, spa treatments, conferencing, and tours desk.',
 };
 
-const roomFacilities = [
-  { icon: 'air-conditioning', label: 'Air Conditioning' },
-  { icon: 'ceiling-fans', label: 'Ceiling Fans' },
-  { icon: 'complimentary-wifi', label: 'Complimentary WiFi' },
-  { icon: 'satellite-television', label: 'Satellite Television' },
-  { icon: 'in-room-dining', label: 'In-Room Dining' },
-  { icon: 'tea-and-coffee-making-facilities', label: 'Tea & Coffee Facilities' },
-  { icon: 'min-bar', label: 'Mini Bar' },
-  { icon: 'digital-safe', label: 'Digital Safe' },
-  { icon: 'writing-desk', label: 'Writing Desk' },
-  { icon: 'hair-dryers', label: 'Hair Dryers' },
-  { icon: 'laundry-service', label: 'Laundry Service' },
-  { icon: 'room-telephones', label: 'Room Telephones' },
-  { icon: 'garden-views', label: 'Garden Views' },
-  { icon: 'luggage-storage', label: 'Luggage Storage' },
-  { icon: 'international-plug-points-and-usb-charging', label: 'International Plugs & USB Charging' },
-  { icon: 'daily-serviced-rooms-with-evening-turndown', label: 'Daily Service & Evening Turndown' },
-];
-
 const poolsideBarImages = [
   { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-06.jpg', alt: 'Poolside Bar' },
   { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-05.jpg', alt: 'Poolside Bar' },
   { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-02.jpg', alt: 'Poolside Bar' },
   { src: '/images/IlalaLodgeHotel Poolside Lounge (2).jpg', alt: 'Poolside Lounge' },
+];
+
+const activitiesDeskImages = [
+  { src: '/images/Ilala-Lodge-Facilities-Activity-Desk-01.jpg', alt: 'Tours & Activities Desk' },
+  { src: '/images/Ilala-Lodge-Facilities-Activity-Desk-02.jpg', alt: 'Tours & Activities Desk' },
 ];
 
 const swimmingPoolsImages = [
@@ -43,16 +29,23 @@ const swimmingPoolsImages = [
 ];
 
 const conferencingImages = [
+  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-01.jpg', alt: 'Conference Room' },
   { src: '/images/Ilala-Lodge-Facilities-Conference-Room-02.jpg', alt: 'Conference Room' },
   { src: '/images/Ilala-Lodge-Facilities-Conference-Room-04.jpg', alt: 'Conference Room' },
+  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-05.jpg', alt: 'Conference Room' },
 ];
 
 const spaImages = [
   { src: '/images/Ilala-Lodge-Facilities-Spa-01.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-03.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-04.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-05.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-06.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-07.jpg', alt: 'Spa Treatments' },
+  { src: '/images/Ilala-Lodge-Facilities-Spa-08.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-10.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-11.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-12.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-05.jpg', alt: 'Spa Treatments' },
 ];
 
 const heroImages = [
@@ -98,14 +91,24 @@ export default function FacilitiesPage() {
               <p className="text-brand-forest/80 leading-relaxed mb-6">
                 Open daily from 10h00 to 22h00, the Poolside Bar is set alongside the hotel's two swimming pools. The teak bar, crafted from locally sourced railway sleepers, creates a relaxed setting for afternoon drinks and sundowners. Guests can enjoy views over the Victoria Falls National Park and the rising mist of the Falls.
               </p>
-              <a
-                href="/documents/ILH_SnackMenu_July-2024.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-              >
-                View Menu
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://client-ilalalodge.vercel.app/documents/ILH_BeverageList_2026%20(Online).pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+                >
+                  Bar Menu
+                </a>
+                <a
+                  href="https://client-ilalalodge.vercel.app/documents/ILH_SnackMenu_2025.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+                >
+                  Snack Menu
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -137,14 +140,7 @@ export default function FacilitiesPage() {
       <section id="activities-desk" className="py-12 md:py-16 bg-white scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
-              <Image
-                src="/images/Ilala-Lodge-Facilities-Activity-Desk-02.jpg"
-                alt="Tours & Activities Desk"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <ImageSlider images={activitiesDeskImages} className="h-[400px] md:h-[500px]" />
             <div>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
                 Tours & Activities Desk
@@ -186,7 +182,7 @@ export default function FacilitiesPage() {
                 >
                   View Menu
                 </a>
-                <ServiceCTAs theme="light" align="start" />
+                <ServiceCTAs theme="light" align="start" email="activities@palmhospitality.co.zw" />
               </div>
             </div>
           </div>
@@ -209,12 +205,6 @@ export default function FacilitiesPage() {
                 Within the spacious suite, the conferencing room can be arranged in a variation of formats, from U-shape, boardroom, theatre style and more. The suite is suitable for a maximum of 30 guests.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/gallery?filter=conferencing"
-                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-                >
-                  View Gallery
-                </Link>
                 <a
                   href="/documents/ILALA-Conferencing-and-Meeting-Suites-Flyer.pdf"
                   target="_blank"
@@ -223,31 +213,20 @@ export default function FacilitiesPage() {
                 >
                   Download Factsheet
                 </a>
+                <a
+                  href="tel:+263788097346"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-brand-forest text-white hover:bg-brand-forest/90"
+                >
+                  Call Us
+                </a>
+                <a
+                  href="mailto:fnb@ilalalodge.co.zw"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white"
+                >
+                  Email Us
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Room Facilities Icons */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-12">
-            In-Room Amenities
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 lg:gap-10">
-            {roomFacilities.map((facility) => (
-              <div key={facility.icon} className="flex flex-col items-center text-center gap-4 p-4">
-                <Image
-                  src={`/icons/icons-facilities-${facility.icon}.png`}
-                  alt={facility.label}
-                  width={60}
-                  height={60}
-                  className="w-14 h-14 object-contain"
-                />
-                <span className="text-brand-forest text-sm">{facility.label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -107,7 +107,7 @@ export default async function RoomPage({ params }: Props) {
             href="/our-rooms"
             className="inline-block text-sm uppercase tracking-wider text-white/80 hover:text-brand-gold transition-colors mb-4"
           >
-            &larr; Back to All Accommodation
+            &larr; Back to All Rooms
           </Link>
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
             {room.title}
@@ -248,7 +248,7 @@ export default async function RoomPage({ params }: Props) {
             href="/our-rooms"
             className="text-sm uppercase tracking-wider text-brand-stem hover:text-brand-gold transition-colors"
           >
-            &larr; Back to All Accommodation
+            &larr; Back to All Rooms
           </Link>
         </div>
       </section>

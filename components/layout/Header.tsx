@@ -49,7 +49,6 @@ export default function Header() {
         { label: 'Executive Suites', href: '/our-rooms/executive-suites' },
         { label: 'Strathearn Suite', href: '/our-rooms/strathearn-suite' },
         { label: 'Rates', href: '#rates' },
-        { label: 'Specials', href: '#specials' },
       ]
     },
     {
@@ -66,7 +65,7 @@ export default function Header() {
       label: 'Dining',
       href: '/dining',
       subItems: [
-        { label: 'Cassia Restaurant', href: '/dining#cassia-restaurant' },
+        { label: 'Cassia Restaurant', href: '/dining' },
         { label: 'Zambezi River Deck Experience', href: '/dining#zambezi-river-deck' },
         { label: 'Palm River Hotel High Tea', href: '/dining#high-tea' },
         { label: 'Our Menus', href: '/dining#menus' },
