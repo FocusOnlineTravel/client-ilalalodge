@@ -304,6 +304,19 @@ export default function ActivitiesPage() {
         columns={2}
       />
 
+      {/* Download PDF */}
+      <section className="py-12 md:py-16 bg-brand-daisy">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <a
+            href="/downloads/activities.pdf"
+            download
+            className="inline-flex items-center gap-2 px-8 py-4 bg-brand-forest text-white font-semibold uppercase tracking-wider text-sm hover:bg-brand-forest/90 transition-colors"
+          >
+            Download Activities PDF
+          </a>
+        </div>
+      </section>
+
       {/* Featured Experiences Header */}
       <section id="featured-experiences" className="py-16 md:py-20 bg-brand-forest text-white scroll-mt-24">
         <div className="max-w-3xl mx-auto px-4 text-center">
