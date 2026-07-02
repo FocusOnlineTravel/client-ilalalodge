@@ -50,6 +50,7 @@ const wildlifeActivities = [
     title: 'Walk with Elephants',
     description: 'An unforgettable opportunity to walk alongside these gentle giants, learning about their behaviour and conservation in a natural setting.',
     image: '/images/Ilala-Lodge-Experience-Elephant-Walk-12.jpg',
+    video: 'https://streamable.com/l/qfdqdi/mp4.mp4',
   },
   {
     title: 'Cruises on the Zambezi River',
@@ -101,6 +102,7 @@ const culturalActivities = [
     title: 'Rainforest Tour',
     description: 'A guided walk through the Victoria Falls rainforest, exploring its unique ecosystem and the heritage of the region.',
     image: '/images/Ilala-Lodge-Experience-Vic-Falls-02.jpg',
+    video: 'https://streamable.com/l/n73084/mp4.mp4',
   },
 ];
 
@@ -128,6 +130,7 @@ const featuredExperiences = [
     description:
       'Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.',
     image: '/images/ilala-boats.jpg',
+    video: 'https://streamable.com/l/hutbn2/mp4.mp4',
   },
 ];
 
@@ -136,7 +139,7 @@ interface CategoryProps {
   eyebrow: string;
   heading: string;
   intro: string;
-  items: { title: string; description: string; image: string }[];
+  items: { title: string; description: string; image: string; video?: string }[];
   bg: string;
   cardBg: string;
   columns?: 2 | 3;
@@ -156,12 +159,25 @@ function CategorySection({ id, eyebrow, heading, intro, items, bg, cardBg, colum
           {items.map((item) => (
             <div key={item.title} className={`${cardBg} overflow-hidden`}>
               <div className="relative aspect-[3/2]">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover"
-                />
+                {item.video ? (
+                  <video
+                    src={item.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    aria-label={item.title}
+                  />
+                ) : (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
+                )}
               </div>
               <div className="p-6 lg:p-8">
                 <h3 className="font-serif text-xl lg:text-2xl text-brand-forest mb-3">{item.title}</h3>
