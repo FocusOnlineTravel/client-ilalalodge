@@ -123,14 +123,6 @@ export const markers: MapMarker[] = [
     "pinColor": "#16A34A"
   },
   {
-    "id": "poi-5",
-    "x": 2531,
-    "y": 2472,
-    "title": "Shopping Center",
-    "icon": "shopping",
-    "pinColor": "#f01d79"
-  },
-  {
     "id": "poi-6",
     "x": 2452,
     "y": 2732,
@@ -188,8 +180,8 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-13",
-    "x": 2578,
-    "y": 2390,
+    "x": 2565,
+    "y": 2348,
     "title": "Curio Market",
     "icon": "storefront",
     "pinColor": "#f01d79"
@@ -234,8 +226,8 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-43",
-    "x": 2565,
-    "y": 2474,
+    "x": 2521,
+    "y": 2467,
     "title": "Elephant's Walk Shopping & Artist's Village",
     "blurb": "Open-air shopping village featuring local artists, crafts, jewellery, and souvenir boutiques.",
     "icon": "storefront",
