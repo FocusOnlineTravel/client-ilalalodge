@@ -356,21 +356,6 @@ export default function ActivitiesPage() {
         </section>
       ))}
 
-      {/* Plan Your Stay / Activities Desk */}
-      <section id="plan-your-stay" className="py-16 md:py-24 bg-brand-daisy scroll-mt-24">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
-            Plan Your Stay
-          </h2>
-          <p className="text-lg text-brand-forest/80 leading-relaxed mb-4">
-            All activities can be arranged through the Activities Desk at Ilala Lodge Hotel, where the team can assist with recommendations, bookings, and logistics.
-          </p>
-          <p className="text-lg text-brand-forest/80 leading-relaxed">
-            Advance booking is recommended, particularly for popular experiences and during peak travel periods.
-          </p>
-        </div>
-      </section>
-
       {/* Booking CTA */}
       <section className="py-24 md:py-32 bg-brand-forest text-white text-center">
         <div className="max-w-[72rem] mx-auto px-4">
