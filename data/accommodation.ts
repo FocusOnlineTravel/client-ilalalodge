@@ -29,7 +29,7 @@ Both room types are furnished with traditional railway teak pieces, paired with 
       size: "36 m²",
       sleeps: 2,
       beds: "Twin or King",
-      priceFrom: "$180",
+      priceFrom: "$285 PPS / $406 PPPN",
       gallery: [
         "/images/Ilala-Lodge-Accommodation-Classic-Twin-02.jpg",
         "/images/Ilala-Lodge-Accommodation-Classic-Double-02.jpg",
@@ -76,7 +76,7 @@ For families of more than 3, the Classic Suite can interconnect with a Classic T
       size: "75 m²",
       sleeps: 3,
       beds: "King + ¾",
-      priceFrom: "$320",
+      priceFrom: "$454 PPS / $568 PPPN",
       gallery: [
         "/images/Ilala-Lodge-Accommodation-Classic-Suite-06.jpg",
         "/images/Ilala-Lodge-Accommodation-Classic-Suite-04.jpg",
@@ -127,7 +127,7 @@ Patio/Balconies overlook the hotel's lush gardens as they extend into the neighb
       size: "44 m²",
       sleeps: 2,
       beds: "Twin or King",
-      priceFrom: "$240",
+      priceFrom: "$355 PPS / $506 PPPN",
       gallery: [
         "/images/Ilala-Lodge-Accommodation-Deluxe-Twin-03.jpg",
         "/images/Ilala-Lodge-Accommodation-Deluxe-Double-01.jpg",
@@ -175,7 +175,7 @@ A private balcony extends from the bedroom and wraps around to the lounge, offer
       size: "104 m²",
       sleeps: 2,
       beds: "King",
-      priceFrom: "$450",
+      priceFrom: "$536 PPS / $670 PPPN",
       gallery: [
         "/images/Ilala-Lodge-Accommodation-Executive-Suite-03.jpg",
         "/images/Ilala-Lodge-Accommodation-Executive-Suite-01.jpg",
@@ -227,7 +227,7 @@ Ideal for couples, the suite can also be configured for families through interle
       size: "128 m²",
       sleeps: 4,
       beds: "King",
-      priceFrom: "$650",
+      priceFrom: "$771 PPS / $889 PPPN",
       gallery: [
         "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-08.jpg",
         "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-01.jpg",

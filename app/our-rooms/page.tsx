@@ -106,7 +106,7 @@ export default function AccommodationPage() {
                       <Tag className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
                       <div>
                         <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">From</div>
-                        <div className="text-base font-serif text-brand-forest">{room.priceFrom}<span className="text-xs text-brand-stem/70"> pppn</span></div>
+                        <div className="text-base font-serif text-brand-forest">{room.priceFrom}</div>
                       </div>
                     </div>
                   </div>
