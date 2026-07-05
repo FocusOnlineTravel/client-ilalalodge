@@ -121,7 +121,7 @@ export default async function RoomPage({ params }: Props) {
       {/* Quick Info Bar */}
       <section className="bg-white border-b border-brand-stem/10 py-10 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 max-w-4xl mx-auto divide-y divide-brand-stem/15 md:divide-y-0 md:divide-x">
+          <div className="grid grid-cols-2 md:grid-cols-[0.7fr_0.7fr_0.9fr_1.7fr] max-w-4xl mx-auto divide-y divide-brand-stem/15 md:divide-y-0 md:divide-x">
             <div className="text-center px-4 py-6 md:py-2">
               <Maximize2 className="w-6 h-6 text-brand-gold mx-auto mb-3" strokeWidth={1.5} />
               <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">Size</div>

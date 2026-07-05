@@ -80,7 +80,7 @@ export default function AccommodationPage() {
                   </p>
 
                   {/* Room Details */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 pb-6 border-b border-brand-stem/20">
+                  <div className="grid grid-cols-2 sm:grid-cols-[0.7fr_0.7fr_0.9fr_1.7fr] gap-4 mb-6 pb-6 border-b border-brand-stem/20">
                     <div className="flex items-start gap-3">
                       <Maximize2 className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
                       <div>
