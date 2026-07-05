@@ -106,7 +106,17 @@ export default function AccommodationPage() {
                       <Tag className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
                       <div>
                         <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">From</div>
-                        <div className="text-base font-serif text-brand-forest">{room.priceFrom}</div>
+                        <div className="text-base font-serif text-brand-forest leading-tight">
+                          {room.priceFrom.split(' / ').map((part, i) => {
+                            const [price, label] = part.split(' ');
+                            return (
+                              <span key={i}>
+                                {i > 0 && <span className="text-[#888] text-xs"> / </span>}
+                                {price} <span className="text-[#888] text-xs lowercase">{label}</span>
+                              </span>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
                   </div>

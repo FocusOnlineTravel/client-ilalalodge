@@ -140,7 +140,17 @@ export default async function RoomPage({ params }: Props) {
             <div className="text-center px-4 py-6 md:py-2">
               <Tag className="w-6 h-6 text-brand-gold mx-auto mb-3" strokeWidth={1.5} />
               <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-1">From</div>
-              <div className="text-xl font-light text-brand-forest font-serif">{room.priceFrom}</div>
+              <div className="text-xl font-light text-brand-forest font-serif leading-tight">
+                {room.priceFrom.split(' / ').map((part, i) => {
+                  const [price, label] = part.split(' ');
+                  return (
+                    <span key={i}>
+                      {i > 0 && <span className="text-[#888] text-sm"> / </span>}
+                      {price} <span className="text-[#888] text-sm lowercase">{label}</span>
+                    </span>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
