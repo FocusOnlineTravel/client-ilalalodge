@@ -80,43 +80,35 @@ export default function AccommodationPage() {
                   </p>
 
                   {/* Room Details */}
-                  <div className="grid grid-cols-2 sm:grid-cols-[0.7fr_0.7fr_0.9fr_1.7fr] gap-4 mb-6 pb-6 border-b border-brand-stem/20">
-                    <div className="flex items-start gap-3">
-                      <Maximize2 className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                      <div>
-                        <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Size</div>
-                        <div className="text-base font-serif text-brand-forest">{room.size}</div>
-                      </div>
+                  <div className="grid grid-cols-4 gap-4 mb-6 pb-6 border-b border-brand-stem/20">
+                    <div className="flex flex-col items-center text-center">
+                      <Maximize2 className="w-5 h-5 text-brand-gold mb-2" strokeWidth={1.5} />
+                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Size</div>
+                      <div className="text-base font-serif text-brand-forest">{room.size}</div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                      <div>
-                        <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Sleeps</div>
-                        <div className="text-base font-serif text-brand-forest">{room.sleeps}</div>
-                      </div>
+                    <div className="flex flex-col items-center text-center">
+                      <Users className="w-5 h-5 text-brand-gold mb-2" strokeWidth={1.5} />
+                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Sleeps</div>
+                      <div className="text-base font-serif text-brand-forest">{room.sleeps}</div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <BedDouble className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                      <div>
-                        <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Beds</div>
-                        <div className="text-base font-serif text-brand-forest">{room.beds}</div>
-                      </div>
+                    <div className="flex flex-col items-center text-center">
+                      <BedDouble className="w-5 h-5 text-brand-gold mb-2" strokeWidth={1.5} />
+                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">Beds</div>
+                      <div className="text-base font-serif text-brand-forest">{room.beds}</div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <Tag className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                      <div>
-                        <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">From</div>
-                        <div className="text-base font-serif text-brand-forest leading-tight">
-                          {room.priceFrom.split(' / ').map((part, i) => {
-                            const [price, label] = part.split(' ');
-                            return (
-                              <span key={i}>
-                                {i > 0 && <span className="text-[#888] text-xs"> / </span>}
-                                {price} <span className="text-[#888] text-xs lowercase">{label}</span>
-                              </span>
-                            );
-                          })}
-                        </div>
+                    <div className="flex flex-col items-center text-center">
+                      <Tag className="w-5 h-5 text-brand-gold mb-2" strokeWidth={1.5} />
+                      <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">From</div>
+                      <div className="text-base font-serif text-brand-forest leading-tight">
+                        {room.priceFrom.split(' / ').map((part, i) => {
+                          const [price, label] = part.split(' ');
+                          return (
+                            <span key={i}>
+                              {i > 0 && <span className="text-[#888] text-xs"> / </span>}
+                              {price} <span className="text-[#888] text-xs lowercase">{label}</span>
+                            </span>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
