@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import ImageLightbox from '@/components/gallery/ImageLightbox';
+import MenuCarousel from '@/components/dining/MenuCarousel';
 
 const diningReviewsData = {
   acf_fc_layout: 'reviews_section' as const,
@@ -108,136 +109,10 @@ export default function DiningPage() {
         </div>
       </section>
 
-      {/* Dining Experience */}
+      {/* Dining Experience - Menu Carousel */}
       <section id="menus" className="py-16 md:py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {/* Breakfast */}
-            <div className="text-center">
-              <div className="relative h-64 mb-6 overflow-hidden">
-                <Image
-                  src="/images/Ilala-Lodge-Dining-1-Breakfast-25.jpg"
-                  alt="Breakfast at Cassia Restaurant"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Breakfast</h3>
-              <p className="text-lg text-brand-stem font-semibold mb-4">06:30 - 10:00</p>
-              <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Begin the day with a continental buffet, complemented by a cooked breakfast menu, served in the relaxed setting of Cassia Restaurant.
-              </p>
-              <a
-                href="/documents/ILH_BreakfastMenu_2025.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-              >
-                View Menu
-              </a>
-            </div>
-
-            {/* Lunch */}
-            <div className="text-center">
-              <div className="relative h-64 mb-6 overflow-hidden">
-                <Image
-                  src="/images/Ilala-Lodge-Dining-2-Lunch-03.jpg"
-                  alt="Lunch at Cassia Restaurant"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Lunch</h3>
-              <p className="text-lg text-brand-stem font-semibold mb-4">12:00 - 14:00</p>
-              <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Served beneath the shade of the Cassia trees or around the poolside bar, with a selection of lighter dishes and more substantial options.
-              </p>
-              <a
-                href="/documents/ILH_LunchMenu_2025.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-              >
-                View Menu
-              </a>
-            </div>
-
-            {/* Dinner */}
-            <div className="text-center">
-              <div className="relative h-64 mb-6 overflow-hidden">
-                <Image
-                  src="/images/Ilala-Lodge-Dining-3-Dinner-05.jpg"
-                  alt="Dinner at Cassia Restaurant"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">Dinner</h3>
-              <p className="text-lg text-brand-stem font-semibold mb-4">18:30 - 21:30</p>
-              <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Dine al fresco under African skies with the sound of the Falls in the background, supported by a curated wine list, beers, gins, and cocktails.
-              </p>
-              <a
-                href="/documents/ILH_DinnerMenu_2025.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-              >
-                View Menu
-              </a>
-            </div>
-          </div>
-
-          {/* Additional Menus */}
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12 mt-12 pt-12 border-t border-brand-stem/20">
-            {/* Snack Menu */}
-            <div className="text-center">
-              <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-3">Snack Menu</h3>
-              <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Light bites and poolside snacks available throughout the day.
-              </p>
-              <a
-                href="/documents/ILH_SnackMenu_2025.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-              >
-                View Menu
-              </a>
-            </div>
-
-            {/* Bar Menu */}
-            <div className="text-center">
-              <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-3">Bar Menu</h3>
-              <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Beers, gins, cocktails, and refreshments from the poolside bar.
-              </p>
-              <a
-                href="/documents/ILH_BeverageList_2026 (Online).pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-              >
-                View Menu
-              </a>
-            </div>
-
-            {/* Wine Menu */}
-            <div className="text-center">
-              <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-3">Wine Menu</h3>
-              <p className="text-brand-forest/70 leading-relaxed mb-4">
-                A curated selection from South Africa's leading vineyards.
-              </p>
-              <a
-                href="/documents/ILH_WineList_2026 (Online).pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-              >
-                View Menu
-              </a>
-            </div>
-          </div>
+          <MenuCarousel />
         </div>
       </section>
 
