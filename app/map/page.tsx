@@ -33,7 +33,7 @@ export default function MapPage() {
       </section>
 
       {/* Interactive Town Map */}
-      <section className="py-16 md:py-24 bg-white">
+      <section id="interactive-map" className="py-16 md:py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
