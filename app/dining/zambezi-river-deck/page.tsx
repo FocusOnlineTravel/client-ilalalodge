@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { BOOKING_URL } from '@/lib/constants';
 
 export const metadata = {
   title: 'Zambezi River Deck Experience | Ilala Lodge Hotel',
@@ -76,18 +75,10 @@ export default function ZambeziRiverDeckPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:activities@palmhospitality.co.zw"
                   className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-brand-forest text-white hover:bg-brand-forest/90"
                 >
-                  Book Now
-                </a>
-                <a
-                  href="mailto:onlinereservations@ilalalodge.com"
-                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white"
-                >
-                  Enquire
+                  Email Us
                 </a>
               </div>
             </div>
@@ -119,22 +110,12 @@ export default function ZambeziRiverDeckPage() {
           <p className="text-white/80 mb-8">
             Contact our team to arrange your Zambezi River Deck dining experience.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest hover:bg-brand-gold hover:text-white"
-            >
-              Book Now
-            </a>
-            <a
-              href="mailto:onlinereservations@ilalalodge.com"
-              className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 border border-white text-white hover:bg-white hover:text-brand-forest"
-            >
-              Email Us
-            </a>
-          </div>
+          <a
+            href="mailto:activities@palmhospitality.co.zw"
+            className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest hover:bg-brand-gold hover:text-white"
+          >
+            Email Us
+          </a>
         </div>
       </section>
     </>
