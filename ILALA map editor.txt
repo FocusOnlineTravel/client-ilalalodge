@@ -1,0 +1,28 @@
+The editor is ready! Here's what I've done:                                                                                                                                   
+                                                                                                                                                                                
+  Updates made:                                                                                                                                                                 
+  1. New image: Updated to VF_Town-Map-6-v3.jpg (5000px wide)                                                                                                                   
+  2. Scaled coordinates: All existing markers scaled proportionally (×1.79)                                                                                                     
+  3. 50% zoom: Added back to the main map viewer                                                                                                                                
+  4. Dining icon: Added to the icon library                                                                                                                                     
+                                                                                                                                                                                
+  Map Editor (/map-editor):                                                                                                                                                     
+  - View & Zoom: Fit / 50% / 100% zoom with drag-to-pan                                                                                                                         
+  - Add markers: Click "+ Hotel" or "+ POI" then click on the map                                                                                                               
+  - Edit markers: Click any marker to edit title, blurb, icon, color, position                                                                                                  
+  - Drag to reposition: Click and drag any marker to move it                                                                                                                    
+  - Delete markers: Delete button in edit panel                                                                                                                                 
+  - Export JSON: Copies the markers array to clipboard - paste directly into code                                                                                               
+                                                                                                                                                                                
+  How to use:                                                                                                                                                                   
+  1. Go to http://localhost:3001/map-editor                                                                                                                                     
+  2. Click "+ POI" to add a new point of interest                                                                                                                               
+  3. Click on the map to place it                                                                                                                                               
+  4. Fill in title, description, choose icon and color                                                                                                                          
+  5. Save                                                                                                                                                                       
+  6. Repeat for all markers                                                                                                                                                     
+  7. Click "Export JSON" when done                                                                                                                                              
+  8. Paste the JSON into InteractiveMap.tsx replacing the markers array                                                                                                         
+                                                                                                                                                                                
+  The coordinates from the old image have been scaled, so existing markers should be approximately in the right places on the new larger image - though you may want to         
+  fine-tune them with the editor.               
