@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import CardCarousel from '@/components/activities/CardCarousel';
