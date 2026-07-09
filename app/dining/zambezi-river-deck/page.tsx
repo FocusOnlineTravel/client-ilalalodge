@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ImageLightbox from '@/components/gallery/ImageLightbox';
 
 export const metadata = {
   title: 'Zambezi River Deck Experience | Ilala Lodge Hotel',
@@ -86,8 +87,25 @@ export default function ZambeziRiverDeckPage() {
         </div>
       </section>
 
+      {/* Gallery */}
+      <section className="py-16 md:py-24 bg-brand-daisy">
+        <div className="max-w-7xl mx-auto px-4">
+          <ImageLightbox
+            images={[
+              { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-27.jpg', alt: 'Zambezi River Deck Experience' },
+              { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-25.jpg', alt: 'Zambezi River Deck Experience' },
+              { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-21.jpg', alt: 'Zambezi River Deck Experience' },
+              { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-19.jpg', alt: 'Zambezi River Deck Experience' },
+              { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-17.jpg', alt: 'Zambezi River Deck Experience' },
+              { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-10.jpg', alt: 'Zambezi River Deck Experience' },
+            ]}
+            columns="grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"
+          />
+        </div>
+      </section>
+
       {/* Back to Dining */}
-      <section className="py-12 bg-brand-daisy">
+      <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <Link
             href="/dining"
