@@ -55,7 +55,7 @@ export default function ZambeziRiverDeckPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] md:h-[500px]">
               <Image
-                src="/images/Ilala-Lodge-Dining-1-Breakfast-07.jpg"
+                src="/images/Ilala-Lodge-Experience-Zambezi-River-Deck-24.jpg"
                 alt="Zambezi River Deck"
                 fill
                 className="object-cover"
