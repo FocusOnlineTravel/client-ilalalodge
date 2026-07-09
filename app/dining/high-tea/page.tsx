@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ImageLightbox from '@/components/gallery/ImageLightbox';
 
 export const metadata = {
   title: 'High Tea at Palm River Hotel | Ilala Lodge Hotel',
@@ -114,8 +115,23 @@ export default function HighTeaPage() {
         </div>
       </section>
 
+      {/* Gallery */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <ImageLightbox
+            images={[
+              { src: '/images/Ilala-Lodge-Experience-Sundowners-01.jpg', alt: 'High Tea Experience' },
+              { src: '/images/Ilala-Lodge-Experience-High-Tea-06.jpg', alt: 'High Tea Experience' },
+              { src: '/images/Ilala-Lodge-Experience-High-Tea-04.jpg', alt: 'High Tea Experience' },
+              { src: '/images/Ilala-Lodge-Experience-High-Tea-03.jpg', alt: 'High Tea Experience' },
+            ]}
+            columns="grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
+          />
+        </div>
+      </section>
+
       {/* Back to Dining */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-brand-daisy">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <Link
             href="/dining"
