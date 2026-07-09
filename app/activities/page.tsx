@@ -70,7 +70,7 @@ const wildlifeActivities = [
     title: 'Chobe & Hwange National Parks',
     description: "Day trips into Botswana to Chobe National Park, home to one of Africa's densest elephant populations, or extended trips for exceptional game viewing in Zimbabwe's largest national park, Hwange, within 100km of the hotel.",
     images: [
-      '/images/game-parks.jpg',
+      '/images/pexels-twilight-kenya-7280783.jpg',
       '/images/Day Trips to Chobe & Hwange-1.jpg',
       '/images/Day Trips to Chobe & Hwange-2.jpg',
       '/images/Day Trips to Chobe & Hwange-3.jpg',
@@ -218,7 +218,7 @@ const featuredExperiences = [
       'Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.',
     image: '/images/ilala-boats.jpg',
     video: 'https://streamable.com/l/hutbn2/mp4.mp4',
-    href: '/dining/ra-ikane',
+    href: '/activities/ra-ikane',
   },
 ];
 

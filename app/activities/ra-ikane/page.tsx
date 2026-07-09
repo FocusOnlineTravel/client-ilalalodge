@@ -163,10 +163,10 @@ export default function RaIkanePage() {
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <Link
-            href="/dining"
+            href="/activities"
             className="text-sm uppercase tracking-wider text-brand-stem hover:text-brand-gold transition-colors"
           >
-            &larr; Back to Dining
+            &larr; Back to Activities
           </Link>
         </div>
       </section>
