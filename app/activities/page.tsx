@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 
 export const metadata = {
@@ -114,6 +115,7 @@ const featuredExperiences = [
       'Enjoy High Tea at Palm River Hotel on the banks of the Zambezi River. Set beneath indigenous trees, this riverside experience offers a relaxed setting to enjoy a selection of sweet and savoury treats. Advanced reservations are essential.',
     contact: 'fnb@palmriverhotel.com',
     image: '/images/High-Tea-Sep24-6-1350x900.jpg',
+    href: '/dining/high-tea',
   },
   {
     id: 'riverside-dining',
@@ -123,6 +125,7 @@ const featuredExperiences = [
     contact: 'fnb@palmriverhotel.com',
     image: '/images/night5.jpg',
     video: 'https://streamable.com/l/e07f94/mp4.mp4',
+    href: '/dining/zambezi-river-deck',
   },
   {
     id: 'ra-ikane',
@@ -131,6 +134,7 @@ const featuredExperiences = [
       'Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.',
     image: '/images/ilala-boats.jpg',
     video: 'https://streamable.com/l/hutbn2/mp4.mp4',
+    href: '/dining/ra-ikane',
   },
 ];
 
@@ -359,9 +363,17 @@ export default function ActivitiesPage() {
                 <h3 className="font-serif text-3xl md:text-4xl text-white mb-6">{exp.title}</h3>
                 <p className="text-white/80 leading-relaxed mb-4">{exp.description}</p>
                 {exp.contact && (
-                  <p className="text-sm text-white/60">
+                  <p className="text-sm text-white/60 mb-6">
                     Contact: <a href={`mailto:${exp.contact}`} className="text-brand-gold hover:underline">{exp.contact}</a>
                   </p>
+                )}
+                {exp.href && (
+                  <Link
+                    href={exp.href}
+                    className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest hover:bg-brand-gold hover:text-white"
+                  >
+                    Explore
+                  </Link>
                 )}
               </div>
             </div>
