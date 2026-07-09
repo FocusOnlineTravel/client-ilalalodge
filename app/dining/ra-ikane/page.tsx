@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Ra-Ikane River Cruise | Ilala Lodge Hotel',
-  description: 'Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. An intimate cruise experience with a maximum of 24 guests.',
+  description: 'Relive David Livingstone\'s historical journey aboard the Ra-Ikane, one of Victoria Falls\' most exclusive river cruisers with a maximum of 16 guests.',
 };
 
 export default function RaIkanePage() {
@@ -39,10 +39,10 @@ export default function RaIkanePage() {
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-lg text-brand-forest/80 leading-relaxed mb-6">
-              Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.
+              Relive the historical journey taken by David Livingstone aboard the Ra-Ikane, one of Victoria Falls' most exclusive river cruisers. Accommodating a maximum of just 16 guests, the Ra-Ikane boats offer a more intimate experience of the Zambezi River, personalised service and uninterrupted views.
             </p>
             <p className="text-lg text-brand-forest/80 leading-relaxed">
-              Glide along the tranquil waters as the African sun sets, enjoying refreshments and canapés while spotting hippos, crocodiles, elephants, and an abundance of birdlife along the riverbanks.
+              Inspired by the riverboats of the early explorers and named after one of David Livingstone's trusted guides, the Ra-Ikane combines classic design with modern comforts. Cruises meander through the channels and islands above Victoria Falls, providing excellent opportunities to spot elephants, hippos, crocodiles and an abundance of birdlife, accompanied by experienced guides who share insights into the river's history, wildlife and ecology.
             </p>
           </div>
         </div>
@@ -86,8 +86,81 @@ export default function RaIkanePage() {
         </div>
       </section>
 
+      {/* Cruise Options */}
+      <section className="py-16 md:py-24 bg-brand-daisy">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="space-y-12">
+            {/* Sunset Cruise */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative h-[300px] md:h-[350px]">
+                <Image
+                  src="/images/Sunset Cruise-1.jpg"
+                  alt="Ra-Ikane Luxury Sunset Cruise"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-2">
+                  Ra-Ikane Luxury Sunset Cruise
+                </h3>
+                <p className="text-sm text-brand-stem mb-1">16:00 – 18:00</p>
+                <p className="text-lg font-semibold text-brand-gold mb-4">US$110 per person</p>
+                <p className="text-brand-forest/80 leading-relaxed">
+                  Enjoy a two-hour sunset cruise on the Zambezi River with premium beverages and canapés while taking in the changing colours of the landscape and watching for wildlife along the riverbanks.
+                </p>
+              </div>
+            </div>
+
+            {/* Breakfast & Birdwatching Cruise */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative h-[300px] md:h-[350px] md:order-2">
+                <Image
+                  src="/images/Breakfast_Birdwathing Cruise-1.JPG"
+                  alt="Ra-Ikane Luxury Breakfast & Birdwatching Cruise"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="md:order-1">
+                <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-2">
+                  Ra-Ikane Luxury Breakfast & Birdwatching Cruise
+                </h3>
+                <p className="text-sm text-brand-stem mb-1">07:00 – 09:00</p>
+                <p className="text-lg font-semibold text-brand-gold mb-4">US$100 per person</p>
+                <p className="text-brand-forest/80 leading-relaxed">
+                  Start your day with breakfast on the Zambezi River during one of the best times for birdwatching. The peaceful morning setting offers excellent opportunities to observe the river's abundant birdlife and resident wildlife.
+                </p>
+              </div>
+            </div>
+
+            {/* Lunch Cruise */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative h-[300px] md:h-[350px]">
+                <Image
+                  src="/images/Lunch Cruise-1.jpg"
+                  alt="Ra-Ikane Luxury Lunch Cruise"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="font-serif text-2xl md:text-3xl text-brand-forest mb-2">
+                  Ra-Ikane Luxury Lunch Cruise
+                </h3>
+                <p className="text-sm text-brand-stem mb-1">12:00 – 14:00</p>
+                <p className="text-lg font-semibold text-brand-gold mb-4">US$100 per person</p>
+                <p className="text-brand-forest/80 leading-relaxed">
+                  Enjoy a leisurely lunch while cruising the upper Zambezi River. This relaxed midday experience combines freshly prepared cuisine with scenic views and opportunities to spot wildlife in its natural habitat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Back to Dining */}
-      <section className="py-12 bg-brand-daisy">
+      <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <Link
             href="/dining"
