@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
+import CardCarousel from '@/components/activities/CardCarousel';
 
 export const metadata = {
   title: 'Activities & Experiences | Ilala Lodge Hotel Victoria Falls',
@@ -12,51 +12,86 @@ const adventureActivities = [
   {
     title: 'White Water Rafting',
     description: "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
-    image: '/images/anna-sullivan-c_w_Q3kxgic-unsplash.jpg',
+    images: [
+      '/images/anna-sullivan-c_w_Q3kxgic-unsplash.jpg',
+      '/images/White Water Rafting-1.jpg',
+      '/images/White Water Rafting-2.jpg',
+      '/images/White Water Rafting-3.jpg',
+      '/images/White Water Rafting-4.jpg',
+    ],
   },
   {
     title: 'Bungee Jumping & Gorge Swing',
     description: "Take the leap from the Victoria Falls Bridge — one of the world's highest commercial bungee jumps at 111 metres — or experience a 70-metre free fall followed by a swing across the Batoka Gorge.",
-    image: '/images/Bungee Jumping.jpg',
+    images: [
+      '/images/Bungee Jumping.jpg',
+      '/images/Bungee & Gorge Swing-1.jpg',
+      '/images/Bungee & Gorge Swing-2.jpg',
+      '/images/Bungee & Gorge Swing-3.jpg',
+      '/images/Bungee & Gorge Swing-4.jpg',
+    ],
   },
   {
     title: 'Zip Lining',
     description: 'Soar across the Batoka Gorge on a high-speed zip line, taking in dramatic views of the gorge below.',
-    image: '/images/Ziplining.jpg',
+    images: [
+      '/images/Ziplining.jpg',
+      '/images/Zipline-2.jpg',
+      '/images/Zipline-3.jpg',
+      '/images/Zipline-4.jpg',
+    ],
   },
   {
     title: 'Helicopter Flights',
     description: 'The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.',
-    image: '/images/Ilala-Lodge-Experience-Helicopter-Tour-10.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-Helicopter-Tour-10.jpg',
+      '/images/Helicopter-1.jpg',
+      '/images/Helicopter-2.jpg',
+      '/images/Helicopter-3.jpg',
+      '/images/Helicopter-4.jpg',
+    ],
   },
-  // {
-  //   title: 'Canopy Tour',
-  //   description: 'Follow walkways and zip lines through the rainforest canopy, experiencing the gorge environment from a unique perspective.',
-  //   image: '/images/Canopy Tour.jpg',
-  // },
 ];
 
 const wildlifeActivities = [
   {
     title: 'Game Drives',
     description: 'Morning, afternoon, or evening drives in nearby national parks — opportunities for both short excursions and full-day safaris.',
-    image: '/images/tourists-on-land-cruise-victoria-falls-zimbabwe-2026-03-25-02-18-59-utc.jpg',
+    images: [
+      '/images/tourists-on-land-cruise-victoria-falls-zimbabwe-2026-03-25-02-18-59-utc.jpg',
+      '/images/Game Drives-2.jpg',
+      '/images/Game Drives-3.jpg',
+      '/images/Game Drives-4.jpg',
+    ],
   },
   {
     title: 'Chobe & Hwange National Parks',
     description: "Day trips into Botswana to Chobe National Park, home to one of Africa's densest elephant populations, or extended trips for exceptional game viewing in Zimbabwe's largest national park, Hwange, within 100km of the hotel.",
-    image: '/images/game-parks.jpg',
+    images: [
+      '/images/game-parks.jpg',
+      '/images/Day Trips to Chobe & Hwange-1.jpg',
+      '/images/Day Trips to Chobe & Hwange-2.jpg',
+      '/images/Day Trips to Chobe & Hwange-3.jpg',
+      '/images/Day Trips to Chobe & Hwange-4.jpg',
+    ],
   },
   {
     title: 'Walk with Elephants',
     description: 'An unforgettable opportunity to walk alongside these gentle giants, learning about their behaviour and conservation in a natural setting.',
-    image: '/images/Ilala-Lodge-Experience-Elephant-Walk-12.jpg',
+    images: ['/images/Ilala-Lodge-Experience-Elephant-Walk-12.jpg'],
     video: 'https://streamable.com/l/qfdqdi/mp4.mp4',
   },
   {
     title: 'Cruises on the Zambezi River',
     description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities, with opportunities to spot hippos, crocodiles, and diverse birdlife.',
-    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-41.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-41.jpg',
+      '/images/Cruises on the Zambezi-1.jpg',
+      '/images/Cruises on the Zambezi-2.jpg',
+      '/images/Cruises on the Zambezi-3.jpg',
+      '/images/Cruises on the Zambezi-4.jpg',
+    ],
   },
 ];
 
@@ -64,22 +99,46 @@ const relaxationActivities = [
   {
     title: 'Sunrise River Cruise',
     description: 'Begin the day on the Zambezi River as the sun rises, with tea, coffee, and pastries served on board while the bush comes alive around you.',
-    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-12.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-12.jpg',
+      '/images/Breakfast_Birdwathing Cruise-1.JPG',
+      '/images/Breakfast_Birdwathing Cruise-2.jpg',
+      '/images/Breakfast_Birdwathing Cruise-3.jpg',
+      '/images/Breakfast_Birdwathing Cruise-4.jpg',
+    ],
   },
   {
     title: 'Sunset Cruise',
     description: 'Drift along the Upper Zambezi as the sun sets, with drinks and snacks served on board.',
-    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-15.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-15.jpg',
+      '/images/Sunset Cruise-1.jpg',
+      '/images/Sunset Cruise-2.jpg',
+      '/images/Sunset Cruise-3.jpg',
+      '/images/Sunset Cruise-4.jpg',
+    ],
   },
   {
     title: 'Lunch Cruise',
     description: 'A leisurely cruise over lunch, taking in the river at a relaxed pace.',
-    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-02.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-02.jpg',
+      '/images/Lunch Cruise-1.jpg',
+      '/images/Lunch Cruise-2.jpg',
+      '/images/Lunch Cruise-3.jpg',
+      '/images/Lunch Cruise-4.jpg',
+    ],
   },
   {
     title: 'Intimate Cruises',
     description: 'Private or small-group cruises on the Zambezi for a more exclusive experience, ideal for special occasions or those seeking a quieter setting.',
-    image: '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-26.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-26.jpg',
+      '/images/Intimate Cruises-1.jpg',
+      '/images/Intimate Cruises-2.jpg',
+      '/images/Intimate Cruises-3.jpg',
+      '/images/Intimate Cruises-4.jpg',
+    ],
   },
 ];
 
@@ -87,22 +146,46 @@ const culturalActivities = [
   {
     title: 'Curio Shopping',
     description: 'Browse local crafts, artwork, and souvenirs at markets and shops throughout Victoria Falls.',
-    image: '/images/Ilala-Lodge-Experience-Shopping-02.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-Shopping-02.jpg',
+      '/images/Curio Shopping-1.jpg',
+      '/images/Curio Shopping-2.jpg',
+      '/images/Curio Shopping-3.jpg',
+      '/images/Curio Shopping-4.jpg',
+    ],
   },
   {
     title: 'Traditional Dining & Performances',
     description: 'Evening experiences combining traditional dinners with music and dance.',
-    image: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-17.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-17.jpg',
+      '/images/Traditional Dining & Performance-1.jpg',
+      '/images/Traditional Dining & Performance-2.jpg',
+      '/images/Traditional Dining & Performance-3.jpg',
+      '/images/Traditional Dining & Performance-4.jpg',
+    ],
   },
   {
     title: 'Township Dining',
     description: "An introduction to the region's communities through shared meals at Dusty Road Township.",
-    image: '/images/Dusty Road.jpg',
+    images: [
+      '/images/Dusty Road.jpg',
+      '/images/Township Dining-1.jpg',
+      '/images/Township Dining-2.jpg',
+      '/images/Township Dining-3.jpg',
+      '/images/Township Dining-4.jpg',
+    ],
   },
   {
     title: 'Rainforest Tour',
     description: 'A guided walk through the Victoria Falls rainforest, exploring its unique ecosystem and the heritage of the region.',
-    image: '/images/Ilala-Lodge-Experience-Vic-Falls-02.jpg',
+    images: [
+      '/images/Ilala-Lodge-Experience-Vic-Falls-02.jpg',
+      '/images/Rainforest Tour-1.jpg',
+      '/images/Rainforest Tour-2.jpg',
+      '/images/Rainforest Tour-3.jpg',
+      '/images/Rainforest Tour-4.jpg',
+    ],
     video: 'https://streamable.com/l/n73084/mp4.mp4',
   },
 ];
@@ -143,7 +226,7 @@ interface CategoryProps {
   eyebrow: string;
   heading: string;
   intro: string;
-  items: { title: string; description: string; image: string; video?: string }[];
+  items: { title: string; description: string; images: string[]; video?: string }[];
   bg: string;
   cardBg: string;
   columns?: 2 | 3;
@@ -162,27 +245,7 @@ function CategorySection({ id, eyebrow, heading, intro, items, bg, cardBg, colum
         <div className={`grid ${gridCols} gap-6 lg:gap-8`}>
           {items.map((item) => (
             <div key={item.title} className={`${cardBg} overflow-hidden`}>
-              <div className="relative aspect-[3/2]">
-                {item.video ? (
-                  <video
-                    src={item.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="absolute inset-0 w-full h-full object-cover"
-                    aria-label={item.title}
-                  />
-                ) : (
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                  />
-                )}
-              </div>
+              <CardCarousel images={item.images} title={item.title} video={item.video} />
               <div className="p-6 lg:p-8">
                 <h3 className="font-serif text-xl lg:text-2xl text-brand-forest mb-3">{item.title}</h3>
                 <p className="text-brand-forest/70 leading-relaxed text-sm lg:text-base">{item.description}</p>
