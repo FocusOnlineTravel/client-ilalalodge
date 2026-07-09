@@ -87,10 +87,10 @@ export const markers: MapMarker[] = [
   {
     "id": "poi-1",
     "x": 3077,
-    "y": 2450,
+    "y": 2452,
     "title": "Rainforest Entrance",
     "blurb": "Main entrance to the rainforest and iconic Victoria Falls viewpoints.",
-    "link": "http://localhost:3000/map-editor",
+    "link": "/victoria-falls",
     "linkText": "View detailed map",
     "icon": "tree",
     "pinColor": "#16A34A"
