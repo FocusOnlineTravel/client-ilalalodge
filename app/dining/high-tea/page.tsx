@@ -52,7 +52,7 @@ export default function HighTeaPage() {
             <div className="md:order-2">
               <div className="relative h-[400px] md:h-[500px]">
                 <Image
-                  src="/images/Ilala-Lodge-Experience-High-Tea-01.jpg"
+                  src="/images/Ilala-Lodge-Experience-High-Tea-05.jpg"
                   alt="High Tea Selection"
                   fill
                   className="object-cover"
