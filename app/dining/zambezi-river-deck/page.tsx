@@ -98,8 +98,10 @@ export default function ZambeziRiverDeckPage() {
               { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-19.jpg', alt: 'Zambezi River Deck Experience' },
               { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-17.jpg', alt: 'Zambezi River Deck Experience' },
               { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-10.jpg', alt: 'Zambezi River Deck Experience' },
+              { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-29.jpg', alt: 'Zambezi River Deck Experience' },
+              { src: '/images/Ilala-Lodge-Experience-Zambezi-River-Deck-30.jpg', alt: 'Zambezi River Deck Experience' },
             ]}
-            columns="grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"
+            columns="grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
           />
         </div>
       </section>
