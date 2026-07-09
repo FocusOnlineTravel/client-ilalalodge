@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -21,12 +21,6 @@ export default function CardCarousel({ images, title, video }: CardCarouselProps
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  // Auto-advance every 4 seconds
-  useEffect(() => {
-    if (images.length <= 1) return;
-    const timer = setInterval(goToNext, 4000);
-    return () => clearInterval(timer);
-  }, [goToNext, images.length]);
 
   // If there's a video, show it instead
   if (video) {
