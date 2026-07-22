@@ -44,7 +44,7 @@ export default function HeroCarousel({ images, title }: HeroCarouselProps) {
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/20 to-black/35" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/35" />
 
       {/* Navigation Arrows */}
       {images.length > 1 && (
