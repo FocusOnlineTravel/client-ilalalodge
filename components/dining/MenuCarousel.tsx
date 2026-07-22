@@ -130,17 +130,17 @@ export default function MenuCarousel() {
         <>
           <button
             onClick={prevSlide}
-            className="absolute -left-4 lg:-left-16 top-1/3 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full transition-all duration-300 z-10 shadow-lg"
+            className="absolute -left-6 lg:-left-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full transition-all duration-300 z-10"
             aria-label="Previous menus"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-8 w-8" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute -right-4 lg:-right-16 top-1/3 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full transition-all duration-300 z-10 shadow-lg"
+            className="absolute -right-6 lg:-right-24 top-1/2 -translate-y-1/2 bg-white hover:bg-brand-gold text-brand-forest p-3 rounded-full transition-all duration-300 z-10"
             aria-label="Next menus"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-8 w-8" />
           </button>
         </>
       )}

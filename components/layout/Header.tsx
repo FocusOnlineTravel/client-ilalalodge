@@ -48,7 +48,7 @@ export default function Header() {
         { label: 'Deluxe Rooms', href: '/our-rooms/deluxe-rooms' },
         { label: 'Executive Suites', href: '/our-rooms/executive-suites' },
         { label: 'Strathearn Suite', href: '/our-rooms/strathearn-suite' },
-        { label: 'Rates', href: '#rates' },
+        { label: 'Rates', href: '/rates' },
       ]
     },
     {
@@ -161,19 +161,27 @@ export default function Header() {
             />
           </Link>
 
-          {/* Book Now Button - Right Side (desktop only; mobile uses sticky bottom nav) */}
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`hidden lg:inline-block absolute right-8 z-10 px-6 pt-2 pb-1.5 text-base rounded-full font-semibold transition-all duration-200 uppercase tracking-wide ${
-              isScrolled
-                ? 'bg-brand-forest hover:bg-brand-forest/90 text-white'
-                : 'bg-white hover:bg-white/90 text-brand-forest'
-            }`}
-          >
-            Book Now
-          </a>
+          {/* Special Offers & Book Now Buttons - Right Side (desktop only; mobile uses sticky bottom nav) */}
+          <div className="hidden lg:flex absolute right-8 z-10 gap-3">
+            <Link
+              href="/special-offers"
+              className="px-6 pt-2 pb-1.5 text-base rounded-full font-semibold transition-all duration-200 uppercase tracking-wide bg-brand-gold hover:bg-brand-gold/90 text-white"
+            >
+              Special Offers
+            </Link>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 pt-2 pb-1.5 text-base rounded-full font-semibold transition-all duration-200 uppercase tracking-wide ${
+                isScrolled
+                  ? 'bg-brand-forest hover:bg-brand-forest/90 text-white'
+                  : 'bg-white hover:bg-white/90 text-brand-forest'
+              }`}
+            >
+              Book Now
+            </a>
+          </div>
         </div>
       </div>
     </header>
@@ -193,15 +201,24 @@ export default function Header() {
           <X className="h-10 w-10" />
         </button>
 
-        {/* Book Now Button - Top Right */}
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute top-6 right-8 lg:top-10 lg:right-20 z-10 px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide bg-white hover:bg-white/90 text-brand-forest"
-        >
-          Book Now
-        </a>
+        {/* Special Offers & Book Now Buttons - Top Right */}
+        <div className="absolute top-6 right-4 lg:top-10 lg:right-20 z-10 flex gap-2 lg:gap-3">
+          <Link
+            href="/special-offers"
+            onClick={handleLinkClick}
+            className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide bg-brand-gold hover:bg-brand-gold/90 text-white text-sm lg:text-base"
+          >
+            Special Offers
+          </Link>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide bg-white hover:bg-white/90 text-brand-forest text-sm lg:text-base"
+          >
+            Book Now
+          </a>
+        </div>
 
         {/* Full Width Menu with Two Columns */}
         <div

@@ -186,7 +186,7 @@ export default function InteractiveMap() {
     >
       {/* Map Image */}
       <Image
-        src="/images/VF_Town-Map-6-v3.jpg"
+        src="/images/VF_Town-Map-6-v3-20260722.jpg"
         alt="Victoria Falls Town Map"
         width={IMAGE_WIDTH}
         height={IMAGE_HEIGHT}
@@ -434,7 +434,7 @@ export default function InteractiveMap() {
           onMouseLeave={() => setIsHoveringPreview(false)}
         >
           <Image
-            src="/images/VF_Town-Map-6-v3.jpg"
+            src="/images/VF_Town-Map-6-v3-20260722.jpg"
             alt="Victoria Falls Town Map"
             width={IMAGE_WIDTH}
             height={IMAGE_HEIGHT}
