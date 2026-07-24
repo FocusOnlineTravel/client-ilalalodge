@@ -1,0 +1,128 @@
+{
+  "site_name": "Ilala Lodge Hotel",
+  "header": {
+    "logo": {
+      "url": "/images/logo-white.png",
+      "alt": "Ilala Lodge Hotel"
+    },
+    "logo_scrolled": {
+      "url": "/images/logo-blacl.png",
+      "alt": "Ilala Lodge Hotel"
+    },
+    "nav_items": [
+      { "label": "Home", "href": "/" },
+      {
+        "label": "Our Rooms",
+        "href": "/our-rooms",
+        "sub_items": [
+          { "label": "Classic Rooms", "href": "/our-rooms/classic-rooms" },
+          { "label": "Classic Suites", "href": "/our-rooms/classic-suites" },
+          { "label": "Deluxe Rooms", "href": "/our-rooms/deluxe-rooms" },
+          { "label": "Executive Suites", "href": "/our-rooms/executive-suites" },
+          { "label": "Strathearn Suite", "href": "/our-rooms/strathearn-suite" },
+          { "label": "Rates", "href": "/rates" }
+        ]
+      },
+      {
+        "label": "The Hotel",
+        "href": "/facilities",
+        "sub_items": [
+          { "label": "Our Story", "href": "/our-story" },
+          { "label": "Facilities", "href": "/facilities" },
+          { "label": "Conferencing", "href": "/facilities#conferencing" },
+          { "label": "Spa", "href": "/facilities#spa" }
+        ]
+      },
+      {
+        "label": "Dining",
+        "href": "/dining",
+        "sub_items": [
+          { "label": "Cassia Restaurant", "href": "/dining" },
+          { "label": "Zambezi River Deck Experience", "href": "/dining/zambezi-river-deck" },
+          { "label": "Palm River Hotel High Tea", "href": "/dining/high-tea" },
+          { "label": "Our Menus", "href": "/dining#menus" }
+        ]
+      },
+      {
+        "label": "Activities",
+        "href": "/activities",
+        "sub_items": [
+          { "label": "Relaxation", "href": "/activities#relaxation" },
+          { "label": "Wildlife", "href": "/activities#wildlife" },
+          { "label": "Cultural", "href": "/activities#cultural" },
+          { "label": "Adventure", "href": "/activities#adventure" },
+          { "label": "Featured Experiences", "href": "/activities#featured-experiences" }
+        ]
+      },
+      {
+        "label": "Location",
+        "href": "/location",
+        "sub_items": [
+          { "label": "Victoria Falls", "href": "/victoria-falls" },
+          { "label": "Map", "href": "/map" }
+        ]
+      },
+      { "label": "Gallery", "href": "/gallery" },
+      { "label": "FAQs", "href": "/faqs" },
+      { "label": "Contact", "href": "/contact" },
+      { "label": "Agents", "href": "#agents" }
+    ],
+    "booking_url": "https://direct-book.com/ilalalodge/properties/ilaladirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD"
+  },
+  "footer": {
+    "logo": {
+      "url": "/images/logo-blacl.png",
+      "alt": "Ilala Lodge Hotel"
+    },
+    "tagline": "",
+    "nav_columns": [
+      {
+        "title": "STAY",
+        "links": [
+          { "url": "/our-rooms/classic-rooms", "title": "Classic Rooms" },
+          { "url": "/our-rooms/deluxe-rooms", "title": "Deluxe Rooms" },
+          { "url": "/our-rooms/classic-suites", "title": "Classic Suites" },
+          { "url": "/our-rooms/executive-suites", "title": "Executive Suites" },
+          { "url": "/our-rooms/strathearn-suite", "title": "Strathearn Suite" }
+        ]
+      },
+      {
+        "title": "EXPERIENCES",
+        "links": [
+          { "url": "/dining", "title": "Dining" },
+          { "url": "/activities#day-trips", "title": "Day Trips" },
+          { "url": "/activities#high-tea", "title": "High Tea" },
+          { "url": "/activities", "title": "Activities" },
+          { "url": "/activities#wildlife", "title": "Game Drives" },
+          { "url": "/activities#cultural", "title": "Cultural" }
+        ]
+      },
+      {
+        "title": "ABOUT",
+        "links": [
+          { "url": "/our-story", "title": "Our Story" },
+          { "url": "/location", "title": "Location" },
+          { "url": "/victoria-falls", "title": "Victoria Falls" },
+          { "url": "/gallery", "title": "Gallery" }
+        ]
+      }
+    ],
+    "copyright": "Ilala Lodge"
+  },
+  "contact": {
+    "email": "onlinereservations@ilalalodge.com",
+    "phone": "+263 719 384 920",
+    "whatsapp": "https://wa.me/263719384920",
+    "address": "413 Livingstone Way, Victoria Falls, Zimbabwe",
+    "front_desk_phone": "+263 78 8097346",
+    "front_desk_email": "guestrelations@ilalalodge.co.zw",
+    "front_desk_whatsapp": "https://wa.me/263788097346",
+    "agents_phone": "+263 78 8097346",
+    "agents_email": "reservations@ilalalodge.co.zw"
+  },
+  "social": {
+    "facebook": "https://facebook.com/ilalalodge",
+    "instagram": "https://instagram.com/ilalalodge",
+    "twitter": "https://twitter.com/ilalalodge"
+  }
+}

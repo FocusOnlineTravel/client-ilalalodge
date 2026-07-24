@@ -1,0 +1,101 @@
+{
+  "title": "Ra-Ikane River Cruise",
+  "slug": "activities/ra-ikane",
+  "seo": {
+    "title": "Ra-Ikane River Cruise | Ilala Lodge Hotel",
+    "description": "Relive David Livingstone's historical journey aboard the Ra-Ikane, one of Victoria Falls' most exclusive river cruisers with a maximum of 16 guests."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "video",
+      "hero_video_url": "https://streamable.com/l/hutbn2/mp4.mp4",
+      "hero_heading": "Ra-Ikane River Cruise",
+      "hero_subheading": "An intimate journey on the Zambezi",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>Relive the historical journey taken by David Livingstone aboard the Ra-Ikane, one of Victoria Falls' most exclusive river cruisers. Accommodating a maximum of just 16 guests, the Ra-Ikane boats offer a more intimate experience of the Zambezi River, personalised service and uninterrupted views.</p><p>Inspired by the riverboats of the early explorers and named after one of David Livingstone's trusted guides, the Ra-Ikane combines classic design with modern comforts. Cruises meander through the channels and islands above Victoria Falls, providing excellent opportunities to spot elephants, hippos, crocodiles and an abundance of birdlife, accompanied by experienced guides who share insights into the river's history, wildlife and ecology.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "The Experience",
+      "body": "<p>The Ra-Ikane offers both sunrise and sunset cruises, each providing a unique perspective of the Zambezi River and its diverse ecosystem.</p><p>Our experienced guides share their knowledge of the river's history, wildlife, and the legacy of the great explorers who once navigated these waters.</p><p>The cruise includes transfers from Ilala Lodge Hotel, refreshments, and light snacks, all enjoyed from the comfort of our purpose-built vessel.</p>",
+      "media_position": "left",
+      "media_type": "image",
+      "image": {
+        "url": "/images/ilala-boats.jpg",
+        "alt": "Ra-Ikane River Cruise"
+      },
+      "button_text": "Email Us",
+      "button_url": "mailto:activities@palmhospitality.co.zw",
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "heading": "Cruise Options",
+      "columns": 1,
+      "card_style": "cruise_option",
+      "cards": [
+        {
+          "title": "Ra-Ikane Luxury Sunset Cruise",
+          "time": "16:00 – 18:00",
+          "price": "US$110 per person",
+          "description": "Enjoy a two-hour sunset cruise on the Zambezi River with premium beverages and canapés while taking in the changing colours of the landscape and watching for wildlife along the riverbanks.",
+          "image": { "url": "/images/Sunset Cruise-1.jpg", "alt": "Ra-Ikane Luxury Sunset Cruise" }
+        },
+        {
+          "title": "Ra-Ikane Luxury Breakfast & Birdwatching Cruise",
+          "time": "07:00 – 09:00",
+          "price": "US$100 per person",
+          "description": "Start your day with breakfast on the Zambezi River during one of the best times for birdwatching. The peaceful morning setting offers excellent opportunities to observe the river's abundant birdlife and resident wildlife.",
+          "image": { "url": "/images/Breakfast_Birdwathing Cruise-1.JPG", "alt": "Ra-Ikane Luxury Breakfast & Birdwatching Cruise" }
+        },
+        {
+          "title": "Ra-Ikane Luxury Lunch Cruise",
+          "time": "12:00 – 14:00",
+          "price": "US$100 per person",
+          "description": "Enjoy a leisurely lunch while cruising the upper Zambezi River. This relaxed midday experience combines freshly prepared cuisine with scenic views and opportunities to spot wildlife in its natural habitat.",
+          "image": { "url": "/images/Lunch Cruise-1.jpg", "alt": "Ra-Ikane Luxury Lunch Cruise" }
+        }
+      ],
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "info_bar",
+      "content_type": "back_link",
+      "back_link_url": "/activities",
+      "back_link_label": "Back to Activities",
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Set Sail on the Zambezi",
+      "heading": "Reserve Your Cruise",
+      "body": "Contact our team to arrange your Ra-Ikane river cruise experience.",
+      "button_text": "Email Us",
+      "button_url": "mailto:activities@palmhospitality.co.zw",
+      "button_style": "primary",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

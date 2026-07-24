@@ -1,0 +1,80 @@
+{
+  "title": "Contact",
+  "slug": "contact",
+  "seo": {
+    "title": "Contact Us | Ilala Lodge Hotel",
+    "description": "Get in touch with Ilala Lodge Hotel. General enquiries, accommodation bookings, and reservations — speak with our team for a personalised travel itinerary at Victoria Falls."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "image",
+      "hero_image": {
+        "url": "/images/Ilala-Lodge-Exteriors-16.jpg",
+        "alt": "Ilala Lodge Hotel"
+      },
+      "hero_heading": "Contact Us",
+      "hero_subheading": "Our team is here to help plan your stay at Victoria Falls",
+      "hero_height": "medium",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>Whether it's your first time to Africa or you're a seasoned traveller, our team are here to help compile a personalised travel itinerary and provide all the information you need for an unforgettable holiday. We can offer interesting, informative and helpful advice to make your stay in Victoria Falls perfect in every way.</p>",
+      "text_align": "center",
+      "max_width": "narrow",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "eyebrow": "Or reach us directly",
+      "heading": "Direct Channels",
+      "columns": 3,
+      "card_style": "contact",
+      "cards": [
+        {
+          "title": "Direct Bookings",
+          "description": "Accommodation enquiries and online reservations.",
+          "email": "onlinereservations@ilalalodge.com",
+          "phones": ["+263 719 384 920"],
+          "whatsapp": "263719384920"
+        },
+        {
+          "title": "Hotel Reception & Restaurant",
+          "description": "Front desk, restaurant bookings, and in-house enquiries.",
+          "email": "guestrelations@ilalalodge.co.zw",
+          "phones": ["+263 78 8097346", "+263 83 2844738", "+263 83 2844739"],
+          "whatsapp": "263788097346"
+        },
+        {
+          "title": "Agent Reservations",
+          "description": "Travel agents and tour operators.",
+          "email": "reservations@ilalalodge.co.zw",
+          "phones": ["+263 78 8097346", "+263 83 2842650", "+263 712 401 814"]
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Find us",
+      "heading": "Closest Hotel to Victoria Falls",
+      "body": "411 Livingstone Way, Victoria Falls, Zimbabwe — on the A8 (Mosi-Oa-Tunya Road), just before the Victoria Falls Bridge. Eight minutes' walk from the entrance gate to the Falls.",
+      "buttons": [
+        { "text": "Location & Directions", "url": "/location", "style": "primary" },
+        { "text": "View Map", "url": "/map", "style": "secondary" }
+      ],
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

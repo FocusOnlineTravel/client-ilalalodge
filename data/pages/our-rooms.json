@@ -1,0 +1,106 @@
+{
+  "title": "Our Rooms",
+  "slug": "our-rooms",
+  "seo": {
+    "title": "Accommodation | Ilala Lodge Hotel Victoria Falls",
+    "description": "Explore our luxurious rooms and suites at Ilala Lodge Hotel. From Classic Rooms to the exclusive Strathearn Suite, find your perfect Victoria Falls accommodation."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "video",
+      "hero_video_url": "https://streamable.com/l/sb2boa/mp4-high.mp4",
+      "hero_heading": "Our Rooms & Suites",
+      "hero_subheading": "73 well-appointed rooms across the Deluxe, Garden, and Pool Wings",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>Ilala Lodge Hotel offers 73 well-appointed rooms, designed for space, comfort, and privacy in the heart of Victoria Falls.</p><p>Rooms on the upper level open onto private balconies, while ground floor rooms lead directly onto the hotel's lush lawns, where wildlife is often seen. Elephant, warthog and hippo sightings are not uncommon, and guests may spot them feeding around the onsite waterhole.</p><p>Accommodation is available across the Deluxe Wing, Garden Wing, and Pool Wing. The Deluxe and Pool Wings offer views of the rising spray from Victoria Falls, along with the hotel's gardens. The Garden Wing provides direct access to the lawns.</p><p>All rooms feature teak furnishings, high-quality cotton linens and plush pillows to ensure a comfortable stay, complemented by attentive service throughout.</p>",
+      "text_align": "left",
+      "max_width": "narrow",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "heading": "",
+      "columns": 1,
+      "card_style": "room_listing",
+      "cards": [
+        {
+          "title": "Classic Rooms",
+          "slug": "classic-rooms",
+          "description": "Twin or King beds with railway teak furnishings, opening onto the hotel's gardens and lawns where wildlife often grazes.",
+          "image": { "url": "/images/Ilala-Lodge-Accommodation-Classic-Double-02.jpg", "alt": "Classic Rooms" },
+          "size": "36 m\u00b2",
+          "sleeps": "2",
+          "beds": "Twin or King",
+          "price_from": "$285 PPS / $406 PPPN"
+        },
+        {
+          "title": "Classic Suites",
+          "slug": "classic-suites",
+          "description": "Top-floor suites with private balconies overlooking the hotel grounds and the rising spray of Victoria Falls.",
+          "image": { "url": "/images/Ilala-Lodge-Accommodation-Classic-Suite-04.jpg", "alt": "Classic Suites" },
+          "size": "75 m\u00b2",
+          "sleeps": "3",
+          "beds": "King + \u00be",
+          "price_from": "$454 PPS / $568 PPPN"
+        },
+        {
+          "title": "Deluxe Rooms",
+          "slug": "deluxe-rooms",
+          "description": "Set within the Deluxe Wing \u2014 refined teak accents and contemporary furnishings, with patios/balconies overlooking the gardens.",
+          "image": { "url": "/images/Ilala-Lodge-Accommodation-Deluxe-Double-01.jpg", "alt": "Deluxe Rooms" },
+          "size": "44 m\u00b2",
+          "sleeps": "2",
+          "beds": "Twin or King",
+          "price_from": "$355 PPS / $506 PPPN"
+        },
+        {
+          "title": "Executive Suites",
+          "slug": "executive-suites",
+          "description": "Spacious suites in the Deluxe Wing with a separate lounge, king-size bedroom, and a private balcony facing Victoria Falls.",
+          "image": { "url": "/images/Ilala-Lodge-Accommodation-Executive-Suite-01.jpg", "alt": "Executive Suites" },
+          "size": "104 m\u00b2",
+          "sleeps": "2",
+          "beds": "King",
+          "price_from": "$536 PPS / $670 PPPN"
+        },
+        {
+          "title": "Strathearn Suite",
+          "slug": "strathearn-suite",
+          "description": "Our most luxurious accommodation, named after founder Strathearn Brown \u2014 private lounge, kitchenette, and a heated spa bath on the balcony.",
+          "image": { "url": "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-01.jpg", "alt": "Strathearn Suite" },
+          "size": "128 m\u00b2",
+          "sleeps": "4",
+          "beds": "King",
+          "price_from": "$771 PPS / $889 PPPN"
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Ready to Experience Victoria Falls?",
+      "heading": "Book Your Stay Today",
+      "body": "Contact our reservations team or book directly online for the best rates.",
+      "buttons": [
+        { "text": "Book Now", "url": "https://book.nightsbridge.com/23972", "style": "primary", "external": true },
+        { "text": "Email Us", "url": "mailto:onlinereservations@ilalalodge.com", "style": "secondary" }
+      ],
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

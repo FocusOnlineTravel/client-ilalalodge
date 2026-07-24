@@ -1,0 +1,181 @@
+{
+  "title": "Victoria Falls",
+  "slug": "victoria-falls",
+  "seo": {
+    "title": "Victoria Falls | Ilala Lodge Hotel",
+    "description": "Explore Victoria Falls — viewpoints, history, the bridge, and when to visit. Ilala Lodge Hotel sits just 936 steps from the entrance to one of the Seven Natural Wonders of the World."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "video",
+      "hero_video_url": "https://streamable.com/l/y0nw2s/mp4.mp4",
+      "hero_heading": "Victoria Falls",
+      "hero_subheading": "936 steps from one of the Seven Natural Wonders of the World",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>As a holiday destination, Victoria Falls is simply the ultimate all-round experience. The scenery, the wildlife, the activities and the culture and history combine to offer a fantastic adventure. Ilala Lodge Hotel is centrally located, offering guests an ideal place to begin their journey. In fact, the hotel is only 936 steps from the mighty Victoria Falls — we counted!</p><p>Victoria Falls, located on the border between Zimbabwe and Zambia, has some of the most astounding views of any natural World Wonder. The massive sheet of falling water is mesmerizing and awe-inspiring, as is the view down the chasm itself. The natural rainforest on the Zimbabwean side of the Falls is a unique habitat to over 400 plant species, numerous bird species and small antelope and primates. The nearby Victoria Falls National Park, as well as the towns of Victoria Falls and Livingstone, offers additional activities — from nature-based experiences and cultural trips to bungee jumping and white-water rafting.</p>",
+      "text_align": "left",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "eyebrow": "Follow the path",
+      "heading": "The Falls Walking Trail",
+      "body": "",
+      "text_align": "center",
+      "max_width": "full",
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "map"
+    },
+    {
+      "acf_fc_layout": "accordion",
+      "eyebrow": "The walk",
+      "heading": "Zimbabwe Viewpoints",
+      "subheading": "Sixteen marked viewpoints take you along the Zimbabwean side of the Falls — from Devil's Cataract in the west to the Victoria Falls Bridge in the east.",
+      "enable_categories": false,
+      "items": [
+        { "title": "01 — Devil's Cataract & Livingstone's Statue", "content": "<p><em>70m high</em></p><p>The most Western edge of the falls overlooking Devil's Cataract, so named because the local tribes used to perform sacrificial ceremonies from the Cataract Island.</p>" },
+        { "title": "02 — The \"Chain Walk\"", "content": "<p>A set of stairs leading down into the gorge, the only viewpoint below the top level of the gorge. Allow for excellent views down the length of the gorge, towards Main Falls.</p>" },
+        { "title": "03 – 05 — Devil's Cataract & Main Falls", "content": "<p>All afford great views looking towards Devil's Cataract and New Falls where you can see the river starting to erode the next fault line. In thousands of years, this will become the new Victoria Falls.</p>" },
+        { "title": "06 — Approaching Main Falls", "content": "<p>From this long viewpoint, one can look back towards Devil's Cataract, Cataract Island and then Main Falls.</p>" },
+        { "title": "07 — Looking West Towards Devil's Cataract", "content": "<p>You can see it in full length, with views of the gorge and the river far below. Best seen early in the day as this is one of the few viewpoints with a rainbow in the morning.</p>" },
+        { "title": "08 — Main Falls", "content": "<p><em>93m high</em></p><p>The best views of Main Falls with beautiful rainbows in the afternoon. However, when the river is in flood, little can be seen due to torrents of spray, with a peak flow rate of 700,000 cubic metres per minute. Moving on from Viewpoint 8, you will enter the true 'Rainforest' — large trees in constantly damp soil, this amazing area is one of the only places on Earth to receive 'rain' 24 hours a day, 365 days a year.</p>" },
+        { "title": "09 – 11 — Main Falls", "content": "<p>These viewpoints will take you out of the rainforest and can be very wet with spray in the high-water seasons.</p>" },
+        { "title": "12 — Livingstone Island", "content": "<p>Provides wet and intermittent views of Livingstone Island and Rainbow Falls in high water. It is the island on the opposite side of the gorge from which Livingstone is said to have first seen the falls.</p>" },
+        { "title": "13 — Horseshoe Falls", "content": "<p><em>95m high</em></p><p>Aptly named, the geography of the falls creates a horseshoe-shape on the eastern side of Livingstone Island. This section has the lowest volume of water and is therefore the first to dry up during the dry season.</p>" },
+        { "title": "14 — Rainbow Falls", "content": "<p><em>108m high</em></p><p>This is the highest section of Victoria Falls at 108m. As the name suggests, beautiful rainbows can be enjoyed in the afternoon and whilst walking on to the next viewpoint.</p>" },
+        { "title": "15 — Danger Point", "content": "<p>So named as it leads along the cliff edge next to the Rainbow Falls to the most eastern edge of Zimbabwe. This is where the turbulent water from the falls exits and continues downriver. From this point, you can see the Eastern Cataract on the Zambian side and if looking down into the gorge, you will see the 'Boiling Pot' and Rapid number 1, where the commercial White-Water Rafting trips start.</p>" },
+        { "title": "16 — Victoria Falls Bridge", "content": "<p>This last viewpoint is away from the falls following the gorge south, bringing you to view the famous Victoria Falls Bridge, which links Zimbabwe and Zambia. Keep a lookout for adrenaline seekers taking the 111-metre plunge that is the Victoria Falls Bridge Bungee Jump.</p>" }
+      ],
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "viewpoints"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "eyebrow": "Year-round",
+      "heading": "When to Visit",
+      "columns": 2,
+      "card_style": "info",
+      "cards": [
+        {
+          "title": "High Water",
+          "subtitle": "April – July",
+          "description": "The Falls are full and spectacular at their peak flow, creating an impressive wall of water. Visitors are sure to get wet walking through the dense rainforest from the spray. Photos can be tricky to get from the ground at this time of year."
+        },
+        {
+          "title": "Low Water",
+          "subtitle": "Late August – December",
+          "description": "Wildlife is far more visible in the bush, making this the best season for game viewing. The water flow of the Falls diminishes and the rocky cliff face can be seen more clearly."
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "when-to-visit"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "eyebrow": "Before you go",
+      "heading": "What to Take With You",
+      "columns": 2,
+      "card_style": "list",
+      "cards": [
+        {
+          "title": "Entry Fees",
+          "description": "Bring your ID and either a credit card or cash. Rates depend on nationality:",
+          "list_items": [
+            { "label": "International ID", "value": "$58 USD" },
+            { "label": "SADC ID", "value": "$35 USD" },
+            { "label": "Zimbabwean ID", "value": "$7 USD" }
+          ]
+        },
+        {
+          "title": "Pack These",
+          "list_items": [
+            { "label": "Tennis shoes for the walk" },
+            { "label": "A hat and sunscreen" },
+            { "label": "A light raincoat or poncho during high-water months (you will get wet)" },
+            { "label": "A waterproof bag or cover for cameras and phones" }
+          ]
+        }
+      ],
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "what-to-take"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "eyebrow": "Since 1855",
+      "heading": "History of Victoria Falls",
+      "body": "<p>The history of Victoria Falls is a fascinating one based primarily on the monumental discovery of the Falls by Dr. David Livingstone in 1855. When he and his exploratory team first encountered the 'Smoke that Thunders', he saw '…scenes so lovely they must have been gazed upon by angels in their flight.'</p><p>Livingstone's discovery and the history surrounding it intrigue many Victoria Falls visitors. Tours of this UNESCO World Heritage site give great insight into this history. Ilala Lodge Hotel has compiled a book that tells the story in detail and is available at the hotel.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "history"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "eyebrow": "Built 1905",
+      "heading": "Victoria Falls Bridge",
+      "body": "<p>The Victoria Falls Bridge was built in 1905 to link what are now Zimbabwe and Zambia. The bridge was the vision of Cecil John Rhodes, who wanted 'the spray of the Falls on the train carriages'.</p><p>Constructed from steel, the arch spans <strong>156.50 metres</strong>, with a height of <strong>128 metres</strong> above the valley floor. Apart from cars, trains and foot traffic, it also hosts the world-famous <strong>111-metre Shearwater Bungee Jump</strong>. A railway museum near the Falls is a good source of information for railway enthusiasts.</p>",
+      "media_position": "left",
+      "media_type": "image",
+      "image": {
+        "url": "/images/Ilala-Lodge-Experience-Vic-Falls-05.jpg",
+        "alt": "Victoria Falls Bridge"
+      },
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "bridge"
+    },
+    {
+      "acf_fc_layout": "gallery",
+      "enable_filters": false,
+      "columns": 4,
+      "images": [
+        { "url": "/images/Ilala-Lodge-Experience-Vic-Falls-46.jpg", "alt": "Victoria Falls" },
+        { "url": "/images/Ilala-Lodge-Experience-Vic-Falls-26.jpg", "alt": "Victoria Falls" },
+        { "url": "/images/Ilala-Lodge-Experience-Vic-Falls-31.jpg", "alt": "Victoria Falls" },
+        { "url": "/images/Ilala-Lodge-Experience-Vic-Falls-24.jpg", "alt": "Victoria Falls" },
+        { "url": "/images/Ilala-Lodge-Experience-Vic-Falls-02.jpg", "alt": "Victoria Falls" },
+        { "url": "/images/Ilala-Lodge-Experience-Vic-Falls-04.jpg", "alt": "Victoria Falls" },
+        { "url": "/images/Ilala-Lodge-Experience-Vic-Falls-18.jpg", "alt": "Victoria Falls" },
+        { "url": "/images/Ilala-Lodge-Experience-Vic-Falls-21.jpg", "alt": "Victoria Falls" }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Ready to explore?",
+      "heading": "Plan Your Trip to the Falls",
+      "body": "Our Activities Desk can arrange tours, transfers, and every excursion in and around Victoria Falls.",
+      "button_text": "View Activities",
+      "button_url": "/activities",
+      "button_style": "primary",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

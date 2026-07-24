@@ -1,0 +1,21 @@
+{
+  "pages": {
+    "home": 304,
+    "activities": 306,
+    "contact": 308,
+    "facilities": 310,
+    "faqs": 312,
+    "location": 314,
+    "rates": 316,
+    "special-offers": 318,
+    "dining/high-tea": 320,
+    "dining/zambezi-river-deck": 322,
+    "gallery": 324,
+    "victoria-falls": 326,
+    "activities/ra-ikane": 328,
+    "our-rooms": 330,
+    "dining": 332,
+    "our-story": 334
+  },
+  "media": {}
+}

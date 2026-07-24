@@ -1,0 +1,167 @@
+{
+  "title": "FAQs",
+  "slug": "faqs",
+  "seo": {
+    "title": "FAQs | Ilala Lodge Hotel",
+    "description": "Frequently asked questions about Ilala Lodge Hotel — airport transfers, room amenities, dining, payment, malaria, what to pack, and everything you need to know before you arrive at Victoria Falls."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "image",
+      "hero_image": {
+        "url": "/images/Ilala-Lodge-Accommodation-Deluxe-Twin-03.jpg",
+        "alt": "Ilala Lodge Hotel"
+      },
+      "hero_heading": "Frequently Asked Questions",
+      "hero_subheading": "Everything you need to know before you arrive",
+      "hero_height": "medium",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "accordion",
+      "heading": "",
+      "enable_categories": true,
+      "items": [
+        {
+          "category": "Getting Here & Transfers",
+          "title": "Do you offer airport transfers to Ilala Lodge Hotel?",
+          "content": "<p>Yes, we do.</p><ul><li><strong>Victoria Falls Airport</strong> — US$21 per person each way (~30 minute drive)</li><li><strong>Livingstone Airport (Zambia)</strong> — US$50 per person each way (~1 hour)</li><li><strong>Kasane Airport (Botswana)</strong> — US$69 per person each way (~1.5–2 hours)</li></ul>"
+        },
+        {
+          "category": "Getting Here & Transfers",
+          "title": "How far is Ilala Lodge Hotel from Victoria Falls?",
+          "content": "It is a gentle 8–10 minute walk, only about 936 steps, from the front door of the hotel. Alternatively, we can arrange a taxi for those less mobile."
+        },
+        {
+          "category": "Getting Here & Transfers",
+          "title": "Do I need to rent a car in Victoria Falls?",
+          "content": "It is not necessary to rent a car in Victoria Falls. We provide airport transfers, and inter-hotel transfers and all activities have transfers to and from the hotel included in the cost."
+        },
+        {
+          "category": "Getting Here & Transfers",
+          "title": "How close is the hotel to the centre of Victoria Falls town?",
+          "content": "Our hotel is situated in the heart of the Victoria Falls town centre — within walking distance of both the town and the Victoria Falls waterfall."
+        },
+        {
+          "category": "Getting Here & Transfers",
+          "title": "Is there a declaration form I need to fill out on entry into Zimbabwe?",
+          "content": "Yes, there is. Stay ahead of the queues by completing the Zimbabwean Immigration Declaration form online before you fly at evisa.gov.zw."
+        },
+        {
+          "category": "The Hotel & Rooms",
+          "title": "Do you have Wi-Fi at the hotel?",
+          "content": "Yes, we have free Wi-Fi access throughout the hotel."
+        },
+        {
+          "category": "The Hotel & Rooms",
+          "title": "Do you host weddings at Ilala Lodge Hotel?",
+          "content": "Regrettably, we do not host weddings at our hotel premises. However, we always welcome accommodation-only bookings for weddings held locally."
+        },
+        {
+          "category": "The Hotel & Rooms",
+          "title": "Do you have mosquito nets over the beds?",
+          "content": "Our Classic Suites and Executive Suites have 4-poster mosquito netting over each bed. Our Classic Rooms and Deluxe Rooms do not, but each room has air conditioning, gauzed sliding doors, and extra mosquito spray and cream available. All rooms are equipped with mosquito control devices, and the hotel undertakes seasonal fogging programmes throughout the property to help minimise mosquito activity."
+        },
+        {
+          "category": "The Hotel & Rooms",
+          "title": "Are there fridges in the rooms?",
+          "content": "Each room is equipped with a minibar fridge."
+        },
+        {
+          "category": "The Hotel & Rooms",
+          "title": "How many rooms do you have?",
+          "content": "We currently have 73 rooms, across the Deluxe, Garden and Pool Wings."
+        },
+        {
+          "category": "The Hotel & Rooms",
+          "title": "Do you have hairdryers in the rooms?",
+          "content": "All rooms have hairdryers available."
+        },
+        {
+          "category": "The Hotel & Rooms",
+          "title": "What type of plug points do you have at the hotel? Should I bring an adaptor?",
+          "content": "We mostly have Type D (round) and Type G (square) plug points. Universal plug points and USB ports are available in all rooms. Plug points are available next to the bed."
+        },
+        {
+          "category": "Rooms & Families",
+          "title": "Is it possible to add an extra bed to a Classic Room?",
+          "content": "Unfortunately we cannot add an extra bed to a Classic Room. Our Classic Suites each have a King-size bed plus an additional ¾ bed. For families with children, we recommend interleading Classic or Deluxe Rooms, or the Strathearn Suite."
+        },
+        {
+          "category": "Rooms & Families",
+          "title": "Do you have family rooms?",
+          "content": "There are a number of family options with interleading rooms. Please contact us to find out more."
+        },
+        {
+          "category": "Rooms & Families",
+          "title": "Do you offer babysitting services?",
+          "content": "A babysitter can be arranged on request. Please advise the hotel at least 24 hours before."
+        },
+        {
+          "category": "Rooms & Families",
+          "title": "Do you offer cots for infants?",
+          "content": "Yes, we have cots for infants available on request, arranged in advance."
+        },
+        {
+          "category": "Rooms & Families",
+          "title": "Do you offer car seats for airport transfers?",
+          "content": "Yes, we have car seats available for children on request, arranged in advance."
+        },
+        {
+          "category": "Dining",
+          "title": "Does your restaurant cater for vegan / kosher / vegetarian / halaal diets?",
+          "content": "Yes, we can cater for specific dietary needs. Please inform the hotel of your requirements a few weeks in advance so the Chef can ensure we have the correct foods in stock for your arrival. Our general menu also offers vegetarian options."
+        },
+        {
+          "category": "Money & Payments",
+          "title": "Are there ATMs near the hotel?",
+          "content": "Yes, there are ATMs near Ilala Lodge Hotel. We recommend you bring small denomination USD cash to Victoria Falls for shops, entrance into the Falls, curio markets, etc."
+        },
+        {
+          "category": "Money & Payments",
+          "title": "What currencies do you accept at the hotel?",
+          "content": "We accept US Dollars, Zimbabwe Dollars, Euros, Pounds Sterling and South African Rand."
+        },
+        {
+          "category": "Money & Payments",
+          "title": "What credit cards do you accept at the hotel?",
+          "content": "Visa and Mastercard are accepted at the hotel."
+        },
+        {
+          "category": "Health, Safety & Travel",
+          "title": "Should I take malaria medication before travelling to Victoria Falls?",
+          "content": "Although Victoria Falls is not considered a high-risk malarial area, it is advisable to seek advice from your doctor before travelling to be 100% safe."
+        },
+        {
+          "category": "Health, Safety & Travel",
+          "title": "When is the best time to visit Victoria Falls?",
+          "content": "From high-water seasons with hot temperatures to the low-water season offering exceptional visibility of the Falls and cooler days, Victoria Falls is a year-round destination. Get in touch with our team to find out which season best suits your preferences."
+        },
+        {
+          "category": "Health, Safety & Travel",
+          "title": "What do I need to pack for my trip to Victoria Falls?",
+          "content": "Light and cool clothing for warmer days, with layers for cooler evenings. Don't forget your hat, sunglasses and sunscreen."
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Still have questions?",
+      "heading": "Get in Touch",
+      "body": "Our team is happy to help with anything else you'd like to know about your stay.",
+      "button_text": "Contact Us",
+      "button_url": "/contact",
+      "button_style": "primary",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

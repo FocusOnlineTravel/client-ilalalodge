@@ -1,0 +1,168 @@
+{
+  "title": "Dining",
+  "slug": "dining",
+  "seo": {
+    "title": "Dining at Cassia Restaurant | Ilala Lodge Hotel",
+    "description": "Experience elevated comfort food at Cassia Restaurant. Enjoy breakfast, lunch, and dinner with stunning views of Victoria Falls."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "video",
+      "hero_video_url": "https://streamable.com/l/gm0ph0/mp4-high.mp4",
+      "hero_heading": "Cassia Restaurant",
+      "hero_subheading": "Refined dining beneath the Cassia trees",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "Welcome to Cassia Restaurant",
+      "body": "<p>Located at Ilala Lodge Hotel, Cassia Restaurant offers a refined dining experience with a focus on quality cuisine and a carefully selected wine list from South Africa's leading vineyards. The setting is relaxed and traditional, with indoor and outdoor dining available.</p><p>Set within the hotel's gardens and within earshot of Victoria Falls, the award-winning restaurant takes its name from the Cassia Fistula trees positioned in front of the property, facing towards the Falls.</p><p>Guests can enjoy breakfast, lunch, and dinner daily. Mornings begin with a continental buffet, complemented by a cooked breakfast menu. Lunch is served beneath the shade of the Cassia trees or around the poolside bar, with a selection of lighter dishes and more substantial options.</p><p>In the evening, guests can dine al fresco under African skies, with the sound of the Falls in the background. The menu is supported by a curated wine list, along with a selection of beers, gins, and cocktails.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "cassia-restaurant"
+    },
+    {
+      "acf_fc_layout": "media_carousel",
+      "eyebrow": "",
+      "heading": "",
+      "display_mode": "tabs",
+      "items": [],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "menus"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "Zambezi River Deck Experience",
+      "body": "<p>Dine on the banks of the Zambezi River, on a multi-level wooden deck in the heart of the Zambezi National Park. Situated just a 5-minute drive from Ilala Lodge Hotel, the Riverside Dining Experience offers an open-fire, barbecue-style dinner under the stars, with freshly prepared dishes inspired by traditional Zimbabwean flavours and a selection of alcoholic and non-alcoholic beverages, served by dedicated staff.</p>",
+      "media_position": "left",
+      "media_type": "video",
+      "video_url": "https://streamable.com/l/e07f94/mp4.mp4",
+      "button_text": "Learn More",
+      "button_url": "/dining/zambezi-river-deck",
+      "section_theme": "forest",
+      "spacing_top": "none",
+      "spacing_bottom": "none",
+      "anchor_id": "zambezi-river-deck"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "High Tea at Palm River Hotel",
+      "body": "<p>Experience the refined elegance of High Tea at the Palm River Hotel on the Zambezi River. Begin with effervescent hibiscus prosecco or savour artisanal brews, from velvety cappuccinos to aromatic teas. Indulge in panna cottas, dainty sandwiches, mini macarons, buttery scones with whipped cream and strawberry preserves and more, all enjoyed under the shade of indigenous trees by the tranquil river.</p>",
+      "media_position": "right",
+      "media_type": "image",
+      "image": {
+        "url": "/images/Ilala-Lodge-Experience-High-Tea-01.jpg",
+        "alt": "High Tea at Palm River Hotel"
+      },
+      "button_text": "Learn More",
+      "button_url": "/dining/high-tea",
+      "section_theme": "forest",
+      "spacing_top": "none",
+      "spacing_bottom": "none",
+      "anchor_id": "high-tea"
+    },
+    {
+      "acf_fc_layout": "testimonial_carousel",
+      "eyebrow": "Guest Reviews",
+      "heading": "What Our Guests Say",
+      "testimonials": [
+        {
+          "quote": "It was a wonderful experience. The food was excellent and we sat on the terrace, serenaded by the sound of the Victoria Falls. Our waitress was so lovely, she pulled the food and the setting together perfectly.",
+          "author": "Paul D",
+          "source": "TripAdvisor"
+        },
+        {
+          "quote": "The food is excellent. The service has been fantastic. The atmosphere is perfect. We have really enjoyed our meals here. You are made to feel very welcomed. They accommodated gluten free as well!",
+          "author": "Kendra",
+          "source": "Google Reviews"
+        },
+        {
+          "quote": "We stayed at the wonderful Ilala Lodge Hotel for 3 nights. We ate at the Cassia Restaurant for breakfast and dinner on all 3. The food is superb. The staff lovely. The setting on the terrace amazing. Views of the 'smoke that thunders' during the day, romantic at night. We cannot wait to return! Thank you.",
+          "author": "Pat",
+          "source": "TripAdvisor"
+        },
+        {
+          "quote": "One of the best dining experiences I've ever had. The food was absolutely amazing every dish full of flavour and beautifully presented. Tatenda was an outstanding waiter, full of energy and warmth, and really made us feel welcome. Miles is an incredibly talented musician, and his live performance, including our song requests, made the evening truly special. I honestly couldn't fault this place. Highly recommended!",
+          "author": "Sai",
+          "source": "Google Reviews"
+        },
+        {
+          "quote": "Great food and lovely service. You have the option to sit on the terrace you will be able to hear the waterfall. You get to choose from a nice variety of African animals for dinner, and there is a large selection available to choose from for breakfast.",
+          "author": "Frederik Blem",
+          "source": "Google Reviews"
+        },
+        {
+          "quote": "One of the best restaurants in Victoria Falls. Food and service is excellent. Live piano music completes the setting.",
+          "author": "Allan Frost",
+          "source": "Google Reviews"
+        },
+        {
+          "quote": "Great food, great service, lovely ambiance! Thoroughly enjoyed my meal, the food was well presented and beautifully prepared! Absolutely scrumptious!",
+          "author": "Tichaona Chitsinde",
+          "source": "Google Reviews"
+        }
+      ],
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "gallery",
+      "enable_filters": false,
+      "columns": 4,
+      "images": [
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-02.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-07.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-15.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-16.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-19.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-22.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-26.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-29.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-31.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-34.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-1-Breakfast-35.jpg", "alt": "Breakfast at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-2-Lunch-02.jpg", "alt": "Lunch at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-2-Lunch-05.jpg", "alt": "Lunch at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-2-Lunch-08.jpg", "alt": "Lunch at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-2-Lunch-09.jpg", "alt": "Lunch at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-01.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-02.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-05.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-06.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-07.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-09.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-12.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-18.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-19.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-20.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-22.jpg", "alt": "Dinner at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-28.jpg", "alt": "Dinner at Cassia Restaurant" }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "An Unforgettable Dining Experience",
+      "heading": "Reserve Your Table Today",
+      "body": "Join us at Cassia Restaurant for an exceptional culinary journey in the heart of Victoria Falls.",
+      "cta_type": "contact",
+      "contact_email": "fnb@ilalalodge.co.zw",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

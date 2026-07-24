@@ -1,0 +1,109 @@
+{
+  "title": "High Tea",
+  "slug": "dining/high-tea",
+  "seo": {
+    "title": "High Tea at Palm River Hotel | Ilala Lodge Hotel",
+    "description": "Experience refined elegance with High Tea at Palm River Hotel on the Zambezi River. Artisanal treats, prosecco, and tranquil riverside views."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "image",
+      "hero_image": {
+        "url": "/images/Ilala-Lodge-Experience-High-Tea-01.jpg",
+        "alt": "High Tea at Palm River Hotel"
+      },
+      "hero_heading": "Palm River Hotel High Tea",
+      "hero_subheading": "Refined elegance on the banks of the Zambezi",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>Experience the refined elegance of High Tea at the Palm River Hotel on the Zambezi River. Begin with effervescent hibiscus prosecco or savour artisanal brews, from velvety cappuccinos to aromatic teas.</p><p>Indulge in panna cottas, dainty sandwiches, mini macarons, buttery scones with whipped cream and strawberry preserves and more, all enjoyed under the shade of indigenous trees by the tranquil river.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "The Experience",
+      "body": "<p>Palm River Hotel, our sister property just minutes from Ilala Lodge, offers a serene riverside setting for an afternoon of indulgence.</p><p>The High Tea experience features a carefully curated selection of sweet and savoury treats, prepared fresh by our pastry chefs. Pair your selection with premium teas, specialty coffees, or a glass of bubbles.</p><p>Relax in comfortable seating beneath the trees as you watch the river flow by, with the chance to spot wildlife along the banks.</p>",
+      "media_position": "right",
+      "media_type": "image",
+      "image": {
+        "url": "/images/Ilala-Lodge-Experience-High-Tea-05.jpg",
+        "alt": "High Tea Selection"
+      },
+      "button_text": "Email Us",
+      "button_url": "mailto:activities@palmhospitality.co.zw",
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "heading": "What's Included",
+      "columns": 3,
+      "card_style": "minimal",
+      "cards": [
+        {
+          "title": "Sweet Treats",
+          "description": "Mini macarons, panna cottas, buttery scones with cream and preserves"
+        },
+        {
+          "title": "Savoury Selection",
+          "description": "Dainty finger sandwiches with a variety of refined fillings"
+        },
+        {
+          "title": "Beverages",
+          "description": "Hibiscus prosecco, aromatic teas, cappuccinos, and specialty coffees"
+        }
+      ],
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "gallery",
+      "enable_filters": false,
+      "columns": 4,
+      "images": [
+        { "url": "/images/Ilala-Lodge-Experience-Sundowners-01.jpg", "alt": "High Tea Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-High-Tea-06.jpg", "alt": "High Tea Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-High-Tea-04.jpg", "alt": "High Tea Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-High-Tea-03.jpg", "alt": "High Tea Experience" }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "info_bar",
+      "content_type": "back_link",
+      "back_link_url": "/dining",
+      "back_link_label": "Back to Dining",
+      "section_theme": "accent",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "An Afternoon of Elegance",
+      "heading": "Reserve Your High Tea",
+      "body": "Contact our team to arrange your High Tea experience at Palm River Hotel.",
+      "button_text": "Email Us",
+      "button_url": "mailto:activities@palmhospitality.co.zw",
+      "button_style": "primary",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "title": "Facilities",
+  "slug": "facilities",
+  "seo": {
+    "title": "Our Facilities | Ilala Lodge Hotel",
+    "description": "Discover the facilities at Ilala Lodge Hotel - poolside bar, swimming pools, spa treatments, conferencing, and tours desk."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "video",
+      "hero_video_url": "https://streamable.com/l/683t2l/mp4-high.mp4",
+      "hero_heading": "Our Facilities",
+      "hero_subheading": "Ilala Lodge Hotel",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>Ilala Lodge Hotel offers a range of facilities designed to enhance your stay. From relaxed poolside spaces to conferencing and curated activities, each element is designed for comfort and ease.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "Poolside Bar",
+      "body": "<p>Open daily from 10h00 to 22h00, the Poolside Bar is set alongside the hotel's two swimming pools. The teak bar, crafted from locally sourced railway sleepers, creates a relaxed setting for afternoon drinks and sundowners. Guests can enjoy views over the Victoria Falls National Park and the rising mist of the Falls.</p>",
+      "media_position": "left",
+      "media_type": "gallery",
+      "gallery": [
+        { "url": "/images/Ilala-Lodge-Facilities-Poolside-Bar-06.jpg", "alt": "Poolside Bar" },
+        { "url": "/images/Ilala-Lodge-Facilities-Poolside-Bar-05.jpg", "alt": "Poolside Bar" },
+        { "url": "/images/Ilala-Lodge-Facilities-Poolside-Bar-02.jpg", "alt": "Poolside Bar" },
+        { "url": "/images/IlalaLodgeHotel Poolside Lounge (2).jpg", "alt": "Poolside Lounge" }
+      ],
+      "buttons": [
+        { "text": "Bar Menu", "url": "https://client-ilalalodge.vercel.app/documents/ILH_BeverageList_2026%20(Online).pdf", "style": "secondary", "external": true },
+        { "text": "Snack Menu", "url": "https://client-ilalalodge.vercel.app/documents/ILH_SnackMenu_2025.pdf", "style": "secondary", "external": true }
+      ],
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium",
+      "anchor_id": "poolside-bar"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "Swimming Pools",
+      "body": "<p>Guests can choose between two swimming pools: a larger pool with a shallow end and gentle slope, and a plunge pool on a lower deck overlooking the gardens, National Park, and spray from Victoria Falls.</p><p>Both pools are surrounded by timber decks with loungers, umbrellas, and cabana day beds. A poolside lounge offers open-plan seating, a writing desk, games table, books, USB chargers, and plug points, all conveniently located next to the Poolside Bar.</p>",
+      "media_position": "right",
+      "media_type": "gallery",
+      "gallery": [
+        { "url": "/images/Ilala-Lodge-Facilities-Pools-05.jpg", "alt": "Swimming Pools" },
+        { "url": "/images/Ilala-Lodge-Facilities-Pools-30.jpg", "alt": "Swimming Pools" },
+        { "url": "/images/Ilala-Lodge-Facilities-Pools-01.jpg", "alt": "Swimming Pools" }
+      ],
+      "section_theme": "accent",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium",
+      "anchor_id": "swimming-pools"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "Tours & Activities Desk",
+      "body": "<p>The Tours & Activities Desk provides assistance with planning and booking experiences in and around Victoria Falls. The team can arrange activities, transfers, and river cruises, offering a convenient in-house service.</p>",
+      "media_position": "left",
+      "media_type": "gallery",
+      "gallery": [
+        { "url": "/images/Ilala-Lodge-Facilities-Activity-Desk-01.jpg", "alt": "Tours & Activities Desk" },
+        { "url": "/images/Ilala-Lodge-Facilities-Activity-Desk-02.jpg", "alt": "Tours & Activities Desk" }
+      ],
+      "buttons": [
+        { "text": "View Activities", "url": "/activities", "style": "secondary" },
+        { "text": "Call Us", "url": "tel:+263788097346", "style": "primary" },
+        { "text": "Email Us", "url": "mailto:activities@palmhospitality.co.zw", "style": "secondary" }
+      ],
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium",
+      "anchor_id": "activities-desk"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "Spa Treatments",
+      "body": "<p>A dedicated treatment room offers a selection of spa services, including aromatherapy treatments, massages, manicures, and pedicures - providing a convenient space to relax during your stay.</p>",
+      "media_position": "right",
+      "media_type": "gallery",
+      "gallery": [
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-01.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-03.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-04.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-05.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-06.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-07.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-08.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-10.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-11.jpg", "alt": "Spa Treatments" },
+        { "url": "/images/Ilala-Lodge-Facilities-Spa-12.jpg", "alt": "Spa Treatments" }
+      ],
+      "buttons": [
+        { "text": "View Menu", "url": "/documents/Ilala-Spa-Menu_Final.pdf", "style": "secondary", "external": true }
+      ],
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium",
+      "anchor_id": "spa"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "Conferencing & Event Facilities",
+      "body": "<p>The hotel's conferencing space offers a private setting for meetings, events, and small gatherings. Facilities include Wi-Fi, projector screens, USB connection points, and tea and coffee service.</p><p>Within the spacious suite, the conferencing room can be arranged in a variation of formats, from U-shape, boardroom, theatre style and more. The suite is suitable for a maximum of 30 guests.</p>",
+      "media_position": "left",
+      "media_type": "gallery",
+      "gallery": [
+        { "url": "/images/Ilala-Lodge-Facilities-Conference-Room-01.jpg", "alt": "Conference Room" },
+        { "url": "/images/Ilala-Lodge-Facilities-Conference-Room-02.jpg", "alt": "Conference Room" },
+        { "url": "/images/Ilala-Lodge-Facilities-Conference-Room-04.jpg", "alt": "Conference Room" },
+        { "url": "/images/Ilala-Lodge-Facilities-Conference-Room-05.jpg", "alt": "Conference Room" }
+      ],
+      "buttons": [
+        { "text": "Download Factsheet", "url": "/documents/ILALA-Conferencing-and-Meeting-Suites-Flyer.pdf", "style": "secondary", "external": true },
+        { "text": "Call Us", "url": "tel:+263788097346", "style": "primary" },
+        { "text": "Email Us", "url": "mailto:fnb@ilalalodge.co.zw", "style": "secondary" }
+      ],
+      "section_theme": "accent",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium",
+      "anchor_id": "conferencing"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Experience Our Facilities",
+      "heading": "Book Your Stay Today",
+      "body": "Enjoy all the comforts and amenities Ilala Lodge has to offer.",
+      "button_text": "Book Now",
+      "button_url": "https://book.nightsbridge.com/23972",
+      "button_style": "primary",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

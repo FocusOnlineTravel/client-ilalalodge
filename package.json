@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:acf": "node scripts/generate-acf.mjs",
+    "wp:push": "node scripts/push-to-wordpress.mjs",
+    "wp:push:dry": "node scripts/push-to-wordpress.mjs --dry-run",
+    "wp:push:media": "node scripts/push-to-wordpress.mjs --media-only"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -20,10 +24,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.24",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.19",
-    "typescript": "^5"
+    "typescript": "^5",
+    "zod": "^4.4.3"
   }
 }

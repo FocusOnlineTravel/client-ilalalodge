@@ -1,0 +1,102 @@
+{
+  "title": "Special Offers",
+  "slug": "special-offers",
+  "seo": {
+    "title": "Special Offers | Ilala Lodge Hotel Victoria Falls",
+    "description": "Discover exclusive offers at Ilala Lodge Hotel. From seasonal savings to value-added stay packages, experience Victoria Falls for less."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "image",
+      "hero_image": {
+        "url": "/images/Ilala-Lodge-Experience-River-Cruise-Sunset-15.jpg",
+        "alt": "Special Offers at Ilala Lodge Hotel"
+      },
+      "hero_eyebrow": "Special Offers",
+      "hero_heading": "Experience Victoria Falls for Less",
+      "hero_subheading": "",
+      "hero_height": "medium",
+      "hero_overlay_opacity": 40,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>Discover exclusive offers designed to help you experience the very best of Victoria Falls for less. From seasonal savings to value-added stay packages, there's never been a better time to enjoy an unforgettable stay at Ilala Lodge Hotel.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "eyebrow": "Limited Time Offer",
+      "heading": "Seasonal Special",
+      "body": "<p>Take advantage of our Seasonal Special and enjoy an unforgettable stay at Ilala Lodge Hotel at exceptional value. Perfectly positioned just a short walk from the iconic Victoria Falls, our boutique hotel offers the ideal base from which to experience one of the world's greatest natural wonders.</p><p>Whether you're planning a romantic escape, an adventure-filled holiday or a relaxing getaway, this limited-time offer lets you experience the warmth, comfort and personalised service Ilala Lodge Hotel is known for, while enjoying significant savings on your stay.</p>",
+      "text_align": "left",
+      "max_width": "medium",
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "rate_table",
+      "heading": "",
+      "categories": [
+        {
+          "name": "",
+          "rows": [
+            { "label": "Classic Room", "rate_sharing": "US$190", "rate_single": "US$271" },
+            { "label": "Deluxe Room", "rate_sharing": "US$230", "rate_single": "US$328" },
+            { "label": "Classic Suite", "rate_sharing": "US$295", "rate_single": "US$368" },
+            { "label": "Executive Suite", "rate_sharing": "US$341", "rate_single": "US$426" },
+            { "label": "Strathearn Suite", "rate_sharing": "US$453", "rate_single": "US$566" }
+          ]
+        }
+      ],
+      "show_booking_button": false,
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "accordion",
+      "heading": "Terms & Conditions",
+      "enable_categories": false,
+      "items": [
+        {
+          "title": "Terms & Conditions",
+          "content": "<ul><li>Offer valid for new bookings only.</li><li>Valid for stays between 1 November 2026 and 31 March 2027, excluding 20 December 2026 to 2 January 2027.</li><li>Existing two and three-night value adds remain applicable.</li><li>A 20% non-refundable deposit is required within 30 days of confirming the booking. Bookings made within 60 days of arrival require full payment.</li><li>Rates include 15.5% VAT and 2% Government Tourism Levy.</li><li>Offer is subject to availability and may not be combined with any other promotion.</li></ul>",
+          "is_open": true
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "info_bar",
+      "content_type": "download",
+      "download_url": "https://www.ilalalodge.com/wp-content/uploads/2026/06/ILH_Seasonal-Special_2026.pdf",
+      "download_label": "Download Special Offer PDF",
+      "section_theme": "accent",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Ready to book?",
+      "heading": "Enquire Today",
+      "body": "Start planning your Victoria Falls escape. Contact our reservations team to take advantage of this special offer.",
+      "cta_type": "contact",
+      "contact_email": "onlinereservations@ilalalodge.com",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

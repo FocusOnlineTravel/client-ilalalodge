@@ -1,0 +1,119 @@
+{
+  "title": "Our Story",
+  "slug": "our-story",
+  "seo": {
+    "title": "Our Story | Ilala Lodge Hotel",
+    "description": "The history of Ilala Lodge Hotel — a Zimbabwean family legacy that began in 1989 and continues to welcome guests at the gateway to Victoria Falls."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "image",
+      "hero_image": {
+        "url": "/images/Ilala-Lodge-Exteriors-14.jpg",
+        "alt": "Ilala Lodge Hotel"
+      },
+      "hero_heading": "Our Story",
+      "hero_subheading": "A Zimbabwean family legacy at the gateway to Victoria Falls",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>The history of Ilala Lodge Hotel is an interesting one that ties a Zimbabwean family's background and business to the property that houses the popular and beautiful hotel today.</p><p>In 1989, the site, which was originally the Sprayview Restaurant, was offered to the then owners of the crocodile farm, Strath Brown and his partner, Rob Gee. Along with Strath's wife Beryl, they chose to open a boutique hotel that had 16 bedrooms; at that time, the number of rooms and the hotel rating dictated the price of beer in hotel bars and restaurants. Ironically, the original size of Ilala Lodge Hotel was based on this criterion!</p><p>In October 1989, the ground was officially broken and construction was underway. Architect Richard Beattie and Interior Designer Thelma Newmarch worked tirelessly with the builder, Biffen, to create an inviting atmosphere that was the foundation for the success that Ilala Lodge Hotel still enjoys. Strath and his son Keith were personally involved in the building of the hotel, thatching the roof themselves. Hand-selected gum poles and thatching grass from the family farm in Darwendale were used in the original structure.</p>",
+      "text_align": "center",
+      "max_width": "narrow",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "gallery",
+      "enable_filters": false,
+      "columns": 4,
+      "images": [
+        { "url": "/images/Ilala-Lodge-Exteriors-01.jpg", "alt": "Ilala Lodge Hotel" },
+        { "url": "/images/Ilala-Lodge-Exteriors-24.jpg", "alt": "Ilala Lodge Hotel" },
+        { "url": "/images/Ilala-Lodge-Facilities-Pools-07.jpg", "alt": "Ilala Lodge Hotel" },
+        { "url": "/images/IlalaLodgeHotel Exterior (2).jpg", "alt": "Ilala Lodge Hotel" }
+      ],
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>Beryl Brown, a passionate gardener, established the hotel's gardens, which remain a defining feature today. The unique Indian Laburnum trees — known as the 'Golden Tree' — were part of her vision and continue to brighten the front of the property when in bloom. The name Ilala Lodge was suggested by Thelma, inspired by the Ilala palms in the area; 'Ilala' is also the Ndebele word for 'lie down'.</p><p>In 1991, the opening ceremony was a resounding success with the local Chief — a highly respected member of the Victoria Falls community — presiding over the show. As tradition allows, the Chief blessed the hotel, signifying what was to be a great start for Ilala Lodge Hotel. In April 1991, the first guests to stay at the hotel were family friends from Darwendale.</p>",
+      "text_align": "center",
+      "max_width": "narrow",
+      "section_theme": "accent",
+      "spacing_top": "medium",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "timeline",
+      "eyebrow": "Through the years",
+      "heading": "Our Journey",
+      "items": [
+        { "year": "1989", "title": "Construction begins", "description": "" },
+        { "year": "1991", "title": "Hotel opens with 16 rooms", "description": "" },
+        { "year": "1994", "title": "Expanded to 34 rooms", "description": "" },
+        { "year": "2015", "title": "56 rooms", "description": "" },
+        { "year": "2018", "title": "73 rooms today", "description": "" }
+      ],
+      "footer_text": "In 1994, Strathearn's daughter, Laura, oversaw the expansion to 34 rooms. The hotel today offers 73 rooms across a range of Classic and Deluxe Rooms and Suites — the result of further renovations completed in 2015 and 2018.",
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "gallery",
+      "enable_filters": false,
+      "columns": 4,
+      "images": [
+        { "url": "/documents/Basecamp Download/Attachments/871323296-ilala-lodge-hotel-history-1.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323309-ilala-lodge-hotel-history-3.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323313-ilala-lodge-hotel-history-4.jpg", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323319-ilala-lodge-hotel-history-6.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323321-ilala-lodge-hotel-history-7.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323328-ilala-lodge-hotel-history-8.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323332-ilala-lodge-hotel-history-9.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323338-ilala-lodge-hotel-history-10.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323340-ilala-lodge-hotel-history-11.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323345-ilala-lodge-hotel-history-13.jpg", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323357-ilala-lodge-hotel-history-14.JPG", "alt": "Ilala Lodge Hotel history" },
+        { "url": "/documents/Basecamp Download/Attachments/871323361-ilala-lodge-hotel-history-15.JPG", "alt": "Ilala Lodge Hotel history" }
+      ],
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "A Family Legacy",
+      "body": "<p>Today, Strath's sons, Andrew and Jim, along with their families, remain actively involved, continuing the legacy of a family-run hotel shaped by care, character, and a strong sense of place.</p>",
+      "text_align": "center",
+      "max_width": "narrow",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Experience Ilala Lodge",
+      "heading": "Book Your Stay Today",
+      "body": "Discover why guests return to Ilala Lodge year after year.",
+      "button_text": "Book Now",
+      "button_url": "https://book.nightsbridge.com/23972",
+      "button_style": "primary",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

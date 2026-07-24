@@ -1,0 +1,47 @@
+{
+  "title": "Gallery",
+  "slug": "gallery",
+  "seo": {
+    "title": "Gallery | Ilala Lodge Hotel",
+    "description": "A visual tour of Ilala Lodge Hotel — rooms and suites, Cassia Restaurant, the gardens and pool, and the wildlife that grazes on our lawns at the gateway to Victoria Falls."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "image",
+      "hero_image": {
+        "url": "/images/intr0-image.png",
+        "alt": "Ilala Lodge Hotel gallery"
+      },
+      "hero_heading": "Gallery",
+      "hero_subheading": "A visual tour of Ilala Lodge Hotel",
+      "hero_height": "medium",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "gallery",
+      "enable_filters": true,
+      "columns": 4,
+      "images": [],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "See it for yourself",
+      "heading": "Plan Your Stay",
+      "body": "The closest hotel to Victoria Falls — just an 8-minute walk from one of the Seven Natural Wonders of the World.",
+      "buttons": [
+        { "text": "Book Your Stay", "url": "https://book.nightsbridge.com/23972", "style": "primary", "external": true },
+        { "text": "Get in Touch", "url": "/contact", "style": "secondary" }
+      ],
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

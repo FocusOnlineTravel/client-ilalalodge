@@ -1,0 +1,87 @@
+{
+  "title": "Zambezi River Deck",
+  "slug": "dining/zambezi-river-deck",
+  "seo": {
+    "title": "Zambezi River Deck Experience | Ilala Lodge Hotel",
+    "description": "Dine on the banks of the Zambezi River with an open-fire barbecue-style dinner under the stars, featuring traditional Zimbabwean flavours."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "video",
+      "hero_video_url": "https://streamable.com/l/e07f94/mp4.mp4",
+      "hero_heading": "Zambezi River Deck Experience",
+      "hero_subheading": "Dinner under the stars on the banks of the Zambezi",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "",
+      "body": "<p>Dine on the banks of the Zambezi River, on a multi-level wooden deck in the heart of the Zambezi National Park. Situated just a 5-minute drive from Ilala Lodge Hotel, the Riverside Dining Experience offers an open-fire, barbecue-style dinner under the stars.</p><p>Enjoy freshly prepared dishes inspired by traditional Zimbabwean flavours and a selection of alcoholic and non-alcoholic beverages, served by dedicated staff in an unforgettable natural setting.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "The Experience",
+      "body": "<p>As the sun sets over the Zambezi, you'll be transported to our exclusive riverside deck where the sounds of the African bush provide the perfect backdrop to your evening.</p><p>Our chefs prepare a selection of grilled meats, fresh fish, and vegetarian options over open flames, accompanied by locally-inspired sides and salads.</p><p>The experience includes transfers from Ilala Lodge Hotel, a welcome drink, a full barbecue dinner, and a selection of beverages throughout the evening.</p>",
+      "media_position": "left",
+      "media_type": "image",
+      "image": {
+        "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-24.jpg",
+        "alt": "Zambezi River Deck"
+      },
+      "button_text": "Email Us",
+      "button_url": "mailto:activities@palmhospitality.co.zw",
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "gallery",
+      "enable_filters": false,
+      "columns": 4,
+      "images": [
+        { "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-27.jpg", "alt": "Zambezi River Deck Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-25.jpg", "alt": "Zambezi River Deck Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-21.jpg", "alt": "Zambezi River Deck Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-19.jpg", "alt": "Zambezi River Deck Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-17.jpg", "alt": "Zambezi River Deck Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-10.jpg", "alt": "Zambezi River Deck Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-29.jpg", "alt": "Zambezi River Deck Experience" },
+        { "url": "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-30.jpg", "alt": "Zambezi River Deck Experience" }
+      ],
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "info_bar",
+      "content_type": "back_link",
+      "back_link_url": "/dining",
+      "back_link_label": "Back to Dining",
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "An Unforgettable Evening",
+      "heading": "Reserve Your Experience",
+      "body": "Contact our team to arrange your Zambezi River Deck dining experience.",
+      "button_text": "Email Us",
+      "button_url": "mailto:activities@palmhospitality.co.zw",
+      "button_style": "primary",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

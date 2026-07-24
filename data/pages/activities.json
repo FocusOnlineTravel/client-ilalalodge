@@ -1,0 +1,351 @@
+{
+  "title": "Activities",
+  "slug": "activities",
+  "seo": {
+    "title": "Activities & Experiences | Ilala Lodge Hotel Victoria Falls",
+    "description": "Adventure, wildlife, relaxation and culture at Victoria Falls. From rafting and helicopter flights to game drives, river cruises and high tea — all bookable through the Activities Desk at Ilala Lodge Hotel."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "video",
+      "hero_video_url": "https://streamable.com/l/0sspng/mp4-high.mp4",
+      "hero_heading": "Activities",
+      "hero_subheading": "Adventure Capital of Africa",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "Victoria Falls Activities",
+      "body": "<p>Victoria Falls is one of Africa's leading destinations for adventure, wildlife, and culture, and Ilala Lodge Hotel is ideally positioned to experience it all.</p><p>From the Zambezi River to the surrounding national parks, the region offers a wide range of experiences to suit every pace of travel. Our Activities Desk is available to assist with planning and booking, including transfers and cross-border excursions.</p><p>Among the most popular experiences are Zambezi River cruises, helicopter flights over the Falls, Chobe Day Trips, and guided game drives — each offering a different perspective of this remarkable destination.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    },
+    {
+      "acf_fc_layout": "icon_grid",
+      "heading": "",
+      "columns": 5,
+      "icon_style": "text",
+      "items": [
+        { "label": "Relaxation", "link": "#relaxation" },
+        { "label": "Wildlife", "link": "#wildlife" },
+        { "label": "Cultural", "link": "#cultural" },
+        { "label": "Adventure", "link": "#adventure" },
+        { "label": "Featured Experiences", "link": "#featured-experiences" }
+      ],
+      "section_theme": "light",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "eyebrow": "A slower pace on the Zambezi",
+      "heading": "Relaxation",
+      "subheading": "River cruises at sunrise, over lunch, or at sunset allow guests to take in the landscape at leisure. Smaller, more intimate cruise options offer a quieter setting still — see the Featured Experiences below for riverside dining and high tea.",
+      "columns": 2,
+      "card_style": "image_carousel",
+      "cards": [
+        {
+          "title": "Sunrise River Cruise",
+          "description": "Begin the day on the Zambezi River as the sun rises, with tea, coffee, and pastries served on board while the bush comes alive around you.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-12.jpg",
+            "/images/Breakfast_Birdwathing Cruise-1.JPG",
+            "/images/Breakfast_Birdwathing Cruise-2.jpg",
+            "/images/Breakfast_Birdwathing Cruise-3.jpg",
+            "/images/Breakfast_Birdwathing Cruise-4.jpg"
+          ]
+        },
+        {
+          "title": "Sunset Cruise",
+          "description": "Drift along the Upper Zambezi as the sun sets, with drinks and snacks served on board.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-River-Cruise-Sunset-15.jpg",
+            "/images/Sunset Cruise-1.jpg",
+            "/images/Sunset Cruise-2.jpg",
+            "/images/Sunset Cruise-3.jpg",
+            "/images/Sunset Cruise-4.jpg"
+          ]
+        },
+        {
+          "title": "Lunch Cruise",
+          "description": "A leisurely cruise over lunch, taking in the river at a relaxed pace.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-River-Cruise-Sunset-02.jpg",
+            "/images/Lunch Cruise-1.jpg",
+            "/images/Lunch Cruise-2.jpg",
+            "/images/Lunch Cruise-3.jpg",
+            "/images/Lunch Cruise-4.jpg"
+          ]
+        },
+        {
+          "title": "Intimate Cruises",
+          "description": "Private or small-group cruises on the Zambezi for a more exclusive experience, ideal for special occasions or those seeking a quieter setting.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-River-Cruise-Sunset-26.jpg",
+            "/images/Intimate Cruises-1.jpg",
+            "/images/Intimate Cruises-2.jpg",
+            "/images/Intimate Cruises-3.jpg",
+            "/images/Intimate Cruises-4.jpg"
+          ]
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "relaxation"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "eyebrow": "Game viewing in every direction",
+      "heading": "Wildlife",
+      "subheading": "The area surrounding Victoria Falls is rich in wildlife, with opportunities for both short excursions and full-day safaris. Game drives, cross-border trips to Chobe and Hwange, and Zambezi cruises each open up a different angle on the region's wildlife.",
+      "columns": 2,
+      "card_style": "image_carousel",
+      "cards": [
+        {
+          "title": "Game Drives",
+          "description": "Morning, afternoon, or evening drives in nearby national parks — opportunities for both short excursions and full-day safaris.",
+          "images": [
+            "/images/tourists-on-land-cruise-victoria-falls-zimbabwe-2026-03-25-02-18-59-utc.jpg",
+            "/images/Game Drives-2.jpg",
+            "/images/Game Drives-3.jpg",
+            "/images/Game Drives-4.jpg"
+          ]
+        },
+        {
+          "title": "Chobe & Hwange National Parks",
+          "description": "Day trips into Botswana to Chobe National Park, home to one of Africa's densest elephant populations, or extended trips for exceptional game viewing in Zimbabwe's largest national park, Hwange, within 100km of the hotel.",
+          "images": [
+            "/images/pexels-twilight-kenya-7280783.jpg",
+            "/images/Day Trips to Chobe & Hwange-1.jpg",
+            "/images/Day Trips to Chobe & Hwange-2.jpg",
+            "/images/Day Trips to Chobe & Hwange-3.jpg",
+            "/images/Day Trips to Chobe & Hwange-4.jpg"
+          ]
+        },
+        {
+          "title": "Walk with Elephants",
+          "description": "An unforgettable opportunity to walk alongside these gentle giants, learning about their behaviour and conservation in a natural setting.",
+          "images": ["/images/Ilala-Lodge-Experience-Elephant-Walk-12.jpg"],
+          "video_url": "https://streamable.com/l/qfdqdi/mp4.mp4"
+        },
+        {
+          "title": "Cruises on the Zambezi River",
+          "description": "Wildlife often seen along the riverbanks during cruises and other water-based activities, with opportunities to spot hippos, crocodiles, and diverse birdlife.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-41.jpg",
+            "/images/Cruises on the Zambezi-1.jpg",
+            "/images/Cruises on the Zambezi-2.jpg",
+            "/images/Cruises on the Zambezi-3.jpg",
+            "/images/Cruises on the Zambezi-4.jpg"
+          ]
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "wildlife"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "eyebrow": "A strong sense of place",
+      "heading": "Cultural",
+      "subheading": "Cultural experiences that provide insight into local life and traditions — from guided rainforest tours and village visits to township dining and traditional evening performances.",
+      "columns": 2,
+      "card_style": "image_carousel",
+      "cards": [
+        {
+          "title": "Curio Shopping",
+          "description": "Browse local crafts, artwork, and souvenirs at markets and shops throughout Victoria Falls.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-Shopping-02.jpg",
+            "/images/Curio Shopping-1.jpg",
+            "/images/Curio Shopping-2.jpg",
+            "/images/Curio Shopping-3.jpg",
+            "/images/Curio Shopping-4.jpg"
+          ]
+        },
+        {
+          "title": "Traditional Dining & Performances",
+          "description": "Evening experiences combining traditional dinners with music and dance.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-Zambezi-River-Deck-17.jpg",
+            "/images/Traditional Dining & Performance-1.jpg",
+            "/images/Traditional Dining & Performance-2.jpg",
+            "/images/Traditional Dining & Performance-3.jpg",
+            "/images/Traditional Dining & Performance-4.jpg"
+          ]
+        },
+        {
+          "title": "Township Dining",
+          "description": "An introduction to the region's communities through shared meals at Dusty Road Township.",
+          "images": [
+            "/images/Dusty Road.jpg",
+            "/images/Township Dining-1.jpg",
+            "/images/Township Dining-2.jpg",
+            "/images/Township Dining-3.jpg",
+            "/images/Township Dining-4.jpg"
+          ]
+        },
+        {
+          "title": "Rainforest Tour",
+          "description": "A guided walk through the Victoria Falls rainforest, exploring its unique ecosystem and the heritage of the region.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-Vic-Falls-02.jpg",
+            "/images/Rainforest Tour-1.jpg",
+            "/images/Rainforest Tour-2.jpg",
+            "/images/Rainforest Tour-3.jpg",
+            "/images/Rainforest Tour-4.jpg"
+          ],
+          "video_url": "https://streamable.com/l/n73084/mp4.mp4"
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "cultural"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "eyebrow": "Africa's Adventure Capital",
+      "heading": "Adventure",
+      "subheading": "High-adrenaline experiences set against a dramatic natural backdrop — from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and canopy tours.",
+      "columns": 2,
+      "card_style": "image_carousel",
+      "cards": [
+        {
+          "title": "White Water Rafting",
+          "description": "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
+          "images": [
+            "/images/anna-sullivan-c_w_Q3kxgic-unsplash.jpg",
+            "/images/White Water Rafting-1.jpg",
+            "/images/White Water Rafting-2.jpg",
+            "/images/White Water Rafting-3.jpg",
+            "/images/White Water Rafting-4.jpg"
+          ]
+        },
+        {
+          "title": "Bungee Jumping & Gorge Swing",
+          "description": "Take the leap from the Victoria Falls Bridge — one of the world's highest commercial bungee jumps at 111 metres — or experience a 70-metre free fall followed by a swing across the Batoka Gorge.",
+          "images": [
+            "/images/Bungee Jumping.jpg",
+            "/images/Bungee & Gorge Swing-1.jpg",
+            "/images/Bungee & Gorge Swing-2.jpg",
+            "/images/Bungee & Gorge Swing-3.jpg",
+            "/images/Bungee & Gorge Swing-4.jpg"
+          ]
+        },
+        {
+          "title": "Zip Lining",
+          "description": "Soar across the Batoka Gorge on a high-speed zip line, taking in dramatic views of the gorge below.",
+          "images": [
+            "/images/Ziplining.jpg",
+            "/images/Zipline-2.jpg",
+            "/images/Zipline-3.jpg",
+            "/images/Zipline-4.jpg"
+          ]
+        },
+        {
+          "title": "Helicopter Flights",
+          "description": "The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.",
+          "images": [
+            "/images/Ilala-Lodge-Experience-Helicopter-Tour-10.jpg",
+            "/images/Helicopter-1.jpg",
+            "/images/Helicopter-2.jpg",
+            "/images/Helicopter-3.jpg",
+            "/images/Helicopter-4.jpg"
+          ]
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "adventure"
+    },
+    {
+      "acf_fc_layout": "info_bar",
+      "content_type": "download",
+      "download_url": "/downloads/activities.pdf",
+      "download_label": "Download Activities PDF",
+      "section_theme": "accent",
+      "spacing_top": "medium",
+      "spacing_bottom": "medium"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "eyebrow": "Featured experiences",
+      "heading": "Plan Something Special",
+      "body": "",
+      "text_align": "center",
+      "max_width": "narrow",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "featured-experiences"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "High Tea Experience",
+      "body": "<p>Enjoy High Tea at Palm River Hotel on the banks of the Zambezi River. Set beneath indigenous trees, this riverside experience offers a relaxed setting to enjoy a selection of sweet and savoury treats. Advanced reservations are essential.</p><p><small>Contact: fnb@palmriverhotel.com</small></p>",
+      "media_position": "left",
+      "media_type": "image",
+      "image": {
+        "url": "/images/High-Tea-Sep24-6-1350x900.jpg",
+        "alt": "High Tea Experience"
+      },
+      "button_text": "Explore",
+      "button_url": "/dining/high-tea",
+      "section_theme": "forest",
+      "spacing_top": "none",
+      "spacing_bottom": "none",
+      "anchor_id": "high-tea"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "Zambezi River Deck Experience",
+      "body": "<p>An African-style barbecue dinner beside the Zambezi River at Palm River Hotel. The three-course menu includes locally sourced options such as crocodile and kudu, prepared over open coals. Dine outdoors in a lantern-lit riverside setting.</p><p><small>Contact: fnb@palmriverhotel.com</small></p>",
+      "media_position": "right",
+      "media_type": "video",
+      "video_url": "https://streamable.com/l/e07f94/mp4.mp4",
+      "button_text": "Explore",
+      "button_url": "/dining/zambezi-river-deck",
+      "section_theme": "forest",
+      "spacing_top": "none",
+      "spacing_bottom": "none",
+      "anchor_id": "riverside-dining"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "heading": "Ra-Ikane River Cruise",
+      "body": "<p>Explore the Zambezi River aboard the Ra-Ikane, inspired by the journeys of David Livingstone. With a maximum of 24 guests, the cruise offers a more intimate setting to view birdlife and wildlife along the river and surrounding islands.</p>",
+      "media_position": "left",
+      "media_type": "video",
+      "video_url": "https://streamable.com/l/hutbn2/mp4.mp4",
+      "button_text": "Explore",
+      "button_url": "/activities/ra-ikane",
+      "section_theme": "forest",
+      "spacing_top": "none",
+      "spacing_bottom": "none",
+      "anchor_id": "ra-ikane"
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "Start Your Adventure",
+      "heading": "Let Us Help Plan Your Perfect Experience",
+      "body": "Our Activities Desk can arrange every excursion, transfer, and cross-border trip — get in touch to start planning your stay.",
+      "cta_type": "contact",
+      "contact_email": "activities@palmhospitality.co.zw",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large"
+    }
+  ]
+}

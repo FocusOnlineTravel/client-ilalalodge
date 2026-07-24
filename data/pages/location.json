@@ -1,0 +1,79 @@
+{
+  "title": "Location",
+  "slug": "location",
+  "seo": {
+    "title": "Location & Victoria Falls | Ilala Lodge Hotel",
+    "description": "Discover the closest hotel to Victoria Falls. Located just an 8-minute walk from one of the Seven Natural Wonders of the World."
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "hero_type": "video",
+      "hero_video_url": "https://streamable.com/l/rf7jki/mp4-high.mp4",
+      "hero_heading": "Our Location",
+      "hero_subheading": "The Closest Hotel to the Falls",
+      "hero_height": "tall",
+      "hero_overlay_opacity": 20,
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "Closest Hotel to Victoria Falls",
+      "body": "<p>Ilala Lodge Hotel is the closest hotel to Victoria Falls—just an eight-minute walk (approximately 936 steps) from the hotel lobby to the entrance gate.</p><p>Positioned on the A8 (Mosi-Oa-Tunya Road), just before the Victoria Falls Bridge, the hotel offers easy access to both the Falls and the town centre, with restaurants, activities, and key attractions all within walking distance.</p><p>For those in search of hotels near Victoria Falls Zimbabwe, Ilala Lodge Hotel offers both convenience and a strategic location for exploring the wonders of this renowned destination.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "accent",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": ""
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "heading": "Getting Here",
+      "columns": 3,
+      "card_style": "minimal",
+      "cards": [
+        {
+          "title": "By Air",
+          "description": "Victoria Falls International Airport is located 25km from the hotel, with a transfer time of approximately 25 minutes. The airport connects to major regional hubs including Johannesburg, Cape Town, Harare, Nairobi, and Windhoek."
+        },
+        {
+          "title": "Transfers",
+          "description": "Airport and local transfers can be arranged through the hotel's Activities Desk. Please note that transfers are not included and must be booked in advance."
+        },
+        {
+          "title": "By Road",
+          "description": "Victoria Falls is accessible by road from neighbouring countries, including Botswana, South Africa, and Namibia, making it a convenient stop within a wider Southern Africa itinerary."
+        }
+      ],
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "getting-here"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "Regional Context",
+      "body": "<p>Victoria Falls is a central hub for exploring Southern Africa, with access to five national parks within 100km.</p><ul><li>Victoria Falls National Park (Zimbabwe)</li><li>Mosi-oa-Tunya National Park (Zambia)</li><li>Zambezi National Park (Zimbabwe)</li><li>Chobe National Park (Botswana) – approximately 80 - 90km away</li><li>Hwange National Park (Zimbabwe) – within 100km</li></ul><p>Day trips and excursions to these destinations, including cross-border visits to Zambia and safaris in Botswana and Zimbabwe, can be arranged through the Activities Desk.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "light",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "regional-context"
+    },
+    {
+      "acf_fc_layout": "text_block",
+      "heading": "Best Time to Visit",
+      "body": "<p>Victoria Falls is a year-round destination, with each season offering a different experience.</p><p>High water months (typically February to July) bring dramatic views of the Falls, with increased spray and volume. Lower water months (typically August to January) provide clearer visibility of the rock face and are ideal for activities such as Devil's Pool.</p>",
+      "text_align": "center",
+      "max_width": "medium",
+      "section_theme": "dark",
+      "spacing_top": "large",
+      "spacing_bottom": "large",
+      "anchor_id": "best-time"
+    }
+  ]
+}

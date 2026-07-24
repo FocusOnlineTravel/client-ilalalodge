@@ -1,0 +1,77 @@
+'use client';
+
+import { PageSection, LayoutName } from '@/types/sections';
+import dynamic from 'next/dynamic';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type SectionComponent = React.ComponentType<{ data: any }>;
+
+// Dynamically import section components
+const Hero = dynamic(() => import('./Hero'));
+const TextMedia = dynamic(() => import('./TextMedia'));
+const CardGrid = dynamic(() => import('./CardGrid'));
+const IconGrid = dynamic(() => import('./IconGrid'));
+const TestimonialCarousel = dynamic(() => import('./TestimonialCarousel'));
+const CtaBanner = dynamic(() => import('./CtaBanner'));
+const TextBlock = dynamic(() => import('./TextBlock'));
+const Gallery = dynamic(() => import('./Gallery'));
+const Accordion = dynamic(() => import('./Accordion'));
+const Timeline = dynamic(() => import('./Timeline'));
+const RateTable = dynamic(() => import('./RateTable'));
+const InfoBar = dynamic(() => import('./InfoBar'));
+const MediaCarousel = dynamic(() => import('./MediaCarousel'));
+
+// Component map keyed by acf_fc_layout
+const SECTION_COMPONENTS: Record<LayoutName, SectionComponent> = {
+  hero: Hero,
+  text_block: TextBlock,
+  text_media: TextMedia,
+  card_grid: CardGrid,
+  icon_grid: IconGrid,
+  testimonial_carousel: TestimonialCarousel,
+  media_carousel: MediaCarousel,
+  gallery: Gallery,
+  accordion: Accordion,
+  cta_banner: CtaBanner,
+  timeline: Timeline,
+  rate_table: RateTable,
+  info_bar: InfoBar,
+};
+
+interface UnknownLayoutWarningProps {
+  layout: string;
+}
+
+function UnknownLayoutWarning({ layout }: UnknownLayoutWarningProps) {
+  // Only show warning in development
+  if (process.env.NODE_ENV !== 'development') {
+    return null;
+  }
+
+  return (
+    <div className="bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 my-4 rounded">
+      <strong className="font-bold">Warning:</strong>
+      <span className="block sm:inline"> Unknown layout type: <code className="bg-yellow-200 px-1">{layout}</code></span>
+    </div>
+  );
+}
+
+interface SectionRendererProps {
+  sections: PageSection[];
+}
+
+export default function SectionRenderer({ sections }: SectionRendererProps) {
+  return (
+    <>
+      {sections.map((section, index) => {
+        const Component = SECTION_COMPONENTS[section.acf_fc_layout];
+
+        if (!Component) {
+          return <UnknownLayoutWarning key={index} layout={section.acf_fc_layout} />;
+        }
+
+        return <Component key={index} data={section} />;
+      })}
+    </>
+  );
+}

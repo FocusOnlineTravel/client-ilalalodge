@@ -1,0 +1,326 @@
+{
+  "title": "Ilala Lodge Hotel | The Closest Hotel to Victoria Falls",
+  "slug": "home",
+  "seo": {
+    "title": "Ilala Lodge Hotel | The Closest Hotel to Victoria Falls",
+    "description": "Ilala Lodge Hotel is a family-run luxury hotel offering accommodation in the heart of Victoria Falls, Zimbabwe. Just an 8-minute walk from the Falls.",
+    "og_image": null
+  },
+  "page_sections": [
+    {
+      "acf_fc_layout": "hero",
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none",
+      "media_type": "video",
+      "video_url": "https://streamable.com/l/b6z29n/mp4-high.mp4",
+      "heading": "The Closest Hotel to Victoria Falls",
+      "subheading": "The perfect location from which to explore Africa's adventure capital",
+      "overlay_opacity": 20,
+      "height": "tall",
+      "show_play_button": true,
+      "video_modal_url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "section_theme": "light",
+      "spacing_top": "default",
+      "spacing_bottom": "default",
+      "eyebrow": "Closest Hotel to the Falls",
+      "heading": "A family-run hotel that offers luxury and comfort in the heart of Victoria Falls",
+      "content": "<p>Ilala Lodge Hotel is a family-run hotel offering luxury and comfort in the heart of Victoria Falls, Zimbabwe. Set within established gardens, the hotel is the closest to Victoria Falls, just an 8-minute walk from one of the Seven Natural Wonders of the World.</p>",
+      "cta_primary": {
+        "url": "/our-story",
+        "title": "Our Story",
+        "target": "_self"
+      },
+      "media_position": "right",
+      "media_type": "image",
+      "image": {
+        "url": "/images/Ilala-Lodge-Exteriors-16.jpg",
+        "alt": "Ilala Lodge Hotel gardens"
+      },
+      "layout_ratio": "40_60"
+    },
+    {
+      "acf_fc_layout": "card_grid",
+      "section_theme": "accent",
+      "spacing_top": "default",
+      "spacing_bottom": "default",
+      "eyebrow": "Stay with us",
+      "heading": "At Ilala Lodge Hotel",
+      "subheading": "Choose from our selection of 73 beautifully appointed rooms",
+      "card_type": "room",
+      "columns": "2",
+      "show_price_pill": true,
+      "cards": [
+        {
+          "image": {
+            "url": "/images/Ilala-Lodge-Accommodation-Classic-Double-02.jpg",
+            "alt": "Classic Room at Ilala Lodge Hotel"
+          },
+          "title": "Classic Rooms",
+          "description": "The Twin Classic Rooms at Ilala Lodge Hotel are complete with two comfortable ¾ beds set within an expansive space, and an en-suite bathroom with a separate shower. The King Classic Rooms are ideal for couples, as they have one cosy king-size bed.",
+          "details": [
+            { "icon": "price", "label": "From", "value": "$246" }
+          ],
+          "cta_primary": {
+            "url": "/our-rooms/classic-rooms",
+            "title": "View Details",
+            "target": "_self"
+          },
+          "cta_secondary": {
+            "url": "https://direct-book.com/ilalalodge/properties/ilaladirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD",
+            "title": "Book Now",
+            "target": "_blank"
+          }
+        },
+        {
+          "image": {
+            "url": "/images/Ilala-Lodge-Accommodation-Deluxe-Double-01.jpg",
+            "alt": "Deluxe Room at Ilala Lodge Hotel"
+          },
+          "title": "Deluxe Rooms",
+          "description": "Situated in the stylish West Wing, the Deluxe Rooms at Ilala Lodge Hotel ooze old-world charm and sophistication. All Deluxe rooms are complete with a private patio overlooking the hotel's lush gardens that merge with the wildlife National park.",
+          "details": [
+            { "icon": "price", "label": "From", "value": "$284" }
+          ],
+          "cta_primary": {
+            "url": "/our-rooms/deluxe-rooms",
+            "title": "View Details",
+            "target": "_self"
+          },
+          "cta_secondary": {
+            "url": "https://direct-book.com/ilalalodge/properties/ilaladirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD",
+            "title": "Book Now",
+            "target": "_blank"
+          }
+        },
+        {
+          "image": {
+            "url": "/images/Ilala-Lodge-Accommodation-Classic-Suite-04.jpg",
+            "alt": "Classic Suite at Ilala Lodge Hotel"
+          },
+          "title": "Classic Suites",
+          "description": "Our Classic Suites offer spacious elegance with separate living areas, premium furnishings, and stunning views. Each suite features modern amenities while maintaining the timeless sophistication that defines Ilala Lodge.",
+          "details": [
+            { "icon": "price", "label": "From", "value": "$351" }
+          ],
+          "cta_primary": {
+            "url": "/our-rooms/classic-suites",
+            "title": "View Details",
+            "target": "_self"
+          },
+          "cta_secondary": {
+            "url": "https://direct-book.com/ilalalodge/properties/ilaladirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD",
+            "title": "Book Now",
+            "target": "_blank"
+          }
+        },
+        {
+          "image": {
+            "url": "/images/Ilala-Lodge-Accommodation-Executive-Suite-01.jpg",
+            "alt": "Executive Suite at Ilala Lodge Hotel"
+          },
+          "title": "Executive Suites",
+          "description": "Experience elevated luxury in our Executive Suites. These expansive accommodations feature separate living areas, premium bathrooms, private balconies, and breathtaking views of the surrounding wilderness and gardens.",
+          "details": [
+            { "icon": "price", "label": "From", "value": "$406" }
+          ],
+          "cta_primary": {
+            "url": "/our-rooms/executive-suites",
+            "title": "View Details",
+            "target": "_self"
+          },
+          "cta_secondary": {
+            "url": "https://direct-book.com/ilalalodge/properties/ilaladirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD",
+            "title": "Book Now",
+            "target": "_blank"
+          }
+        },
+        {
+          "image": {
+            "url": "/images/Ilala-Lodge-Accommodation-Strathearn-Suite-01.jpg",
+            "alt": "Strathearn Suite at Ilala Lodge Hotel"
+          },
+          "title": "Strathearn Suite",
+          "description": "The crown jewel of Ilala Lodge, the Strathearn Suite offers unparalleled luxury and space. This exclusive suite features a master bedroom, spacious living area, luxurious bathroom, and private outdoor space with panoramic views.",
+          "details": [
+            { "icon": "price", "label": "From", "value": "$540" }
+          ],
+          "cta_primary": {
+            "url": "/our-rooms/strathearn-suite",
+            "title": "View Details",
+            "target": "_self"
+          },
+          "cta_secondary": {
+            "url": "https://direct-book.com/ilalalodge/properties/ilaladirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD",
+            "title": "Book Now",
+            "target": "_blank"
+          }
+        }
+      ]
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "section_theme": "light",
+      "spacing_top": "default",
+      "spacing_bottom": "default",
+      "eyebrow": "Cassia Restaurant",
+      "heading": "Elevated Comfort Food",
+      "content": "<p>Located at Ilala Lodge Hotel, Cassia Restaurant offers a refined dining experience with a focus on quality cuisine and a carefully selected wine list from South Africa's leading vineyards. The setting is relaxed and traditional, with indoor and outdoor dining available. Set within the hotel's gardens and within earshot of Victoria Falls, the award-winning restaurant takes its name from the Cassia Fistula trees positioned in front of the property, facing towards the Falls.</p>",
+      "cta_primary": {
+        "url": "/dining",
+        "title": "Dining Options",
+        "target": "_self"
+      },
+      "cta_secondary": {
+        "url": "#",
+        "title": "Book a table",
+        "target": "_self"
+      },
+      "cta_secondary_action": "booking_modal",
+      "media_position": "left",
+      "media_type": "gallery_grid",
+      "gallery_images": [
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-06.jpg", "alt": "Restaurant setting" },
+        { "url": "/images/Ilala-Lodge-Dining-2-Lunch-01.jpg", "alt": "Lunch at Cassia Restaurant" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-05.jpg", "alt": "Cassia Restaurant ambience" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-09.jpg", "alt": "Fine dining experience" },
+        { "url": "/images/Ilala-Lodge-Dining-3-Dinner-28.jpg", "alt": "Cassia Restaurant outdoor dining" }
+      ],
+      "layout_ratio": "50_50"
+    },
+    {
+      "acf_fc_layout": "text_media",
+      "section_theme": "accent",
+      "spacing_top": "default",
+      "spacing_bottom": "default",
+      "eyebrow": "The Victoria Falls",
+      "heading": "Nature on Your Doorstep",
+      "content": "<p>The Victoria Falls National Park borders the front of the property, and wildlife is a daily presence on the hotel lawns. Warthog, impala, bushbuck, elephant, hippo, and the occasional leopard are drawn to the onsite waterhole. You might even be lucky enough to watch a herd of elephants feasting on the trees while you relax on your private balcony.</p>",
+      "cta_primary": {
+        "url": "/activities#wildlife",
+        "title": "Explore Wildlife",
+        "target": "_self"
+      },
+      "media_position": "right",
+      "media_type": "gallery_grid",
+      "gallery_images": [
+        { "url": "/images/IlalaLodgeHotelWildlife (7).jpg", "alt": "Wildlife at Ilala Lodge" },
+        { "url": "/images/IlalaLodgeHotelWildlife (5).jpg", "alt": "Wildlife at Ilala Lodge" },
+        { "url": "/images/IlalaLodgeHotelWildlife (4).jpg", "alt": "Wildlife at Ilala Lodge" },
+        { "url": "/images/ILH Elephant.jpg", "alt": "Wildlife at Ilala Lodge" }
+      ],
+      "layout_ratio": "50_50"
+    },
+    {
+      "acf_fc_layout": "icon_grid",
+      "section_theme": "light",
+      "spacing_top": "default",
+      "spacing_bottom": "default",
+      "eyebrow": "Plenty to do",
+      "heading": "Victoria Falls Activities",
+      "layout": "inline",
+      "icons": [
+        { "icon": { "url": "/icons/helicopter-flights.png", "alt": "Helicopter" }, "label": "Helicopter Flights", "link": { "url": "/activities#adventure", "title": "Helicopter Flights" } },
+        { "icon": { "url": "/icons/bungee-jumping.png", "alt": "Bungee" }, "label": "Bungee Jumping", "link": { "url": "/activities#adventure", "title": "Bungee Jumping" } },
+        { "icon": { "url": "/icons/white-river-rafting.png", "alt": "Rafting" }, "label": "White Water Rafting", "link": { "url": "/activities#adventure", "title": "White Water Rafting" } },
+        { "icon": { "url": "/icons/game-drives.png", "alt": "Game Drive" }, "label": "Game Drives", "link": { "url": "/activities#wildlife", "title": "Game Drives" } },
+        { "icon": { "url": "/icons/icon-boat 1.png", "alt": "Cruise" }, "label": "River Cruises", "link": { "url": "/activities#relaxation", "title": "River Cruises" } },
+        { "icon": { "url": "/icons/cultural-tours.png", "alt": "Cultural" }, "label": "Cultural Tours", "link": { "url": "/activities#cultural", "title": "Cultural Tours" } },
+        { "icon": { "url": "/icons/gorge-swing.png", "alt": "Gorge Swing" }, "label": "Gorge Swing", "link": { "url": "/activities#adventure", "title": "Gorge Swing" } },
+        { "icon": { "url": "/icons/zip-lining.png", "alt": "Zipline" }, "label": "Zip Lining", "link": { "url": "/activities#adventure", "title": "Zip Lining" } },
+        { "icon": { "url": "/icons/big-five-safari.png", "alt": "Safari" }, "label": "Big Five Safari", "link": { "url": "/activities#wildlife", "title": "Big Five Safari" } },
+        { "icon": { "url": "/icons/chobe-day-trip.png", "alt": "Chobe" }, "label": "Chobe Day Trip", "link": { "url": "/activities#wildlife", "title": "Chobe Day Trip" } },
+        { "icon": { "url": "/icons/hot-tea 1.png", "alt": "High Tea" }, "label": "High Tea", "link": { "url": "/dining/high-tea", "title": "High Tea" } },
+        { "icon": { "url": "/icons/icons-hotel-beauty-spa.png", "alt": "Spa" }, "label": "Spa Treatments", "link": { "url": "/facilities#spa", "title": "Spa Treatments" } }
+      ]
+    },
+    {
+      "acf_fc_layout": "testimonial_carousel",
+      "section_theme": "light",
+      "spacing_top": "default",
+      "spacing_bottom": "default",
+      "eyebrow": "Testimonials",
+      "heading": "What Our Guests Say",
+      "cards_per_slide": "3",
+      "auto_advance": true,
+      "reviews": [
+        {
+          "title": "Amazing Experience",
+          "content": "We had the most amazing stay at Ilala Lodge. The location is perfect, the staff are wonderful, and the food at Cassia Restaurant is exceptional. We will definitely be back!",
+          "author": "Sarah & John M.",
+          "source": "TripAdvisor"
+        },
+        {
+          "title": "Perfect Location",
+          "content": "You cannot beat this location for Victoria Falls. Just a short walk to the falls, beautiful gardens, and we saw elephants right from our balcony. Truly unforgettable.",
+          "author": "David R.",
+          "source": "Google Reviews"
+        },
+        {
+          "title": "Exceptional Service",
+          "content": "The level of service at Ilala Lodge is outstanding. Every member of staff went above and beyond to make our stay special. The attention to detail is remarkable.",
+          "author": "Emma L.",
+          "source": "Booking.com"
+        },
+        {
+          "title": "Unforgettable Safari",
+          "content": "The game drives organized by the hotel were spectacular. We saw the Big Five and the guides were incredibly knowledgeable. Combined with the luxury accommodations, this was a dream trip.",
+          "author": "Michael T.",
+          "source": "TripAdvisor"
+        },
+        {
+          "title": "Best Hotel in Victoria Falls",
+          "content": "After visiting several hotels in the area, Ilala Lodge stands out for its authentic African hospitality, prime location, and beautiful grounds. The proximity to the falls is unbeatable.",
+          "author": "Jennifer & Mark S.",
+          "source": "Expedia"
+        },
+        {
+          "title": "Magical Atmosphere",
+          "content": "From the moment we arrived, we felt welcomed. The gardens are stunning, rooms are spacious and comfortable, and dining under the stars was a highlight of our African adventure.",
+          "author": "Lisa H.",
+          "source": "Google Reviews"
+        },
+        {
+          "title": "Wildlife Paradise",
+          "content": "Waking up to elephants grazing outside our window was surreal. The staff made sure we had everything we needed, and the sunset cruise they arranged was breathtaking.",
+          "author": "Robert & Anne K.",
+          "source": "TripAdvisor"
+        },
+        {
+          "title": "Luxury Meets Nature",
+          "content": "The perfect blend of luxury accommodation and raw African nature. The rooms are beautifully appointed, the restaurant serves excellent cuisine, and the location cannot be beaten.",
+          "author": "James W.",
+          "source": "Booking.com"
+        },
+        {
+          "title": "Highly Recommended",
+          "content": "This was our first trip to Africa and Ilala Lodge exceeded all expectations. The staff were attentive without being intrusive, and they helped arrange all our activities. Cannot recommend enough!",
+          "author": "Patricia D.",
+          "source": "Google Reviews"
+        }
+      ]
+    },
+    {
+      "acf_fc_layout": "cta_banner",
+      "section_theme": "dark",
+      "spacing_top": "none",
+      "spacing_bottom": "none",
+      "heading": "Ready to Experience Victoria Falls?",
+      "subheading": "Book your stay at the closest hotel to the Falls",
+      "layout": "split",
+      "background_type": "image",
+      "background_image": {
+        "url": "/images/Ilala-Lodge-Exteriors-05.jpg",
+        "alt": "Ilala Lodge Hotel"
+      },
+      "cta_primary": {
+        "url": "https://direct-book.com/ilalalodge/properties/ilaladirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD",
+        "title": "BOOK NOW",
+        "target": "_blank"
+      }
+    }
+  ]
+}
