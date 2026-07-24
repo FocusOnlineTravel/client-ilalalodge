@@ -164,10 +164,20 @@ add_action('acf/init', function () {
 // =============================================================================
 
 add_action('rest_api_init', function () {
+    // GET options
     register_rest_route('ilala/v1', '/options', [
         'methods'             => 'GET',
         'callback'            => 'ilala_get_options',
         'permission_callback' => '__return_true',
+    ]);
+
+    // POST options (for updates)
+    register_rest_route('ilala/v1', '/options', [
+        'methods'             => 'POST',
+        'callback'            => 'ilala_update_options',
+        'permission_callback' => function () {
+            return current_user_can('manage_options');
+        },
     ]);
 });
 
@@ -178,14 +188,47 @@ function ilala_get_options() {
 
     $options = get_fields('options');
 
+    // Return empty object if no options set yet
     if (!$options) {
-        return new WP_REST_Response(['error' => 'No options found'], 404);
+        return new WP_REST_Response([
+            'site_name' => get_bloginfo('name'),
+            'header'    => [],
+            'footer'    => [],
+            'contact'   => [],
+            'social'    => [],
+        ], 200);
     }
 
     // Resolve image IDs to full image data
     $options = ilala_resolve_images_recursive($options);
 
     return new WP_REST_Response($options, 200);
+}
+
+function ilala_update_options($request) {
+    if (!function_exists('update_field')) {
+        return new WP_Error('acf_not_active', 'ACF is not active', ['status' => 500]);
+    }
+
+    $params = $request->get_json_params();
+
+    if (empty($params)) {
+        return new WP_Error('no_data', 'No data provided', ['status' => 400]);
+    }
+
+    $updated = [];
+
+    foreach ($params as $field_name => $value) {
+        $result = update_field($field_name, $value, 'options');
+        if ($result) {
+            $updated[] = $field_name;
+        }
+    }
+
+    return new WP_REST_Response([
+        'success' => true,
+        'updated' => $updated,
+    ], 200);
 }
 
 // =============================================================================
@@ -457,6 +500,89 @@ add_filter('preview_post_link', function ($preview_link, $post) {
     }
     return $preview_link;
 }, 10, 2);
+
+// =============================================================================
+// ON-DEMAND REVALIDATION
+// =============================================================================
+
+/**
+ * Trigger Next.js revalidation when content is saved
+ */
+add_action('save_post', function ($post_id, $post, $update) {
+    // Skip autosaves and revisions
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (wp_is_post_revision($post_id)) return;
+    if ($post->post_status !== 'publish') return;
+
+    // Only trigger for pages and supported post types
+    $supported_types = ['page', 'room', 'experience', 'offer'];
+    if (!in_array($post->post_type, $supported_types, true)) return;
+
+    // Get revalidation secret from wp-config.php or environment
+    $secret = defined('ILALA_REVALIDATION_SECRET')
+        ? ILALA_REVALIDATION_SECRET
+        : getenv('REVALIDATION_SECRET');
+
+    if (!$secret) {
+        error_log('[Ilala] ILALA_REVALIDATION_SECRET not configured, skipping revalidation');
+        return;
+    }
+
+    // Build the slug (handle nested pages)
+    $slug = $post->post_name;
+    $ancestors = get_post_ancestors($post_id);
+    foreach (array_reverse($ancestors) as $ancestor_id) {
+        $ancestor = get_post($ancestor_id);
+        $slug = $ancestor->post_name . '/' . $slug;
+    }
+
+    // Trigger revalidation asynchronously
+    $revalidation_url = ILALA_FRONTEND_URL . '/api/revalidate';
+
+    $response = wp_remote_post($revalidation_url, [
+        'timeout'   => 5,
+        'blocking'  => false, // Non-blocking request
+        'headers'   => [
+            'Authorization' => 'Bearer ' . $secret,
+            'Content-Type'  => 'application/json',
+        ],
+        'body'      => wp_json_encode([
+            'slug' => $slug,
+            'type' => 'page',
+        ]),
+    ]);
+
+    if (is_wp_error($response)) {
+        error_log('[Ilala] Revalidation failed for ' . $slug . ': ' . $response->get_error_message());
+    }
+}, 10, 3);
+
+/**
+ * Trigger revalidation when ACF options are saved
+ */
+add_action('acf/save_post', function ($post_id) {
+    if ($post_id !== 'options') return;
+
+    $secret = defined('ILALA_REVALIDATION_SECRET')
+        ? ILALA_REVALIDATION_SECRET
+        : getenv('REVALIDATION_SECRET');
+
+    if (!$secret) return;
+
+    $revalidation_url = ILALA_FRONTEND_URL . '/api/revalidate';
+
+    wp_remote_post($revalidation_url, [
+        'timeout'   => 5,
+        'blocking'  => false,
+        'headers'   => [
+            'Authorization' => 'Bearer ' . $secret,
+            'Content-Type'  => 'application/json',
+        ],
+        'body'      => wp_json_encode([
+            'type' => 'options',
+        ]),
+    ]);
+});
 
 // =============================================================================
 // CLEAN UP HEAD

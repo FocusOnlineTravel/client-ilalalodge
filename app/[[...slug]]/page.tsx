@@ -3,19 +3,25 @@ import { notFound } from 'next/navigation';
 import { getPageBySlug, getAllPageSlugs } from '@/lib/content';
 import SectionRenderer from '@/components/sections/SectionRenderer';
 
+// ISR: Revalidate pages every hour
+export const revalidate = 3600;
+
+// Allow dynamic rendering for on-demand revalidation
+export const dynamicParams = true;
+
 interface PageProps {
   params: Promise<{ slug?: string[] }>;
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllPageSlugs();
+  const slugs = await getAllPageSlugs();
   return slugs.map((slug) => ({ slug: slug.length === 0 ? undefined : slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const slugPath = slug?.join('/') || '';
-  const page = getPageBySlug(slugPath);
+  const page = await getPageBySlug(slugPath);
 
   if (!page) {
     return {
@@ -37,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
   const slugPath = slug?.join('/') || '';
-  const page = getPageBySlug(slugPath);
+  const page = await getPageBySlug(slugPath);
 
   if (!page) {
     notFound();
