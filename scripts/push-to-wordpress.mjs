@@ -682,26 +682,75 @@ async function processPages(pageFiles, manifest) {
       const existing = pagesBySlug.get(slug);
       let page;
 
+      // Prepare basic page payload (without ACF fields)
+      const basicPayload = {
+        title: payload.title,
+        slug: payload.slug,
+        status: payload.status,
+      };
+      if (payload.parent) basicPayload.parent = payload.parent;
+      if (payload.menu_order !== undefined) basicPayload.menu_order = payload.menu_order;
+
       if (existing) {
-        // Update existing page
+        // Update existing page (basic fields only)
         page = await wpFetch(`/wp/v2/pages/${existing.id}`, {
           method: 'POST',
-          body: JSON.stringify(payload),
+          body: JSON.stringify(basicPayload),
         });
-        log(`✅ Updated: ${displaySlug} (ID: ${page.id})`);
+        verbose(`  Updated basic fields for ${displaySlug} (ID: ${page.id})`);
         stats.updated++;
       } else {
         // Create new page
         page = await wpFetch('/wp/v2/pages', {
           method: 'POST',
-          body: JSON.stringify(payload),
+          body: JSON.stringify(basicPayload),
         });
-        log(`✅ Created: ${displaySlug} (ID: ${page.id})`);
+        verbose(`  Created page ${displaySlug} (ID: ${page.id})`);
         pagesBySlug.set(slug, page);
         stats.created++;
       }
 
-      // Update SEO fields separately
+      // Update ACF fields via ACF's native REST API endpoint
+      // This is required because the standard WP REST API doesn't properly handle
+      // complex ACF fields like Flexible Content
+      const acfFields = {
+        page_sections: sectionsWithIds,
+      };
+
+      if (VERBOSE) {
+        verbose(`  Sending ${sectionsWithIds.length} sections to ACF REST API`);
+        verbose(`  First section type: ${sectionsWithIds[0]?.acf_fc_layout || 'none'}`);
+      }
+
+      try {
+        const acfResponse = await wpFetch(`/acf/v3/pages/${page.id}`, {
+          method: 'POST',
+          body: JSON.stringify({ fields: acfFields }),
+        });
+        verbose(`  Updated ACF page_sections for ${displaySlug}`);
+        if (VERBOSE && acfResponse) {
+          verbose(`  ACF response: ${JSON.stringify(acfResponse).substring(0, 200)}...`);
+        }
+      } catch (acfErr) {
+        // Fallback: try updating via standard WP REST API with acf property
+        log(`  ⚠️  ACF REST API failed: ${acfErr.message}`);
+        verbose(`  Trying WP REST API fallback...`);
+        try {
+          await wpFetch(`/wp/v2/pages/${page.id}`, {
+            method: 'POST',
+            body: JSON.stringify({ acf: acfPayload }),
+          });
+          verbose(`  Updated ACF via WP REST fallback for ${displaySlug}`);
+        } catch (fallbackErr) {
+          error(`  Both ACF REST API and WP REST API fallback failed for ${displaySlug}`);
+          error(`  ACF error: ${acfErr.message}`);
+          error(`  Fallback error: ${fallbackErr.message}`);
+        }
+      }
+
+      log(`✅ Updated: ${displaySlug} (ID: ${page.id})`);
+
+      // Update SEO fields via ACF REST API
       if (data.seo) {
         // Truncate SEO description to 160 characters (ACF limit)
         let seoDescription = data.seo.description || '';
@@ -709,24 +758,30 @@ async function processPages(pageFiles, manifest) {
           seoDescription = seoDescription.substring(0, 157) + '...';
         }
 
-        const seoPayload = {
-          acf: {
-            seo_title: data.seo.title,
-            seo_description: seoDescription,
-          },
+        const seoFields = {
+          seo_title: data.seo.title,
+          seo_description: seoDescription,
         };
 
         if (data.seo.og_image) {
           const ogImageUpload = manifest.uploads[data.seo.og_image];
           if (ogImageUpload) {
-            seoPayload.acf.og_image = ogImageUpload.attachmentId;
+            seoFields.og_image = ogImageUpload.attachmentId;
           }
         }
 
-        await wpFetch(`/wp/v2/pages/${page.id}`, {
-          method: 'POST',
-          body: JSON.stringify(seoPayload),
-        });
+        try {
+          await wpFetch(`/acf/v3/pages/${page.id}`, {
+            method: 'POST',
+            body: JSON.stringify({ fields: seoFields }),
+          });
+        } catch (seoErr) {
+          // Fallback to standard WP REST API
+          await wpFetch(`/wp/v2/pages/${page.id}`, {
+            method: 'POST',
+            body: JSON.stringify({ acf: seoFields }),
+          });
+        }
         verbose(`  Updated SEO for ${displaySlug}`);
       }
 
