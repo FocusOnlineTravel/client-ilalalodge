@@ -63,7 +63,12 @@
       "Bash(if [ -f .env.local ])",
       "Bash(then echo \"File exists\")",
       "Bash(else echo \"No .env.local file found\")",
-      "Bash(git ls-tree:*)"
+      "Bash(git ls-tree:*)",
+      "Bash(git stash pop:*)",
+      "Bash(git stash drop:*)",
+      "Bash(curl:*)",
+      "Bash(python:*)",
+      "Bash(tr:*)"
     ]
   }
 }
