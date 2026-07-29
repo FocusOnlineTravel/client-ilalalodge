@@ -10,7 +10,8 @@
     "generate:acf": "node scripts/generate-acf.mjs",
     "wp:push": "node scripts/push-to-wordpress.mjs",
     "wp:push:dry": "node scripts/push-to-wordpress.mjs --dry-run",
-    "wp:push:media": "node scripts/push-to-wordpress.mjs --media-only"
+    "wp:push:media": "node scripts/push-to-wordpress.mjs --media-only",
+    "wp:push:rooms": "node scripts/push-rooms-to-wordpress.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
