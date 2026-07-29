@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { accommodationData } from '@/data/accommodation';
+import { getRoomBySlug, getAllRoomSlugs, getAllRooms } from '@/lib/content';
 import { BOOKING_URL } from '@/lib/constants';
 import RoomGallery from '@/components/accommodation/RoomGallery';
 import OtherRoomsCarousel from '@/components/accommodation/OtherRoomsCarousel';
@@ -63,14 +63,13 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return accommodationData.rooms.map((room) => ({
-    slug: room.slug,
-  }));
+  const slugs = await getAllRoomSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const room = accommodationData.rooms.find((r) => r.slug === slug);
+  const room = await getRoomBySlug(slug);
 
   if (!room) {
     return {
@@ -86,13 +85,14 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function RoomPage({ params }: Props) {
   const { slug } = await params;
-  const room = accommodationData.rooms.find((r) => r.slug === slug);
+  const room = await getRoomBySlug(slug);
 
   if (!room) {
     notFound();
   }
 
-  const otherRooms = accommodationData.rooms.filter((r) => r.slug !== slug);
+  const allRooms = await getAllRooms();
+  const otherRooms = allRooms.filter((r) => r.slug !== slug);
 
   return (
     <>
@@ -190,13 +190,14 @@ export default async function RoomPage({ params }: Props) {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 lg:gap-10">
             {room.amenities.map((amenity, index) => {
-              const iconPath = getAmenityIcon(amenity);
+              // Use WordPress icon if available, otherwise fall back to local icon mapping
+              const iconPath = amenity.icon || getAmenityIcon(amenity.text);
               return (
                 <div key={index} className="flex flex-col items-center text-center gap-4 p-4">
                   {iconPath ? (
                     <Image
                       src={iconPath}
-                      alt={amenity}
+                      alt={amenity.text}
                       width={60}
                       height={60}
                       className="w-14 h-14 object-contain"
@@ -206,7 +207,7 @@ export default async function RoomPage({ params }: Props) {
                       <Circle className="w-10 h-10 text-brand-gold" strokeWidth={1} />
                     </div>
                   )}
-                  <span className="text-brand-forest text-sm">{amenity}</span>
+                  <span className="text-brand-forest text-sm">{amenity.text}</span>
                 </div>
               );
             })}

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { accommodationData } from '@/data/accommodation';
+import { getAllRooms, getAccommodationOverview } from '@/lib/content';
 import { BOOKING_URL } from '@/lib/constants';
 import { Maximize2, Users, BedDouble, Tag } from 'lucide-react';
 
@@ -9,7 +9,10 @@ export const metadata = {
   description: 'Explore our luxurious rooms and suites at Ilala Lodge Hotel. From Classic Rooms to the exclusive Strathearn Suite, find your perfect Victoria Falls accommodation.',
 };
 
-export default function AccommodationPage() {
+export default async function AccommodationPage() {
+  const rooms = await getAllRooms();
+  const { title, subtitle, overview } = getAccommodationOverview();
+
   return (
     <>
       {/* Hero Section */}
@@ -27,10 +30,10 @@ export default function AccommodationPage() {
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            {accommodationData.title}
+            {title}
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            {accommodationData.subtitle}
+            {subtitle}
           </p>
         </div>
       </section>
@@ -38,7 +41,7 @@ export default function AccommodationPage() {
       {/* Overview Section */}
       <section className="py-16 md:py-24 bg-brand-daisy">
         <div className="max-w-3xl mx-auto px-4">
-          {accommodationData.overview.split('\n\n').map((paragraph, i) => (
+          {overview.split('\n\n').map((paragraph, i) => (
             <p key={i} className="text-lg text-brand-forest/80 leading-relaxed mb-6 last:mb-0">
               {paragraph}
             </p>
@@ -50,7 +53,7 @@ export default function AccommodationPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid gap-12 md:gap-16">
-            {accommodationData.rooms.map((room, index) => (
+            {rooms.map((room, index) => (
               <div
                 key={room.slug}
                 className={`grid md:grid-cols-2 gap-8 items-center ${

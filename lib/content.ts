@@ -219,6 +219,101 @@ export async function clearCache(slug?: string): Promise<void> {
 }
 
 // =============================================================================
+// ROOM CONTENT
+// =============================================================================
+
+import { accommodationData } from '@/data/accommodation';
+import type { Room } from './wordpress';
+
+/**
+ * Convert local accommodation data to Room format
+ */
+function localRoomToRoom(localRoom: typeof accommodationData.rooms[0]): Room {
+  return {
+    slug: localRoom.slug,
+    title: localRoom.title,
+    shortDescription: localRoom.shortDescription,
+    description: localRoom.description,
+    image: localRoom.image,
+    heroImages: localRoom.heroImages,
+    gallery: localRoom.gallery,
+    floorplan: localRoom.floorplan,
+    roomCount: localRoom.roomCount,
+    size: localRoom.size,
+    sleeps: localRoom.sleeps,
+    beds: localRoom.beds,
+    priceFrom: localRoom.priceFrom,
+    amenities: localRoom.amenities.map(a => ({ text: a, icon: undefined })),
+  };
+}
+
+/**
+ * Get all rooms
+ */
+export async function getAllRooms(): Promise<Room[]> {
+  if (USE_WORDPRESS) {
+    const wp = await getWPModule();
+    const rooms = await wp.getAllRoomsFromWP();
+    // Fallback to local if WordPress returns empty
+    if (rooms.length === 0) {
+      console.warn('[Content] No rooms from WordPress, falling back to local data');
+      return accommodationData.rooms.map(localRoomToRoom);
+    }
+    return rooms;
+  }
+  return accommodationData.rooms.map(localRoomToRoom);
+}
+
+/**
+ * Get a room by slug
+ */
+export async function getRoomBySlug(slug: string): Promise<Room | null> {
+  if (USE_WORDPRESS) {
+    const wp = await getWPModule();
+    const room = await wp.getRoomBySlugFromWP(slug);
+    // Fallback to local if not found in WordPress
+    if (!room) {
+      const localRoom = accommodationData.rooms.find(r => r.slug === slug);
+      if (localRoom) {
+        console.warn(`[Content] Room "${slug}" not in WordPress, using local data`);
+        return localRoomToRoom(localRoom);
+      }
+      return null;
+    }
+    return room;
+  }
+  const localRoom = accommodationData.rooms.find(r => r.slug === slug);
+  return localRoom ? localRoomToRoom(localRoom) : null;
+}
+
+/**
+ * Get all room slugs for static generation
+ */
+export async function getAllRoomSlugs(): Promise<string[]> {
+  if (USE_WORDPRESS) {
+    const wp = await getWPModule();
+    const slugs = await wp.getAllRoomSlugsFromWP();
+    // Fallback to local if empty
+    if (slugs.length === 0) {
+      return accommodationData.rooms.map(r => r.slug);
+    }
+    return slugs;
+  }
+  return accommodationData.rooms.map(r => r.slug);
+}
+
+/**
+ * Get accommodation page data (title, subtitle, overview)
+ */
+export function getAccommodationOverview() {
+  return {
+    title: accommodationData.title,
+    subtitle: accommodationData.subtitle,
+    overview: accommodationData.overview,
+  };
+}
+
+// =============================================================================
 // HEALTH CHECK
 // =============================================================================
 

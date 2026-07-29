@@ -1925,10 +1925,11 @@
         "name": "amenities",
         "type": "repeater",
         "show_in_rest": 1,
-        "layout": "table",
+        "layout": "block",
         "button_label": "Add Amenity",
         "sub_fields": [
-          { "key": "field_room_fields_amenities_amenity", "label": "Amenity", "name": "amenity", "type": "text", "show_in_rest": 1 }
+          { "key": "field_room_fields_amenities_icon", "label": "Icon", "name": "icon", "type": "image", "show_in_rest": 1, "wrapper": { "width": "30" }, "return_format": "id", "preview_size": "thumbnail", "library": "all" },
+          { "key": "field_room_fields_amenities_amenity", "label": "Amenity", "name": "amenity", "type": "text", "show_in_rest": 1, "wrapper": { "width": "70" } }
         ]
       }
     ],

@@ -68,7 +68,17 @@
       "Bash(git stash drop:*)",
       "Bash(curl:*)",
       "Bash(python:*)",
-      "Bash(tr:*)"
+      "Bash(tr:*)",
+      "Bash(npx tsc:*)",
+      "Bash(if [ -f \"media/manifest.json\" ])",
+      "Bash(then cat media/manifest.json)",
+      "Bash(else echo \"No media manifest found\")",
+      "Bash(npm run wp:push:media:*)",
+      "Bash(source:*)",
+      "Bash(node scripts/push-rooms-to-wordpress.mjs:*)",
+      "Bash(node scripts/upload-room-images.mjs:*)",
+      "Bash(npm run wp:push:rooms:*)",
+      "Bash(grep:*)"
     ]
   }
 }
