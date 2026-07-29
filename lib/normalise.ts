@@ -345,7 +345,47 @@ function normaliseGallerySection(section: Record<string, unknown>, wp: WPSection
   section.columns = normaliseColumns(wp.columns);
   section.max_width = wp.max_width;
 
-  if (wp.images) {
+  // Category gallery field mappings (field name -> display label)
+  const categoryGalleries: { field: string; label: string }[] = [
+    { field: 'rooms_gallery', label: 'Rooms & Suites' },
+    { field: 'dining_gallery', label: 'Dining' },
+    { field: 'pool_bar_gallery', label: 'Pool & Bar' },
+    { field: 'conferencing_gallery', label: 'Conferencing' },
+    { field: 'wildlife_gallery', label: 'Wildlife' },
+    { field: 'hotel_grounds_gallery', label: 'Hotel & Grounds' },
+  ];
+
+  // Check if any category galleries exist
+  const hasCategoryGalleries = categoryGalleries.some(
+    ({ field }) => wp[field] && Array.isArray(wp[field]) && (wp[field] as unknown[]).length > 0
+  );
+
+  if (hasCategoryGalleries) {
+    // Merge all category galleries into single images array with category labels
+    const mergedImages: Record<string, unknown>[] = [];
+
+    for (const { field, label } of categoryGalleries) {
+      const galleryImages = wp[field] as unknown[] | undefined;
+      if (galleryImages && Array.isArray(galleryImages)) {
+        for (const img of galleryImages) {
+          const i = img as Record<string, unknown>;
+          const imageData = i.image ? normaliseImageField(i.image) : normaliseImageField(i);
+          if (imageData) {
+            mergedImages.push({
+              image: imageData,
+              url: imageData.url,
+              alt: imageData.alt || i.alt || '',
+              caption: i.caption || '',
+              category: label, // Auto-assign category based on field
+            });
+          }
+        }
+      }
+    }
+
+    section.images = mergedImages;
+  } else if (wp.images) {
+    // Standard single images array (for simple galleries like on room pages)
     const images = wp.images as unknown[];
     section.images = images.map((img: unknown) => {
       const i = img as Record<string, unknown>;

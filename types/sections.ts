@@ -196,6 +196,14 @@ export interface GallerySection extends SectionSettings {
   images: GalleryImage[];
   columns?: '2' | '3' | '4';
   max_width?: 'medium' | 'wide' | 'full';
+  // Category-specific galleries (used on main Gallery page)
+  // These get merged into `images` array by normalise.ts with category labels
+  rooms_gallery?: GalleryImage[];
+  dining_gallery?: GalleryImage[];
+  pool_bar_gallery?: GalleryImage[];
+  conferencing_gallery?: GalleryImage[];
+  wildlife_gallery?: GalleryImage[];
+  hotel_grounds_gallery?: GalleryImage[];
 }
 
 // =============================================================================
