@@ -25,6 +25,7 @@
       "acf_fc_layout": "gallery",
       "enable_filters": true,
       "columns": 4,
+      "images": [],
       "rooms_gallery": [],
       "dining_gallery": [],
       "pool_bar_gallery": [],

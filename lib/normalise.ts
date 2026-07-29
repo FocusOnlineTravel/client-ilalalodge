@@ -369,13 +369,14 @@ function normaliseGallerySection(section: Record<string, unknown>, wp: WPSection
       if (galleryImages && Array.isArray(galleryImages)) {
         for (const img of galleryImages) {
           const i = img as Record<string, unknown>;
+          // Gallery field returns flat image objects (not nested)
           const imageData = i.image ? normaliseImageField(i.image) : normaliseImageField(i);
           if (imageData) {
             mergedImages.push({
               image: imageData,
               url: imageData.url,
-              alt: imageData.alt || i.alt || '',
-              caption: i.caption || '',
+              alt: imageData.alt || '',
+              caption: '',
               category: label, // Auto-assign category based on field
             });
           }
@@ -385,18 +386,18 @@ function normaliseGallerySection(section: Record<string, unknown>, wp: WPSection
 
     section.images = mergedImages;
   } else if (wp.images) {
-    // Standard single images array (for simple galleries like on room pages)
+    // General images gallery (flat array of images, no categories)
     const images = wp.images as unknown[];
     section.images = images.map((img: unknown) => {
       const i = img as Record<string, unknown>;
-      // Handle both direct image and nested image object
+      // Handle both gallery field (flat image) and repeater format (nested image object)
       const imageData = i.image ? normaliseImageField(i.image) : normaliseImageField(i);
       return {
         image: imageData,
         url: imageData?.url,
-        alt: imageData?.alt || i.alt || '',
-        caption: i.caption || '',
-        category: i.category || '',
+        alt: imageData?.alt || '',
+        caption: '',
+        category: '',
       };
     });
   } else {

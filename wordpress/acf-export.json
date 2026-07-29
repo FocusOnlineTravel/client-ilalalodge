@@ -1116,166 +1116,78 @@
                 "type": "true_false",
                 "show_in_rest": 1,
                 "ui": 1,
-                "instructions": "Enable to show category filter buttons and use separate galleries per category"
+                "instructions": "Enable to show category filter buttons on the frontend"
               },
               {
                 "key": "field_page_builder_gallery_images",
-                "label": "Images",
+                "label": "Images (General)",
                 "name": "images",
-                "type": "repeater",
+                "type": "gallery",
                 "show_in_rest": 1,
-                "layout": "block",
-                "button_label": "Add Image",
-                "sub_fields": [
-                  {
-                    "key": "field_page_builder_gallery_images_image",
-                    "label": "Image",
-                    "name": "image",
-                    "type": "image",
-                    "show_in_rest": 1,
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "required": 1
-                  },
-                  {
-                    "key": "field_page_builder_gallery_images_caption",
-                    "label": "Caption",
-                    "name": "caption",
-                    "type": "text",
-                    "show_in_rest": 1
-                  },
-                  {
-                    "key": "field_page_builder_gallery_images_category",
-                    "label": "Category",
-                    "name": "category",
-                    "type": "text",
-                    "show_in_rest": 1
-                  }
-                ],
-                "conditional_logic": [
-                  [
-                    {
-                      "field": "field_page_builder_gallery_enable_filters",
-                      "operator": "!=",
-                      "value": 1
-                    }
-                  ]
-                ]
+                "return_format": "id",
+                "preview_size": "medium",
+                "library": "all",
+                "instructions": "Use for galleries without categories (e.g. room pages, our story)"
               },
               {
                 "key": "field_page_builder_gallery_rooms_gallery",
-                "label": "Rooms & Suites Gallery",
+                "label": "Rooms & Suites",
                 "name": "rooms_gallery",
                 "type": "gallery",
                 "show_in_rest": 1,
                 "return_format": "id",
                 "preview_size": "medium",
-                "library": "all",
-                "conditional_logic": [
-                  [
-                    {
-                      "field": "field_page_builder_gallery_enable_filters",
-                      "operator": "==",
-                      "value": 1
-                    }
-                  ]
-                ]
+                "library": "all"
               },
               {
                 "key": "field_page_builder_gallery_dining_gallery",
-                "label": "Dining Gallery",
+                "label": "Dining",
                 "name": "dining_gallery",
                 "type": "gallery",
                 "show_in_rest": 1,
                 "return_format": "id",
                 "preview_size": "medium",
-                "library": "all",
-                "conditional_logic": [
-                  [
-                    {
-                      "field": "field_page_builder_gallery_enable_filters",
-                      "operator": "==",
-                      "value": 1
-                    }
-                  ]
-                ]
+                "library": "all"
               },
               {
                 "key": "field_page_builder_gallery_pool_bar_gallery",
-                "label": "Pool & Bar Gallery",
+                "label": "Pool & Bar",
                 "name": "pool_bar_gallery",
                 "type": "gallery",
                 "show_in_rest": 1,
                 "return_format": "id",
                 "preview_size": "medium",
-                "library": "all",
-                "conditional_logic": [
-                  [
-                    {
-                      "field": "field_page_builder_gallery_enable_filters",
-                      "operator": "==",
-                      "value": 1
-                    }
-                  ]
-                ]
+                "library": "all"
               },
               {
                 "key": "field_page_builder_gallery_conferencing_gallery",
-                "label": "Conferencing Gallery",
+                "label": "Conferencing",
                 "name": "conferencing_gallery",
                 "type": "gallery",
                 "show_in_rest": 1,
                 "return_format": "id",
                 "preview_size": "medium",
-                "library": "all",
-                "conditional_logic": [
-                  [
-                    {
-                      "field": "field_page_builder_gallery_enable_filters",
-                      "operator": "==",
-                      "value": 1
-                    }
-                  ]
-                ]
+                "library": "all"
               },
               {
                 "key": "field_page_builder_gallery_wildlife_gallery",
-                "label": "Wildlife Gallery",
+                "label": "Wildlife",
                 "name": "wildlife_gallery",
                 "type": "gallery",
                 "show_in_rest": 1,
                 "return_format": "id",
                 "preview_size": "medium",
-                "library": "all",
-                "conditional_logic": [
-                  [
-                    {
-                      "field": "field_page_builder_gallery_enable_filters",
-                      "operator": "==",
-                      "value": 1
-                    }
-                  ]
-                ]
+                "library": "all"
               },
               {
                 "key": "field_page_builder_gallery_hotel_grounds_gallery",
-                "label": "Hotel & Grounds Gallery",
+                "label": "Hotel & Grounds",
                 "name": "hotel_grounds_gallery",
                 "type": "gallery",
                 "show_in_rest": 1,
                 "return_format": "id",
                 "preview_size": "medium",
-                "library": "all",
-                "conditional_logic": [
-                  [
-                    {
-                      "field": "field_page_builder_gallery_enable_filters",
-                      "operator": "==",
-                      "value": 1
-                    }
-                  ]
-                ]
+                "library": "all"
               },
               {
                 "key": "field_page_builder_gallery_columns",
