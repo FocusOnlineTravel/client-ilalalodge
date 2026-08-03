@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import VideoHero from '@/components/accommodation/VideoHero';
 
 export const metadata = {
   title: 'Ra-Ikane River Cruise | Ilala Lodge Hotel',
@@ -10,29 +11,14 @@ export default function RaIkanePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <video
-            src="https://streamable.com/l/hutbn2/mp4.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            aria-label="Ra-Ikane River Cruise"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            Ra-Ikane River Cruise
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            An intimate journey on the Zambezi
-          </p>
-        </div>
-      </section>
+      <VideoHero videoUrl="https://streamable.com/l/hutbn2/mp4.mp4">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+          Ra-Ikane River Cruise
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          An intimate journey on the Zambezi
+        </p>
+      </VideoHero>
 
       {/* Introduction */}
       <section className="py-16 md:py-24 bg-brand-daisy">

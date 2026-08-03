@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import CardCarousel from '@/components/activities/CardCarousel';
+import VideoHero from '@/components/accommodation/VideoHero';
 
 export const metadata = {
   title: 'Activities & Experiences | Ilala Lodge Hotel Victoria Falls',
@@ -263,29 +264,14 @@ export default function ActivitiesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <video
-            src="https://streamable.com/l/0sspng/mp4-high.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            aria-label="Victoria Falls Activities"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            Activities
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            Adventure Capital of Africa
-          </p>
-        </div>
-      </section>
+      <VideoHero videoUrl="https://streamable.com/l/0sspng/mp4-high.mp4">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+          Activities
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          Adventure Capital of Africa
+        </p>
+      </VideoHero>
 
       {/* Intro */}
       <section className="py-16 md:py-24 bg-brand-daisy">

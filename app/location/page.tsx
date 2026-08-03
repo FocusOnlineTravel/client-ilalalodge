@@ -1,3 +1,5 @@
+import VideoHero from '@/components/accommodation/VideoHero';
+
 export const metadata = {
   title: 'Location & Victoria Falls | Ilala Lodge Hotel',
   description: 'Discover the closest hotel to Victoria Falls. Located just an 8-minute walk from one of the Seven Natural Wonders of the World.',
@@ -7,29 +9,14 @@ export default function LocationPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <video
-            src="https://streamable.com/l/rf7jki/mp4-high.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            aria-label="Victoria Falls landscape"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            Our Location
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            The Closest Hotel to the Falls
-          </p>
-        </div>
-      </section>
+      <VideoHero videoUrl="https://streamable.com/l/rf7jki/mp4-high.mp4">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+          Our Location
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          The Closest Hotel to the Falls
+        </p>
+      </VideoHero>
 
       {/* Location Overview */}
       <section className="py-16 md:py-24 bg-brand-daisy">

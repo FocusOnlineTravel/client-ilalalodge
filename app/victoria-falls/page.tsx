@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import RouteMap from '@/components/RouteMap';
 import ImageLightbox from '@/components/gallery/ImageLightbox';
+import VideoHero from '@/components/accommodation/VideoHero';
 
 export const metadata = {
   title: 'Victoria Falls | Ilala Lodge Hotel',
@@ -98,27 +99,14 @@ export default function VictoriaFallsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-end justify-center pb-16 md:pb-24">
-        <div className="absolute inset-0">
-          <video
-            src="https://streamable.com/l/y0nw2s/mp4.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            Victoria Falls
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            936 steps from one of the Seven Natural Wonders of the World
-          </p>
-        </div>
-      </section>
+      <VideoHero videoUrl="https://streamable.com/l/y0nw2s/mp4.mp4">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+          Victoria Falls
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          936 steps from one of the Seven Natural Wonders of the World
+        </p>
+      </VideoHero>
 
       {/* Intro */}
       <section className="py-16 md:py-24 bg-brand-daisy">
