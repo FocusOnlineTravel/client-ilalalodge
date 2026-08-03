@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getAllRooms, getAccommodationOverview } from '@/lib/content';
 import { BOOKING_URL } from '@/lib/constants';
 import { Maximize2, Users, BedDouble, Tag } from 'lucide-react';
+import VideoHero from '@/components/accommodation/VideoHero';
 
 export const metadata = {
   title: 'Accommodation | Ilala Lodge Hotel Victoria Falls',
@@ -16,27 +17,14 @@ export default async function AccommodationPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <video
-            src="https://streamable.com/l/sb2boa/mp4-high.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            {title}
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            {subtitle}
-          </p>
-        </div>
-      </section>
+      <VideoHero videoUrl="https://streamable.com/l/sb2boa/mp4-high.mp4">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+          {title}
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      </VideoHero>
 
       {/* Overview Section */}
       <section className="py-16 md:py-24 bg-brand-daisy">

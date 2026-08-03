@@ -362,7 +362,7 @@ export const PageSectionSchema = z.discriminatedUnion('acf_fc_layout', [
 export const PageSeoSchema = z.object({
   title: z.string(),
   description: z.string(),
-  og_image: z.string().optional(),
+  og_image: z.string().nullable().optional(),
 });
 
 export const PageDataSchema = z.object({

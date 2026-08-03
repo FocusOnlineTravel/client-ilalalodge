@@ -207,7 +207,9 @@ function normaliseHeroSection(section: Record<string, unknown>, wp: WPSection): 
   section.subheading = wp.subheading || wp.hero_subheading;
   section.eyebrow = wp.eyebrow || wp.hero_eyebrow;
   section.height = wp.height || wp.hero_height || 'tall';
-  section.overlay_opacity = wp.overlay_opacity ?? wp.hero_overlay_opacity ?? 30;
+  // Parse overlay_opacity to number (WordPress may send as string)
+  const opacity = wp.overlay_opacity ?? wp.hero_overlay_opacity ?? 30;
+  section.overlay_opacity = typeof opacity === 'string' ? parseInt(opacity, 10) : opacity;
   section.image = normaliseImageField(wp.image || wp.hero_image);
   section.video_url = wp.video_url || wp.hero_video_url;
   section.show_play_button = Boolean(wp.show_play_button);
@@ -277,7 +279,8 @@ function normaliseIconGridSection(section: Record<string, unknown>, wp: WPSectio
   section.heading = wp.heading;
   section.layout = wp.layout || 'grid';
   section.show_download = Boolean(wp.show_download);
-  section.download_file = wp.download_file;
+  // Handle download_file - WordPress may send false instead of undefined
+  section.download_file = typeof wp.download_file === 'string' ? wp.download_file : undefined;
   section.download_label = wp.download_label;
 
   if (wp.icons || wp.items) {

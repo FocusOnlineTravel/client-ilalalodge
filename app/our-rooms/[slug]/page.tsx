@@ -101,21 +101,22 @@ export default async function RoomPage({ params }: Props) {
         <HeroCarousel
           images={room.heroImages || [room.image]}
           title={room.title}
-        />
-        <div className="relative z-10 text-center text-white px-4">
-          <Link
-            href="/our-rooms"
-            className="inline-block text-sm uppercase tracking-wider text-white/80 hover:text-brand-gold transition-colors mb-4"
-          >
-            &larr; Back to All Rooms
-          </Link>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            {room.title}
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            {room.shortDescription}
-          </p>
-        </div>
+        >
+          <div className="text-center text-white px-4">
+            <Link
+              href="/our-rooms"
+              className="inline-block text-sm uppercase tracking-wider text-white/80 hover:text-brand-gold transition-colors mb-4"
+            >
+              &larr; Back to All Rooms
+            </Link>
+            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+              {room.title}
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+              {room.shortDescription}
+            </p>
+          </div>
+        </HeroCarousel>
       </section>
 
       {/* Quick Info Bar */}
@@ -156,18 +157,8 @@ export default async function RoomPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-brand-daisy">
-        <div className="container mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-8">
-            Gallery
-          </h2>
-          <RoomGallery images={room.gallery} title={room.title} />
-        </div>
-      </section>
-
       {/* Description Section */}
-      <section className="py-16 md:py-20 bg-brand-daisy">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-brand-daisy">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-8 text-center">
             Our {room.title}
@@ -179,6 +170,16 @@ export default async function RoomPage({ params }: Props) {
               </p>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 md:py-20 bg-brand-daisy">
+        <div className="container mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-8">
+            Gallery
+          </h2>
+          <RoomGallery images={room.gallery} title={room.title} />
         </div>
       </section>
 
