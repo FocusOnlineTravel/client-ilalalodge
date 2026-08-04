@@ -248,6 +248,20 @@ function localRoomToRoom(localRoom: typeof accommodationData.rooms[0]): Room {
 }
 
 /**
+ * Merge WordPress room data with local fallbacks for missing fields
+ */
+function mergeWithLocalRoom(wpRoom: Room): Room {
+  const localRoom = accommodationData.rooms.find(r => r.slug === wpRoom.slug);
+  if (!localRoom) return wpRoom;
+
+  return {
+    ...wpRoom,
+    // Use local floorplan if WordPress doesn't have one
+    floorplan: wpRoom.floorplan || localRoom.floorplan,
+  };
+}
+
+/**
  * Get all rooms
  */
 export async function getAllRooms(): Promise<Room[]> {
@@ -259,7 +273,8 @@ export async function getAllRooms(): Promise<Room[]> {
       console.warn('[Content] No rooms from WordPress, falling back to local data');
       return accommodationData.rooms.map(localRoomToRoom);
     }
-    return rooms;
+    // Merge with local data for missing fields
+    return rooms.map(mergeWithLocalRoom);
   }
   return accommodationData.rooms.map(localRoomToRoom);
 }
@@ -280,7 +295,8 @@ export async function getRoomBySlug(slug: string): Promise<Room | null> {
       }
       return null;
     }
-    return room;
+    // Merge with local data for missing fields
+    return mergeWithLocalRoom(room);
   }
   const localRoom = accommodationData.rooms.find(r => r.slug === slug);
   return localRoom ? localRoomToRoom(localRoom) : null;
