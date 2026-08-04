@@ -37,12 +37,8 @@ const conferencingImages = [
 
 const spaImages = [
   { src: '/images/Ilala-Lodge-Facilities-Spa-01.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-03.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-04.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-05.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-06.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-07.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-08.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-10.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-11.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-12.jpg', alt: 'Spa Treatments' },
