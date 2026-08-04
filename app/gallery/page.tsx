@@ -16,7 +16,7 @@ export default function GalleryPage() {
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/intr0-image.png"
+            src="/images/Ilala-Lodge-Exteriors-09.jpg"
             alt="Ilala Lodge Hotel gallery"
             fill
             className="object-cover"

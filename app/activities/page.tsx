@@ -88,7 +88,6 @@ const wildlifeActivities = [
     title: 'Cruises on the Zambezi River',
     description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities, with opportunities to spot hippos, crocodiles, and diverse birdlife.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-41.jpg',
       '/images/Cruises on the Zambezi-1.jpg',
       '/images/Cruises on the Zambezi-2.jpg',
       '/images/Cruises on the Zambezi-3.jpg',
@@ -102,7 +101,6 @@ const relaxationActivities = [
     title: 'Sunrise River Cruise',
     description: 'Begin the day on the Zambezi River as the sun rises, with tea, coffee, and pastries served on board while the bush comes alive around you.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-12.jpg',
       '/images/Breakfast_Birdwathing Cruise-1.JPG',
       '/images/Breakfast_Birdwathing Cruise-2.jpg',
       '/images/Breakfast_Birdwathing Cruise-3.jpg',
@@ -113,7 +111,6 @@ const relaxationActivities = [
     title: 'Sunset Cruise',
     description: 'Drift along the Upper Zambezi as the sun sets, with drinks and snacks served on board.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-15.jpg',
       '/images/Sunset Cruise-1.jpg',
       '/images/Sunset Cruise-2.jpg',
       '/images/Sunset Cruise-3.jpg',
@@ -124,7 +121,6 @@ const relaxationActivities = [
     title: 'Lunch Cruise',
     description: 'A leisurely cruise over lunch, taking in the river at a relaxed pace.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-02.jpg',
       '/images/Lunch Cruise-1.jpg',
       '/images/Lunch Cruise-2.jpg',
       '/images/Lunch Cruise-3.jpg',
@@ -135,7 +131,6 @@ const relaxationActivities = [
     title: 'Intimate Cruises',
     description: 'Private or small-group cruises on the Zambezi for a more exclusive experience, ideal for special occasions or those seeking a quieter setting.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-26.jpg',
       '/images/Intimate Cruises-1.jpg',
       '/images/Intimate Cruises-2.jpg',
       '/images/Intimate Cruises-3.jpg',
