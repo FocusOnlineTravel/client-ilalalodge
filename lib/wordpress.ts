@@ -146,15 +146,12 @@ export async function getPageBySlugFromWP(slug: string): Promise<PageData | null
   // Normalize slug - empty or root becomes 'home'
   const normalizedSlug = !slug || slug === '' || slug === '/' ? 'home' : slug;
 
-  // Check cache first
-  if (pageCache.has(normalizedSlug)) {
-    return pageCache.get(normalizedSlug)!;
-  }
-
+  // Skip in-memory cache to ensure fresh content from WordPress
+  // Next.js fetch caching with revalidate handles performance
   try {
     const response = await wpFetch<WPPageResponse>(
       `/ilala/v1/page/${encodeURIComponent(normalizedSlug)}`,
-      { tags: [`page-${normalizedSlug}`] }
+      { tags: [`page-${normalizedSlug}`], revalidate: 60 }
     );
 
     const pageData = normalisePageData(response);
@@ -415,17 +412,17 @@ let allRoomsCache: Room[] | null = null;
  * Get all rooms from WordPress
  */
 export async function getAllRoomsFromWP(): Promise<Room[]> {
-  if (allRoomsCache) {
-    return allRoomsCache;
-  }
-
+  // Skip in-memory cache to ensure gallery order changes are picked up
+  // Next.js fetch caching with revalidate handles performance
   try {
     const rooms = await wpFetch<WPRoom[]>('/wp/v2/room?per_page=100&_embed', {
       tags: ['rooms'],
+      revalidate: 60, // Refresh every 60 seconds to pick up gallery reordering
     });
 
-    allRoomsCache = rooms.map(normaliseRoom);
-    return allRoomsCache;
+    const normalised = rooms.map(normaliseRoom);
+    allRoomsCache = normalised; // Still cache for other uses
+    return normalised;
   } catch (error) {
     console.error('[WordPress] Failed to fetch rooms:', error);
     return [];
@@ -436,14 +433,11 @@ export async function getAllRoomsFromWP(): Promise<Room[]> {
  * Get a room by slug from WordPress
  */
 export async function getRoomBySlugFromWP(slug: string): Promise<Room | null> {
-  if (roomCache.has(slug)) {
-    return roomCache.get(slug)!;
-  }
-
+  // Skip in-memory cache to ensure gallery order changes are picked up
   try {
     const rooms = await wpFetch<WPRoom[]>(
       `/wp/v2/room?slug=${encodeURIComponent(slug)}&_embed`,
-      { tags: [`room-${slug}`] }
+      { tags: [`room-${slug}`], revalidate: 60 }
     );
 
     if (!rooms || rooms.length === 0) {

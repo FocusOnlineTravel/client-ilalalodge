@@ -140,8 +140,13 @@ function normaliseSection(wpSection: WPSection): PageSection {
 
   // Copy section settings with defaults
   section.section_theme = wpSection.section_theme || 'light';
-  section.spacing_top = wpSection.spacing_top || 'default';
-  section.spacing_bottom = wpSection.spacing_bottom || 'default';
+  // Map 'medium' to 'default' for backwards compatibility
+  const normalizeSpacing = (val: unknown) => {
+    if (val === 'medium') return 'default';
+    return val || 'default';
+  };
+  section.spacing_top = normalizeSpacing(wpSection.spacing_top);
+  section.spacing_bottom = normalizeSpacing(wpSection.spacing_bottom);
   if (wpSection.anchor_id) section.anchor_id = wpSection.anchor_id;
   if (wpSection.custom_background) {
     section.custom_background = normaliseImageField(wpSection.custom_background);
@@ -301,7 +306,7 @@ function normaliseIconGridSection(section: Record<string, unknown>, wp: WPSectio
 function normaliseTestimonialCarouselSection(section: Record<string, unknown>, wp: WPSection): void {
   section.eyebrow = wp.eyebrow;
   section.heading = wp.heading;
-  section.cards_per_slide = wp.cards_per_slide || '1';
+  section.cards_per_slide = String(wp.cards_per_slide || '1');
   section.auto_advance = Boolean(wp.auto_advance);
 
   if (wp.reviews || wp.testimonials) {
