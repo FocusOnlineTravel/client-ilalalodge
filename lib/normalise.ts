@@ -212,6 +212,7 @@ function normaliseHeroSection(section: Record<string, unknown>, wp: WPSection): 
   section.subheading = wp.subheading || wp.hero_subheading;
   section.eyebrow = wp.eyebrow || wp.hero_eyebrow;
   section.height = wp.height || wp.hero_height || 'tall';
+  section.text_position = wp.text_position || 'bottom';
   // Parse overlay_opacity to number (WordPress may send as string)
   const opacity = wp.overlay_opacity ?? wp.hero_overlay_opacity ?? 30;
   section.overlay_opacity = typeof opacity === 'string' ? parseInt(opacity, 10) : opacity;
@@ -240,11 +241,34 @@ function normaliseTextMediaSection(section: Record<string, unknown>, wp: WPSecti
   section.eyebrow = wp.eyebrow;
   section.heading = wp.heading || '';
   section.subheading = wp.subheading;
+  section.highlight = wp.highlight;
   section.content = wp.content || wp.body || '';
   section.media_position = wp.media_position || 'right';
   section.media_type = wp.media_type || 'image';
   section.layout_ratio = wp.layout_ratio || '50_50';
-  section.media_height = wp.media_height;
+  section.max_width = wp.max_width || 'full';
+  // Normalize media_height - handle various ACF field formats
+  if (wp.media_height !== undefined && wp.media_height !== null && wp.media_height !== false) {
+    let heightValue: string | undefined;
+
+    if (typeof wp.media_height === 'string') {
+      heightValue = wp.media_height;
+    } else if (typeof wp.media_height === 'number') {
+      heightValue = String(wp.media_height);
+    } else if (typeof wp.media_height === 'object') {
+      const obj = wp.media_height as Record<string, unknown>;
+      // Try common ACF object structures
+      heightValue = String(
+        obj.value || obj.name || obj.slug || obj.label ||
+        obj.height || obj.size || Object.values(obj)[0] || ''
+      );
+    }
+
+    // Only set if we got a valid value
+    if (heightValue && heightValue !== 'undefined' && heightValue !== 'null') {
+      section.media_height = heightValue;
+    }
+  }
 
   section.image = normaliseImageField(wp.image);
   section.video_url = wp.video_url;
@@ -271,6 +295,9 @@ function normaliseCardGridSection(section: Record<string, unknown>, wp: WPSectio
   section.card_type = wp.card_type || wp.card_style || 'content';
   section.columns = normaliseColumns(wp.columns);
   section.show_price_pill = Boolean(wp.show_price_pill);
+  section.text_align = wp.text_align || 'left';
+  section.card_size = wp.card_size || 'default';
+  section.max_width = wp.max_width || 'full';
 
   if (wp.cards) {
     section.cards = normaliseCardsArray(wp.cards as unknown[]);
@@ -352,6 +379,7 @@ function normaliseGallerySection(section: Record<string, unknown>, wp: WPSection
   section.enable_filters = Boolean(wp.enable_filters);
   section.columns = normaliseColumns(wp.columns);
   section.max_width = wp.max_width;
+  section.aspect_ratio = wp.aspect_ratio || '4:3';
 
   // Category gallery field mappings (field name -> display label)
   const categoryGalleries: { field: string; label: string }[] = [

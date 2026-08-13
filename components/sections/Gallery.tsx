@@ -111,11 +111,18 @@ export default function Gallery({ data }: Props) {
 
         {/* Image Grid */}
         <div className={`grid ${columnClass} gap-3 md:gap-4`}>
-          {filteredImages.map((item, index) => (
+          {filteredImages.map((item, index) => {
+            const aspectClass = {
+              '1:1': 'aspect-square',
+              '4:3': 'aspect-[4/3]',
+              '16:9': 'aspect-video',
+            }[data.aspect_ratio || '4:3'];
+
+            return (
             <button
               key={index}
               onClick={() => openLightbox(index)}
-              className="relative aspect-[4/3] overflow-hidden group cursor-pointer"
+              className={`relative ${aspectClass} overflow-hidden group cursor-pointer`}
             >
               <Image
                 src={item.image.url}
@@ -130,7 +137,8 @@ export default function Gallery({ data }: Props) {
                 </span>
               </div>
             </button>
-          ))}
+            );
+          })}
         </div>
       </div>
 

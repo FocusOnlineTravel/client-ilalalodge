@@ -37,8 +37,8 @@ export default function TextBlock({ data }: Props) {
           </h2>
         )}
         <div
-          className={`text-lg ${bodyTextClass} leading-relaxed prose prose-p:my-4 ${
-            textAlignClass === 'text-center' ? 'prose-p:mx-auto' : ''
+          className={`text-lg ${bodyTextClass} leading-relaxed [&>p]:mb-6 [&>p:last-child]:mb-0 ${
+            textAlignClass === 'text-center' ? '[&>p]:mx-auto' : ''
           }`}
           dangerouslySetInnerHTML={{ __html: data.content }}
         />

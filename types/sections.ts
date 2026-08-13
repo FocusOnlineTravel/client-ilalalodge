@@ -46,6 +46,7 @@ export interface HeroSection extends SectionSettings {
   subheading?: string;
   overlay_opacity?: number;
   height?: 'tall' | 'medium' | 'compact';
+  text_position?: 'center' | 'bottom';
   cta?: AcfLink;
   show_play_button?: boolean;
   video_modal_url?: string;
@@ -73,6 +74,7 @@ export interface TextMediaSection extends SectionSettings {
   eyebrow?: string;
   heading: string;
   subheading?: string;
+  highlight?: string;
   content: string;
   cta_primary?: AcfLink;
   cta_secondary?: AcfLink;
@@ -84,6 +86,7 @@ export interface TextMediaSection extends SectionSettings {
   video_url?: string;
   layout_ratio?: '40_60' | '50_50' | '60_40';
   media_height?: 'auto' | '400' | '500' | 'full';
+  max_width?: 'medium' | 'wide' | 'full';
 }
 
 // =============================================================================
@@ -116,6 +119,9 @@ export interface CardGridSection extends SectionSettings {
   cards?: Card[];
   rooms?: string[]; // Room IDs when card_type = 'cpt_rooms'
   show_price_pill?: boolean;
+  text_align?: 'left' | 'center' | 'right';
+  card_size?: 'small' | 'default' | 'large';
+  max_width?: 'medium' | 'wide' | 'full';
 }
 
 // =============================================================================
@@ -196,6 +202,7 @@ export interface GallerySection extends SectionSettings {
   images: GalleryImage[];
   columns?: '2' | '3' | '4';
   max_width?: 'medium' | 'wide' | 'full';
+  aspect_ratio?: '1:1' | '4:3' | '16:9';
   // Category-specific galleries (used on main Gallery page)
   // These get merged into `images` array by normalise.ts with category labels
   rooms_gallery?: GalleryImage[];

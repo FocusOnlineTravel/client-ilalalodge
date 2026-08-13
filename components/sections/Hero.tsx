@@ -88,16 +88,27 @@ export default function Hero({ data }: Props) {
   };
 
   const heightClass = {
-    tall: 'h-[85vh]',
+    tall: 'h-[80vh]',
     medium: 'h-[70vh]',
     compact: 'h-[50vh]',
   }[data.height || 'tall'];
+
+  const spacingBottomClass = {
+    none: 'mb-0',
+    small: 'mb-8',
+    default: 'mb-16 lg:mb-24',
+    large: 'mb-[100px]',
+  }[data.spacing_bottom || 'large'];
+
+  const textPositionClass = data.text_position === 'center'
+    ? 'items-center justify-center'
+    : 'items-end justify-center pb-24 lg:pb-32';
 
   const overlayOpacity = data.overlay_opacity ?? 20;
 
   return (
     <>
-      <section className={`relative ${heightClass} w-full flex items-end justify-center pb-24 lg:pb-32 mb-[100px] overflow-hidden`}>
+      <section className={`relative ${heightClass} w-full flex ${textPositionClass} ${spacingBottomClass} overflow-hidden`}>
         {/* Background Media with Parallax */}
         <div
           className="absolute inset-0 z-0"

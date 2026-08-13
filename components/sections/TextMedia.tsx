@@ -39,19 +39,32 @@ export default function TextMedia({ data }: Props) {
 
   const textColorClass = data.section_theme === 'dark' || data.section_theme === 'forest' ? 'text-white' : 'text-brand-forest';
 
-  // Render media based on type
+  // Render media based on type - use explicit conditionals for Tailwind to detect classes
+  // Default matches original high-tea: h-[400px] md:h-[500px]
+  const heightVal = String(data.media_height || '').toLowerCase();
+  let mediaHeightClass = 'h-[400px] md:h-[500px]'; // default
+  if (heightVal.includes('400')) {
+    mediaHeightClass = 'h-[400px] md:h-[400px]';
+  } else if (heightVal.includes('500')) {
+    mediaHeightClass = 'h-[400px] md:h-[500px]';
+  } else if (heightVal.includes('600') || heightVal === 'full') {
+    mediaHeightClass = 'h-[400px] lg:h-[600px]';
+  } else if (heightVal === 'auto') {
+    mediaHeightClass = 'h-auto';
+  }
+
   const renderMedia = () => {
     if (data.media_type === 'image' && data.image) {
       return (
-        <Link href={data.cta_primary?.url || '#'} className="relative w-full h-[400px] lg:h-[600px] overflow-hidden block cursor-pointer">
+        <div className={`relative w-full ${mediaHeightClass} overflow-hidden`}>
           <Image
             src={data.image.url}
             alt={data.image.alt}
             fill
-            className="object-cover hover:scale-110 transition-transform duration-700 ease-out"
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-        </Link>
+        </div>
       );
     }
 
@@ -215,44 +228,57 @@ export default function TextMedia({ data }: Props) {
   }
 
   // Full grid layout (dining/wildlife style)
+  const maxWidthClass = {
+    medium: 'max-w-4xl',
+    wide: 'max-w-6xl',
+    full: 'max-w-7xl',
+  }[data.max_width || 'full'];
+
   return (
     <section className={`py-16 lg:py-24 ${bgClass}`} id={data.anchor_id}>
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div className={`${maxWidthClass} mx-auto px-4`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Media */}
-          <div className={isMediaLeft ? 'order-2 lg:order-1' : 'order-2'}>
+          <div className={isMediaLeft ? 'order-2 md:order-1' : 'order-2'}>
             {renderMedia()}
           </div>
 
           {/* Text Content */}
           <FadeInView
             direction={isMediaLeft ? 'right' : 'left'}
-            className={`${isMediaLeft ? 'order-1 lg:order-2' : 'order-1'} space-y-6 px-8 lg:px-20`}
+            className={`${isMediaLeft ? 'order-1 md:order-2' : 'order-1'} space-y-6`}
           >
             {data.eyebrow && (
               <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
                 {data.eyebrow}
               </span>
             )}
-            <h2 className={`font-serif text-[2.2rem] ${textColorClass} leading-tight`}>
-              {data.heading}
-            </h2>
-            {data.subheading && (
-              <h3 className="font-serif text-2xl lg:text-3xl text-brand-greenery">
-                {data.subheading}
-              </h3>
-            )}
+            <div className="space-y-1">
+              <h2 className={`font-serif text-2xl md:text-3xl ${textColorClass} leading-tight`}>
+                {data.heading}
+              </h2>
+              {data.subheading && (
+                <p className="text-sm text-brand-stem">
+                  {data.subheading}
+                </p>
+              )}
+              {data.highlight && (
+                <p className="text-lg font-semibold text-brand-gold">
+                  {data.highlight}
+                </p>
+              )}
+            </div>
             <div
-              className="text-brand-stem text-[1rem] leading-relaxed prose prose-p:my-0"
+              className="text-brand-stem text-[1rem] leading-relaxed [&>p]:mb-4 [&>p:last-child]:mb-0"
               dangerouslySetInnerHTML={{ __html: data.content }}
             />
-            <div className="flex flex-wrap gap-4 mt-8">
+            <div className="flex flex-wrap gap-3 mt-8">
               {data.cta_primary && (
                 <Link
                   href={data.cta_primary.url}
                   target={data.cta_primary.target}
                   rel={data.cta_primary.target === '_blank' ? 'noopener noreferrer' : undefined}
-                  className="inline-block border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
+                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-brand-forest text-white hover:bg-brand-forest/90"
                 >
                   {data.cta_primary.title}
                 </Link>
