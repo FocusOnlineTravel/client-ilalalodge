@@ -271,6 +271,7 @@ function normaliseTextMediaSection(section: Record<string, unknown>, wp: WPSecti
   }
 
   section.image = normaliseImageField(wp.image);
+  section.image_link = wp.image_link;
   section.video_url = wp.video_url;
 
   if (wp.gallery_images || wp.gallery) {
