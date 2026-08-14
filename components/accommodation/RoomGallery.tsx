@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Expand } from 'lucide-react';
 
 interface RoomGalleryProps {
   images: string[];
@@ -50,9 +50,7 @@ export default function RoomGallery({ images, title }: RoomGalleryProps) {
               sizes="(max-width: 768px) 50vw, 25vw"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm uppercase tracking-wider">
-                View Image
-              </span>
+              <Expand className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-6 w-6" />
             </div>
           </div>
         ))}

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { GallerySection } from '@/types/sections';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Expand } from 'lucide-react';
 
 interface Props {
   data: GallerySection;
@@ -132,9 +132,7 @@ export default function Gallery({ data }: Props) {
                 sizes={`(max-width: 768px) 50vw, ${100 / parseInt(columns)}vw`}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity font-medium text-sm">
-                  View Image
-                </span>
+                <Expand className="text-white opacity-0 group-hover:opacity-100 transition-opacity h-6 w-6" />
               </div>
             </button>
             );
