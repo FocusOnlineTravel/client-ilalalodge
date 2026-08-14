@@ -50,5 +50,5 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  return <SectionRenderer sections={page.page_sections} />;
+  return <SectionRenderer sections={page.page_sections} pageSlug={slugPath} />;
 }

@@ -58,20 +58,23 @@ function UnknownLayoutWarning({ layout }: UnknownLayoutWarningProps) {
 
 interface SectionRendererProps {
   sections: PageSection[];
+  pageSlug?: string;
 }
 
-export default function SectionRenderer({ sections }: SectionRendererProps) {
-  return (
-    <>
-      {sections.map((section, index) => {
-        const Component = SECTION_COMPONENTS[section.acf_fc_layout];
+export default function SectionRenderer({ sections, pageSlug }: SectionRendererProps) {
+  const content = sections.map((section, index) => {
+    const Component = SECTION_COMPONENTS[section.acf_fc_layout];
 
-        if (!Component) {
-          return <UnknownLayoutWarning key={index} layout={section.acf_fc_layout} />;
-        }
+    if (!Component) {
+      return <UnknownLayoutWarning key={index} layout={section.acf_fc_layout} />;
+    }
 
-        return <Component key={index} data={section} />;
-      })}
-    </>
-  );
+    return <Component key={index} data={section} />;
+  });
+
+  if (pageSlug) {
+    return <div className={`page-${pageSlug}`}>{content}</div>;
+  }
+
+  return <>{content}</>;
 }
