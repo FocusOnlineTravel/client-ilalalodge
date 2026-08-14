@@ -217,7 +217,7 @@ export default function TextMedia({ data }: Props) {
                     {data.eyebrow}
                   </span>
                 )}
-                <h2 className={`font-serif text-3xl lg:text-5xl ${textColorClass} leading-tight`}>
+                <h2 className={`font-serif text-3xl md:text-4xl ${textColorClass} leading-tight`}>
                   {data.heading}
                 </h2>
                 <div
