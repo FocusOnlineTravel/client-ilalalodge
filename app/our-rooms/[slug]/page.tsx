@@ -163,13 +163,10 @@ export default async function RoomPage({ params }: Props) {
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-8 text-center">
             Our {room.title}
           </h2>
-          <div className="prose prose-lg max-w-none">
-            {room.description.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-brand-stem text-lg leading-relaxed mb-6">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <div
+            className="prose prose-lg max-w-none text-brand-stem text-lg leading-relaxed [&>p]:mb-6"
+            dangerouslySetInnerHTML={{ __html: room.description }}
+          />
         </div>
       </section>
 
