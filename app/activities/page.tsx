@@ -324,7 +324,7 @@ export default function ActivitiesPage() {
         id="wildlife"
         eyebrow="Game viewing in every direction"
         heading="Wildlife"
-        intro="The area surrounding Victoria Falls is rich in wildlife, with opportunities for both short excursions and full-day safaris. Game drives, cross-border trips to Chobe and Hwange, and Zambezi cruises each open up a different angle on the region's wildlife."
+        intro="The area surrounding Victoria Falls is rich in wildlife, with opportunities for both short excursions and full-day safaris. Explore nearby game reserves, take a day trip to Hwange National Park in Zimbabwe, cross into Botswana for a safari in the Chobe National Park, or enjoy a cruise on the Zambezi River—each showcasing the region's exceptional wildlife."
         items={wildlifeActivities}
         bg="bg-gradient-to-b from-white to-brand-daisy"
         cardBg="bg-white"
