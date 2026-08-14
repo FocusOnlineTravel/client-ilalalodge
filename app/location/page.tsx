@@ -46,7 +46,7 @@ export default function LocationPage() {
             <div className="text-center p-6">
               <h3 className="font-serif text-2xl text-brand-forest mb-4">By Air</h3>
               <p className="text-brand-forest/70 leading-relaxed">
-                25 min from Airport. Victoria Falls International Airport is located 25km from the hotel. The airport connects to major regional hubs including Johannesburg, Cape Town, Harare, Nairobi, and Windhoek.
+                Victoria Falls International Airport is located 25km from the hotel, with a transfer time of approximately 25 minutes. The airport connects to major regional hubs including Johannesburg, Cape Town, Harare, Nairobi, and Windhoek.
               </p>
             </div>
             <div className="text-center p-6">

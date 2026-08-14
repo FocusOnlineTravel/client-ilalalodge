@@ -99,9 +99,9 @@ export default function MapPage() {
             <div className="text-center p-6 bg-brand-daisy">
               <h3 className="font-serif text-2xl text-brand-forest mb-4">By Air</h3>
               <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Victoria Falls International Airport (VFA) is just 20 minutes from the hotel. We can arrange airport transfers upon request.
+                Victoria Falls International Airport (VFA) is just 25 minutes from the hotel. We can arrange airport transfers upon request.
               </p>
-              <p className="text-sm text-brand-stem font-semibold">20 min from airport</p>
+              <p className="text-sm text-brand-stem font-semibold">25 min from airport</p>
             </div>
             <div className="text-center p-6 bg-brand-daisy">
               <h3 className="font-serif text-2xl text-brand-forest mb-4">By Road</h3>
