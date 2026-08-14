@@ -203,15 +203,15 @@ export default function TextMedia({ data }: Props) {
     return null;
   };
 
-  // Simple intro-style layout (40/60 split) - works with image or video
-  if (ratio === '40_60' && (data.media_type === 'image' || data.media_type === 'video')) {
+  // Full-width edge-to-edge layout - works with image or video (any ratio)
+  if ((data.media_type === 'image' || data.media_type === 'video') && !data.gallery_images) {
     return (
       <section className={`py-0 ${bgClass} w-full`} id={data.anchor_id}>
         <div className="flex flex-col lg:flex-row w-full">
           {/* Text Content */}
-          <div className={`w-full lg:w-[${textWidth}] flex items-center justify-center px-6 py-12 lg:px-12 lg:py-16 ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
-            <FadeInView className="ml-8 lg:ml-16">
-              <div className="space-y-6 w-[80%]">
+          <div className={`w-full lg:w-1/2 flex items-center justify-center px-6 py-12 lg:px-12 lg:py-16 ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
+            <FadeInView className="lg:ml-8 lg:max-w-lg">
+              <div className="space-y-6">
                 {data.eyebrow && (
                   <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
                     {data.eyebrow}
@@ -229,7 +229,7 @@ export default function TextMedia({ data }: Props) {
                     href={data.cta_primary.url}
                     target={data.cta_primary.target}
                     rel={data.cta_primary.target === '_blank' ? 'noopener noreferrer' : undefined}
-                    className="inline-block bg-brand-forest hover:bg-brand-forest/90 text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
+                    className={`inline-block ${primaryBtnClass} px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide`}
                   >
                     {data.cta_primary.title}
                   </Link>
@@ -238,8 +238,8 @@ export default function TextMedia({ data }: Props) {
             </FadeInView>
           </div>
 
-          {/* Image */}
-          <div className={`w-full lg:w-[${mediaWidth}] ${isMediaLeft ? 'order-1' : 'order-2'}`}>
+          {/* Media */}
+          <div className={`w-full lg:w-1/2 ${isMediaLeft ? 'order-1' : 'order-2'}`}>
             {renderMedia()}
           </div>
         </div>
@@ -278,7 +278,7 @@ export default function TextMedia({ data }: Props) {
                 {data.heading}
               </h2>
               {data.subheading && (
-                <p className="text-sm text-brand-stem">
+                <p className={`text-sm ${contentColorClass}`}>
                   {data.subheading}
                 </p>
               )}
