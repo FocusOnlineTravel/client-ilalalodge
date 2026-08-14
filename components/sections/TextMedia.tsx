@@ -38,6 +38,15 @@ export default function TextMedia({ data }: Props) {
   }[data.section_theme];
 
   const textColorClass = data.section_theme === 'dark' || data.section_theme === 'forest' ? 'text-white' : 'text-brand-forest';
+  const isDarkTheme = data.section_theme === 'dark' || data.section_theme === 'forest';
+
+  const primaryBtnClass = isDarkTheme
+    ? 'bg-white text-brand-forest hover:bg-brand-gold hover:text-white'
+    : 'bg-brand-forest text-white hover:bg-brand-forest/90';
+
+  const secondaryBtnClass = isDarkTheme
+    ? 'border-white text-white hover:bg-white hover:text-brand-forest'
+    : 'border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white';
 
   // Render media based on type - use explicit conditionals for Tailwind to detect classes
   // Default matches original high-tea: h-[400px] md:h-[500px]
@@ -288,7 +297,7 @@ export default function TextMedia({ data }: Props) {
                   href={data.cta_primary.url}
                   target={data.cta_primary.target}
                   rel={data.cta_primary.target === '_blank' ? 'noopener noreferrer' : undefined}
-                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-brand-forest text-white hover:bg-brand-forest/90"
+                  className={`inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 ${primaryBtnClass}`}
                 >
                   {data.cta_primary.title}
                 </Link>
@@ -297,7 +306,7 @@ export default function TextMedia({ data }: Props) {
                 data.cta_secondary_action === 'booking_modal' ? (
                   <button
                     onClick={() => setShowBookingModal(true)}
-                    className="inline-block border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide cursor-pointer"
+                    className={`inline-block border ${secondaryBtnClass} px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide cursor-pointer`}
                   >
                     {data.cta_secondary.title}
                   </button>
@@ -306,7 +315,7 @@ export default function TextMedia({ data }: Props) {
                     href={data.cta_secondary.url}
                     target={data.cta_secondary.target}
                     rel={data.cta_secondary.target === '_blank' ? 'noopener noreferrer' : undefined}
-                    className="inline-block border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide"
+                    className={`inline-block border ${secondaryBtnClass} px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide`}
                   >
                     {data.cta_secondary.title}
                   </Link>
