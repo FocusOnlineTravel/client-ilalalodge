@@ -271,7 +271,14 @@ function normaliseTextMediaSection(section: Record<string, unknown>, wp: WPSecti
   }
 
   section.image = normaliseImageField(wp.image);
-  section.image_link = wp.image_link;
+  // Handle image_link as either a string URL or ACF Link object
+  if (wp.image_link) {
+    if (typeof wp.image_link === 'string') {
+      section.image_link = wp.image_link;
+    } else if (typeof wp.image_link === 'object' && (wp.image_link as Record<string, unknown>).url) {
+      section.image_link = (wp.image_link as Record<string, unknown>).url as string;
+    }
+  }
   section.video_url = wp.video_url;
 
   if (wp.gallery_images || wp.gallery) {
