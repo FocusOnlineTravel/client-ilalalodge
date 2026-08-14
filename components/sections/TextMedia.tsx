@@ -203,13 +203,13 @@ export default function TextMedia({ data }: Props) {
     return null;
   };
 
-  // Full-width edge-to-edge layout - works with image or video (any ratio)
-  if ((data.media_type === 'image' || data.media_type === 'video') && !data.gallery_images) {
+  // Full-width edge-to-edge layout - only for 40_60 or 60_40 ratios with image/video
+  if ((ratio === '40_60' || ratio === '60_40') && (data.media_type === 'image' || data.media_type === 'video')) {
     return (
       <section className={`py-0 ${bgClass} w-full`} id={data.anchor_id}>
         <div className="flex flex-col lg:flex-row w-full">
           {/* Text Content */}
-          <div className={`w-full lg:w-1/2 flex items-center justify-center px-6 py-12 lg:px-12 lg:py-16 ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
+          <div className={`w-full lg:w-[${textWidth}] flex items-center justify-center px-6 py-12 lg:px-12 lg:py-16 ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
             <FadeInView className="lg:ml-8 lg:max-w-lg">
               <div className="space-y-6">
                 {data.eyebrow && (
@@ -239,7 +239,7 @@ export default function TextMedia({ data }: Props) {
           </div>
 
           {/* Media */}
-          <div className={`w-full lg:w-1/2 ${isMediaLeft ? 'order-1' : 'order-2'}`}>
+          <div className={`w-full lg:w-[${mediaWidth}] ${isMediaLeft ? 'order-1' : 'order-2'}`}>
             {renderMedia()}
           </div>
         </div>
@@ -274,7 +274,7 @@ export default function TextMedia({ data }: Props) {
               </span>
             )}
             <div className="space-y-1">
-              <h2 className={`font-serif text-2xl md:text-3xl ${textColorClass} leading-tight`}>
+              <h2 className={`font-serif text-3xl md:text-4xl ${textColorClass} leading-tight`}>
                 {data.heading}
               </h2>
               {data.subheading && (
