@@ -37,8 +37,9 @@ export default function TextMedia({ data }: Props) {
     forest: 'bg-brand-forest',
   }[data.section_theme];
 
-  const textColorClass = data.section_theme === 'dark' || data.section_theme === 'forest' ? 'text-white/80' : 'text-brand-forest';
   const isDarkTheme = data.section_theme === 'dark' || data.section_theme === 'forest';
+  const textColorClass = isDarkTheme ? 'text-white/80' : 'text-brand-forest';
+  const contentColorClass = isDarkTheme ? 'text-white/80' : 'text-brand-stem';
 
   const primaryBtnClass = isDarkTheme
     ? 'bg-white text-brand-forest hover:bg-brand-gold hover:text-white'
@@ -220,7 +221,7 @@ export default function TextMedia({ data }: Props) {
                   {data.heading}
                 </h2>
                 <div
-                  className="text-brand-stem text-base lg:text-lg leading-relaxed prose prose-p:my-0"
+                  className={`${contentColorClass} text-base lg:text-lg leading-relaxed prose prose-p:my-0`}
                   dangerouslySetInnerHTML={{ __html: data.content }}
                 />
                 {data.cta_primary && (
@@ -288,7 +289,7 @@ export default function TextMedia({ data }: Props) {
               )}
             </div>
             <div
-              className="text-brand-stem text-[1rem] leading-relaxed [&>p]:mb-4 [&>p:last-child]:mb-0"
+              className={`${contentColorClass} text-[1rem] leading-relaxed [&>p]:mb-4 [&>p:last-child]:mb-0`}
               dangerouslySetInnerHTML={{ __html: data.content }}
             />
             <div className="flex flex-wrap gap-3 mt-8">
