@@ -75,7 +75,7 @@ const roomRates = [
 const transferPrices = [
   {
     route: 'Victoria Falls Airport to Victoria Falls Town',
-    price: 'US$17pp one way',
+    price: 'US$21pp one way',
   },
   {
     route: 'Victoria Falls Inter Hotel Transfer',
@@ -83,11 +83,11 @@ const transferPrices = [
   },
   {
     route: 'Victoria Falls Town to Livingstone Town / Airport (including $2.50 toll fee)',
-    price: 'US$40pp one way',
+    price: 'US$50pp one way',
   },
   {
     route: 'Victoria Falls Town to Kasane Town / Airport, Botswana',
-    price: 'US$68pp one way',
+    price: 'US$69pp one way',
   },
 ];
 
