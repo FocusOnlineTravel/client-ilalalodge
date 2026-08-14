@@ -80,7 +80,7 @@ export default function Accordion({ data }: Props) {
                   }`}
                 >
                   <div
-                    className="p-4 lg:p-6 text-brand-stem bg-white prose prose-sm max-w-none"
+                    className="p-4 lg:p-6 text-brand-stem bg-white prose prose-sm max-w-none [&>p]:mb-4 [&>p:last-child]:mb-0"
                     dangerouslySetInnerHTML={{ __html: item.content }}
                   />
                 </div>
