@@ -37,7 +37,7 @@ export default function TextMedia({ data }: Props) {
     forest: 'bg-brand-forest',
   }[data.section_theme];
 
-  const textColorClass = data.section_theme === 'dark' || data.section_theme === 'forest' ? 'text-white' : 'text-brand-forest';
+  const textColorClass = data.section_theme === 'dark' || data.section_theme === 'forest' ? 'text-white/80' : 'text-brand-forest';
   const isDarkTheme = data.section_theme === 'dark' || data.section_theme === 'forest';
 
   const primaryBtnClass = isDarkTheme

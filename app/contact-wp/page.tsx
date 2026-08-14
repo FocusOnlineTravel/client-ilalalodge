@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { getPageBySlug } from '@/lib/content';
 import SectionRenderer from '@/components/sections/SectionRenderer';
 
-export const revalidate = 60;
+export const revalidate = 10;
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug('contact');
