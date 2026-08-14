@@ -193,8 +193,8 @@ export default function TextMedia({ data }: Props) {
     return null;
   };
 
-  // Simple intro-style layout (40/60 split)
-  if (ratio === '40_60' && data.media_type === 'image') {
+  // Simple intro-style layout (40/60 split) - works with image or video
+  if (ratio === '40_60' && (data.media_type === 'image' || data.media_type === 'video')) {
     return (
       <section className={`py-0 ${bgClass} w-full`} id={data.anchor_id}>
         <div className="flex flex-col lg:flex-row w-full">
