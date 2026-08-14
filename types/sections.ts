@@ -82,6 +82,7 @@ export interface TextMediaSection extends SectionSettings {
   media_position?: 'left' | 'right';
   media_type: 'image' | 'gallery_grid' | 'slider' | 'video';
   image?: AcfImage;
+  image_link?: string;
   gallery_images?: AcfImage[];
   video_url?: string;
   layout_ratio?: '40_60' | '50_50' | '60_40';

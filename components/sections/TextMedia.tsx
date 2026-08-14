@@ -55,17 +55,27 @@ export default function TextMedia({ data }: Props) {
 
   const renderMedia = () => {
     if (data.media_type === 'image' && data.image) {
-      return (
-        <div className={`relative w-full ${mediaHeightClass} overflow-hidden`}>
+      const imageElement = (
+        <div className={`relative w-full ${mediaHeightClass} overflow-hidden ${data.image_link ? 'group' : ''}`}>
           <Image
             src={data.image.url}
             alt={data.image.alt}
             fill
-            className="object-cover"
+            className={`object-cover ${data.image_link ? 'transition-transform duration-500 group-hover:scale-105' : ''}`}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       );
+
+      if (data.image_link) {
+        return (
+          <Link href={data.image_link} className="block">
+            {imageElement}
+          </Link>
+        );
+      }
+
+      return imageElement;
     }
 
     if (data.media_type === 'gallery_grid' && data.gallery_images) {
