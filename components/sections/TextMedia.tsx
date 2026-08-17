@@ -214,8 +214,8 @@ export default function TextMedia({ data, pageSlug }: Props) {
       <section className={`py-0 ${bgClass} w-full`} id={data.anchor_id}>
         <div className="flex flex-col lg:flex-row w-full">
           {/* Text Content */}
-          <div className={`w-full lg:w-[${textWidth}] flex items-center px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24 ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
-            <FadeInView>
+          <div className={`w-full lg:w-[${textWidth}] flex items-center ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
+            <FadeInView className="px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
               <div className="space-y-6">
                 {data.eyebrow && (
                   <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
