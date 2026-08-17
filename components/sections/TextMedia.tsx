@@ -21,9 +21,10 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 interface Props {
   data: TextMediaSection;
+  pageSlug?: string;
 }
 
-export default function TextMedia({ data }: Props) {
+export default function TextMedia({ data, pageSlug }: Props) {
   const [showBookingModal, setShowBookingModal] = useState(false);
 
   const isMediaLeft = data.media_position === 'left';
@@ -203,8 +204,11 @@ export default function TextMedia({ data }: Props) {
     return null;
   };
 
-  // Full-width edge-to-edge layout - only for 40_60 or 60_40 ratios with image/video
-  if ((ratio === '40_60' || ratio === '60_40') && (data.media_type === 'image' || data.media_type === 'video')) {
+  // Full-width edge-to-edge layout - for 40_60/60_40 ratios, or 50_50 on dining page
+  const useFullWidth = (data.media_type === 'image' || data.media_type === 'video') &&
+    (ratio === '40_60' || ratio === '60_40' || (ratio === '50_50' && pageSlug === 'dining'));
+
+  if (useFullWidth) {
     return (
       <section className={`py-0 ${bgClass} w-full`} id={data.anchor_id}>
         <div className="flex flex-col lg:flex-row w-full">

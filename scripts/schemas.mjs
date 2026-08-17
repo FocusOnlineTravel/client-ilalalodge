@@ -185,6 +185,8 @@ export const TestimonialCarouselSectionSchema = SectionSettingsSchema.extend({
 
 export const MediaCarouselItemSchema = z.object({
   title: z.string(),
+  subtitle: z.string().optional(),
+  description: z.string().optional(),
   media_type: z.enum(['image', 'pdf']).optional(),
   image: AcfImageSchema.optional(),
   pdf: z.string().optional(),
@@ -195,7 +197,8 @@ export const MediaCarouselSectionSchema = SectionSettingsSchema.extend({
   eyebrow: z.string().optional(),
   heading: z.string().optional(),
   items: z.array(MediaCarouselItemSchema),
-  display_mode: z.enum(['carousel', 'tabs']).optional(),
+  display_mode: z.enum(['carousel', 'tabs', 'cards']).optional(),
+  items_per_slide: z.enum(['2', '3', '4']).optional(),
 });
 
 export const GalleryImageSchema = z.object({
