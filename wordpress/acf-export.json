@@ -4228,6 +4228,27 @@
                                 "append": ""
                             },
                             {
+                                "key": "field_page_builder_accordion_static_display",
+                                "label": "Static Display",
+                                "name": "static_display",
+                                "aria-label": "",
+                                "type": "true_false",
+                                "instructions": "Render items as a static boxed list (no toggle). Use when there is a single always-visible block like Terms & Conditions.",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "message": "",
+                                "default_value": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": "",
+                                "ui": 1
+                            },
+                            {
                                 "key": "field_page_builder_accordion_enable_schema",
                                 "label": "Enable FAQ Schema",
                                 "name": "enable_schema",

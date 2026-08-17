@@ -235,6 +235,7 @@ export interface AccordionSection extends SectionSettings {
   allow_multiple?: boolean;
   default_open?: number;
   enable_schema?: boolean;
+  static_display?: boolean;
 }
 
 // =============================================================================
