@@ -21,6 +21,16 @@ const RateTable = dynamic(() => import('./RateTable'));
 const InfoBar = dynamic(() => import('./InfoBar'));
 const MediaCarousel = dynamic(() => import('./MediaCarousel'));
 
+// Homepage bespoke layouts
+const HeroSection = dynamic(() => import('./HeroSection'));
+const IntroSection = dynamic(() => import('./IntroSection'));
+const StaySection = dynamic(() => import('./StaySection'));
+const DiningSection = dynamic(() => import('./DiningSection'));
+const WildlifeSection = dynamic(() => import('./WildlifeSection'));
+const ActivitiesSection = dynamic(() => import('./ActivitiesSection'));
+const ReviewsSection = dynamic(() => import('./ReviewsSection'));
+const CtaBannerSection = dynamic(() => import('./CtaBannerSection'));
+
 // Component map keyed by acf_fc_layout
 const SECTION_COMPONENTS: Record<LayoutName, SectionComponent> = {
   hero: Hero,
@@ -36,6 +46,14 @@ const SECTION_COMPONENTS: Record<LayoutName, SectionComponent> = {
   timeline: Timeline,
   rate_table: RateTable,
   info_bar: InfoBar,
+  hero_section: HeroSection,
+  intro_section: IntroSection,
+  stay_section: StaySection,
+  dining_section: DiningSection,
+  wildlife_section: WildlifeSection,
+  activities_section: ActivitiesSection,
+  reviews_section: ReviewsSection,
+  cta_banner_section: CtaBannerSection,
 };
 
 interface UnknownLayoutWarningProps {

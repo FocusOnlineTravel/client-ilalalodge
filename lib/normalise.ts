@@ -193,6 +193,30 @@ function normaliseSection(wpSection: WPSection): PageSection {
     case 'info_bar':
       normaliseInfoBarSection(section, wpSection);
       break;
+    case 'hero_section':
+      normaliseHomeHeroSection(section, wpSection);
+      break;
+    case 'intro_section':
+      normaliseHomeIntroSection(section, wpSection);
+      break;
+    case 'stay_section':
+      normaliseHomeStaySection(section, wpSection);
+      break;
+    case 'dining_section':
+      normaliseHomeDiningSection(section, wpSection);
+      break;
+    case 'wildlife_section':
+      normaliseHomeWildlifeSection(section, wpSection);
+      break;
+    case 'activities_section':
+      normaliseHomeActivitiesSection(section, wpSection);
+      break;
+    case 'reviews_section':
+      normaliseHomeReviewsSection(section, wpSection);
+      break;
+    case 'cta_banner_section':
+      normaliseHomeCtaBannerSection(section, wpSection);
+      break;
     default:
       // Copy all fields for unknown layouts
       Object.assign(section, wpSection);
@@ -460,7 +484,7 @@ function normaliseAccordionSection(section: Record<string, unknown>, wp: WPSecti
   section.description = wp.description;
   section.enable_categories = Boolean(wp.enable_categories);
   section.allow_multiple = Boolean(wp.allow_multiple);
-  section.default_open = wp.default_open;
+  section.default_open = unwrapMisresolvedNumber(wp.default_open);
   section.enable_schema = Boolean(wp.enable_schema);
   section.static_display = Boolean(wp.static_display);
 
@@ -526,15 +550,23 @@ function normaliseTimelineSection(section: Record<string, unknown>, wp: WPSectio
 // The WP mu-plugin's ilala_resolve_images_recursive replaces any numeric value
 // matching a real attachment ID with a full image object. Room prices like 190
 // happen to collide with actual attachment IDs, so a number field can come back
-// as { id, url, width, height, ... }. Coerce back to the scalar the UI expects.
-function unwrapMisresolvedNumber(value: unknown): unknown {
-  if (value && typeof value === 'object' && !Array.isArray(value)) {
+// as { id, url, width, height, ... }. Additionally, ACF number fields written
+// through the REST API often come back as strings. Coerce both back to number.
+function unwrapMisresolvedNumber(value: unknown): number | undefined {
+  if (value === null || value === undefined || value === '') return undefined;
+  if (typeof value === 'number') return value;
+  if (typeof value === 'string') {
+    const n = Number(value);
+    return Number.isFinite(n) ? n : undefined;
+  }
+  if (typeof value === 'object' && !Array.isArray(value)) {
     const v = value as Record<string, unknown>;
     if ('id' in v && 'url' in v && ('width' in v || 'sizes' in v)) {
-      return v.id;
+      const id = Number(v.id);
+      return Number.isFinite(id) ? id : undefined;
     }
   }
-  return value;
+  return undefined;
 }
 
 function normaliseRateTableSection(section: Record<string, unknown>, wp: WPSection): void {
@@ -606,6 +638,121 @@ function normaliseInfoBarSection(section: Record<string, unknown>, wp: WPSection
   } else {
     section.items = [];
   }
+}
+
+// =============================================================================
+// HOMEPAGE BESPOKE SECTIONS
+// The bespoke Home* components expect { label, url, target } CTAs and image
+// objects with { url, alt, width?, height? }. The mu-plugin already resolves
+// image IDs into that shape via ilala_get_image_data(); we just need to remap
+// ACF link fields (title -> label) and pass the rest through.
+// =============================================================================
+
+function normaliseCta(value: unknown): { label: string; url: string; target: '_blank' | '_self' } | undefined {
+  const link = normaliseLink(value);
+  if (!link) return undefined;
+  return {
+    label: link.title || '',
+    url: link.url,
+    target: link.target === '_blank' ? '_blank' : '_self',
+  };
+}
+
+function normaliseHomeImage(value: unknown): AcfImage | undefined {
+  return normaliseImageField(value);
+}
+
+function normaliseHomeHeroSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.hero_heading = wp.hero_heading || '';
+  section.hero_subheading = wp.hero_subheading || '';
+  section.hero_background_image = normaliseHomeImage(wp.hero_background_image);
+  section.hero_cta = normaliseCta(wp.hero_cta);
+  section.hero_video_url = wp.hero_video_url || '';
+  section.hero_scroll_label = wp.hero_scroll_label || '';
+}
+
+function normaliseHomeIntroSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.intro_eyebrow = wp.intro_eyebrow || '';
+  section.intro_heading = wp.intro_heading || '';
+  section.intro_body_copy = wp.intro_body_copy || '';
+  section.intro_cta = normaliseCta(wp.intro_cta);
+  section.intro_image = normaliseHomeImage(wp.intro_image);
+}
+
+function normaliseHomeStaySection(section: Record<string, unknown>, wp: WPSection): void {
+  section.stay_eyebrow = wp.stay_eyebrow || '';
+  section.stay_heading = wp.stay_heading || '';
+  section.stay_subheading = wp.stay_subheading || '';
+  const rooms = Array.isArray(wp.stay_rooms) ? (wp.stay_rooms as unknown[]) : [];
+  section.stay_rooms = rooms.map((r) => {
+    const room = r as Record<string, unknown>;
+    return {
+      room_name: room.room_name || '',
+      room_count: unwrapMisresolvedNumber(room.room_count) ?? 0,
+      room_description: room.room_description || '',
+      room_price_from: room.room_price_from || '',
+      room_price_suffix: room.room_price_suffix || '',
+      room_image: normaliseHomeImage(room.room_image),
+      room_cta: normaliseCta(room.room_cta),
+    };
+  });
+}
+
+function normaliseHomeDiningSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.dining_eyebrow = wp.dining_eyebrow || '';
+  section.dining_heading = wp.dining_heading || '';
+  section.dining_subheading = wp.dining_subheading || '';
+  section.dining_body_copy = wp.dining_body_copy || '';
+  section.dining_cta = normaliseCta(wp.dining_cta);
+  section.dining_cta_secondary = normaliseCta(wp.dining_cta_secondary);
+  const images = Array.isArray(wp.dining_images) ? (wp.dining_images as unknown[]) : [];
+  section.dining_images = normaliseImageArray(images);
+}
+
+function normaliseHomeWildlifeSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.wildlife_eyebrow = wp.wildlife_eyebrow || '';
+  section.wildlife_heading = wp.wildlife_heading || '';
+  section.wildlife_body_copy = wp.wildlife_body_copy || '';
+  section.wildlife_cta = normaliseCta(wp.wildlife_cta);
+  const images = Array.isArray(wp.wildlife_images) ? (wp.wildlife_images as unknown[]) : [];
+  section.wildlife_images = normaliseImageArray(images);
+}
+
+function normaliseHomeActivitiesSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.activities_eyebrow = wp.activities_eyebrow || '';
+  section.activities_heading = wp.activities_heading || '';
+  section.activities_cta = normaliseCta(wp.activities_cta);
+  const items = Array.isArray(wp.activities_items) ? (wp.activities_items as unknown[]) : [];
+  section.activities_items = items.map((i) => {
+    const item = i as Record<string, unknown>;
+    return {
+      activity_label: item.activity_label || '',
+      activity_url: item.activity_url || undefined,
+      activity_icon: normaliseHomeImage(item.activity_icon),
+    };
+  });
+}
+
+function normaliseHomeReviewsSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.reviews_eyebrow = wp.reviews_eyebrow || '';
+  section.reviews_heading = wp.reviews_heading || '';
+  const items = Array.isArray(wp.reviews_items) ? (wp.reviews_items as unknown[]) : [];
+  section.reviews_items = items.map((i) => {
+    const item = i as Record<string, unknown>;
+    return {
+      review_title: item.review_title || '',
+      review_body: item.review_body || '',
+      review_author: item.review_author || '',
+      review_source: item.review_source || undefined,
+    };
+  });
+}
+
+function normaliseHomeCtaBannerSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.cta_banner_heading = wp.cta_banner_heading || '';
+  section.cta_banner_subheading = wp.cta_banner_subheading || '';
+  section.cta_banner_image = normaliseHomeImage(wp.cta_banner_image);
+  section.cta_banner_cta = normaliseCta(wp.cta_banner_cta);
 }
 
 // =============================================================================

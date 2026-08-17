@@ -328,6 +328,17 @@ export interface InfoBarSection extends SectionSettings {
 // DISCRIMINATED UNION
 // =============================================================================
 
+import type {
+  HeroBlock,
+  IntroBlock,
+  StayBlock,
+  DiningBlock,
+  WildlifeBlock,
+  ActivitiesBlock,
+  ReviewsBlock,
+  CtaBannerBlock,
+} from './acf';
+
 export type PageSection =
   | HeroSection
   | TextBlockSection
@@ -341,7 +352,15 @@ export type PageSection =
   | CtaBannerSection
   | TimelineSection
   | RateTableSection
-  | InfoBarSection;
+  | InfoBarSection
+  | HeroBlock
+  | IntroBlock
+  | StayBlock
+  | DiningBlock
+  | WildlifeBlock
+  | ActivitiesBlock
+  | ReviewsBlock
+  | CtaBannerBlock;
 
 // =============================================================================
 // LAYOUT NAME TYPE

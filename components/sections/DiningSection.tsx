@@ -27,7 +27,7 @@ export default function DiningSection({ data }: Props) {
   return (
     <section className="py-16 lg:py-24 bg-white" id="dining">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center">
           {/* Image Grid */}
           <div className="order-2 lg:order-1">
             <div className="grid grid-cols-2 gap-4">
@@ -62,7 +62,7 @@ export default function DiningSection({ data }: Props) {
           </div>
 
           {/* Text Content */}
-          <FadeInView direction="right" className="order-1 lg:order-2 space-y-6 px-8 lg:px-20">
+          <FadeInView direction="right" className="order-1 lg:order-2 space-y-6 px-4 lg:px-8">
             <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
               {data.dining_eyebrow}
             </span>
@@ -100,7 +100,7 @@ export default function DiningSection({ data }: Props) {
                 <FadeInView
                   key={index}
                   delay={index * 100}
-                  className={`relative h-[320px] lg:h-[400px] overflow-hidden ${index === 0 ? 'mt-[80px]' : ''}`}
+                  className={`relative h-[380px] lg:h-[500px] overflow-hidden ${index === 0 ? 'mt-[80px]' : ''}`}
                 >
                   <Image
                     src={image.url}
