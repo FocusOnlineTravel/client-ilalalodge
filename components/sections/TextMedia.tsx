@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { TextMediaSection } from '@/types/sections';
 import FadeInView from '@/components/animations/FadeInView';
+import ImageSlider from '@/components/ui/ImageSlider';
 import { X, Mail } from 'lucide-react';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -49,6 +50,19 @@ export default function TextMedia({ data }: Props) {
     ? 'border-white text-white hover:bg-white hover:text-brand-forest'
     : 'border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white';
 
+  // Style class for cta buttons in the grid layout. When the button is a plain
+  // link (menu/document/internal page), render as a subtle outlined pill so a
+  // sequence of them reads as a uniform group; only tel: / mailto: get the
+  // action-emphasis treatment.
+  const pillBtnClass =
+    'inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200';
+  const ctaStyleClass = (url?: string) => {
+    if (!url) return `${pillBtnClass} bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy`;
+    if (url.startsWith('tel:')) return `${pillBtnClass} bg-brand-forest text-white hover:bg-brand-forest/90`;
+    if (url.startsWith('mailto:')) return `${pillBtnClass} border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white`;
+    return `${pillBtnClass} bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy`;
+  };
+
   // Render media based on type - use explicit conditionals for Tailwind to detect classes
   // Default matches original high-tea: h-[400px] md:h-[500px]
   const heightVal = String(data.media_height || '').toLowerCase();
@@ -86,6 +100,15 @@ export default function TextMedia({ data }: Props) {
       }
 
       return imageElement;
+    }
+
+    if (data.media_type === 'slider' && data.gallery_images && data.gallery_images.length > 0) {
+      return (
+        <ImageSlider
+          images={data.gallery_images.map((img) => ({ src: img.url, alt: img.alt || '' }))}
+          className="h-[400px] md:h-[500px]"
+        />
+      );
     }
 
     if (data.media_type === 'gallery_grid' && data.gallery_images) {
@@ -248,11 +271,12 @@ export default function TextMedia({ data }: Props) {
   }
 
   // Full grid layout (dining/wildlife style)
-  const maxWidthClass = {
+  const maxWidthMap: Record<string, string> = {
     medium: 'max-w-4xl',
     wide: 'max-w-6xl',
     full: 'max-w-7xl',
-  }[data.max_width || 'full'];
+  };
+  const maxWidthClass = maxWidthMap[data.max_width || ''] || 'max-w-6xl';
 
   return (
     <section className={`py-16 lg:py-24 ${bgClass}`} id={data.anchor_id}>
@@ -298,7 +322,7 @@ export default function TextMedia({ data }: Props) {
                   href={data.cta_primary.url}
                   target={data.cta_primary.target}
                   rel={data.cta_primary.target === '_blank' ? 'noopener noreferrer' : undefined}
-                  className={`inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 ${primaryBtnClass}`}
+                  className={ctaStyleClass(data.cta_primary.url)}
                 >
                   {data.cta_primary.title}
                 </Link>
@@ -307,7 +331,7 @@ export default function TextMedia({ data }: Props) {
                 data.cta_secondary_action === 'booking_modal' ? (
                   <button
                     onClick={() => setShowBookingModal(true)}
-                    className={`inline-block border ${secondaryBtnClass} px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide cursor-pointer`}
+                    className={`${ctaStyleClass(data.cta_secondary.url)} cursor-pointer`}
                   >
                     {data.cta_secondary.title}
                   </button>
@@ -316,9 +340,28 @@ export default function TextMedia({ data }: Props) {
                     href={data.cta_secondary.url}
                     target={data.cta_secondary.target}
                     rel={data.cta_secondary.target === '_blank' ? 'noopener noreferrer' : undefined}
-                    className={`inline-block border ${secondaryBtnClass} px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide`}
+                    className={ctaStyleClass(data.cta_secondary.url)}
                   >
                     {data.cta_secondary.title}
+                  </Link>
+                )
+              )}
+              {data.cta_tertiary && (
+                data.cta_tertiary_action === 'booking_modal' ? (
+                  <button
+                    onClick={() => setShowBookingModal(true)}
+                    className={`${ctaStyleClass(data.cta_tertiary.url)} cursor-pointer`}
+                  >
+                    {data.cta_tertiary.title}
+                  </button>
+                ) : (
+                  <Link
+                    href={data.cta_tertiary.url}
+                    target={data.cta_tertiary.target}
+                    rel={data.cta_tertiary.target === '_blank' ? 'noopener noreferrer' : undefined}
+                    className={ctaStyleClass(data.cta_tertiary.url)}
+                  >
+                    {data.cta_tertiary.title}
                   </Link>
                 )
               )}

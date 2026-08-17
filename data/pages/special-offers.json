@@ -46,17 +46,14 @@
     {
       "acf_fc_layout": "rate_table",
       "heading": "",
+      "table_type": "rates",
+      "currency": "US$",
       "categories": [
-        {
-          "name": "",
-          "rows": [
-            { "label": "Classic Room", "rate_sharing": "US$190", "rate_single": "US$271" },
-            { "label": "Deluxe Room", "rate_sharing": "US$230", "rate_single": "US$328" },
-            { "label": "Classic Suite", "rate_sharing": "US$295", "rate_single": "US$368" },
-            { "label": "Executive Suite", "rate_sharing": "US$341", "rate_single": "US$426" },
-            { "label": "Strathearn Suite", "rate_sharing": "US$453", "rate_single": "US$566" }
-          ]
-        }
+        { "name": "Classic Room", "rows": [{ "rate_sharing": "190", "rate_single": "271" }] },
+        { "name": "Deluxe Room", "rows": [{ "rate_sharing": "230", "rate_single": "328" }] },
+        { "name": "Classic Suite", "rows": [{ "rate_sharing": "295", "rate_single": "368" }] },
+        { "name": "Executive Suite", "rows": [{ "rate_sharing": "341", "rate_single": "426" }] },
+        { "name": "Strathearn Suite", "rows": [{ "rate_sharing": "453", "rate_single": "566" }] }
       ],
       "show_booking_button": false,
       "section_theme": "light",
@@ -79,10 +76,12 @@
       "spacing_bottom": "large"
     },
     {
-      "acf_fc_layout": "info_bar",
-      "content_type": "download",
-      "download_url": "https://www.ilalalodge.com/wp-content/uploads/2026/06/ILH_Seasonal-Special_2026.pdf",
-      "download_label": "Download Special Offer PDF",
+      "acf_fc_layout": "cta_banner",
+      "eyebrow": "",
+      "heading": "Download the Full Offer",
+      "body": "",
+      "button_text": "Download Special Offer PDF",
+      "button_url": "https://www.ilalalodge.com/wp-content/uploads/2026/06/ILH_Seasonal-Special_2026.pdf",
       "section_theme": "accent",
       "spacing_top": "medium",
       "spacing_bottom": "medium"

@@ -42,7 +42,8 @@
       ],
       "buttons": [
         { "text": "Bar Menu", "url": "https://client-ilalalodge.vercel.app/documents/ILH_BeverageList_2026%20(Online).pdf", "style": "secondary", "external": true },
-        { "text": "Snack Menu", "url": "https://client-ilalalodge.vercel.app/documents/ILH_SnackMenu_2025.pdf", "style": "secondary", "external": true }
+        { "text": "Snack Menu", "url": "https://client-ilalalodge.vercel.app/documents/ILH_SnackMenu_2025.pdf", "style": "secondary", "external": true },
+        { "text": "Wine Menu", "url": "https://client-ilalalodge.vercel.app/documents/ILH_WineList_2026%20(Online).pdf", "style": "secondary", "external": true }
       ],
       "section_theme": "light",
       "spacing_top": "medium",

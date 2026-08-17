@@ -289,6 +289,8 @@ function normaliseTextMediaSection(section: Record<string, unknown>, wp: WPSecti
   section.cta_primary = normaliseLink(wp.cta_primary);
   section.cta_secondary = normaliseLink(wp.cta_secondary);
   section.cta_secondary_action = wp.cta_secondary_action;
+  section.cta_tertiary = normaliseLink(wp.cta_tertiary);
+  section.cta_tertiary_action = wp.cta_tertiary_action;
 
   // Handle buttons array format
   if (wp.buttons) {

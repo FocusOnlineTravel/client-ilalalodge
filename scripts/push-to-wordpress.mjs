@@ -278,6 +278,7 @@ function normalizeFieldNames(section) {
     },
     text_media: {
       body: 'content',
+      gallery: 'gallery_images',
     },
     accordion: {
       intro: 'intro_text',
@@ -305,6 +306,13 @@ function normalizeFieldNames(section) {
     timeline: {
       items: 'milestones',
       footer_text: null, // Remove - not in ACF schema
+    },
+    rate_table: {
+      categories: 'rate_categories',
+      show_booking_button: 'show_book_buttons',
+    },
+    cta_banner: {
+      body: 'content',
     },
   };
 
@@ -387,6 +395,90 @@ function transformNestedStructures(section) {
     // Ensure items array exists
     if (!section.items) {
       section.items = [];
+    }
+  }
+
+  // Transform text_media - normalise media_type + convert buttons array to ACF's cta_primary/cta_secondary
+  if (layout === 'text_media') {
+    // ACF choices: 'image' | 'gallery_grid' | 'slider' | 'video'. Map any gallery-like value to 'slider'.
+    if (section.media_type === 'gallery') {
+      section.media_type = 'slider';
+    }
+
+    if (Array.isArray(section.buttons) && section.buttons.length > 0) {
+      const toAcfLink = (btn) => {
+        if (!btn) return null;
+        if (typeof btn === 'string') return { url: btn, title: '', target: '_self' };
+        const url = btn.url || '';
+        const isExternal =
+          btn.external === true || /^(https?:|mailto:|tel:)/i.test(url);
+        return {
+          url,
+          title: btn.text || btn.title || btn.label || '',
+          target: isExternal ? '_blank' : '_self',
+        };
+      };
+      if (!section.cta_primary && section.buttons[0]) {
+        section.cta_primary = toAcfLink(section.buttons[0]);
+      }
+      if (!section.cta_secondary && section.buttons[1]) {
+        section.cta_secondary = toAcfLink(section.buttons[1]);
+      }
+      if (!section.cta_tertiary && section.buttons[2]) {
+        section.cta_tertiary = toAcfLink(section.buttons[2]);
+      }
+      delete section.buttons;
+    }
+  }
+
+  // Transform rate_table - rename nested aliases and coerce string prices to numbers
+  if (layout === 'rate_table' && Array.isArray(section.rate_categories)) {
+    const parsePrice = (v) => {
+      if (typeof v === 'number') return v;
+      if (typeof v !== 'string' || !v) return null;
+      const num = parseFloat(v.replace(/[^\d.]/g, ''));
+      return Number.isFinite(num) ? num : null;
+    };
+    section.rate_categories = section.rate_categories.map((cat) => {
+      const rooms = cat.rooms || cat.rows || [];
+      return {
+        category_name: cat.category_name || cat.name || cat.label || '',
+        rooms: rooms.map((room) => ({
+          sharing_price: room.sharing_price ?? parsePrice(room.rate_sharing ?? room.rate),
+          single_price: room.single_price ?? parsePrice(room.rate_single),
+          view_link:
+            typeof room.view_link === 'string'
+              ? { url: room.view_link, title: room.view_label || '', target: '_self' }
+              : room.view_link || null,
+          book_link: room.book_link || null,
+        })),
+      };
+    });
+  }
+
+  // Transform cta_banner - map contact CTA convenience fields to ACF fields
+  if (layout === 'cta_banner') {
+    if (section.cta_type === 'contact') {
+      section.show_service_ctas = true;
+      if (section.contact_email && !section.service_email) {
+        section.service_email = section.contact_email;
+      }
+    }
+    delete section.cta_type;
+    delete section.contact_email;
+
+    // Handle button_text/button_url shortcut -> cta_primary link
+    if (section.button_text || section.button_url) {
+      if (!section.cta_primary) {
+        section.cta_primary = {
+          url: section.button_url || '',
+          title: section.button_text || '',
+          target: section.button_url && /^https?:/.test(section.button_url) ? '_blank' : '_self',
+        };
+      }
+      delete section.button_text;
+      delete section.button_url;
+      delete section.button_style;
     }
   }
 
@@ -498,6 +590,19 @@ function replaceImagePathsWithIds(data, manifest) {
   }
 
   if (typeof data === 'object') {
+    // ACF link object: has url + (title or target). Replace url string with the WP URL
+    // rather than an attachment ID, so ACF stores it as a valid link.
+    if (data.url && typeof data.url === 'string' &&
+        (data.url.startsWith('/images/') || data.url.startsWith('/documents/') || data.url.startsWith('/icons/')) &&
+        ('target' in data || 'title' in data)) {
+      const upload = manifest.uploads[data.url];
+      const result = { ...data };
+      if (upload) {
+        result.url = upload.wpUrl;
+      }
+      return result;
+    }
+
     // Check if this is an image object (has url property with local image path)
     if (data.url && typeof data.url === 'string' &&
         (data.url.startsWith('/images/') || data.url.startsWith('/documents/') || data.url.startsWith('/icons/'))) {
