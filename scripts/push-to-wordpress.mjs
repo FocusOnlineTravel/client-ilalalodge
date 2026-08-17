@@ -412,23 +412,45 @@ function transformNestedStructures(section) {
   }
 
   // Transform card_grid cards link structures + image_carousel shape
-  if (layout === 'card_grid' && section.cards) {
-    section.cards = section.cards.map(card => {
-      const transformed = { ...card };
-      // Ensure link is in proper ACF link format
-      if (typeof transformed.link === 'string') {
-        transformed.link = { url: transformed.link, title: '', target: '_self' };
-      }
-      // Local JSON uses `images: [url strings]` for the image_carousel card
-      // style; ACF stores those in a `carousel_images` gallery field.
-      if (Array.isArray(transformed.images) && !transformed.carousel_images) {
-        transformed.carousel_images = transformed.images.map((src) =>
-          typeof src === 'string' ? { url: src, alt: transformed.title || '' } : src,
-        );
-        delete transformed.images;
-      }
-      return transformed;
-    });
+  if (layout === 'card_grid') {
+    // Local JSON uses `card_style` on the section; ACF stores this under `card_type`.
+    if (section.card_style && !section.card_type) {
+      section.card_type = section.card_style;
+      delete section.card_style;
+    }
+
+    if (section.cards) {
+      section.cards = section.cards.map(card => {
+        const transformed = { ...card };
+        // Ensure link is in proper ACF link format
+        if (typeof transformed.link === 'string') {
+          transformed.link = { url: transformed.link, title: '', target: '_self' };
+        }
+        // Local JSON uses `images: [url strings]` for the image_carousel card
+        // style; ACF stores those in a `carousel_images` gallery field.
+        if (Array.isArray(transformed.images) && !transformed.carousel_images) {
+          transformed.carousel_images = transformed.images.map((src) =>
+            typeof src === 'string' ? { url: src, alt: transformed.title || '' } : src,
+          );
+          delete transformed.images;
+        }
+        // Room listing cards: convert flat `size`/`sleeps`/`beds`/`price_from`
+        // fields on the card into a `details` repeater keyed by icon type.
+        if (section.card_type === 'room_listing' && !Array.isArray(transformed.details)) {
+          const detailRows = [];
+          if (transformed.size) detailRows.push({ icon: 'size', label: 'Size', value: transformed.size });
+          if (transformed.sleeps) detailRows.push({ icon: 'sleeps', label: 'Sleeps', value: transformed.sleeps });
+          if (transformed.beds) detailRows.push({ icon: 'beds', label: 'Beds', value: transformed.beds });
+          if (transformed.price_from) detailRows.push({ icon: 'price', label: 'From', value: transformed.price_from });
+          if (detailRows.length > 0) transformed.details = detailRows;
+          delete transformed.size;
+          delete transformed.sleeps;
+          delete transformed.beds;
+          delete transformed.price_from;
+        }
+        return transformed;
+      });
+    }
   }
 
   // Transform info_bar - our JSON uses different structure than ACF expects
@@ -528,6 +550,21 @@ function transformNestedStructures(section) {
       delete section.button_text;
       delete section.button_url;
       delete section.button_style;
+    }
+
+    // Handle buttons[] array -> cta_primary + cta_secondary
+    if (Array.isArray(section.buttons) && section.buttons.length > 0) {
+      const toLink = (btn) => ({
+        url: btn.url || '',
+        title: btn.text || btn.label || btn.title || '',
+        target:
+          btn.external === true || /^(https?:|mailto:|tel:)/i.test(btn.url || '')
+            ? '_blank'
+            : '_self',
+      });
+      if (!section.cta_primary && section.buttons[0]) section.cta_primary = toLink(section.buttons[0]);
+      if (!section.cta_secondary && section.buttons[1]) section.cta_secondary = toLink(section.buttons[1]);
+      delete section.buttons;
     }
   }
 

@@ -1188,7 +1188,7 @@
                                 "aria-label": "",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": 1,
+                                "required": 0,
                                 "conditional_logic": false,
                                 "wrapper": {
                                     "width": "",
@@ -2100,7 +2100,8 @@
                                     "feature": "Feature Card",
                                     "content": "Content Card",
                                     "cpt_rooms": "Rooms (from CPT)",
-                                    "image_carousel": "Image Carousel"
+                                    "image_carousel": "Image Carousel",
+                                    "room_listing": "Room Listing"
                                 },
                                 "default_value": "content",
                                 "return_format": "value",
@@ -2353,6 +2354,27 @@
                                         "prepend": "",
                                         "append": "",
                                         "parent_repeater": "field_page_builder_card_grid_cards"
+                                    },
+                                    {
+                                        "key": "field_page_builder_card_grid_cards_slug",
+                                        "label": "Slug",
+                                        "name": "slug",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "For room_listing cards: powers the /our-rooms/{slug} link.",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": ""
                                     },
                                     {
                                         "key": "field_page_builder_card_grid_cards_description",
@@ -2725,7 +2747,7 @@
                                         "aria-label": "",
                                         "type": "image",
                                         "instructions": "",
-                                        "required": 1,
+                                        "required": 0,
                                         "conditional_logic": false,
                                         "wrapper": {
                                             "width": "33",
@@ -7140,7 +7162,7 @@
                     "id": ""
                 },
                 "show_in_rest": 1,
-                "return_format": "id",
+                "return_format": "array",
                 "preview_size": "medium",
                 "library": "all",
                 "insert": "append",
@@ -7169,7 +7191,7 @@
                     "id": ""
                 },
                 "show_in_rest": 1,
-                "return_format": "id",
+                "return_format": "array",
                 "preview_size": "medium",
                 "library": "all",
                 "insert": "append",
@@ -7386,7 +7408,7 @@
                             "id": ""
                         },
                         "show_in_rest": 1,
-                        "return_format": "id",
+                        "return_format": "array",
                         "preview_size": "thumbnail",
                         "library": "all",
                         "min_width": 0,

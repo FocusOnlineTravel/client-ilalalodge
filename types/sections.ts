@@ -37,7 +37,7 @@ export interface SectionSettings {
 
 export interface HeroSection extends SectionSettings {
   acf_fc_layout: 'hero';
-  media_type: 'image' | 'video' | 'carousel';
+  media_type: 'image' | 'video' | 'carousel' | 'color';
   image?: AcfImage;
   video_url?: string;
   carousel_images?: AcfImage[];
@@ -45,7 +45,7 @@ export interface HeroSection extends SectionSettings {
   heading: string;
   subheading?: string;
   overlay_opacity?: number;
-  height?: 'tall' | 'medium' | 'compact';
+  height?: 'tall' | 'medium' | 'compact' | 'short';
   text_position?: 'center' | 'bottom';
   cta?: AcfLink;
   show_play_button?: boolean;
@@ -109,6 +109,7 @@ export interface Card {
   carousel_images?: AcfImage[];
   video_url?: string;
   title: string;
+  slug?: string;
   description?: string;
   details?: CardDetail[];
   cta_primary?: AcfLink;
@@ -120,7 +121,7 @@ export interface CardGridSection extends SectionSettings {
   eyebrow?: string;
   heading?: string;
   subheading?: string;
-  card_type: 'room' | 'activity' | 'feature' | 'content' | 'cpt_rooms' | 'image_carousel';
+  card_type: 'room' | 'activity' | 'feature' | 'content' | 'cpt_rooms' | 'image_carousel' | 'room_listing';
   columns?: '2' | '3' | '4';
   cards?: Card[];
   rooms?: string[]; // Room IDs when card_type = 'cpt_rooms'

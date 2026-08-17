@@ -35,58 +35,88 @@
         {
           "name": "Classic Rooms",
           "rows": [
-            { "label": "Sharing per person per night", "rate": "246", "view_link": "/our-rooms/classic-rooms", "view_label": "View Rooms" },
-            { "label": "Single per person per night", "rate": "351", "view_link": "/our-rooms/classic-rooms", "view_label": "View Rooms" }
+            {
+              "rate_sharing": "246",
+              "rate_single": "351",
+              "view_link": "/our-rooms/classic-rooms",
+              "view_label": "View Rooms"
+            }
           ]
         },
         {
           "name": "Deluxe Rooms",
           "rows": [
-            { "label": "Sharing per person per night", "rate": "284", "view_link": "/our-rooms/deluxe-rooms", "view_label": "View Rooms" },
-            { "label": "Single per person per night", "rate": "405", "view_link": "/our-rooms/deluxe-rooms", "view_label": "View Rooms" }
+            {
+              "rate_sharing": "284",
+              "rate_single": "405",
+              "view_link": "/our-rooms/deluxe-rooms",
+              "view_label": "View Rooms"
+            }
           ]
         },
         {
           "name": "Classic Suites",
           "rows": [
-            { "label": "Sharing per person per night", "rate": "351", "view_link": "/our-rooms/classic-suites", "view_label": "View Suites" },
-            { "label": "Single per person per night", "rate": "439", "view_link": "/our-rooms/classic-suites", "view_label": "View Suites" }
+            {
+              "rate_sharing": "351",
+              "rate_single": "439",
+              "view_link": "/our-rooms/classic-suites",
+              "view_label": "View Suites"
+            }
           ]
         },
         {
           "name": "Executive Suite",
           "rows": [
-            { "label": "Sharing per person per night", "rate": "406", "view_link": "/our-rooms/executive-suites", "view_label": "View Suites" },
-            { "label": "Single per person per night", "rate": "508", "view_link": "/our-rooms/executive-suites", "view_label": "View Suites" }
+            {
+              "rate_sharing": "406",
+              "rate_single": "508",
+              "view_link": "/our-rooms/executive-suites",
+              "view_label": "View Suites"
+            }
           ]
         },
         {
           "name": "Strathearn Suite",
           "rows": [
-            { "label": "Sharing per person per night", "rate": "540", "view_link": "/our-rooms/strathearn-suite", "view_label": "View Suite" },
-            { "label": "Single per person per night", "rate": "675", "view_link": "/our-rooms/strathearn-suite", "view_label": "View Suite" }
+            {
+              "rate_sharing": "540",
+              "rate_single": "675",
+              "view_link": "/our-rooms/strathearn-suite",
+              "view_label": "View Suite"
+            }
           ]
         }
       ],
       "show_booking_button": true,
       "section_theme": "light",
       "spacing_top": "large",
-      "spacing_bottom": "large"
+      "spacing_bottom": "large",
+      "currency": "US$"
     },
     {
       "acf_fc_layout": "rate_table",
       "heading": "Transfer Prices",
-      "categories": [
+      "table_type": "simple",
+      "simple_rows": [
         {
-          "name": "",
-          "rows": [
-            { "label": "Victoria Falls Airport to Victoria Falls Town", "rate": "US$17pp one way" },
-            { "label": "Victoria Falls Inter Hotel Transfer", "rate": "US$9pp one way" },
-            { "label": "Victoria Falls Town to Livingstone Town / Airport (including $2.50 toll fee)", "rate": "US$40pp one way" },
-            { "label": "Victoria Falls Town to Kasane Town / Airport, Botswana", "rate": "US$68pp one way" }
-          ]
+          "label": "Victoria Falls Airport to Victoria Falls Town",
+          "value": "US$17pp one way"
+        },
+        {
+          "label": "Victoria Falls Inter Hotel Transfer",
+          "value": "US$9pp one way"
+        },
+        {
+          "label": "Victoria Falls Town to Livingstone Town / Airport (including $2.50 toll fee)",
+          "value": "US$40pp one way"
+        },
+        {
+          "label": "Victoria Falls Town to Kasane Town / Airport, Botswana",
+          "value": "US$68pp one way"
         }
       ],
+      "currency": "US$",
       "show_booking_button": false,
       "section_theme": "accent",
       "spacing_top": "large",
@@ -103,11 +133,11 @@
         },
         {
           "title": "Cancellation Policy",
-          "content": "<ul><li>Cancellations made within 30 days or less of arrival – 100% cancellation fee</li><li>60 – 30 days – 50% cancellation fee</li><li>More than 60 days – 20% non-refundable deposit retained</li><li>The above percentages are based on the total value of the amount shown on invoice</li></ul>"
+          "content": "<ul><li>Cancellations made within 30 days or less of arrival \u2013 100% cancellation fee</li><li>60 \u2013 30 days \u2013 50% cancellation fee</li><li>More than 60 days \u2013 20% non-refundable deposit retained</li><li>The above percentages are based on the total value of the amount shown on invoice</li></ul>"
         },
         {
           "title": "Group Cancellation Policy",
-          "content": "<ul><li>Applicable to groups of 6 or more paying guests</li><li>A 20% non-refundable deposit must be made within 30 days from the date of placing the booking</li><li>The balance must be made on or before 60 days prior to travel date</li><li>If the booking is made within 60 days of travel full payment is required</li><li>Bookings made within 30 days or less of arrival – 100% cancellation fee</li><li>60 – 30 days – 50% cancellation fee</li><li>More than 60 days – 20% non-refundable deposit retained</li><li>The above percentages are based on the total value of the amount shown on invoice</li></ul>"
+          "content": "<ul><li>Applicable to groups of 6 or more paying guests</li><li>A 20% non-refundable deposit must be made within 30 days from the date of placing the booking</li><li>The balance must be made on or before 60 days prior to travel date</li><li>If the booking is made within 60 days of travel full payment is required</li><li>Bookings made within 30 days or less of arrival \u2013 100% cancellation fee</li><li>60 \u2013 30 days \u2013 50% cancellation fee</li><li>More than 60 days \u2013 20% non-refundable deposit retained</li><li>The above percentages are based on the total value of the amount shown on invoice</li></ul>"
         }
       ],
       "section_theme": "light",
