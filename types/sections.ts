@@ -79,6 +79,10 @@ export interface TextMediaSection extends SectionSettings {
   cta_primary?: AcfLink;
   cta_secondary?: AcfLink;
   cta_secondary_action?: 'link' | 'booking_modal' | 'whatsapp';
+  cta_tertiary?: AcfLink;
+  cta_tertiary_action?: 'link' | 'booking_modal' | 'whatsapp';
+  show_service_ctas?: boolean;
+  service_email?: string;
   media_position?: 'left' | 'right';
   media_type: 'image' | 'gallery_grid' | 'slider' | 'video';
   image?: AcfImage;
@@ -172,6 +176,8 @@ export interface TestimonialCarouselSection extends SectionSettings {
 
 export interface MediaCarouselItem {
   title: string;
+  subtitle?: string;
+  description?: string;
   media_type: 'image' | 'pdf';
   image?: AcfImage;
   pdf?: string;
@@ -182,7 +188,8 @@ export interface MediaCarouselSection extends SectionSettings {
   eyebrow?: string;
   heading?: string;
   items: MediaCarouselItem[];
-  display_mode?: 'carousel' | 'tabs';
+  display_mode?: 'carousel' | 'tabs' | 'cards';
+  items_per_slide?: '2' | '3' | '4';
 }
 
 // =============================================================================
@@ -320,6 +327,131 @@ export interface InfoBarSection extends SectionSettings {
 }
 
 // =============================================================================
+// LAYOUT 14: HOME_HERO_SECTION
+// =============================================================================
+
+export interface HomeHeroSection extends SectionSettings {
+  acf_fc_layout: 'hero_section';
+  hero_heading?: string;
+  hero_subheading?: string;
+  hero_background_image?: AcfImage;
+  hero_cta?: AcfLink;
+  hero_video_url?: string;
+  hero_scroll_label?: string;
+}
+
+// =============================================================================
+// LAYOUT 15: HOME_INTRO_SECTION
+// =============================================================================
+
+export interface HomeIntroSection extends SectionSettings {
+  acf_fc_layout: 'intro_section';
+  intro_eyebrow?: string;
+  intro_heading?: string;
+  intro_body_copy?: string;
+  intro_cta?: AcfLink;
+  intro_image?: AcfImage;
+}
+
+// =============================================================================
+// LAYOUT 16: HOME_STAY_SECTION
+// =============================================================================
+
+export interface StayRoom {
+  room_name?: string;
+  room_count?: number;
+  room_description?: string;
+  room_price_from?: string;
+  room_price_suffix?: string;
+  room_image?: AcfImage;
+  room_cta?: AcfLink;
+}
+
+export interface HomeStaySection extends SectionSettings {
+  acf_fc_layout: 'stay_section';
+  stay_eyebrow?: string;
+  stay_heading?: string;
+  stay_subheading?: string;
+  stay_rooms?: StayRoom[];
+}
+
+// =============================================================================
+// LAYOUT 17: HOME_DINING_SECTION
+// =============================================================================
+
+export interface HomeDiningSection extends SectionSettings {
+  acf_fc_layout: 'dining_section';
+  dining_eyebrow?: string;
+  dining_heading?: string;
+  dining_subheading?: string;
+  dining_body_copy?: string;
+  dining_cta?: AcfLink;
+  dining_cta_secondary?: AcfLink;
+  dining_images?: AcfImage[];
+}
+
+// =============================================================================
+// LAYOUT 18: HOME_WILDLIFE_SECTION
+// =============================================================================
+
+export interface HomeWildlifeSection extends SectionSettings {
+  acf_fc_layout: 'wildlife_section';
+  wildlife_eyebrow?: string;
+  wildlife_heading?: string;
+  wildlife_body_copy?: string;
+  wildlife_cta?: AcfLink;
+  wildlife_images?: AcfImage[];
+}
+
+// =============================================================================
+// LAYOUT 19: HOME_ACTIVITIES_SECTION
+// =============================================================================
+
+export interface ActivityItem {
+  activity_label?: string;
+  activity_url?: string;
+  activity_icon?: AcfImage;
+}
+
+export interface HomeActivitiesSection extends SectionSettings {
+  acf_fc_layout: 'activities_section';
+  activities_eyebrow?: string;
+  activities_heading?: string;
+  activities_items?: ActivityItem[];
+  activities_cta?: AcfLink;
+}
+
+// =============================================================================
+// LAYOUT 20: HOME_REVIEWS_SECTION
+// =============================================================================
+
+export interface ReviewItem {
+  review_title?: string;
+  review_body?: string;
+  review_author?: string;
+  review_source?: string;
+}
+
+export interface HomeReviewsSection extends SectionSettings {
+  acf_fc_layout: 'reviews_section';
+  reviews_eyebrow?: string;
+  reviews_heading?: string;
+  reviews_items?: ReviewItem[];
+}
+
+// =============================================================================
+// LAYOUT 21: HOME_CTA_BANNER_SECTION
+// =============================================================================
+
+export interface HomeCtaBannerSection extends SectionSettings {
+  acf_fc_layout: 'cta_banner_section';
+  cta_banner_heading?: string;
+  cta_banner_subheading?: string;
+  cta_banner_image?: AcfImage;
+  cta_banner_cta?: AcfLink;
+}
+
+// =============================================================================
 // DISCRIMINATED UNION
 // =============================================================================
 
@@ -336,7 +468,15 @@ export type PageSection =
   | CtaBannerSection
   | TimelineSection
   | RateTableSection
-  | InfoBarSection;
+  | InfoBarSection
+  | HomeHeroSection
+  | HomeIntroSection
+  | HomeStaySection
+  | HomeDiningSection
+  | HomeWildlifeSection
+  | HomeActivitiesSection
+  | HomeReviewsSection
+  | HomeCtaBannerSection;
 
 // =============================================================================
 // LAYOUT NAME TYPE

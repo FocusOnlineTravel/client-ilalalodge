@@ -63,6 +63,10 @@ Field names must match exactly for the frontend to work.
 | `cta_primary` | Link | No | Primary button |
 | `cta_secondary` | Link | No | Secondary button |
 | `cta_secondary_action` | Select | No | `link`, `booking_modal`, `whatsapp` |
+| `cta_tertiary` | Link | No | Tertiary button |
+| `cta_tertiary_action` | Select | No | `link`, `booking_modal`, `whatsapp` |
+| `show_service_ctas` | True/False | No | Show call/email/WhatsApp buttons |
+| `service_email` | Email | No | Email for service CTAs |
 | `media_position` | Select | No | `left`, `right` |
 | `media_type` | Select | Yes | `image`, `gallery_grid`, `video` |
 | `image` | Image | When type=image | Single image |
@@ -162,15 +166,23 @@ Field names must match exactly for the frontend to work.
 | `eyebrow` | Text | No | Script text |
 | `heading` | Text | No | Section heading |
 | `items` | Repeater | Yes | See item fields below |
-| `display_mode` | Select | No | `carousel`, `tabs` |
+| `display_mode` | Select | No | `carousel`, `tabs`, `cards` |
+| `items_per_slide` | Select | No | `2`, `3`, `4` (for cards mode) |
 
 **Item Repeater Fields:**
 | Field | Type | Required | Notes |
 |-------|------|----------|-------|
-| `title` | Text | Yes | Item title (shown as tab/label) |
+| `title` | Text | Yes | Item title |
+| `subtitle` | Text | No | e.g., "06:30 - 10:00" (for cards mode) |
+| `description` | Textarea | No | Item description (for cards mode) |
 | `media_type` | Select | Yes | `image`, `pdf` |
 | `image` | Image | When type=image | Menu/document image |
-| `pdf` | URL/File | When type=pdf | PDF URL |
+| `pdf` | URL/File | When type=pdf | PDF URL (shows "View Menu" button in cards mode) |
+
+**Display Modes:**
+- `carousel`: Single item per slide with arrows
+- `tabs`: Tab buttons to switch between items
+- `cards`: 3-column card layout (like dining menus) with image, title, subtitle, description, and PDF link
 
 ---
 
@@ -300,6 +312,142 @@ Field names must match exactly for the frontend to work.
 | `label` | Text | Yes | Label text |
 | `value` | Text | Yes | Value text |
 | `unit` | Text | No | Unit suffix |
+
+---
+
+## 14. HOME_HERO_SECTION
+
+**Layout name:** `hero_section`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `hero_heading` | Text | No | Main heading |
+| `hero_subheading` | Text | No | Below heading |
+| `hero_background_image` | Image | No | Background image |
+| `hero_cta` | Link | No | CTA button |
+| `hero_video_url` | Text | No | Streamable MP4 URL for video background |
+| `hero_scroll_label` | Text | No | Scroll indicator text |
+
+---
+
+## 15. HOME_INTRO_SECTION
+
+**Layout name:** `intro_section`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `intro_eyebrow` | Text | No | Script text |
+| `intro_heading` | Text | No | Section heading |
+| `intro_body_copy` | Textarea | No | Body text |
+| `intro_cta` | Link | No | CTA button |
+| `intro_image` | Image | No | Section image |
+
+---
+
+## 16. HOME_STAY_SECTION
+
+**Layout name:** `stay_section`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `stay_eyebrow` | Text | No | Script text |
+| `stay_heading` | Text | No | Section heading |
+| `stay_subheading` | Text | No | Below heading |
+| `stay_rooms` | Repeater | No | See room fields below |
+
+**Room Repeater Fields:**
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `room_name` | Text | No | Room name |
+| `room_count` | Number | No | Number of rooms |
+| `room_description` | Textarea | No | Room description |
+| `room_price_from` | Text | No | Starting price (e.g., "US$350") |
+| `room_price_suffix` | Text | No | Price suffix (e.g., "per night") |
+| `room_image` | Image | No | Room image |
+| `room_cta` | Link | No | View room link |
+
+---
+
+## 17. HOME_DINING_SECTION
+
+**Layout name:** `dining_section`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `dining_eyebrow` | Text | No | Script text |
+| `dining_heading` | Text | No | Section heading |
+| `dining_subheading` | Text | No | Below heading |
+| `dining_body_copy` | Textarea | No | Body text |
+| `dining_cta` | Link | No | Primary CTA button |
+| `dining_cta_secondary` | Link | No | Secondary CTA button |
+| `dining_images` | Gallery | No | 5 images for the bento grid |
+
+---
+
+## 18. HOME_WILDLIFE_SECTION
+
+**Layout name:** `wildlife_section`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `wildlife_eyebrow` | Text | No | Script text |
+| `wildlife_heading` | Text | No | Section heading |
+| `wildlife_body_copy` | Textarea | No | Body text |
+| `wildlife_cta` | Link | No | CTA button |
+| `wildlife_images` | Gallery | No | Images for the section |
+
+---
+
+## 19. HOME_ACTIVITIES_SECTION
+
+**Layout name:** `activities_section`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `activities_eyebrow` | Text | No | Script text |
+| `activities_heading` | Text | No | Section heading |
+| `activities_items` | Repeater | No | See activity fields below |
+| `activities_cta` | Link | No | CTA button |
+
+**Activity Repeater Fields:**
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `activity_label` | Text | No | Activity name |
+| `activity_url` | Text | No | Link URL |
+| `activity_icon` | Image | No | Activity icon |
+
+---
+
+## 20. HOME_REVIEWS_SECTION
+
+**Layout name:** `reviews_section`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `reviews_eyebrow` | Text | No | Script text |
+| `reviews_heading` | Text | No | Section heading |
+| `reviews_items` | Repeater | No | See review fields below |
+
+**Review Repeater Fields:**
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `review_title` | Text | No | Review title |
+| `review_body` | Textarea | No | Review content |
+| `review_author` | Text | No | Reviewer name |
+| `review_source` | Text | No | e.g., "TripAdvisor" |
+
+---
+
+## 21. HOME_CTA_BANNER_SECTION
+
+**Layout name:** `cta_banner_section`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `cta_banner_heading` | Text | No | Main heading |
+| `cta_banner_subheading` | Text | No | Below heading |
+| `cta_banner_image` | Image | No | Background/section image |
+| `cta_banner_cta` | Link | No | CTA button |
 
 ---
 

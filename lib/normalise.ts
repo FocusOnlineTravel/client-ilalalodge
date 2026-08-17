@@ -193,6 +193,30 @@ function normaliseSection(wpSection: WPSection): PageSection {
     case 'info_bar':
       normaliseInfoBarSection(section, wpSection);
       break;
+    case 'hero_section':
+      normaliseHomeHeroSection(section, wpSection);
+      break;
+    case 'intro_section':
+      normaliseHomeIntroSection(section, wpSection);
+      break;
+    case 'stay_section':
+      normaliseHomeStaySection(section, wpSection);
+      break;
+    case 'dining_section':
+      normaliseHomeDiningSection(section, wpSection);
+      break;
+    case 'wildlife_section':
+      normaliseHomeWildlifeSection(section, wpSection);
+      break;
+    case 'activities_section':
+      normaliseHomeActivitiesSection(section, wpSection);
+      break;
+    case 'reviews_section':
+      normaliseHomeReviewsSection(section, wpSection);
+      break;
+    case 'cta_banner_section':
+      normaliseHomeCtaBannerSection(section, wpSection);
+      break;
     default:
       // Copy all fields for unknown layouts
       Object.assign(section, wpSection);
@@ -289,6 +313,10 @@ function normaliseTextMediaSection(section: Record<string, unknown>, wp: WPSecti
   section.cta_primary = normaliseLink(wp.cta_primary);
   section.cta_secondary = normaliseLink(wp.cta_secondary);
   section.cta_secondary_action = wp.cta_secondary_action;
+  section.cta_tertiary = normaliseLink(wp.cta_tertiary);
+  section.cta_tertiary_action = wp.cta_tertiary_action;
+  section.show_service_ctas = Boolean(wp.show_service_ctas);
+  section.service_email = wp.service_email;
 
   // Handle buttons array format
   if (wp.buttons) {
@@ -364,6 +392,7 @@ function normaliseMediaCarouselSection(section: Record<string, unknown>, wp: WPS
   section.eyebrow = wp.eyebrow;
   section.heading = wp.heading;
   section.display_mode = wp.display_mode || 'carousel';
+  section.items_per_slide = wp.items_per_slide || '3';
 
   if (wp.items || wp.images) {
     const items = (wp.items || wp.images) as unknown[];
@@ -371,6 +400,8 @@ function normaliseMediaCarouselSection(section: Record<string, unknown>, wp: WPS
       const i = item as Record<string, unknown>;
       return {
         title: i.title || '',
+        subtitle: i.subtitle || '',
+        description: i.description || '',
         media_type: i.media_type || 'image',
         image: normaliseImageField(i.image),
         pdf: i.pdf,
@@ -587,6 +618,122 @@ function normaliseInfoBarSection(section: Record<string, unknown>, wp: WPSection
   } else {
     section.items = [];
   }
+}
+
+// =============================================================================
+// HOMEPAGE SECTION NORMALISATION
+// =============================================================================
+
+function normaliseHomeHeroSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.hero_heading = wp.hero_heading;
+  section.hero_subheading = wp.hero_subheading;
+  section.hero_background_image = normaliseImageField(wp.hero_background_image);
+  section.hero_cta = normaliseLink(wp.hero_cta);
+  section.hero_video_url = wp.hero_video_url;
+  section.hero_scroll_label = wp.hero_scroll_label;
+}
+
+function normaliseHomeIntroSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.intro_eyebrow = wp.intro_eyebrow;
+  section.intro_heading = wp.intro_heading;
+  section.intro_body_copy = wp.intro_body_copy;
+  section.intro_cta = normaliseLink(wp.intro_cta);
+  section.intro_image = normaliseImageField(wp.intro_image);
+}
+
+function normaliseHomeStaySection(section: Record<string, unknown>, wp: WPSection): void {
+  section.stay_eyebrow = wp.stay_eyebrow;
+  section.stay_heading = wp.stay_heading;
+  section.stay_subheading = wp.stay_subheading;
+
+  if (wp.stay_rooms) {
+    const rooms = wp.stay_rooms as unknown[];
+    section.stay_rooms = rooms.map((room: unknown) => {
+      const r = room as Record<string, unknown>;
+      return {
+        room_name: r.room_name,
+        room_count: r.room_count,
+        room_description: r.room_description,
+        room_price_from: r.room_price_from,
+        room_price_suffix: r.room_price_suffix,
+        room_image: normaliseImageField(r.room_image),
+        room_cta: normaliseLink(r.room_cta),
+      };
+    });
+  } else {
+    section.stay_rooms = [];
+  }
+}
+
+function normaliseHomeDiningSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.dining_eyebrow = wp.dining_eyebrow;
+  section.dining_heading = wp.dining_heading;
+  section.dining_subheading = wp.dining_subheading;
+  section.dining_body_copy = wp.dining_body_copy;
+  section.dining_cta = normaliseLink(wp.dining_cta);
+  section.dining_cta_secondary = normaliseLink(wp.dining_cta_secondary);
+
+  if (wp.dining_images) {
+    section.dining_images = normaliseImageArray(wp.dining_images as unknown[]);
+  }
+}
+
+function normaliseHomeWildlifeSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.wildlife_eyebrow = wp.wildlife_eyebrow;
+  section.wildlife_heading = wp.wildlife_heading;
+  section.wildlife_body_copy = wp.wildlife_body_copy;
+  section.wildlife_cta = normaliseLink(wp.wildlife_cta);
+
+  if (wp.wildlife_images) {
+    section.wildlife_images = normaliseImageArray(wp.wildlife_images as unknown[]);
+  }
+}
+
+function normaliseHomeActivitiesSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.activities_eyebrow = wp.activities_eyebrow;
+  section.activities_heading = wp.activities_heading;
+  section.activities_cta = normaliseLink(wp.activities_cta);
+
+  if (wp.activities_items) {
+    const items = wp.activities_items as unknown[];
+    section.activities_items = items.map((item: unknown) => {
+      const i = item as Record<string, unknown>;
+      return {
+        activity_label: i.activity_label,
+        activity_url: i.activity_url,
+        activity_icon: normaliseImageField(i.activity_icon),
+      };
+    });
+  } else {
+    section.activities_items = [];
+  }
+}
+
+function normaliseHomeReviewsSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.reviews_eyebrow = wp.reviews_eyebrow;
+  section.reviews_heading = wp.reviews_heading;
+
+  if (wp.reviews_items) {
+    const items = wp.reviews_items as unknown[];
+    section.reviews_items = items.map((item: unknown) => {
+      const i = item as Record<string, unknown>;
+      return {
+        review_title: i.review_title,
+        review_body: i.review_body,
+        review_author: i.review_author,
+        review_source: i.review_source,
+      };
+    });
+  } else {
+    section.reviews_items = [];
+  }
+}
+
+function normaliseHomeCtaBannerSection(section: Record<string, unknown>, wp: WPSection): void {
+  section.cta_banner_heading = wp.cta_banner_heading;
+  section.cta_banner_subheading = wp.cta_banner_subheading;
+  section.cta_banner_image = normaliseImageField(wp.cta_banner_image);
+  section.cta_banner_cta = normaliseLink(wp.cta_banner_cta);
 }
 
 // =============================================================================
