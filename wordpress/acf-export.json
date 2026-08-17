@@ -3539,17 +3539,9 @@
                                         "name": "image",
                                         "aria-label": "",
                                         "type": "image",
-                                        "instructions": "",
+                                        "instructions": "Card image (always visible)",
                                         "required": false,
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_page_builder_media_carousel_items_media_type",
-                                                    "operator": "==",
-                                                    "value": "image"
-                                                }
-                                            ]
-                                        ],
+                                        "conditional_logic": false,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -3574,17 +3566,9 @@
                                         "name": "pdf",
                                         "aria-label": "",
                                         "type": "file",
-                                        "instructions": "",
+                                        "instructions": "Optional PDF menu to link to",
                                         "required": false,
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_page_builder_media_carousel_items_media_type",
-                                                    "operator": "==",
-                                                    "value": "pdf"
-                                                }
-                                            ]
-                                        ],
+                                        "conditional_logic": false,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
