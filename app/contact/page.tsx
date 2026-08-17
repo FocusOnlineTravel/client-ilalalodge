@@ -92,7 +92,7 @@ export default function ContactPage() {
               </h2>
               <ContactForm />
               <p className="text-xs text-brand-stem/60 mt-6 leading-relaxed">
-                Submitting will open your email client with your enquiry pre-filled. We aim to respond within one business day.
+                We aim to respond within one business day.
               </p>
             </div>
 

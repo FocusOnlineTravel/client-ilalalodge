@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 import { Send } from 'lucide-react';
 import { TOP_COUNTRIES, OTHER_COUNTRIES } from '@/lib/countries';
 
@@ -27,11 +28,6 @@ const HOW_FOUND_OPTIONS = [
   'Other',
 ];
 
-const RECIPIENTS: Record<EnquiryType, { email: string; subject: string }> = {
-  general: { email: 'guestrelations@ilalalodge.co.zw', subject: 'General Enquiry' },
-  accommodation: { email: 'onlinereservations@ilalalodge.com', subject: 'Accommodation Enquiry' },
-};
-
 const inputBase =
   'w-full px-4 py-3 bg-white border border-brand-stem/30 rounded-md text-brand-forest placeholder:text-brand-stem/40 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors';
 
@@ -39,6 +35,7 @@ const labelBase =
   'block text-xs uppercase tracking-wider text-brand-stem mb-2 font-semibold';
 
 export default function ContactForm() {
+  const router = useRouter();
   const [type, setType] = useState<EnquiryType>('general');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -51,33 +48,61 @@ export default function ContactForm() {
   const [nationality, setNationality] = useState('');
   const [howFound, setHowFound] = useState(HOW_FOUND_OPTIONS[0]);
   const [newsletter, setNewsletter] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const { email: recipient, subject } = RECIPIENTS[type];
+    if (submitting) return;
 
-    const lines: string[] = [];
-    lines.push(`Name: ${name}`);
-    lines.push(`Email: ${email}`);
-    if (phone) lines.push(`Phone: ${phone}`);
-    if (type === 'accommodation') {
-      if (arrival) lines.push(`Arrival: ${arrival}`);
-      if (departure) lines.push(`Departure: ${departure}`);
-      lines.push(`Guests: ${guests}`);
-      lines.push(`Room preference: ${roomPref}`);
-      if (nationality) lines.push(`Nationality: ${nationality}`);
-    }
-    if (howFound && howFound !== HOW_FOUND_OPTIONS[0]) {
-      lines.push(`How they found us: ${howFound}`);
-    }
-    lines.push(`Newsletter signup: ${newsletter ? 'Yes' : 'No'}`);
-    lines.push('');
-    lines.push('Message:');
-    lines.push(message);
+    setErrorMessage(null);
+    setSubmitting(true);
 
-    const body = encodeURIComponent(lines.join('\n'));
-    const subjectEncoded = encodeURIComponent(`${subject} from ${name || 'Website Visitor'}`);
-    window.location.href = `mailto:${recipient}?subject=${subjectEncoded}&body=${body}`;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type,
+          name,
+          email,
+          phone,
+          message,
+          howFound: howFound === HOW_FOUND_OPTIONS[0] ? '' : howFound,
+          newsletter,
+          ...(type === 'accommodation' && {
+            arrival,
+            departure,
+            guests,
+            roomPref,
+            nationality,
+          }),
+        }),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok) {
+        const firstValidationMessage =
+          data?.validation_messages && typeof data.validation_messages === 'object'
+            ? Object.values(data.validation_messages)[0]
+            : null;
+        setErrorMessage(
+          (firstValidationMessage as string | undefined) ??
+            data?.error ??
+            'Something went wrong. Please try again.'
+        );
+        return;
+      }
+
+      router.push(`/thank-you?type=${type}`);
+    } catch {
+      setErrorMessage(
+        'Unable to reach the server. Please check your connection and try again.'
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -265,13 +290,23 @@ export default function ContactForm() {
         </span>
       </label>
 
+      {errorMessage && (
+        <div
+          role="alert"
+          className="p-4 rounded-md border border-red-300 bg-red-50 text-sm text-red-800"
+        >
+          {errorMessage}
+        </div>
+      )}
+
       <div className="pt-2">
         <button
           type="submit"
-          className="inline-flex items-center justify-center gap-2.5 h-12 min-w-[200px] px-6 rounded-full bg-brand-forest text-white text-sm font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200"
+          disabled={submitting}
+          className="inline-flex items-center justify-center gap-2.5 h-12 min-w-[200px] px-6 rounded-full bg-brand-forest text-white text-sm font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           <Send className="w-4 h-4" strokeWidth={2} />
-          Send Enquiry
+          {submitting ? 'Sending…' : 'Send Enquiry'}
         </button>
       </div>
     </form>
