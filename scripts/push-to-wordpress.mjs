@@ -337,10 +337,50 @@ function normalizeFieldNames(section) {
 }
 
 /**
+ * Convert a homepage-bespoke CTA object { label, url, target } to ACF's link
+ * shape { url, title, target }. Returns null if input has no usable url.
+ */
+function homeCtaToAcfLink(cta) {
+  if (!cta || typeof cta !== 'object') return null;
+  if (!cta.url) return null;
+  return {
+    url: cta.url,
+    title: cta.label || cta.title || '',
+    target: cta.target || '_self',
+  };
+}
+
+/**
+ * Walk a homepage-bespoke section and remap every CTA object (any key ending
+ * in `_cta` or `_cta_secondary`) from { label, url, target } to ACF's
+ * { url, title, target } shape. Applied recursively to repeater rows.
+ */
+function transformHomeSectionCtas(section) {
+  if (!section || typeof section !== 'object') return;
+  for (const [key, value] of Object.entries(section)) {
+    if (Array.isArray(value)) {
+      value.forEach((v) => transformHomeSectionCtas(v));
+      continue;
+    }
+    if (value && typeof value === 'object' && 'label' in value && 'url' in value) {
+      if (/_cta(_secondary)?$/.test(key) || key === 'room_cta' || key === 'hero_cta') {
+        section[key] = homeCtaToAcfLink(value);
+      }
+    }
+  }
+}
+
+/**
  * Transform nested structures (e.g., icon_grid items)
  */
 function transformNestedStructures(section) {
   const layout = section.acf_fc_layout;
+
+  // Homepage bespoke layouts: rewrite CTAs from { label, url, target } to
+  // ACF's { url, title, target } shape (recursively for stay_rooms etc.).
+  if (typeof layout === 'string' && layout.endsWith('_section')) {
+    transformHomeSectionCtas(section);
+  }
 
   // Transform icon_grid icons to have required icon field
   if (layout === 'icon_grid' && section.icons) {

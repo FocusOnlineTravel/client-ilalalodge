@@ -339,6 +339,20 @@ export const InfoBarSectionSchema = SectionSettingsSchema.extend({
 // UNION SCHEMA
 // =============================================================================
 
+// Homepage bespoke section schemas. Permissive — the bespoke components
+// consume the object directly, so we validate the discriminator only.
+const homeSectionSchema = (name) =>
+  SectionSettingsSchema.extend({ acf_fc_layout: z.literal(name) }).passthrough();
+
+export const HomeHeroSectionSchema = homeSectionSchema('hero_section');
+export const HomeIntroSectionSchema = homeSectionSchema('intro_section');
+export const HomeStaySectionSchema = homeSectionSchema('stay_section');
+export const HomeDiningSectionSchema = homeSectionSchema('dining_section');
+export const HomeWildlifeSectionSchema = homeSectionSchema('wildlife_section');
+export const HomeActivitiesSectionSchema = homeSectionSchema('activities_section');
+export const HomeReviewsSectionSchema = homeSectionSchema('reviews_section');
+export const HomeCtaBannerSectionSchema = homeSectionSchema('cta_banner_section');
+
 export const PageSectionSchema = z.discriminatedUnion('acf_fc_layout', [
   HeroSectionSchema,
   TextBlockSectionSchema,
@@ -353,6 +367,14 @@ export const PageSectionSchema = z.discriminatedUnion('acf_fc_layout', [
   TimelineSectionSchema,
   RateTableSectionSchema,
   InfoBarSectionSchema,
+  HomeHeroSectionSchema,
+  HomeIntroSectionSchema,
+  HomeStaySectionSchema,
+  HomeDiningSectionSchema,
+  HomeWildlifeSectionSchema,
+  HomeActivitiesSectionSchema,
+  HomeReviewsSectionSchema,
+  HomeCtaBannerSectionSchema,
 ]);
 
 // =============================================================================
