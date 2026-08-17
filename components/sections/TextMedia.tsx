@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { TextMediaSection } from '@/types/sections';
 import FadeInView from '@/components/animations/FadeInView';
 import ImageSlider from '@/components/ui/ImageSlider';
+import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import { X, Mail } from 'lucide-react';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -364,6 +365,13 @@ export default function TextMedia({ data }: Props) {
                     {data.cta_tertiary.title}
                   </Link>
                 )
+              )}
+              {data.show_service_ctas && (
+                <ServiceCTAs
+                  theme={isDarkTheme ? 'dark' : 'light'}
+                  align="start"
+                  email={data.service_email}
+                />
               )}
             </div>
 

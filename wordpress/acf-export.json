@@ -1565,6 +1565,56 @@
                                 "save_options": 0
                             },
                             {
+                                "key": "field_page_builder_text_media_show_service_ctas",
+                                "label": "Show Service CTAs",
+                                "name": "show_service_ctas",
+                                "aria-label": "",
+                                "type": "true_false",
+                                "instructions": "Renders the WhatsApp / Email / Call trio below any CTA buttons.",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "message": "",
+                                "default_value": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": "",
+                                "ui": 1
+                            },
+                            {
+                                "key": "field_page_builder_text_media_service_email",
+                                "label": "Service Email",
+                                "name": "service_email",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "Email address used by the Email button in the Service CTAs.",
+                                "required": false,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_page_builder_text_media_show_service_ctas",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
                                 "key": "field_page_builder_text_media_tab_media",
                                 "label": "Media",
                                 "name": "",

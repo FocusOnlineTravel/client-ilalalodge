@@ -107,6 +107,8 @@
       "buttons": [
         { "text": "View Menu", "url": "/documents/Ilala-Spa-Menu_Final.pdf", "style": "secondary", "external": true }
       ],
+      "show_service_ctas": true,
+      "service_email": "activities@palmhospitality.co.zw",
       "section_theme": "light",
       "spacing_top": "medium",
       "spacing_bottom": "medium",
