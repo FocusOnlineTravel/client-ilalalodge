@@ -123,6 +123,35 @@ export default function CtaBanner({ data }: Props) {
     );
   }
 
+  // Download banner: a cta_banner whose primary CTA links to a PDF is rendered
+  // as a compact daisy-bg strip with a single large document-icon button, so
+  // "Download the Special Offer PDF" doesn't need its own section type in ACF.
+  const primaryIsPdf =
+    !hasImage &&
+    !data.show_service_ctas &&
+    data.cta_primary?.url &&
+    /\.pdf(\?|#|$)/i.test(data.cta_primary.url);
+
+  if (primaryIsPdf && data.cta_primary) {
+    return (
+      <section className="py-12 md:py-16 bg-brand-daisy" id={data.anchor_id}>
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <Link
+            href={data.cta_primary.url}
+            target={data.cta_primary.target || '_blank'}
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-brand-forest text-white font-semibold uppercase tracking-wider text-sm hover:bg-brand-forest/90 transition-colors rounded-full"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            {data.cta_primary.title}
+          </Link>
+        </div>
+      </section>
+    );
+  }
+
   // Centered layout with solid background
   return (
     <section className={`py-24 md:py-32 ${bgClass} ${textColorClass} text-center`} id={data.anchor_id}>

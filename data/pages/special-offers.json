@@ -37,7 +37,7 @@
       "eyebrow": "Limited Time Offer",
       "heading": "Seasonal Special",
       "body": "<p>Take advantage of our Seasonal Special and enjoy an unforgettable stay at Ilala Lodge Hotel at exceptional value. Perfectly positioned just a short walk from the iconic Victoria Falls, our boutique hotel offers the ideal base from which to experience one of the world's greatest natural wonders.</p><p>Whether you're planning a romantic escape, an adventure-filled holiday or a relaxing getaway, this limited-time offer lets you experience the warmth, comfort and personalised service Ilala Lodge Hotel is known for, while enjoying significant savings on your stay.</p>",
-      "text_align": "left",
+      "text_align": "center",
       "max_width": "medium",
       "section_theme": "light",
       "spacing_top": "large",
@@ -62,8 +62,9 @@
     },
     {
       "acf_fc_layout": "accordion",
-      "heading": "Terms & Conditions",
+      "heading": "",
       "enable_categories": false,
+      "static_display": true,
       "items": [
         {
           "title": "Terms & Conditions",

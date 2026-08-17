@@ -32,6 +32,29 @@ export default function Accordion({ data }: Props) {
     }
   };
 
+  // Static display: single always-open boxed block (e.g. Terms & Conditions).
+  // The item content is treated as prose with gold bullet points; no toggle.
+  if (data.static_display) {
+    return (
+      <section className={`py-16 md:py-24 ${bgClass}`} id={data.anchor_id}>
+        <div className="max-w-4xl mx-auto px-4">
+          {data.items.map((item, index) => (
+            <div
+              key={index}
+              className="bg-brand-daisy/50 border border-brand-stem/20 rounded-lg p-6 md:p-8"
+            >
+              <h3 className="font-serif text-xl text-brand-forest mb-4">{item.title}</h3>
+              <div
+                className="text-brand-forest/70 text-sm md:text-base leading-relaxed prose prose-sm max-w-none [&_ul]:list-none [&_ul]:pl-0 [&_ul]:space-y-2 [&_li]:relative [&_li]:pl-6 [&_li:before]:content-['•'] [&_li:before]:absolute [&_li:before]:left-0 [&_li:before]:text-brand-gold [&_p]:mb-4 [&_p:last-child]:mb-0"
+                dangerouslySetInnerHTML={{ __html: item.content }}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className={`py-16 md:py-24 ${bgClass}`} id={data.anchor_id}>
       <div className="max-w-4xl mx-auto px-4">

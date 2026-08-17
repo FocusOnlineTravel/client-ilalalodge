@@ -462,6 +462,7 @@ function normaliseAccordionSection(section: Record<string, unknown>, wp: WPSecti
   section.allow_multiple = Boolean(wp.allow_multiple);
   section.default_open = wp.default_open;
   section.enable_schema = Boolean(wp.enable_schema);
+  section.static_display = Boolean(wp.static_display);
 
   if (wp.items) {
     const items = wp.items as unknown[];

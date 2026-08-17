@@ -268,6 +268,7 @@ function normalizeFieldNames(section) {
       hero_image: 'image',
       hero_video_url: 'video_url',
       hero_carousel: 'carousel_images',
+      hero_eyebrow: 'eyebrow',
       hero_heading: 'heading',
       hero_subheading: 'subheading',
       hero_height: 'height',
