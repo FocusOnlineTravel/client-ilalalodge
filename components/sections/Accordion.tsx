@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { AccordionSection } from '@/types/sections';
-import { ChevronDown } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 interface Props {
   data: AccordionSection;
@@ -81,31 +81,34 @@ export default function Accordion({ data }: Props) {
             return (
               <div
                 key={index}
-                className="border border-brand-stem/20 rounded-lg overflow-hidden"
+                className="bg-white rounded-lg overflow-hidden"
               >
                 <button
                   onClick={() => toggleItem(index)}
-                  className={`w-full flex items-center justify-between p-4 lg:p-6 text-left ${
-                    isOpen ? 'bg-brand-forest text-white' : 'bg-white text-brand-forest hover:bg-brand-daisy'
-                  } transition-colors`}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-4 bg-brand-forest text-white text-left group"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-serif text-lg lg:text-xl pr-4">{item.title}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
-                  />
+                  <span className="font-serif text-xl md:text-2xl">{item.title}</span>
+                  <span className="flex-shrink-0">
+                    <Plus
+                      className={`w-6 h-6 text-brand-gold transition-transform duration-300 ${
+                        isOpen ? 'rotate-45' : ''
+                      }`}
+                      strokeWidth={2}
+                    />
+                  </span>
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? 'max-h-[2000px]' : 'max-h-0'
+                  className={`grid transition-all duration-300 ease-out ${
+                    isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
                   }`}
                 >
-                  <div
-                    className="p-4 lg:p-6 text-brand-stem bg-white prose prose-sm max-w-none [&>p]:mb-4 [&>p:last-child]:mb-0"
-                    dangerouslySetInnerHTML={{ __html: item.content }}
-                  />
+                  <div className="overflow-hidden">
+                    <div
+                      className="px-6 py-5 text-brand-forest/80 leading-relaxed prose prose-sm max-w-none [&>ul]:list-disc [&>ul]:list-outside [&>ul]:ml-5 [&>ul]:space-y-3 [&>p]:mb-4 [&>p:last-child]:mb-0"
+                      dangerouslySetInnerHTML={{ __html: item.content }}
+                    />
+                  </div>
                 </div>
               </div>
             );

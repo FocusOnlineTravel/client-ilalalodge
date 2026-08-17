@@ -91,7 +91,18 @@ export default function Hero({ data }: Props) {
     tall: 'h-[80vh]',
     medium: 'h-[70vh]',
     compact: 'h-[50vh]',
+    short: 'h-[50vh] min-h-[350px]',
   }[data.height || 'tall'];
+
+  // Solid-colour hero: no media, section renders on its section_theme colour
+  // with a subtle gradient overlay for text depth.
+  const colorBgClass = {
+    dark: 'bg-brand-forest',
+    forest: 'bg-brand-forest',
+    accent: 'bg-brand-daisy',
+    light: 'bg-white',
+  }[data.section_theme] || 'bg-brand-forest';
+  const isColorHero = data.media_type === 'color' || (!data.image && !data.video_url && !data.carousel_images?.length);
 
   const spacingBottomClass = {
     none: 'mb-0',
@@ -100,20 +111,27 @@ export default function Hero({ data }: Props) {
     large: 'mb-[100px]',
   }[data.spacing_bottom || 'large'];
 
-  const textPositionClass = data.text_position === 'center'
-    ? 'items-center justify-center'
-    : 'items-end justify-center pb-24 lg:pb-32';
+  // Short/color heroes default to centred text (rates-style banners); taller
+  // heroes with media default to bottom-aligned text.
+  const centredTextDefault = isColorHero || data.height === 'short' || data.height === 'compact';
+  const textPositionClass =
+    data.text_position === 'center' || (centredTextDefault && data.text_position !== 'bottom')
+      ? 'items-center justify-center'
+      : 'items-end justify-center pb-24 lg:pb-32';
 
   const overlayOpacity = data.overlay_opacity ?? 20;
 
   return (
     <>
-      <section className={`relative ${heightClass} w-full flex ${textPositionClass} ${spacingBottomClass} overflow-hidden`}>
+      <section className={`relative ${heightClass} w-full flex ${textPositionClass} ${spacingBottomClass} overflow-hidden ${isColorHero ? colorBgClass : ''}`}>
         {/* Background Media with Parallax */}
         <div
           className="absolute inset-0 z-0"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
+          {isColorHero && (
+            <div className={`absolute inset-0 ${colorBgClass} bg-gradient-to-b from-brand-forest/80 to-brand-forest`} />
+          )}
           {data.media_type === 'video' && data.video_url && (
             <video
               src={data.video_url}

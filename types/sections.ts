@@ -109,6 +109,7 @@ export interface Card {
   carousel_images?: AcfImage[];
   video_url?: string;
   title: string;
+  slug?: string;
   description?: string;
   details?: CardDetail[];
   cta_primary?: AcfLink;
@@ -120,7 +121,7 @@ export interface CardGridSection extends SectionSettings {
   eyebrow?: string;
   heading?: string;
   subheading?: string;
-  card_type: 'room' | 'activity' | 'feature' | 'content' | 'cpt_rooms' | 'image_carousel';
+  card_type: 'room' | 'activity' | 'feature' | 'content' | 'cpt_rooms' | 'image_carousel' | 'room_listing';
   columns?: '2' | '3' | '4';
   cards?: Card[];
   rooms?: string[]; // Room IDs when card_type = 'cpt_rooms'

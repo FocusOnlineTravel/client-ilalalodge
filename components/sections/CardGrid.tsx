@@ -3,6 +3,88 @@ import Link from 'next/link';
 import { CardGridSection, Card } from '@/types/sections';
 import FadeInView from '@/components/animations/FadeInView';
 import CardCarousel from '@/components/activities/CardCarousel';
+import { BOOKING_URL } from '@/lib/constants';
+import { Maximize2, Users, BedDouble, Tag } from 'lucide-react';
+
+const roomDetailIconMap = {
+  size: Maximize2,
+  sleeps: Users,
+  beds: BedDouble,
+  price: Tag,
+} as const;
+
+function RoomListingCard({ card, index }: { card: Card; index: number }) {
+  const flipped = index % 2 === 1;
+  const href = card.cta_primary?.url || `/our-rooms/${card.slug || card.title.toLowerCase().replace(/\s+/g, '-')}`;
+  const bookHref = card.cta_secondary?.url || BOOKING_URL;
+  return (
+    <FadeInView
+      className={`grid md:grid-cols-2 gap-8 items-center ${flipped ? 'md:grid-flow-dense' : ''}`}
+    >
+      <Link
+        href={href}
+        className={`relative aspect-[4/3] md:aspect-[1/1] block overflow-hidden group ${flipped ? 'md:col-start-2' : ''}`}
+      >
+        {card.image && (
+          <Image
+            src={card.image.url}
+            alt={card.image.alt}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
+      </Link>
+      <div className={`px-4 md:px-8 lg:px-12 ${flipped ? 'md:col-start-1' : ''}`}>
+        <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-4">{card.title}</h2>
+        {card.description && (
+          <p className="text-brand-forest/70 leading-relaxed mb-6">{card.description}</p>
+        )}
+        {card.details && card.details.length > 0 && (
+          <div className="grid grid-cols-4 gap-4 mb-6 pb-6 border-b border-brand-stem/20">
+            {card.details.map((detail, i) => {
+              const Icon = roomDetailIconMap[detail.icon as keyof typeof roomDetailIconMap] || Maximize2;
+              return (
+                <div key={i} className="flex flex-col items-center text-center">
+                  <Icon className="w-5 h-5 text-brand-gold mb-2" strokeWidth={1.5} />
+                  <div className="text-xs uppercase tracking-wider text-brand-stem/60 mb-0.5">{detail.label}</div>
+                  <div className="text-base font-serif text-brand-forest leading-tight">
+                    {detail.icon === 'price'
+                      ? detail.value.split(' / ').map((part, pi) => {
+                          const [price, suffix] = part.split(' ');
+                          return (
+                            <span key={pi}>
+                              {pi > 0 && <span className="text-[#888] text-xs"> / </span>}
+                              {price} <span className="text-[#888] text-xs lowercase">{suffix}</span>
+                            </span>
+                          );
+                        })
+                      : detail.value}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+        <div className="flex flex-wrap gap-4">
+          <Link
+            href={href}
+            className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 border border-brand-forest text-brand-forest font-semibold uppercase tracking-wide hover:bg-brand-forest hover:text-white transition-all duration-200 rounded-full"
+          >
+            {card.cta_primary?.title || 'View Details'}
+          </Link>
+          <a
+            href={bookHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 bg-brand-forest text-white font-semibold uppercase tracking-wide hover:bg-brand-forest/90 transition-all duration-200 rounded-full"
+          >
+            {card.cta_secondary?.title || 'Book Now'}
+          </a>
+        </div>
+      </div>
+    </FadeInView>
+  );
+}
 
 // Map room names to their slugs
 const roomSlugMap: Record<string, string> = {
@@ -165,7 +247,19 @@ export default function CardGrid({ data }: Props) {
           </FadeInView>
         )}
 
+        {/* Room listing: stacked full-width rows, no grid columns wrapper */}
+        {data.card_type === 'room_listing' && (
+          <div className="mx-auto">
+            <div className="grid gap-12 md:gap-16">
+              {data.cards?.map((card, index) => (
+                <RoomListingCard key={index} card={card} index={index} />
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Cards Grid */}
+        {data.card_type !== 'room_listing' && (
         <div className="mx-auto">
           <div className={`grid ${columnClass} gap-8 lg:gap-12`}>
             {data.cards?.map((card, index) => {
@@ -262,6 +356,7 @@ export default function CardGrid({ data }: Props) {
             })}
           </div>
         </div>
+        )}
       </div>
     </section>
   );
