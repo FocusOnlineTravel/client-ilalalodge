@@ -26,6 +26,12 @@
       "enable_filters": true,
       "columns": 4,
       "images": [],
+      "rooms_gallery": [],
+      "dining_gallery": [],
+      "pool_bar_gallery": [],
+      "conferencing_gallery": [],
+      "wildlife_gallery": [],
+      "hotel_grounds_gallery": [],
       "section_theme": "light",
       "spacing_top": "large",
       "spacing_bottom": "large"

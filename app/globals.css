@@ -210,3 +210,12 @@ section {
 .animate-fade-in-right {
   animation: fade-in-right 0.8s ease-out forwards;
 }
+
+/* =============================================================================
+   PAGE-SPECIFIC OVERRIDES
+   ============================================================================= */
+
+/* Home page: larger heading in text-media sections */
+.page-home section h2 {
+  @apply text-3xl lg:text-5xl;
+}

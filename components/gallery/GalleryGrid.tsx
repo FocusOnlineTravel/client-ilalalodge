@@ -9,7 +9,7 @@ type Category = 'rooms' | 'dining' | 'pool' | 'conferencing' | 'wildlife' | 'hot
 interface GalleryImage {
   src: string;
   alt: string;
-  category: Category;
+  category: string;
 }
 
 const FILTERS: { id: Category | 'all'; label: string }[] = [
@@ -22,105 +22,29 @@ const FILTERS: { id: Category | 'all'; label: string }[] = [
   { id: 'hotel', label: 'Hotel & Grounds' },
 ];
 
-const galleryImages: GalleryImage[] = [
-  { src: '/images/Strathern-Suite-Bedroom.jpeg', alt: 'Strathearn Suite Bedroom', category: 'rooms' },
-  { src: '/images/Classic-Suite-ILH--1334x1000.jpg', alt: 'Classic Suite at Ilala Lodge', category: 'rooms' },
-  { src: '/images/Executive-Suite-Bedroom-ILH-1500x1000.jpeg', alt: 'Executive Suite Bedroom', category: 'rooms' },
-  { src: '/images/Deluxe-Room-King-ILH--1500x1000.jpeg', alt: 'Deluxe Room with King bed', category: 'rooms' },
-  { src: '/images/accommodation-classic.png', alt: 'Classic Room', category: 'rooms' },
-  { src: '/images/accommodation-luxury.png', alt: 'Luxury accommodation', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Classic-Double-01.jpg', alt: 'Classic Double Room', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Classic-Suite-01.jpg', alt: 'Classic Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Classic-Suite-03.jpg', alt: 'Classic Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Classic-Suite-05.jpg', alt: 'Classic Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Classic-Suite-06.jpg', alt: 'Classic Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Classic-Twin-Adjoined-01.jpg', alt: 'Classic Twin Adjoined Room', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Deluxe-Double-01.jpg', alt: 'Deluxe Double Room', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Deluxe-Double-05.jpg', alt: 'Deluxe Double Room', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Deluxe-Double-10.jpg', alt: 'Deluxe Double Room', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Deluxe-Twin-01.jpg', alt: 'Deluxe Twin Room', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Executive-Suite-01.jpg', alt: 'Executive Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Executive-Suite-03.jpg', alt: 'Executive Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Executive-Suite-06.jpg', alt: 'Executive Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Executive-Suite-08.jpg', alt: 'Executive Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Executive-Suite-09.jpg', alt: 'Executive Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Executive-Suite-12.jpg', alt: 'Executive Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Strathearn-Suite-02.jpg', alt: 'Strathearn Suite', category: 'rooms' },
-  { src: '/images/Ilala-Lodge-Accommodation-Strathearn-Suite-08.jpg', alt: 'Strathearn Suite', category: 'rooms' },
-
-  { src: '/images/dining-banner.jpg', alt: 'Cassia Restaurant ambience', category: 'dining' },
-  { src: '/images/dining-1.png', alt: 'Cassia Restaurant', category: 'dining' },
-  { src: '/images/dining-2.png', alt: 'Breakfast at Cassia', category: 'dining' },
-  { src: '/images/dining-3.png', alt: 'Lunch at Cassia', category: 'dining' },
-  { src: '/images/dining-4.png', alt: 'Dinner under African skies', category: 'dining' },
-  { src: '/images/dining-5.png', alt: 'High Tea at Palm River Hotel', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-02.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-07.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-15.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-16.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-19.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-22.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-26.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-29.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-31.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-34.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-1-Breakfast-35.jpg', alt: 'Breakfast at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-2-Lunch-02.jpg', alt: 'Lunch at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-2-Lunch-05.jpg', alt: 'Lunch at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-2-Lunch-08.jpg', alt: 'Lunch at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-2-Lunch-09.jpg', alt: 'Lunch at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-01.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-02.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-05.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-06.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-07.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-09.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-12.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-18.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-19.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-22.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-  { src: '/images/Ilala-Lodge-Dining-3-Dinner-28.jpg', alt: 'Dinner at Cassia Restaurant', category: 'dining' },
-
-  { src: '/images/Ilala-Lodge-Facilities-Pools-01.jpg', alt: 'Swimming Pool', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Pools-05.jpg', alt: 'Swimming Pool', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Pools-07.jpg', alt: 'Swimming Pool', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Pools-30.jpg', alt: 'Swimming Pool', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Pools-13.jpg', alt: 'Swimming Pool', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Pools-14.jpg', alt: 'Swimming Pool', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Pools-35.jpg', alt: 'Swimming Pool', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-02.jpg', alt: 'Poolside Bar', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-05.jpg', alt: 'Poolside Bar', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-06.jpg', alt: 'Poolside Bar', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-01.jpg', alt: 'Poolside Bar', category: 'pool' },
-  { src: '/images/Ilala-Lodge-Facilities-Poolside-Bar-08.jpg', alt: 'Poolside Bar', category: 'pool' },
-
-  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-01.jpg', alt: 'Conference Room', category: 'conferencing' },
-  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-02.jpg', alt: 'Conference Room', category: 'conferencing' },
-  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-04.jpg', alt: 'Conference Room', category: 'conferencing' },
-  { src: '/images/Ilala-Lodge-Facilities-Conference-Room-05.jpg', alt: 'Conference Room', category: 'conferencing' },
-
-  { src: '/images/wildlife-1.png', alt: 'Elephants on the hotel lawns', category: 'wildlife' },
-  { src: '/images/wildlife-2.png', alt: 'Wildlife at Ilala Lodge', category: 'wildlife' },
-  { src: '/images/wildlife-3.png', alt: 'Wildlife encounter at Victoria Falls', category: 'wildlife' },
-  { src: '/images/wildlife-4.png', alt: 'Wildlife viewing from the gardens', category: 'wildlife' },
-
-  { src: '/images/banner-image.png', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
-  { src: '/images/intr0-image.png', alt: 'Hotel gardens', category: 'hotel' },
-  { src: '/images/pool.png', alt: 'Hotel pool', category: 'hotel' },
-  { src: '/images/night5.jpg', alt: 'Ilala Lodge at night', category: 'hotel' },
-  { src: '/images/banner-image-2-cropped.png', alt: 'Hotel landscape view', category: 'hotel' },
-  { src: '/images/Ilala-Lodge-Exteriors-07.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
-  { src: '/images/Ilala-Lodge-Exteriors-08.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
-  { src: '/images/Ilala-Lodge-Exteriors-12.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
-  { src: '/images/Ilala-Lodge-Exteriors-16.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
-  { src: '/images/Ilala-Lodge-Exteriors-19.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
-  { src: '/images/Ilala-Lodge-Exteriors-20.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
-  { src: '/images/Ilala-Lodge-Exteriors-23.jpg', alt: 'Ilala Lodge Hotel exterior', category: 'hotel' },
-];
-
 export default function GalleryGrid() {
   const [activeFilter, setActiveFilter] = useState<Category | 'all'>('all');
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch gallery images from WordPress
+  useEffect(() => {
+    async function fetchGallery() {
+      try {
+        const res = await fetch('/api/gallery');
+        if (res.ok) {
+          const data = await res.json();
+          setGalleryImages(data.images || []);
+        }
+      } catch (error) {
+        console.error('Failed to fetch gallery:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchGallery();
+  }, []);
 
   const filteredImages =
     activeFilter === 'all'
@@ -153,6 +77,14 @@ export default function GalleryGrid() {
   useEffect(() => {
     setSelectedIndex(null);
   }, [activeFilter]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center py-20">
+        <div className="text-brand-forest">Loading gallery...</div>
+      </div>
+    );
+  }
 
   return (
     <>

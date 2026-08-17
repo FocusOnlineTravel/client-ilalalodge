@@ -86,9 +86,9 @@ export default function CtaBanner({ data }: Props) {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-3xl mx-auto px-4 text-center text-white">
+        <div className="relative z-10 max-w-[72rem] mx-auto px-4 text-center text-white">
           {data.eyebrow && (
-            <span className="text-brand-gold font-script text-4xl md:text-6xl block mb-4">
+            <span className="text-brand-gold font-script text-5xl md:text-[6.5rem] block mb-4">
               {data.eyebrow}
             </span>
           )}
@@ -101,9 +101,10 @@ export default function CtaBanner({ data }: Props) {
             </p>
           )}
           {data.content && (
-            <p className="text-white/80 mb-8">
-              {data.content}
-            </p>
+            <p
+              className="text-white/80 mb-8"
+              dangerouslySetInnerHTML={{ __html: data.content }}
+            />
           )}
           {data.show_service_ctas ? (
             <ServiceCTAs theme="dark" email={data.service_email} />
@@ -125,13 +126,13 @@ export default function CtaBanner({ data }: Props) {
   // Centered layout with solid background
   return (
     <section className={`py-24 md:py-32 ${bgClass} ${textColorClass} text-center`} id={data.anchor_id}>
-      <div className="max-w-3xl mx-auto px-4">
+      <div className="max-w-[72rem] mx-auto px-4">
         {data.eyebrow && (
-          <p className={`font-script text-4xl md:text-6xl ${data.section_theme === 'accent' ? 'text-brand-forest' : 'text-brand-gold'} mb-4`}>
+          <p className={`font-script text-5xl md:text-[6.5rem] ${data.section_theme === 'accent' ? 'text-brand-forest' : 'text-brand-gold'} mb-4`}>
             {data.eyebrow}
           </p>
         )}
-        <h2 className="font-serif text-2xl md:text-4xl uppercase tracking-wide mb-6">
+        <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-wide mb-6">
           {data.heading}
         </h2>
         {data.subheading && (
@@ -140,9 +141,10 @@ export default function CtaBanner({ data }: Props) {
           </p>
         )}
         {data.content && (
-          <p className={subTextColorClass + ' mb-8'}>
-            {data.content}
-          </p>
+          <p
+            className={subTextColorClass + ' mb-8'}
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          />
         )}
         {data.show_service_ctas ? (
           <ServiceCTAs

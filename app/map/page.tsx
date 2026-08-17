@@ -99,9 +99,9 @@ export default function MapPage() {
             <div className="text-center p-6 bg-brand-daisy">
               <h3 className="font-serif text-2xl text-brand-forest mb-4">By Air</h3>
               <p className="text-brand-forest/70 leading-relaxed mb-4">
-                Victoria Falls International Airport (VFA) is just 20 minutes from the hotel. We can arrange airport transfers upon request.
+                Victoria Falls International Airport (VFA) is just 25 minutes from the hotel. We can arrange airport transfers upon request.
               </p>
-              <p className="text-sm text-brand-stem font-semibold">20 min from airport</p>
+              <p className="text-sm text-brand-stem font-semibold">25 min from airport</p>
             </div>
             <div className="text-center p-6 bg-brand-daisy">
               <h3 className="font-serif text-2xl text-brand-forest mb-4">By Road</h3>
@@ -111,9 +111,9 @@ export default function MapPage() {
               <p className="text-sm text-brand-stem font-semibold">Easy border access</p>
             </div>
             <div className="text-center p-6 bg-brand-daisy">
-              <h3 className="font-serif text-2xl text-brand-forest mb-4">Hotel Transfers</h3>
+              <h3 className="font-serif text-2xl text-brand-forest mb-4">Inter-Hotel Transfers</h3>
               <p className="text-brand-forest/70 leading-relaxed mb-4">
-                We offer complimentary transfers from Victoria Falls Airport and can arrange transport from Kasane or Livingstone.
+                A complimentary shuttle service operates between Palm River Hotel and Ilala Lodge Hotel for the convenience of our guests.
               </p>
               <p className="text-sm text-brand-stem font-semibold">Contact us to arrange</p>
             </div>

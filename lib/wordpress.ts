@@ -146,15 +146,12 @@ export async function getPageBySlugFromWP(slug: string): Promise<PageData | null
   // Normalize slug - empty or root becomes 'home'
   const normalizedSlug = !slug || slug === '' || slug === '/' ? 'home' : slug;
 
-  // Check cache first
-  if (pageCache.has(normalizedSlug)) {
-    return pageCache.get(normalizedSlug)!;
-  }
-
+  // Skip in-memory cache to ensure fresh content from WordPress
+  // Next.js fetch caching with revalidate handles performance
   try {
     const response = await wpFetch<WPPageResponse>(
       `/ilala/v1/page/${encodeURIComponent(normalizedSlug)}`,
-      { tags: [`page-${normalizedSlug}`] }
+      { tags: [`page-${normalizedSlug}`], revalidate: 60 }
     );
 
     const pageData = normalisePageData(response);
@@ -294,6 +291,191 @@ export function clearPageCache(slug?: string): void {
  */
 export function clearOptionsCache(): void {
   optionsCache = null;
+}
+
+// =============================================================================
+// ROOM FETCHING
+// =============================================================================
+
+export interface WPRoom {
+  id: number;
+  slug: string;
+  title: { rendered: string };
+  acf: {
+    short_description?: string;
+    full_description?: string;
+    gallery?: number[] | WPImage[];
+    hero_images?: number[] | WPImage[];
+    floorplan?: string | { url: string };
+    room_count?: number;
+    size?: string;
+    sleeps?: number;
+    beds?: string;
+    price_from?: string;
+    amenities?: Array<{ amenity: string; icon?: number | WPImage }>;
+  };
+  acf_resolved?: {
+    short_description?: string;
+    full_description?: string;
+    gallery?: WPImage[];
+    hero_images?: WPImage[];
+    floorplan?: string | { url: string };
+    room_count?: number;
+    size?: string;
+    sleeps?: number;
+    beds?: string;
+    price_from?: string;
+    amenities?: Array<{ amenity: string; icon?: WPImage }>;
+  };
+}
+
+export interface Room {
+  slug: string;
+  title: string;
+  shortDescription: string;
+  description: string;
+  image: string;
+  heroImages: string[];
+  gallery: string[];
+  floorplan?: string;
+  roomCount: number;
+  size: string;
+  sleeps: number;
+  beds: string;
+  priceFrom: string;
+  amenities: Array<{ text: string; icon?: string }>;
+}
+
+/**
+ * Normalise WordPress room data to frontend format
+ */
+function normaliseRoom(wpRoom: WPRoom): Room {
+  const acf = wpRoom.acf_resolved || wpRoom.acf || {};
+
+  // Helper to extract image URL
+  const getImageUrl = (img: number | WPImage | undefined): string | null => {
+    if (!img) return null;
+    if (typeof img === 'number') return null; // Can't resolve ID without API call
+    return img.url || img.sizes?.large || img.sizes?.full || null;
+  };
+
+  // Helper to extract gallery URLs
+  const getGalleryUrls = (gallery: number[] | WPImage[] | undefined): string[] => {
+    if (!gallery || !Array.isArray(gallery)) return [];
+    return gallery
+      .map(img => getImageUrl(img))
+      .filter((url): url is string => url !== null);
+  };
+
+  const heroImages = getGalleryUrls(acf.hero_images);
+  const gallery = getGalleryUrls(acf.gallery);
+
+  // Get floorplan URL
+  let floorplan: string | undefined;
+  if (acf.floorplan) {
+    if (typeof acf.floorplan === 'string') {
+      floorplan = acf.floorplan;
+    } else if (acf.floorplan.url) {
+      floorplan = acf.floorplan.url;
+    }
+  }
+
+  // Normalise amenities
+  const amenities = (acf.amenities || []).map(item => ({
+    text: item.amenity || '',
+    icon: getImageUrl(item.icon) || undefined,
+  }));
+
+  return {
+    slug: wpRoom.slug,
+    title: wpRoom.title.rendered || '',
+    shortDescription: acf.short_description || '',
+    description: acf.full_description || '',
+    image: heroImages[0] || gallery[0] || '',
+    heroImages,
+    gallery,
+    floorplan,
+    roomCount: acf.room_count || 0,
+    size: acf.size || '',
+    sleeps: acf.sleeps || 0,
+    beds: acf.beds || '',
+    priceFrom: acf.price_from || '',
+    amenities,
+  };
+}
+
+// Room cache
+const roomCache = new Map<string, Room>();
+let allRoomsCache: Room[] | null = null;
+
+/**
+ * Get all rooms from WordPress
+ */
+export async function getAllRoomsFromWP(): Promise<Room[]> {
+  // Skip in-memory cache to ensure gallery order changes are picked up
+  // Next.js fetch caching with revalidate handles performance
+  try {
+    const rooms = await wpFetch<WPRoom[]>('/wp/v2/room?per_page=100&_embed', {
+      tags: ['rooms'],
+      revalidate: 60, // Refresh every 60 seconds to pick up gallery reordering
+    });
+
+    const normalised = rooms.map(normaliseRoom);
+    allRoomsCache = normalised; // Still cache for other uses
+    return normalised;
+  } catch (error) {
+    console.error('[WordPress] Failed to fetch rooms:', error);
+    return [];
+  }
+}
+
+/**
+ * Get a room by slug from WordPress
+ */
+export async function getRoomBySlugFromWP(slug: string): Promise<Room | null> {
+  // Skip in-memory cache to ensure gallery order changes are picked up
+  try {
+    const rooms = await wpFetch<WPRoom[]>(
+      `/wp/v2/room?slug=${encodeURIComponent(slug)}&_embed`,
+      { tags: [`room-${slug}`], revalidate: 60 }
+    );
+
+    if (!rooms || rooms.length === 0) {
+      return null;
+    }
+
+    const room = normaliseRoom(rooms[0]);
+    roomCache.set(slug, room);
+    return room;
+  } catch (error) {
+    console.error(`[WordPress] Failed to fetch room "${slug}":`, error);
+    return null;
+  }
+}
+
+/**
+ * Get all room slugs for static generation
+ */
+export async function getAllRoomSlugsFromWP(): Promise<string[]> {
+  try {
+    const rooms = await getAllRoomsFromWP();
+    return rooms.map(room => room.slug);
+  } catch (error) {
+    console.error('[WordPress] Failed to fetch room slugs:', error);
+    return [];
+  }
+}
+
+/**
+ * Clear room cache
+ */
+export function clearRoomCache(slug?: string): void {
+  if (slug) {
+    roomCache.delete(slug);
+  } else {
+    roomCache.clear();
+    allRoomsCache = null;
+  }
 }
 
 // =============================================================================

@@ -13,6 +13,11 @@ export default function MediaCarousel({ data }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
 
+  // Return null if no items
+  if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
+    return null;
+  }
+
   const bgClass = {
     light: 'bg-white',
     dark: 'bg-brand-forest',

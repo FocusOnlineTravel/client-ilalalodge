@@ -106,20 +106,32 @@ export default function CardGrid({ data }: Props) {
     '4': 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
   }[columns];
 
+  const maxWidthClass = {
+    medium: 'max-w-4xl',
+    wide: 'max-w-6xl',
+    full: 'max-w-7xl',
+  }[data.max_width || 'full'];
+
+  const sectionHeadingSizeClass = {
+    small: 'text-3xl md:text-4xl',
+    default: 'text-3xl lg:text-5xl',
+    large: 'text-4xl lg:text-6xl',
+  }[data.card_size || 'default'];
+
   return (
     <section className={`py-16 lg:py-24 ${bgClass}`} id={data.anchor_id || 'accommodation'}>
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className={`${maxWidthClass} mx-auto px-4`}>
         {/* Section Header */}
         {(data.eyebrow || data.heading) && (
           <FadeInView>
-            <div className="text-center mb-12 lg:mb-16">
+            <div className="text-center mb-8 lg:mb-12">
               {data.eyebrow && (
                 <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
                   {data.eyebrow}
                 </span>
               )}
               {data.heading && (
-                <h2 className="font-serif text-3xl lg:text-5xl text-brand-forest mb-4">
+                <h2 className={`font-serif ${sectionHeadingSizeClass} text-brand-forest mb-4`}>
                   {data.heading}
                 </h2>
               )}
@@ -133,7 +145,7 @@ export default function CardGrid({ data }: Props) {
         )}
 
         {/* Cards Grid */}
-        <div className="max-w-7xl mx-auto">
+        <div className="mx-auto">
           <div className={`grid ${columnClass} gap-8 lg:gap-12`}>
             {data.cards?.map((card, index) => {
               const isLast = index === data.cards!.length - 1;
@@ -152,8 +164,32 @@ export default function CardGrid({ data }: Props) {
               }
 
               // Generic card
+              const textAlignClass = {
+                left: 'text-left',
+                center: 'text-center',
+                right: 'text-right',
+              }[data.text_align || 'left'];
+
+              const headingSizeClass = {
+                small: 'text-xl',
+                default: 'text-xl lg:text-2xl',
+                large: 'text-2xl lg:text-3xl',
+              }[data.card_size || 'default'];
+
+              const descriptionSizeClass = {
+                small: 'text-sm',
+                default: 'text-sm lg:text-base',
+                large: 'text-base lg:text-lg',
+              }[data.card_size || 'default'];
+
+              const descriptionColorClass = {
+                small: 'text-brand-forest/70',
+                default: 'text-brand-stem',
+                large: 'text-brand-stem',
+              }[data.card_size || 'default'];
+
               return (
-                <FadeInView key={index} delay={index * 100} className="flex flex-col">
+                <FadeInView key={index} delay={index * 100} className={`flex flex-col ${textAlignClass}`}>
                   {card.image && (
                     <div className="relative aspect-[4/3] mb-4 overflow-hidden">
                       <Image
@@ -164,18 +200,18 @@ export default function CardGrid({ data }: Props) {
                       />
                     </div>
                   )}
-                  <h3 className="font-serif text-xl lg:text-2xl text-brand-forest mb-2">
+                  <h3 className={`font-serif ${headingSizeClass} text-brand-forest mb-3`}>
                     {card.title}
                   </h3>
                   {card.description && (
-                    <p className="text-brand-stem text-sm lg:text-base mb-4">
+                    <p className={`${descriptionColorClass} ${descriptionSizeClass} mb-4`}>
                       {card.description}
                     </p>
                   )}
                   {card.cta_primary && (
                     <Link
                       href={card.cta_primary.url}
-                      className="text-brand-gold hover:text-brand-forest transition-colors font-semibold uppercase tracking-wide text-sm mt-auto"
+                      className={`text-brand-gold hover:text-brand-forest transition-colors font-semibold uppercase tracking-wide text-sm mt-auto ${textAlignClass === 'text-center' ? 'mx-auto' : ''}`}
                     >
                       {card.cta_primary.title} →
                     </Link>

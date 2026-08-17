@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { BOOKING_URL } from '@/lib/constants';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import ImageSlider from '@/components/ui/ImageSlider';
+import VideoHero from '@/components/accommodation/VideoHero';
 
 export const metadata = {
   title: 'Our Facilities | Ilala Lodge Hotel',
@@ -36,12 +37,8 @@ const conferencingImages = [
 
 const spaImages = [
   { src: '/images/Ilala-Lodge-Facilities-Spa-01.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-03.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-04.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-05.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-06.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-07.jpg', alt: 'Spa Treatments' },
-  { src: '/images/Ilala-Lodge-Facilities-Spa-08.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-10.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-11.jpg', alt: 'Spa Treatments' },
   { src: '/images/Ilala-Lodge-Facilities-Spa-12.jpg', alt: 'Spa Treatments' },
@@ -51,27 +48,14 @@ export default function FacilitiesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <video
-            src="https://streamable.com/l/683t2l/mp4-high.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            Our Facilities
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            Ilala Lodge Hotel
-          </p>
-        </div>
-      </section>
+      <VideoHero videoUrl="https://streamable.com/l/683t2l/mp4-high.mp4">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+          Our Facilities
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          Ilala Lodge Hotel
+        </p>
+      </VideoHero>
 
       {/* Introduction */}
       <section className="py-16 md:py-24 bg-brand-daisy">
@@ -110,6 +94,14 @@ export default function FacilitiesPage() {
                   className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
                 >
                   Snack Menu
+                </a>
+                <a
+                  href="https://client-ilalalodge.vercel.app/documents/ILH_WineList_2026%20(Online).pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+                >
+                  Wine Menu
                 </a>
               </div>
             </div>

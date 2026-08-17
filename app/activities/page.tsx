@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCTAs from '@/components/ui/ServiceCTAs';
 import CardCarousel from '@/components/activities/CardCarousel';
+import VideoHero from '@/components/accommodation/VideoHero';
 
 export const metadata = {
   title: 'Activities & Experiences | Ilala Lodge Hotel Victoria Falls',
@@ -87,7 +88,6 @@ const wildlifeActivities = [
     title: 'Cruises on the Zambezi River',
     description: 'Wildlife often seen along the riverbanks during cruises and other water-based activities, with opportunities to spot hippos, crocodiles, and diverse birdlife.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-41.jpg',
       '/images/Cruises on the Zambezi-1.jpg',
       '/images/Cruises on the Zambezi-2.jpg',
       '/images/Cruises on the Zambezi-3.jpg',
@@ -101,7 +101,6 @@ const relaxationActivities = [
     title: 'Sunrise River Cruise',
     description: 'Begin the day on the Zambezi River as the sun rises, with tea, coffee, and pastries served on board while the bush comes alive around you.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunrise-12.jpg',
       '/images/Breakfast_Birdwathing Cruise-1.JPG',
       '/images/Breakfast_Birdwathing Cruise-2.jpg',
       '/images/Breakfast_Birdwathing Cruise-3.jpg',
@@ -112,7 +111,6 @@ const relaxationActivities = [
     title: 'Sunset Cruise',
     description: 'Drift along the Upper Zambezi as the sun sets, with drinks and snacks served on board.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-15.jpg',
       '/images/Sunset Cruise-1.jpg',
       '/images/Sunset Cruise-2.jpg',
       '/images/Sunset Cruise-3.jpg',
@@ -123,7 +121,6 @@ const relaxationActivities = [
     title: 'Lunch Cruise',
     description: 'A leisurely cruise over lunch, taking in the river at a relaxed pace.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-02.jpg',
       '/images/Lunch Cruise-1.jpg',
       '/images/Lunch Cruise-2.jpg',
       '/images/Lunch Cruise-3.jpg',
@@ -134,7 +131,6 @@ const relaxationActivities = [
     title: 'Intimate Cruises',
     description: 'Private or small-group cruises on the Zambezi for a more exclusive experience, ideal for special occasions or those seeking a quieter setting.',
     images: [
-      '/images/Ilala-Lodge-Experience-River-Cruise-Sunset-26.jpg',
       '/images/Intimate Cruises-1.jpg',
       '/images/Intimate Cruises-2.jpg',
       '/images/Intimate Cruises-3.jpg',
@@ -263,29 +259,14 @@ export default function ActivitiesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <video
-            src="https://streamable.com/l/0sspng/mp4-high.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            aria-label="Victoria Falls Activities"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            Activities
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            Adventure Capital of Africa
-          </p>
-        </div>
-      </section>
+      <VideoHero videoUrl="https://streamable.com/l/0sspng/mp4-high.mp4">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+          Activities
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          Adventure Capital of Africa
+        </p>
+      </VideoHero>
 
       {/* Intro */}
       <section className="py-16 md:py-24 bg-brand-daisy">
@@ -343,7 +324,7 @@ export default function ActivitiesPage() {
         id="wildlife"
         eyebrow="Game viewing in every direction"
         heading="Wildlife"
-        intro="The area surrounding Victoria Falls is rich in wildlife, with opportunities for both short excursions and full-day safaris. Game drives, cross-border trips to Chobe and Hwange, and Zambezi cruises each open up a different angle on the region's wildlife."
+        intro="The area surrounding Victoria Falls is rich in wildlife, with opportunities for both short excursions and full-day safaris. Explore nearby game reserves, take a day trip to Hwange National Park in Zimbabwe, cross into Botswana for a safari in the Chobe National Park, or enjoy a cruise on the Zambezi River—each showcasing the region's exceptional wildlife."
         items={wildlifeActivities}
         bg="bg-gradient-to-b from-white to-brand-daisy"
         cardBg="bg-white"

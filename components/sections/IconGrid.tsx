@@ -41,6 +41,11 @@ export default function IconGrid({ data }: Props) {
         {/* Icons Grid */}
         <div className="flex flex-wrap justify-center gap-8 lg:gap-12 my-16 max-w-6xl mx-auto">
           {data.icons.map((item, index) => {
+            // Skip items without icons
+            if (!item.icon || !item.icon.url) {
+              return null;
+            }
+
             const inner = (
               <>
                 <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300">

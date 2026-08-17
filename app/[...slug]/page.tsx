@@ -10,17 +10,18 @@ export const revalidate = 3600;
 export const dynamicParams = true;
 
 interface PageProps {
-  params: Promise<{ slug?: string[] }>;
+  params: Promise<{ slug: string[] }>;
 }
 
 export async function generateStaticParams() {
   const slugs = await getAllPageSlugs();
-  return slugs.map((slug) => ({ slug: slug.length === 0 ? undefined : slug }));
+  // Filter out empty slugs (homepage) since we use app/page.tsx for that
+  return slugs.filter((slug) => slug.length > 0).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const slugPath = slug?.join('/') || '';
+  const slugPath = slug.join('/');
   const page = await getPageBySlug(slugPath);
 
   if (!page) {
@@ -42,12 +43,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  const slugPath = slug?.join('/') || '';
+  const slugPath = slug.join('/');
   const page = await getPageBySlug(slugPath);
 
   if (!page) {
     notFound();
   }
 
-  return <SectionRenderer sections={page.page_sections} />;
+  return <SectionRenderer sections={page.page_sections} pageSlug={slugPath} />;
 }

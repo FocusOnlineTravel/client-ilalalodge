@@ -140,8 +140,13 @@ function normaliseSection(wpSection: WPSection): PageSection {
 
   // Copy section settings with defaults
   section.section_theme = wpSection.section_theme || 'light';
-  section.spacing_top = wpSection.spacing_top || 'default';
-  section.spacing_bottom = wpSection.spacing_bottom || 'default';
+  // Map 'medium' to 'default' for backwards compatibility
+  const normalizeSpacing = (val: unknown) => {
+    if (val === 'medium') return 'default';
+    return val || 'default';
+  };
+  section.spacing_top = normalizeSpacing(wpSection.spacing_top);
+  section.spacing_bottom = normalizeSpacing(wpSection.spacing_bottom);
   if (wpSection.anchor_id) section.anchor_id = wpSection.anchor_id;
   if (wpSection.custom_background) {
     section.custom_background = normaliseImageField(wpSection.custom_background);
@@ -207,7 +212,10 @@ function normaliseHeroSection(section: Record<string, unknown>, wp: WPSection): 
   section.subheading = wp.subheading || wp.hero_subheading;
   section.eyebrow = wp.eyebrow || wp.hero_eyebrow;
   section.height = wp.height || wp.hero_height || 'tall';
-  section.overlay_opacity = wp.overlay_opacity ?? wp.hero_overlay_opacity ?? 30;
+  section.text_position = wp.text_position || 'bottom';
+  // Parse overlay_opacity to number (WordPress may send as string)
+  const opacity = wp.overlay_opacity ?? wp.hero_overlay_opacity ?? 30;
+  section.overlay_opacity = typeof opacity === 'string' ? parseInt(opacity, 10) : opacity;
   section.image = normaliseImageField(wp.image || wp.hero_image);
   section.video_url = wp.video_url || wp.hero_video_url;
   section.show_play_button = Boolean(wp.show_play_button);
@@ -233,13 +241,44 @@ function normaliseTextMediaSection(section: Record<string, unknown>, wp: WPSecti
   section.eyebrow = wp.eyebrow;
   section.heading = wp.heading || '';
   section.subheading = wp.subheading;
+  section.highlight = wp.highlight;
   section.content = wp.content || wp.body || '';
   section.media_position = wp.media_position || 'right';
   section.media_type = wp.media_type || 'image';
   section.layout_ratio = wp.layout_ratio || '50_50';
-  section.media_height = wp.media_height;
+  section.max_width = wp.max_width || 'full';
+  // Normalize media_height - handle various ACF field formats
+  if (wp.media_height !== undefined && wp.media_height !== null && wp.media_height !== false) {
+    let heightValue: string | undefined;
+
+    if (typeof wp.media_height === 'string') {
+      heightValue = wp.media_height;
+    } else if (typeof wp.media_height === 'number') {
+      heightValue = String(wp.media_height);
+    } else if (typeof wp.media_height === 'object') {
+      const obj = wp.media_height as Record<string, unknown>;
+      // Try common ACF object structures
+      heightValue = String(
+        obj.value || obj.name || obj.slug || obj.label ||
+        obj.height || obj.size || Object.values(obj)[0] || ''
+      );
+    }
+
+    // Only set if we got a valid value
+    if (heightValue && heightValue !== 'undefined' && heightValue !== 'null') {
+      section.media_height = heightValue;
+    }
+  }
 
   section.image = normaliseImageField(wp.image);
+  // Handle image_link as either a string URL or ACF Link object
+  if (wp.image_link) {
+    if (typeof wp.image_link === 'string') {
+      section.image_link = wp.image_link;
+    } else if (typeof wp.image_link === 'object' && (wp.image_link as Record<string, unknown>).url) {
+      section.image_link = (wp.image_link as Record<string, unknown>).url as string;
+    }
+  }
   section.video_url = wp.video_url;
 
   if (wp.gallery_images || wp.gallery) {
@@ -264,6 +303,9 @@ function normaliseCardGridSection(section: Record<string, unknown>, wp: WPSectio
   section.card_type = wp.card_type || wp.card_style || 'content';
   section.columns = normaliseColumns(wp.columns);
   section.show_price_pill = Boolean(wp.show_price_pill);
+  section.text_align = wp.text_align || 'left';
+  section.card_size = wp.card_size || 'default';
+  section.max_width = wp.max_width || 'full';
 
   if (wp.cards) {
     section.cards = normaliseCardsArray(wp.cards as unknown[]);
@@ -277,7 +319,8 @@ function normaliseIconGridSection(section: Record<string, unknown>, wp: WPSectio
   section.heading = wp.heading;
   section.layout = wp.layout || 'grid';
   section.show_download = Boolean(wp.show_download);
-  section.download_file = wp.download_file;
+  // Handle download_file - WordPress may send false instead of undefined
+  section.download_file = typeof wp.download_file === 'string' ? wp.download_file : undefined;
   section.download_label = wp.download_label;
 
   if (wp.icons || wp.items) {
@@ -298,7 +341,7 @@ function normaliseIconGridSection(section: Record<string, unknown>, wp: WPSectio
 function normaliseTestimonialCarouselSection(section: Record<string, unknown>, wp: WPSection): void {
   section.eyebrow = wp.eyebrow;
   section.heading = wp.heading;
-  section.cards_per_slide = wp.cards_per_slide || '1';
+  section.cards_per_slide = String(wp.cards_per_slide || '1');
   section.auto_advance = Boolean(wp.auto_advance);
 
   if (wp.reviews || wp.testimonials) {
@@ -344,19 +387,61 @@ function normaliseGallerySection(section: Record<string, unknown>, wp: WPSection
   section.enable_filters = Boolean(wp.enable_filters);
   section.columns = normaliseColumns(wp.columns);
   section.max_width = wp.max_width;
+  section.aspect_ratio = wp.aspect_ratio || '4:3';
 
-  if (wp.images) {
+  // Category gallery field mappings (field name -> display label)
+  const categoryGalleries: { field: string; label: string }[] = [
+    { field: 'rooms_gallery', label: 'Rooms & Suites' },
+    { field: 'dining_gallery', label: 'Dining' },
+    { field: 'pool_bar_gallery', label: 'Pool & Bar' },
+    { field: 'conferencing_gallery', label: 'Conferencing' },
+    { field: 'wildlife_gallery', label: 'Wildlife' },
+    { field: 'hotel_grounds_gallery', label: 'Hotel & Grounds' },
+  ];
+
+  // Check if any category galleries exist
+  const hasCategoryGalleries = categoryGalleries.some(
+    ({ field }) => wp[field] && Array.isArray(wp[field]) && (wp[field] as unknown[]).length > 0
+  );
+
+  if (hasCategoryGalleries) {
+    // Merge all category galleries into single images array with category labels
+    const mergedImages: Record<string, unknown>[] = [];
+
+    for (const { field, label } of categoryGalleries) {
+      const galleryImages = wp[field] as unknown[] | undefined;
+      if (galleryImages && Array.isArray(galleryImages)) {
+        for (const img of galleryImages) {
+          const i = img as Record<string, unknown>;
+          // Gallery field returns flat image objects (not nested)
+          const imageData = i.image ? normaliseImageField(i.image) : normaliseImageField(i);
+          if (imageData) {
+            mergedImages.push({
+              image: imageData,
+              url: imageData.url,
+              alt: imageData.alt || '',
+              caption: '',
+              category: label, // Auto-assign category based on field
+            });
+          }
+        }
+      }
+    }
+
+    section.images = mergedImages;
+  } else if (wp.images) {
+    // General images gallery (flat array of images, no categories)
     const images = wp.images as unknown[];
     section.images = images.map((img: unknown) => {
       const i = img as Record<string, unknown>;
-      // Handle both direct image and nested image object
+      // Handle both gallery field (flat image) and repeater format (nested image object)
       const imageData = i.image ? normaliseImageField(i.image) : normaliseImageField(i);
       return {
         image: imageData,
         url: imageData?.url,
-        alt: imageData?.alt || i.alt || '',
-        caption: i.caption || '',
-        category: i.category || '',
+        alt: imageData?.alt || '',
+        caption: '',
+        category: '',
       };
     });
   } else {

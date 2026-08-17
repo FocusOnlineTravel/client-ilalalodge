@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { accommodationData } from '@/data/accommodation';
+import { getRoomBySlug, getAllRoomSlugs, getAllRooms } from '@/lib/content';
 import { BOOKING_URL } from '@/lib/constants';
 import RoomGallery from '@/components/accommodation/RoomGallery';
 import OtherRoomsCarousel from '@/components/accommodation/OtherRoomsCarousel';
@@ -63,14 +63,13 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return accommodationData.rooms.map((room) => ({
-    slug: room.slug,
-  }));
+  const slugs = await getAllRoomSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const room = accommodationData.rooms.find((r) => r.slug === slug);
+  const room = await getRoomBySlug(slug);
 
   if (!room) {
     return {
@@ -86,13 +85,14 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function RoomPage({ params }: Props) {
   const { slug } = await params;
-  const room = accommodationData.rooms.find((r) => r.slug === slug);
+  const room = await getRoomBySlug(slug);
 
   if (!room) {
     notFound();
   }
 
-  const otherRooms = accommodationData.rooms.filter((r) => r.slug !== slug);
+  const allRooms = await getAllRooms();
+  const otherRooms = allRooms.filter((r) => r.slug !== slug);
 
   return (
     <>
@@ -101,21 +101,22 @@ export default async function RoomPage({ params }: Props) {
         <HeroCarousel
           images={room.heroImages || [room.image]}
           title={room.title}
-        />
-        <div className="relative z-10 text-center text-white px-4">
-          <Link
-            href="/our-rooms"
-            className="inline-block text-sm uppercase tracking-wider text-white/80 hover:text-brand-gold transition-colors mb-4"
-          >
-            &larr; Back to All Rooms
-          </Link>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
-            {room.title}
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            {room.shortDescription}
-          </p>
-        </div>
+        >
+          <div className="text-center text-white px-4">
+            <Link
+              href="/our-rooms"
+              className="inline-block text-sm uppercase tracking-wider text-white/80 hover:text-brand-gold transition-colors mb-4"
+            >
+              &larr; Back to All Rooms
+            </Link>
+            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
+              {room.title}
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+              {room.shortDescription}
+            </p>
+          </div>
+        </HeroCarousel>
       </section>
 
       {/* Quick Info Bar */}
@@ -156,29 +157,26 @@ export default async function RoomPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Description Section */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-white to-brand-daisy">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-8 text-center">
+            Our {room.title}
+          </h2>
+          <div
+            className="prose prose-lg max-w-none text-brand-stem text-lg leading-relaxed [&>p]:mb-6"
+            dangerouslySetInnerHTML={{ __html: room.description }}
+          />
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 md:py-20 bg-brand-daisy">
         <div className="container mx-auto px-4">
           <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-8">
             Gallery
           </h2>
           <RoomGallery images={room.gallery} title={room.title} />
-        </div>
-      </section>
-
-      {/* Description Section */}
-      <section className="py-16 md:py-20 bg-brand-daisy">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-8 text-center">
-            Our {room.title}
-          </h2>
-          <div className="prose prose-lg max-w-none">
-            {room.description.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-brand-stem text-lg leading-relaxed mb-6">
-                {paragraph}
-              </p>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -190,13 +188,14 @@ export default async function RoomPage({ params }: Props) {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 lg:gap-10">
             {room.amenities.map((amenity, index) => {
-              const iconPath = getAmenityIcon(amenity);
+              // Use WordPress icon if available, otherwise fall back to local icon mapping
+              const iconPath = amenity.icon || getAmenityIcon(amenity.text);
               return (
                 <div key={index} className="flex flex-col items-center text-center gap-4 p-4">
                   {iconPath ? (
                     <Image
                       src={iconPath}
-                      alt={amenity}
+                      alt={amenity.text}
                       width={60}
                       height={60}
                       className="w-14 h-14 object-contain"
@@ -206,7 +205,7 @@ export default async function RoomPage({ params }: Props) {
                       <Circle className="w-10 h-10 text-brand-gold" strokeWidth={1} />
                     </div>
                   )}
-                  <span className="text-brand-forest text-sm">{amenity}</span>
+                  <span className="text-brand-forest text-sm">{amenity.text}</span>
                 </div>
               );
             })}

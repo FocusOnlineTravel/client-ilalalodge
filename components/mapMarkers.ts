@@ -29,10 +29,12 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "2",
-    "x": 1260,
-    "y": 476,
+    "x": 1246,
+    "y": 443,
     "title": "The Palm River Hotel",
     "blurb": "Elegant riverside hotel blending luxury accommodation with peaceful Zambezi River surroundings.",
+    "link": "https://www.palmriverhotel.com",
+    "linkText": "Visit Palm River Hotel",
     "category": "attraction",
     "label": "B",
     "isPrimary": true,
@@ -245,8 +247,8 @@ export const markers: MapMarker[] = [
   },
   {
     "id": "poi-45",
-    "x": 1719,
-    "y": 985,
+    "x": 2126,
+    "y": 872,
     "title": "Elephant Hills Golf Course",
     "blurb": "Championship golf course surrounded by wildlife, indigenous bush, and scenic landscapes.",
     "icon": "camera",
@@ -293,9 +295,11 @@ export const markers: MapMarker[] = [
     "id": "poi-25",
     "x": 3234,
     "y": 2567,
-    "title": "Zimbabwe Border Post",
-    "icon": "museum",
-    "pinColor": "#311caa"
+    "title": "Entrance to Victoria Falls",
+    "link": "/victoria-falls/",
+    "linkText": "Victoria Falls",
+    "icon": "camera",
+    "pinColor": "#2563EB"
   },
   {
     "id": "poi-26",

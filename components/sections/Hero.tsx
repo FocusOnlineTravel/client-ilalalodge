@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HeroSection } from '@/types/sections';
 import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ENABLE_TITLE_FADE, VIDEO_TITLE_FADE_DELAY } from '@/lib/hero-config';
 
 interface Props {
   data: HeroSection;
@@ -14,6 +15,8 @@ export default function Hero({ data }: Props) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [titleVisible, setTitleVisible] = useState(true);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,16 +27,57 @@ export default function Hero({ data }: Props) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-advance carousel
-  useEffect(() => {
+  // Start/restart auto-advance timer
+  const startCarouselTimer = useCallback(() => {
     if (data.media_type !== 'carousel' || !data.carousel_images?.length) return;
-
-    const interval = setInterval(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % data.carousel_images!.length);
     }, 5000);
-
-    return () => clearInterval(interval);
   }, [data.media_type, data.carousel_images]);
+
+  const goToSlide = useCallback((index: number) => {
+    setCurrentSlide(index);
+    startCarouselTimer();
+  }, [startCarouselTimer]);
+
+  const goToPrevSlide = useCallback(() => {
+    if (!data.carousel_images) return;
+    setCurrentSlide((prev) => (prev - 1 + data.carousel_images!.length) % data.carousel_images!.length);
+    startCarouselTimer();
+  }, [data.carousel_images, startCarouselTimer]);
+
+  const goToNextSlide = useCallback(() => {
+    if (!data.carousel_images) return;
+    setCurrentSlide((prev) => (prev + 1) % data.carousel_images!.length);
+    startCarouselTimer();
+  }, [data.carousel_images, startCarouselTimer]);
+
+  // Auto-advance carousel
+  useEffect(() => {
+    startCarouselTimer();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [startCarouselTimer]);
+
+  // Fade title after delay for video heroes
+  useEffect(() => {
+    if (!ENABLE_TITLE_FADE || data.media_type !== 'video') return;
+
+    const timeout = setTimeout(() => {
+      setTitleVisible(false);
+    }, VIDEO_TITLE_FADE_DELAY);
+
+    return () => clearTimeout(timeout);
+  }, [data.media_type]);
+
+  // Fade title when carousel moves past first slide
+  useEffect(() => {
+    if (!ENABLE_TITLE_FADE || data.media_type !== 'carousel') return;
+
+    setTitleVisible(currentSlide === 0);
+  }, [currentSlide, data.media_type]);
 
   const openVideo = () => {
     setIsVideoOpen(true);
@@ -44,16 +88,27 @@ export default function Hero({ data }: Props) {
   };
 
   const heightClass = {
-    tall: 'h-[85vh]',
+    tall: 'h-[80vh]',
     medium: 'h-[70vh]',
     compact: 'h-[50vh]',
   }[data.height || 'tall'];
+
+  const spacingBottomClass = {
+    none: 'mb-0',
+    small: 'mb-8',
+    default: 'mb-16 lg:mb-24',
+    large: 'mb-[100px]',
+  }[data.spacing_bottom || 'large'];
+
+  const textPositionClass = data.text_position === 'center'
+    ? 'items-center justify-center'
+    : 'items-end justify-center pb-24 lg:pb-32';
 
   const overlayOpacity = data.overlay_opacity ?? 20;
 
   return (
     <>
-      <section className={`relative ${heightClass} w-full flex items-end justify-center pb-24 lg:pb-32 mb-[100px] overflow-hidden`}>
+      <section className={`relative ${heightClass} w-full flex ${textPositionClass} ${spacingBottomClass} overflow-hidden`}>
         {/* Background Media with Parallax */}
         <div
           className="absolute inset-0 z-0"
@@ -105,14 +160,14 @@ export default function Hero({ data }: Props) {
               {data.carousel_images.length > 1 && (
                 <>
                   <button
-                    onClick={() => setCurrentSlide((prev) => (prev - 1 + data.carousel_images!.length) % data.carousel_images!.length)}
+                    onClick={goToPrevSlide}
                     className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition-all"
                     aria-label="Previous image"
                   >
                     <ChevronLeft className="h-6 w-6" />
                   </button>
                   <button
-                    onClick={() => setCurrentSlide((prev) => (prev + 1) % data.carousel_images!.length)}
+                    onClick={goToNextSlide}
                     className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition-all"
                     aria-label="Next image"
                   >
@@ -123,7 +178,7 @@ export default function Hero({ data }: Props) {
                     {data.carousel_images.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => setCurrentSlide(index)}
+                        onClick={() => goToSlide(index)}
                         className={`w-2 h-2 rounded-full transition-all ${
                           index === currentSlide ? 'bg-white w-6' : 'bg-white/50'
                         }`}
@@ -144,7 +199,9 @@ export default function Hero({ data }: Props) {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
+        <div className={`relative z-10 container mx-auto px-4 text-center text-white transition-opacity duration-1000 ${
+          ENABLE_TITLE_FADE && !titleVisible ? 'opacity-0' : 'opacity-100'
+        }`}>
           {data.eyebrow && (
             <span className="text-brand-gold font-script text-4xl md:text-5xl lg:text-6xl block mb-4">
               {data.eyebrow}
@@ -199,7 +256,7 @@ export default function Hero({ data }: Props) {
 
           {/* Video Container */}
           <div
-            className="relative w-full max-w-5xl aspect-video"
+            className="relative w-full max-w-7xl aspect-video"
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
