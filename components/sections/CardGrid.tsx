@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CardGridSection, Card } from '@/types/sections';
 import FadeInView from '@/components/animations/FadeInView';
+import CardCarousel from '@/components/activities/CardCarousel';
 
 // Map room names to their slugs
 const roomSlugMap: Record<string, string> = {
@@ -124,23 +125,43 @@ export default function CardGrid({ data }: Props) {
         {/* Section Header */}
         {(data.eyebrow || data.heading) && (
           <FadeInView>
-            <div className="text-center mb-8 lg:mb-12">
-              {data.eyebrow && (
-                <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
-                  {data.eyebrow}
-                </span>
-              )}
-              {data.heading && (
-                <h2 className={`font-serif ${sectionHeadingSizeClass} text-brand-forest mb-4`}>
-                  {data.heading}
-                </h2>
-              )}
-              {data.subheading && (
-                <p className="text-brand-stem text-lg max-w-2xl mx-auto">
-                  {data.subheading}
-                </p>
-              )}
-            </div>
+            {data.card_type === 'image_carousel' ? (
+              <div className="text-center mb-12 max-w-3xl mx-auto">
+                {data.eyebrow && (
+                  <p className="text-sm uppercase tracking-[0.2em] text-brand-gold mb-3">
+                    {data.eyebrow}
+                  </p>
+                )}
+                {data.heading && (
+                  <h2 className="font-serif text-3xl md:text-4xl text-brand-forest mb-6">
+                    {data.heading}
+                  </h2>
+                )}
+                {data.subheading && (
+                  <p className="text-lg text-brand-forest/70 leading-relaxed">
+                    {data.subheading}
+                  </p>
+                )}
+              </div>
+            ) : (
+              <div className="text-center mb-8 lg:mb-12">
+                {data.eyebrow && (
+                  <span className="text-brand-script font-script text-6xl lg:text-8xl block mb-2">
+                    {data.eyebrow}
+                  </span>
+                )}
+                {data.heading && (
+                  <h2 className={`font-serif ${sectionHeadingSizeClass} text-brand-forest mb-4`}>
+                    {data.heading}
+                  </h2>
+                )}
+                {data.subheading && (
+                  <p className="text-brand-stem text-lg max-w-2xl mx-auto">
+                    {data.subheading}
+                  </p>
+                )}
+              </div>
+            )}
           </FadeInView>
         )}
 
@@ -160,6 +181,26 @@ export default function CardGrid({ data }: Props) {
                     isLast={isLast}
                     isOdd={isOdd}
                   />
+                );
+              }
+
+              if (data.card_type === 'image_carousel') {
+                const cardBg = data.section_theme === 'light' ? 'bg-brand-daisy' : 'bg-white';
+                const imageUrls = (card.carousel_images || []).map((img) => img.url);
+                return (
+                  <FadeInView key={index} delay={index * 100} className={`${cardBg} overflow-hidden`}>
+                    <CardCarousel
+                      images={imageUrls}
+                      title={card.title}
+                      video={card.video_url}
+                    />
+                    <div className="p-6 lg:p-8">
+                      <h3 className="font-serif text-xl lg:text-2xl text-brand-forest mb-3">{card.title}</h3>
+                      {card.description && (
+                        <p className="text-brand-forest/70 leading-relaxed text-sm lg:text-base">{card.description}</p>
+                      )}
+                    </div>
+                  </FadeInView>
                 );
               }
 

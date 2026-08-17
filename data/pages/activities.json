@@ -3,7 +3,7 @@
   "slug": "activities",
   "seo": {
     "title": "Activities & Experiences | Ilala Lodge Hotel Victoria Falls",
-    "description": "Adventure, wildlife, relaxation and culture at Victoria Falls. From rafting and helicopter flights to game drives, river cruises and high tea — all bookable through the Activities Desk at Ilala Lodge Hotel."
+    "description": "Adventure, wildlife, relaxation and culture at Victoria Falls. From rafting and helicopter flights to game drives, river cruises and high tea \u2014 all bookable through the Activities Desk at Ilala Lodge Hotel."
   },
   "page_sections": [
     {
@@ -21,7 +21,7 @@
     {
       "acf_fc_layout": "text_block",
       "heading": "Victoria Falls Activities",
-      "body": "<p>Victoria Falls is one of Africa's leading destinations for adventure, wildlife, and culture, and Ilala Lodge Hotel is ideally positioned to experience it all.</p><p>From the Zambezi River to the surrounding national parks, the region offers a wide range of experiences to suit every pace of travel. Our Activities Desk is available to assist with planning and booking, including transfers and cross-border excursions.</p><p>Among the most popular experiences are Zambezi River cruises, helicopter flights over the Falls, Chobe Day Trips, and guided game drives — each offering a different perspective of this remarkable destination.</p>",
+      "body": "<p>Victoria Falls is one of Africa's leading destinations for adventure, wildlife, and culture, and Ilala Lodge Hotel is ideally positioned to experience it all.</p><p>From the Zambezi River to the surrounding national parks, the region offers a wide range of experiences to suit every pace of travel. Our Activities Desk is available to assist with planning and booking, including transfers and cross-border excursions.</p><p>Among the most popular experiences are Zambezi River cruises, helicopter flights over the Falls, Chobe Day Trips, and guided game drives \u2014 each offering a different perspective of this remarkable destination.</p>",
       "text_align": "center",
       "max_width": "medium",
       "section_theme": "accent",
@@ -34,11 +34,26 @@
       "columns": 5,
       "icon_style": "text",
       "items": [
-        { "label": "Relaxation", "link": "#relaxation" },
-        { "label": "Wildlife", "link": "#wildlife" },
-        { "label": "Cultural", "link": "#cultural" },
-        { "label": "Adventure", "link": "#adventure" },
-        { "label": "Featured Experiences", "link": "#featured-experiences" }
+        {
+          "label": "Relaxation",
+          "link": "#relaxation"
+        },
+        {
+          "label": "Wildlife",
+          "link": "#wildlife"
+        },
+        {
+          "label": "Cultural",
+          "link": "#cultural"
+        },
+        {
+          "label": "Adventure",
+          "link": "#adventure"
+        },
+        {
+          "label": "Featured Experiences",
+          "link": "#featured-experiences"
+        }
       ],
       "section_theme": "light",
       "spacing_top": "medium",
@@ -48,9 +63,8 @@
       "acf_fc_layout": "card_grid",
       "eyebrow": "A slower pace on the Zambezi",
       "heading": "Relaxation",
-      "subheading": "River cruises at sunrise, over lunch, or at sunset allow guests to take in the landscape at leisure. Smaller, more intimate cruise options offer a quieter setting still — see the Featured Experiences below for riverside dining and high tea.",
+      "subheading": "River cruises at sunrise, over lunch, or at sunset allow guests to take in the landscape at leisure. Smaller, more intimate cruise options offer a quieter setting still \u2014 see the Featured Experiences below for riverside dining and high tea.",
       "columns": 2,
-      "card_style": "image_carousel",
       "cards": [
         {
           "title": "Sunrise River Cruise",
@@ -100,7 +114,8 @@
       "section_theme": "light",
       "spacing_top": "large",
       "spacing_bottom": "large",
-      "anchor_id": "relaxation"
+      "anchor_id": "relaxation",
+      "card_type": "image_carousel"
     },
     {
       "acf_fc_layout": "card_grid",
@@ -108,11 +123,10 @@
       "heading": "Wildlife",
       "subheading": "The area surrounding Victoria Falls is rich in wildlife, with opportunities for both short excursions and full-day safaris. Game drives, cross-border trips to Chobe and Hwange, and Zambezi cruises each open up a different angle on the region's wildlife.",
       "columns": 2,
-      "card_style": "image_carousel",
       "cards": [
         {
           "title": "Game Drives",
-          "description": "Morning, afternoon, or evening drives in nearby national parks — opportunities for both short excursions and full-day safaris.",
+          "description": "Morning, afternoon, or evening drives in nearby national parks \u2014 opportunities for both short excursions and full-day safaris.",
           "images": [
             "/images/tourists-on-land-cruise-victoria-falls-zimbabwe-2026-03-25-02-18-59-utc.jpg",
             "/images/Game Drives-2.jpg",
@@ -134,7 +148,9 @@
         {
           "title": "Walk with Elephants",
           "description": "An unforgettable opportunity to walk alongside these gentle giants, learning about their behaviour and conservation in a natural setting.",
-          "images": ["/images/Ilala-Lodge-Experience-Elephant-Walk-12.jpg"],
+          "images": [
+            "/images/Ilala-Lodge-Experience-Elephant-Walk-12.jpg"
+          ],
           "video_url": "https://streamable.com/l/qfdqdi/mp4.mp4"
         },
         {
@@ -152,15 +168,15 @@
       "section_theme": "light",
       "spacing_top": "large",
       "spacing_bottom": "large",
-      "anchor_id": "wildlife"
+      "anchor_id": "wildlife",
+      "card_type": "image_carousel"
     },
     {
       "acf_fc_layout": "card_grid",
       "eyebrow": "A strong sense of place",
       "heading": "Cultural",
-      "subheading": "Cultural experiences that provide insight into local life and traditions — from guided rainforest tours and village visits to township dining and traditional evening performances.",
+      "subheading": "Cultural experiences that provide insight into local life and traditions \u2014 from guided rainforest tours and village visits to township dining and traditional evening performances.",
       "columns": 2,
-      "card_style": "image_carousel",
       "cards": [
         {
           "title": "Curio Shopping",
@@ -211,19 +227,19 @@
       "section_theme": "light",
       "spacing_top": "large",
       "spacing_bottom": "large",
-      "anchor_id": "cultural"
+      "anchor_id": "cultural",
+      "card_type": "image_carousel"
     },
     {
       "acf_fc_layout": "card_grid",
       "eyebrow": "Africa's Adventure Capital",
       "heading": "Adventure",
-      "subheading": "High-adrenaline experiences set against a dramatic natural backdrop — from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and canopy tours.",
+      "subheading": "High-adrenaline experiences set against a dramatic natural backdrop \u2014 from white-water rafting on the Zambezi to bungee, gorge swings, zip lines, helicopter flights, and canopy tours.",
       "columns": 2,
-      "card_style": "image_carousel",
       "cards": [
         {
           "title": "White Water Rafting",
-          "description": "Navigate the Zambezi's Grade 5 rapids — a world-class rafting experience and a Victoria Falls standout.",
+          "description": "Navigate the Zambezi's Grade 5 rapids \u2014 a world-class rafting experience and a Victoria Falls standout.",
           "images": [
             "/images/anna-sullivan-c_w_Q3kxgic-unsplash.jpg",
             "/images/White Water Rafting-1.jpg",
@@ -234,7 +250,7 @@
         },
         {
           "title": "Bungee Jumping & Gorge Swing",
-          "description": "Take the leap from the Victoria Falls Bridge — one of the world's highest commercial bungee jumps at 111 metres — or experience a 70-metre free fall followed by a swing across the Batoka Gorge.",
+          "description": "Take the leap from the Victoria Falls Bridge \u2014 one of the world's highest commercial bungee jumps at 111 metres \u2014 or experience a 70-metre free fall followed by a swing across the Batoka Gorge.",
           "images": [
             "/images/Bungee Jumping.jpg",
             "/images/Bungee & Gorge Swing-1.jpg",
@@ -255,7 +271,7 @@
         },
         {
           "title": "Helicopter Flights",
-          "description": "The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape — among the most popular ways to take in the scale of the region.",
+          "description": "The Flight of Angels offers sweeping aerial views of the Falls and surrounding landscape \u2014 among the most popular ways to take in the scale of the region.",
           "images": [
             "/images/Ilala-Lodge-Experience-Helicopter-Tour-10.jpg",
             "/images/Helicopter-1.jpg",
@@ -268,13 +284,15 @@
       "section_theme": "light",
       "spacing_top": "large",
       "spacing_bottom": "large",
-      "anchor_id": "adventure"
+      "anchor_id": "adventure",
+      "card_type": "image_carousel"
     },
     {
-      "acf_fc_layout": "info_bar",
-      "content_type": "download",
-      "download_url": "/downloads/activities.pdf",
-      "download_label": "Download Activities PDF",
+      "acf_fc_layout": "cta_banner",
+      "heading": "Download the Activities Brochure",
+      "body": "",
+      "button_text": "Download Activities PDF",
+      "button_url": "https://client-ilalalodge.vercel.app/downloads/activities.pdf",
       "section_theme": "accent",
       "spacing_top": "medium",
       "spacing_bottom": "medium"
@@ -340,7 +358,7 @@
       "acf_fc_layout": "cta_banner",
       "eyebrow": "Start Your Adventure",
       "heading": "Let Us Help Plan Your Perfect Experience",
-      "body": "Our Activities Desk can arrange every excursion, transfer, and cross-border trip — get in touch to start planning your stay.",
+      "body": "Our Activities Desk can arrange every excursion, transfer, and cross-border trip \u2014 get in touch to start planning your stay.",
       "cta_type": "contact",
       "contact_email": "activities@palmhospitality.co.zw",
       "section_theme": "dark",

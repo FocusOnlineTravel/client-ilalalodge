@@ -27,9 +27,15 @@ export default function TextBlock({ data }: Props) {
     <section className={`py-16 md:py-24 ${bgClass}`} id={data.anchor_id}>
       <div className={`${maxWidthClass} mx-auto px-4 ${textAlignClass}`}>
         {data.eyebrow && (
-          <p className="text-sm uppercase tracking-[0.2em] text-brand-gold mb-3">
-            {data.eyebrow}
-          </p>
+          data.section_theme === 'dark' || data.section_theme === 'forest' ? (
+            <p className="font-script text-4xl md:text-6xl text-brand-gold mb-2">
+              {data.eyebrow}
+            </p>
+          ) : (
+            <p className="text-sm uppercase tracking-[0.2em] text-brand-gold mb-3">
+              {data.eyebrow}
+            </p>
+          )
         )}
         {data.heading && (
           <h2 className={`font-serif text-3xl md:text-4xl ${textColorClass} mb-6`}>
