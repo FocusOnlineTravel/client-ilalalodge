@@ -522,6 +522,20 @@ function normaliseTimelineSection(section: Record<string, unknown>, wp: WPSectio
   }
 }
 
+// The WP mu-plugin's ilala_resolve_images_recursive replaces any numeric value
+// matching a real attachment ID with a full image object. Room prices like 190
+// happen to collide with actual attachment IDs, so a number field can come back
+// as { id, url, width, height, ... }. Coerce back to the scalar the UI expects.
+function unwrapMisresolvedNumber(value: unknown): unknown {
+  if (value && typeof value === 'object' && !Array.isArray(value)) {
+    const v = value as Record<string, unknown>;
+    if ('id' in v && 'url' in v && ('width' in v || 'sizes' in v)) {
+      return v.id;
+    }
+  }
+  return value;
+}
+
 function normaliseRateTableSection(section: Record<string, unknown>, wp: WPSection): void {
   section.heading = wp.heading;
   section.table_type = wp.table_type || 'rates';
@@ -543,8 +557,8 @@ function normaliseRateTableSection(section: Record<string, unknown>, wp: WPSecti
             rate: r.rate,
             rate_sharing: r.rate_sharing,
             rate_single: r.rate_single,
-            sharing_price: r.sharing_price,
-            single_price: r.single_price,
+            sharing_price: unwrapMisresolvedNumber(r.sharing_price),
+            single_price: unwrapMisresolvedNumber(r.single_price),
             view_link: r.view_link,
             view_label: r.view_label,
             book_link: normaliseLink(r.book_link),
