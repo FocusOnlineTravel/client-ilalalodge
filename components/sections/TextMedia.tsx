@@ -39,6 +39,7 @@ export default function TextMedia({ data, pageSlug }: Props) {
   }[data.section_theme];
 
   const isDarkTheme = data.section_theme === 'dark' || data.section_theme === 'forest';
+  const headingColorClass = isDarkTheme ? 'text-white' : 'text-brand-forest';
   const textColorClass = isDarkTheme ? 'text-white/80' : 'text-brand-forest';
   const contentColorClass = isDarkTheme ? 'text-white/80' : 'text-brand-stem';
 
@@ -221,11 +222,11 @@ export default function TextMedia({ data, pageSlug }: Props) {
                     {data.eyebrow}
                   </span>
                 )}
-                <h2 className={`font-serif text-3xl md:text-4xl ${textColorClass} leading-tight`}>
+                <h2 className={`font-serif text-3xl md:text-4xl ${headingColorClass} leading-tight`}>
                   {data.heading}
                 </h2>
                 <div
-                  className={`${contentColorClass} text-base lg:text-lg leading-relaxed prose prose-p:my-0`}
+                  className={`${contentColorClass} leading-relaxed prose prose-p:my-0`}
                   dangerouslySetInnerHTML={{ __html: data.content }}
                 />
                 {data.cta_primary && (
@@ -278,7 +279,7 @@ export default function TextMedia({ data, pageSlug }: Props) {
               </span>
             )}
             <div className="space-y-1">
-              <h2 className={`font-serif text-3xl md:text-4xl ${textColorClass} leading-tight`}>
+              <h2 className={`font-serif text-3xl md:text-4xl ${headingColorClass} leading-tight`}>
                 {data.heading}
               </h2>
               {data.subheading && (
