@@ -236,22 +236,47 @@ function ilala_update_options($request) {
 // =============================================================================
 
 /**
- * Recursively resolve ACF image IDs to full image data
+ * Field names whose value is an attachment ID and should be resolved to full
+ * image data. Anything else (e.g. sharing_price: 190) is left as a number even
+ * if the value coincidentally matches an existing attachment ID.
  */
-function ilala_resolve_images_recursive($data) {
-    if (is_array($data)) {
-        foreach ($data as $key => $value) {
-            // Check if this is an image ID (numeric and looks like an attachment)
-            if (is_numeric($value) && $value > 0) {
-                $attachment = get_post($value);
-                if ($attachment && $attachment->post_type === 'attachment') {
-                    $data[$key] = ilala_get_image_data($value);
-                }
-            } elseif (is_array($value)) {
-                $data[$key] = ilala_resolve_images_recursive($value);
+function ilala_image_field_keys() {
+    return [
+        'image', 'images', 'icon', 'thumbnail', 'photo', 'photos',
+        'gallery', 'gallery_images', 'carousel_images', 'hero_image',
+        'featured_image', 'background_image', 'og_image', 'video_poster',
+    ];
+}
+
+/**
+ * Recursively resolve ACF image IDs to full image data. Only touches values
+ * under whitelisted keys, or numeric-indexed items inside a whitelisted parent
+ * (e.g. items in a gallery array).
+ */
+function ilala_resolve_images_recursive($data, $parent_key = null) {
+    if (!is_array($data)) {
+        return $data;
+    }
+
+    $image_keys = ilala_image_field_keys();
+
+    foreach ($data as $key => $value) {
+        // Determine whether the CURRENT key indicates image content. For a
+        // list-style parent (e.g. gallery_images: [123, 124]) the child items
+        // have numeric indexes but inherit the parent's semantic.
+        $key_is_image = in_array($key, $image_keys, true) ||
+            (is_int($key) && in_array($parent_key, $image_keys, true));
+
+        if (is_numeric($value) && $value > 0 && $key_is_image) {
+            $attachment = get_post($value);
+            if ($attachment && $attachment->post_type === 'attachment') {
+                $data[$key] = ilala_get_image_data($value);
             }
+        } elseif (is_array($value)) {
+            $data[$key] = ilala_resolve_images_recursive($value, $key);
         }
     }
+
     return $data;
 }
 

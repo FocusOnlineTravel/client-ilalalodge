@@ -58,6 +58,12 @@ interface FetchOptions {
   tags?: string[];
 }
 
+// Cache switch: disable WP fetch cache in dev, or when WP_CACHE_DISABLED=true.
+// Set WP_CACHE_DISABLED=false in .env.local to force cache on in dev.
+const WP_CACHE_DISABLED =
+  process.env.WP_CACHE_DISABLED === 'true' ||
+  (process.env.WP_CACHE_DISABLED !== 'false' && process.env.NODE_ENV !== 'production');
+
 async function wpFetch<T>(endpoint: string, options: FetchOptions = {}): Promise<T> {
   const url = `${WP_API_URL}${endpoint}`;
   const { revalidate = 3600, tags } = options;
@@ -67,10 +73,9 @@ async function wpFetch<T>(endpoint: string, options: FetchOptions = {}): Promise
       headers: {
         'Accept': 'application/json',
       },
-      next: {
-        revalidate: revalidate === false ? 0 : revalidate,
-        tags,
-      },
+      ...(WP_CACHE_DISABLED
+        ? { cache: 'no-store' as const }
+        : { next: { revalidate: revalidate === false ? 0 : revalidate, tags } }),
     });
 
     if (!response.ok) {

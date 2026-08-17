@@ -79,6 +79,10 @@ export interface TextMediaSection extends SectionSettings {
   cta_primary?: AcfLink;
   cta_secondary?: AcfLink;
   cta_secondary_action?: 'link' | 'booking_modal' | 'whatsapp';
+  cta_tertiary?: AcfLink;
+  cta_tertiary_action?: 'link' | 'booking_modal' | 'whatsapp';
+  show_service_ctas?: boolean;
+  service_email?: string;
   media_position?: 'left' | 'right';
   media_type: 'image' | 'gallery_grid' | 'slider' | 'video';
   image?: AcfImage;
