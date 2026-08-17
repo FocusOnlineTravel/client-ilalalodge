@@ -227,8 +227,15 @@ export default function TextMedia({ data }: Props) {
     return null;
   };
 
-  // Full-width edge-to-edge layout - only for 40_60 or 60_40 ratios with image/video
-  if ((ratio === '40_60' || ratio === '60_40') && (data.media_type === 'image' || data.media_type === 'video')) {
+  // Full-width edge-to-edge layout - for 40_60 or 60_40 ratios with image/video,
+  // and also for dark/forest-themed sections which render as full-bleed featured
+  // blocks (e.g. the /activities Featured Experiences).
+  const edgeToEdge =
+    ratio === '40_60' ||
+    ratio === '60_40' ||
+    ((data.section_theme === 'dark' || data.section_theme === 'forest') &&
+      (data.media_type === 'image' || data.media_type === 'video'));
+  if (edgeToEdge && (data.media_type === 'image' || data.media_type === 'video')) {
     return (
       <section className={`py-0 ${bgClass} w-full`} id={data.anchor_id}>
         <div className="flex flex-col lg:flex-row w-full">

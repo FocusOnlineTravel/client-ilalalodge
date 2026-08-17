@@ -411,13 +411,21 @@ function transformNestedStructures(section) {
     });
   }
 
-  // Transform card_grid cards link structures
+  // Transform card_grid cards link structures + image_carousel shape
   if (layout === 'card_grid' && section.cards) {
     section.cards = section.cards.map(card => {
       const transformed = { ...card };
       // Ensure link is in proper ACF link format
       if (typeof transformed.link === 'string') {
         transformed.link = { url: transformed.link, title: '', target: '_self' };
+      }
+      // Local JSON uses `images: [url strings]` for the image_carousel card
+      // style; ACF stores those in a `carousel_images` gallery field.
+      if (Array.isArray(transformed.images) && !transformed.carousel_images) {
+        transformed.carousel_images = transformed.images.map((src) =>
+          typeof src === 'string' ? { url: src, alt: transformed.title || '' } : src,
+        );
+        delete transformed.images;
       }
       return transformed;
     });

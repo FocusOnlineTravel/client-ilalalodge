@@ -17,6 +17,29 @@ export default function IconGrid({ data }: Props) {
 
   const textColorClass = data.section_theme === 'dark' || data.section_theme === 'forest' ? 'text-white' : 'text-brand-forest';
 
+  // Text-only variant: when no item has an icon, render as a horizontal row of
+  // outlined pill buttons (used for anchor navigation like /activities).
+  const isTextOnly = data.icons?.every((i) => !i.icon || !i.icon.url);
+  if (isTextOnly && data.icons?.length) {
+    return (
+      <section className={`py-8 md:py-10 ${bgClass}`} id={data.anchor_id}>
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            {data.icons.map((item, index) => (
+              <Link
+                key={index}
+                href={item.link?.url || '#'}
+                className="px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className={`py-16 lg:py-24 ${bgClass} ${textColorClass}`} id={data.anchor_id || 'activities'}>
       <div className="container mx-auto px-4 lg:px-8">

@@ -2099,7 +2099,8 @@
                                     "activity": "Activity Card",
                                     "feature": "Feature Card",
                                     "content": "Content Card",
-                                    "cpt_rooms": "Rooms (from CPT)"
+                                    "cpt_rooms": "Rooms (from CPT)",
+                                    "image_carousel": "Image Carousel"
                                 },
                                 "default_value": "content",
                                 "return_format": "value",
@@ -2309,6 +2310,27 @@
                                         "max_size": 0,
                                         "mime_types": "",
                                         "parent_repeater": "field_page_builder_card_grid_cards"
+                                    },
+                                    {
+                                        "key": "field_page_builder_card_grid_cards_video_url",
+                                        "label": "Video URL",
+                                        "name": "video_url",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "Optional MP4 URL. When present, replaces the images/carousel with an autoplaying video.",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": ""
                                     },
                                     {
                                         "key": "field_page_builder_card_grid_cards_title",
