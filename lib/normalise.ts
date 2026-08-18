@@ -392,6 +392,7 @@ function normaliseMediaCarouselSection(section: Record<string, unknown>, wp: WPS
   section.eyebrow = wp.eyebrow;
   section.heading = wp.heading;
   section.display_mode = wp.display_mode || 'carousel';
+  section.items_per_slide = wp.items_per_slide || '3';
 
   if (wp.items || wp.images) {
     const items = (wp.items || wp.images) as unknown[];
@@ -399,6 +400,8 @@ function normaliseMediaCarouselSection(section: Record<string, unknown>, wp: WPS
       const i = item as Record<string, unknown>;
       return {
         title: i.title || '',
+        subtitle: i.subtitle || '',
+        description: i.description || '',
         media_type: i.media_type || 'image',
         image: normaliseImageField(i.image),
         pdf: i.pdf,
