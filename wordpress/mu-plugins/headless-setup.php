@@ -245,6 +245,13 @@ function ilala_image_field_keys() {
         'image', 'images', 'icon', 'thumbnail', 'photo', 'photos',
         'gallery', 'gallery_images', 'carousel_images', 'hero_image',
         'featured_image', 'background_image', 'og_image', 'video_poster',
+        // Gallery page category fields (see components/sections/Gallery.tsx).
+        'rooms_gallery', 'dining_gallery', 'pool_bar_gallery',
+        'conferencing_gallery', 'wildlife_gallery', 'hotel_grounds_gallery',
+        // Homepage bespoke image arrays.
+        'dining_images', 'wildlife_images',
+        'hero_background_image', 'intro_image', 'room_image',
+        'activity_icon', 'cta_banner_image',
     ];
 }
 
