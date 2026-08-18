@@ -235,7 +235,7 @@ export default async function RoomPage({ params }: Props) {
             Ready to Book Your Stay?
           </h2>
           <p className="text-brand-stem text-lg mb-8 max-w-2xl mx-auto">
-            Experience luxury and comfort at {room.title}. Book directly for the best rates and exclusive benefits.
+            Experience luxury and comfort in the {room.title}. Book directly for the best rates and exclusive benefits.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-6">
             <a

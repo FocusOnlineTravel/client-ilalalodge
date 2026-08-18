@@ -28,7 +28,7 @@ export default function WildlifeSection({ data }: Props) {
               rel={data.wildlife_cta.target === '_blank' ? 'noopener noreferrer' : undefined}
               className="inline-block border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-4 pt-1.5 pb-1 lg:px-6 lg:pt-2 lg:pb-1.5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wide mt-8"
             >
-              Explore The Falls
+              {data.wildlife_cta.label}
             </a>
           </FadeInView>
 
