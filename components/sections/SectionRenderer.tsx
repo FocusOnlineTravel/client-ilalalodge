@@ -4,7 +4,7 @@ import { PageSection, LayoutName } from '@/types/sections';
 import dynamic from 'next/dynamic';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type SectionComponent = React.ComponentType<{ data: any }>;
+type SectionComponent = React.ComponentType<{ data: any; pageSlug?: string }>;
 
 // Dynamically import section components
 const Hero = dynamic(() => import('./Hero'));
