@@ -129,6 +129,7 @@ export default function CtaBanner({ data }: Props) {
   const primaryIsPdf =
     !hasImage &&
     !data.show_service_ctas &&
+    !data.cta_secondary &&
     data.cta_primary?.url &&
     /\.pdf(\?|#|$)/i.test(data.cta_primary.url);
 
