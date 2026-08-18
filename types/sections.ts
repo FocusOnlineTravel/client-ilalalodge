@@ -178,6 +178,8 @@ export interface TestimonialCarouselSection extends SectionSettings {
 
 export interface MediaCarouselItem {
   title: string;
+  subtitle?: string;
+  description?: string;
   media_type: 'image' | 'pdf';
   image?: AcfImage;
   pdf?: string;
@@ -188,7 +190,8 @@ export interface MediaCarouselSection extends SectionSettings {
   eyebrow?: string;
   heading?: string;
   items: MediaCarouselItem[];
-  display_mode?: 'carousel' | 'tabs';
+  display_mode?: 'carousel' | 'tabs' | 'cards';
+  items_per_slide?: '2' | '3' | '4';
 }
 
 // =============================================================================
