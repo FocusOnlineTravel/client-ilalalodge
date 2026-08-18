@@ -82,7 +82,22 @@ export default function TextMedia({ data, pageSlug }: Props) {
 
   const renderMedia = () => {
     if (data.media_type === 'image' && data.image) {
-      const imageElement = (
+      // media_height="auto" means "render at natural aspect ratio". <Image fill>
+      // requires the parent to have an explicit height, so use intrinsic sizing
+      // instead — otherwise the container collapses to 0 and the image vanishes.
+      const isAutoHeight = heightVal === 'auto';
+      const imageElement = isAutoHeight ? (
+        <div className={`relative w-full overflow-hidden ${data.image_link ? 'group' : ''}`}>
+          <Image
+            src={data.image.url}
+            alt={data.image.alt}
+            width={data.image.width || 1600}
+            height={data.image.height || 1067}
+            className={`w-full h-auto object-cover ${data.image_link ? 'transition-transform duration-500 group-hover:scale-105' : ''}`}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+      ) : (
         <div className={`relative w-full ${mediaHeightClass} overflow-hidden ${data.image_link ? 'group' : ''}`}>
           <Image
             src={data.image.url}
