@@ -23,9 +23,10 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 interface Props {
   data: TextMediaSection;
+  pageSlug?: string;
 }
 
-export default function TextMedia({ data }: Props) {
+export default function TextMedia({ data, pageSlug }: Props) {
   const [showBookingModal, setShowBookingModal] = useState(false);
 
   const isMediaLeft = data.media_position === 'left';
@@ -40,6 +41,7 @@ export default function TextMedia({ data }: Props) {
   }[data.section_theme];
 
   const isDarkTheme = data.section_theme === 'dark' || data.section_theme === 'forest';
+  const headingColorClass = isDarkTheme ? 'text-white' : 'text-brand-forest';
   const textColorClass = isDarkTheme ? 'text-white/80' : 'text-brand-forest';
   const contentColorClass = isDarkTheme ? 'text-white/80' : 'text-brand-stem';
 
@@ -228,11 +230,11 @@ export default function TextMedia({ data }: Props) {
   };
 
   // Full-width edge-to-edge layout - for 40_60 or 60_40 ratios with image/video,
-  // and also for dark/forest-themed sections which render as full-bleed featured
-  // blocks (e.g. the /activities Featured Experiences).
+  // dark/forest-themed sections, or 50_50 on dining page
   const edgeToEdge =
     ratio === '40_60' ||
     ratio === '60_40' ||
+    (ratio === '50_50' && pageSlug === 'dining') ||
     ((data.section_theme === 'dark' || data.section_theme === 'forest') &&
       (data.media_type === 'image' || data.media_type === 'video'));
   if (edgeToEdge && (data.media_type === 'image' || data.media_type === 'video')) {
@@ -240,19 +242,19 @@ export default function TextMedia({ data }: Props) {
       <section className={`py-0 ${bgClass} w-full`} id={data.anchor_id}>
         <div className="flex flex-col lg:flex-row w-full">
           {/* Text Content */}
-          <div className={`w-full lg:w-[${textWidth}] flex items-center justify-center px-6 py-12 lg:px-12 lg:py-16 ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
-            <FadeInView className="lg:ml-8 lg:max-w-lg">
+          <div className={`w-full lg:w-[${textWidth}] flex items-center ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
+            <FadeInView className="px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
               <div className="space-y-6">
                 {data.eyebrow && (
                   <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
                     {data.eyebrow}
                   </span>
                 )}
-                <h2 className={`font-serif text-3xl md:text-4xl ${textColorClass} leading-tight`}>
+                <h2 className={`font-serif text-3xl md:text-4xl ${headingColorClass} leading-tight`}>
                   {data.heading}
                 </h2>
                 <div
-                  className={`${contentColorClass} text-base lg:text-lg leading-relaxed prose prose-p:my-0`}
+                  className={`${contentColorClass} leading-relaxed prose prose-p:my-0`}
                   dangerouslySetInnerHTML={{ __html: data.content }}
                 />
                 {data.cta_primary && (
@@ -306,7 +308,7 @@ export default function TextMedia({ data }: Props) {
               </span>
             )}
             <div className="space-y-1">
-              <h2 className={`font-serif text-3xl md:text-4xl ${textColorClass} leading-tight`}>
+              <h2 className={`font-serif text-3xl md:text-4xl ${headingColorClass} leading-tight`}>
                 {data.heading}
               </h2>
               {data.subheading && (

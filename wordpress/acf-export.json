@@ -3362,9 +3362,48 @@
                                 "show_in_rest": 1,
                                 "choices": {
                                     "carousel": "Carousel",
-                                    "tabs": "Tabs"
+                                    "tabs": "Tabs",
+                                    "cards": "Cards"
                                 },
                                 "default_value": "carousel",
+                                "multiple": 0,
+                                "allow_null": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "placeholder": "",
+                                "return_format": "value",
+                                "create_options": 0,
+                                "save_options": 0
+                            },
+                            {
+                                "key": "field_page_builder_media_carousel_items_per_slide",
+                                "label": "Items Per Slide",
+                                "name": "items_per_slide",
+                                "aria-label": "",
+                                "type": "select",
+                                "instructions": "Number of items to show per slide (for cards mode)",
+                                "required": false,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_page_builder_media_carousel_display_mode",
+                                            "operator": "==",
+                                            "value": "cards"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "choices": {
+                                    "2": "2",
+                                    "3": "3",
+                                    "4": "4"
+                                },
+                                "default_value": "3",
                                 "multiple": 0,
                                 "allow_null": 0,
                                 "ui": 0,
@@ -3419,6 +3458,50 @@
                                         "parent_repeater": "field_page_builder_media_carousel_items"
                                     },
                                     {
+                                        "key": "field_page_builder_media_carousel_items_subtitle",
+                                        "label": "Subtitle",
+                                        "name": "subtitle",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "e.g., time range or short tagline",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_media_carousel_items"
+                                    },
+                                    {
+                                        "key": "field_page_builder_media_carousel_items_description",
+                                        "label": "Description",
+                                        "name": "description",
+                                        "aria-label": "",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "rows": 3,
+                                        "new_lines": "",
+                                        "parent_repeater": "field_page_builder_media_carousel_items"
+                                    },
+                                    {
                                         "key": "field_page_builder_media_carousel_items_media_type",
                                         "label": "Media Type",
                                         "name": "media_type",
@@ -3454,17 +3537,9 @@
                                         "name": "image",
                                         "aria-label": "",
                                         "type": "image",
-                                        "instructions": "",
+                                        "instructions": "Card image (always visible)",
                                         "required": false,
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_page_builder_media_carousel_items_media_type",
-                                                    "operator": "==",
-                                                    "value": "image"
-                                                }
-                                            ]
-                                        ],
+                                        "conditional_logic": false,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -3489,17 +3564,9 @@
                                         "name": "pdf",
                                         "aria-label": "",
                                         "type": "file",
-                                        "instructions": "",
+                                        "instructions": "Optional PDF menu to link to",
                                         "required": false,
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_page_builder_media_carousel_items_media_type",
-                                                    "operator": "==",
-                                                    "value": "pdf"
-                                                }
-                                            ]
-                                        ],
+                                        "conditional_logic": false,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",

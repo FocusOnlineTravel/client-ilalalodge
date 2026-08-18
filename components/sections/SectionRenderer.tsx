@@ -87,7 +87,7 @@ export default function SectionRenderer({ sections, pageSlug }: SectionRendererP
       return <UnknownLayoutWarning key={index} layout={section.acf_fc_layout} />;
     }
 
-    return <Component key={index} data={section} />;
+    return <Component key={index} data={section} pageSlug={pageSlug} />;
   });
 
   if (pageSlug) {
