@@ -93,7 +93,7 @@ export default function Header() {
     { label: 'Gallery', href: '/gallery' },
     { label: 'FAQs', href: '/faqs' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Agents', href: '#agents' },
+    { label: 'Agents', href: '/agents' },
   ];
 
   const handleLinkClick = () => {

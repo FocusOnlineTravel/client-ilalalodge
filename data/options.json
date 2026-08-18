@@ -65,7 +65,7 @@
       { "label": "Gallery", "href": "/gallery" },
       { "label": "FAQs", "href": "/faqs" },
       { "label": "Contact", "href": "/contact" },
-      { "label": "Agents", "href": "#agents" }
+      { "label": "Agents", "href": "/agents" }
     ],
     "booking_url": "https://direct-book.com/ilalalodge/properties/ilaladirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD"
   },
