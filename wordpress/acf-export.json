@@ -568,8 +568,8 @@
                             "class": "",
                             "id": ""
                         },
-                        "display_format": "d/m/Y",
-                        "return_format": "d/m/Y",
+                        "display_format": "d\/m\/Y",
+                        "return_format": "d\/m\/Y",
                         "first_day": 1,
                         "default_to_current_date": 0,
                         "parent_repeater": "field_5cc7032ff98f2"
@@ -1570,7 +1570,7 @@
                                 "name": "show_service_ctas",
                                 "aria-label": "",
                                 "type": "true_false",
-                                "instructions": "Renders the WhatsApp / Email / Call trio below any CTA buttons.",
+                                "instructions": "Renders the WhatsApp \/ Email \/ Call trio below any CTA buttons.",
                                 "required": false,
                                 "conditional_logic": false,
                                 "wrapper": {
@@ -1854,9 +1854,9 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "40_60": "40/60",
-                                    "50_50": "50/50",
-                                    "60_40": "60/40"
+                                    "40_60": "40\/60",
+                                    "50_50": "50\/50",
+                                    "60_40": "60\/40"
                                 },
                                 "default_value": "50_50",
                                 "return_format": "value",
@@ -2318,7 +2318,7 @@
                                         "name": "video_url",
                                         "aria-label": "",
                                         "type": "text",
-                                        "instructions": "Optional MP4 URL. When present, replaces the images/carousel with an autoplaying video.",
+                                        "instructions": "Optional MP4 URL. When present, replaces the images\/carousel with an autoplaying video.",
                                         "required": false,
                                         "conditional_logic": false,
                                         "wrapper": {
@@ -2331,7 +2331,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_card_grid_cards"
                                     },
                                     {
                                         "key": "field_page_builder_card_grid_cards_title",
@@ -2361,7 +2362,7 @@
                                         "name": "slug",
                                         "aria-label": "",
                                         "type": "text",
-                                        "instructions": "For room_listing cards: powers the /our-rooms/{slug} link.",
+                                        "instructions": "For room_listing cards: powers the \/our-rooms\/{slug} link.",
                                         "required": false,
                                         "conditional_logic": false,
                                         "wrapper": {
@@ -2374,7 +2375,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_card_grid_cards"
                                     },
                                     {
                                         "key": "field_page_builder_card_grid_cards_description",
@@ -2455,6 +2457,7 @@
                                         "max": 0,
                                         "rows_per_page": 20,
                                         "collapsed": "",
+                                        "parent_repeater": "field_page_builder_card_grid_cards",
                                         "sub_fields": [
                                             {
                                                 "key": "field_page_builder_card_grid_cards_details_icon",
@@ -2522,8 +2525,7 @@
                                                 "append": "",
                                                 "parent_repeater": "field_page_builder_card_grid_cards_details"
                                             }
-                                        ],
-                                        "parent_repeater": "field_page_builder_card_grid_cards"
+                                        ]
                                     }
                                 ]
                             },
@@ -3064,7 +3066,7 @@
                                         "aria-label": "",
                                         "type": "text",
                                         "instructions": "",
-                                        "required": 1,
+                                        "required": 0,
                                         "conditional_logic": false,
                                         "wrapper": {
                                             "width": "",
@@ -3403,7 +3405,7 @@
                                     "3": "3",
                                     "4": "4"
                                 },
-                                "default_value": "3",
+                                "default_value": 3,
                                 "multiple": 0,
                                 "allow_null": 0,
                                 "ui": 0,
@@ -3442,7 +3444,7 @@
                                         "aria-label": "",
                                         "type": "text",
                                         "instructions": "",
-                                        "required": 1,
+                                        "required": 0,
                                         "conditional_logic": false,
                                         "wrapper": {
                                             "width": "50",
@@ -4591,7 +4593,7 @@
                                 "name": "show_service_ctas",
                                 "aria-label": "",
                                 "type": "true_false",
-                                "instructions": "Shows email/phone/WhatsApp buttons",
+                                "instructions": "Shows email\/phone\/WhatsApp buttons",
                                 "required": false,
                                 "conditional_logic": false,
                                 "wrapper": {
@@ -5262,6 +5264,7 @@
                                         "max": 0,
                                         "rows_per_page": 20,
                                         "collapsed": "",
+                                        "parent_repeater": "field_page_builder_rate_table_rate_categories",
                                         "sub_fields": [
                                             {
                                                 "key": "field_page_builder_rate_table_rooms_sharing_price",
@@ -5347,8 +5350,7 @@
                                                 "return_format": "array",
                                                 "parent_repeater": "field_page_builder_rate_table_categories_rooms"
                                             }
-                                        ],
-                                        "parent_repeater": "field_page_builder_rate_table_rate_categories"
+                                        ]
                                     }
                                 ]
                             },
@@ -6108,6 +6110,11 @@
                                 "show_in_rest": 1,
                                 "layout": "block",
                                 "button_label": "Add Room",
+                                "min": 0,
+                                "max": 0,
+                                "pagination": 0,
+                                "rows_per_page": 20,
+                                "collapsed": "",
                                 "sub_fields": [
                                     {
                                         "key": "field_page_builder_stay_room_room_name",
@@ -6128,7 +6135,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_stay_section_stay_rooms"
                                     },
                                     {
                                         "key": "field_page_builder_stay_room_room_count",
@@ -6151,7 +6159,8 @@
                                         "step": 1,
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_stay_section_stay_rooms"
                                     },
                                     {
                                         "key": "field_page_builder_stay_room_room_description",
@@ -6172,7 +6181,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "new_lines": "",
-                                        "rows": 4
+                                        "rows": 4,
+                                        "parent_repeater": "field_page_builder_stay_section_stay_rooms"
                                     },
                                     {
                                         "key": "field_page_builder_stay_room_room_price_from",
@@ -6193,7 +6203,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_stay_section_stay_rooms"
                                     },
                                     {
                                         "key": "field_page_builder_stay_room_room_price_suffix",
@@ -6214,7 +6225,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_stay_section_stay_rooms"
                                     },
                                     {
                                         "key": "field_page_builder_stay_room_room_image",
@@ -6240,7 +6252,8 @@
                                         "max_width": 0,
                                         "max_height": 0,
                                         "max_size": 0,
-                                        "mime_types": ""
+                                        "mime_types": "",
+                                        "parent_repeater": "field_page_builder_stay_section_stay_rooms"
                                     },
                                     {
                                         "key": "field_page_builder_stay_room_room_cta",
@@ -6257,14 +6270,10 @@
                                             "id": ""
                                         },
                                         "show_in_rest": 1,
-                                        "return_format": "array"
+                                        "return_format": "array",
+                                        "parent_repeater": "field_page_builder_stay_section_stay_rooms"
                                     }
-                                ],
-                                "min": 0,
-                                "max": 0,
-                                "pagination": 0,
-                                "rows_per_page": 20,
-                                "collapsed": ""
+                                ]
                             },
                             {
                                 "key": "field_page_builder_stay_section_section_settings",
@@ -6680,6 +6689,11 @@
                                 "show_in_rest": 1,
                                 "layout": "block",
                                 "button_label": "Add Activity",
+                                "min": 0,
+                                "max": 0,
+                                "pagination": 0,
+                                "rows_per_page": 20,
+                                "collapsed": "",
                                 "sub_fields": [
                                     {
                                         "key": "field_page_builder_activity_item_activity_label",
@@ -6700,7 +6714,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_activities_section_activities_items"
                                     },
                                     {
                                         "key": "field_page_builder_activity_item_activity_url",
@@ -6721,7 +6736,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_activities_section_activities_items"
                                     },
                                     {
                                         "key": "field_page_builder_activity_item_activity_icon",
@@ -6747,14 +6763,10 @@
                                         "max_width": 0,
                                         "max_height": 0,
                                         "max_size": 0,
-                                        "mime_types": ""
+                                        "mime_types": "",
+                                        "parent_repeater": "field_page_builder_activities_section_activities_items"
                                     }
-                                ],
-                                "min": 0,
-                                "max": 0,
-                                "pagination": 0,
-                                "rows_per_page": 20,
-                                "collapsed": ""
+                                ]
                             },
                             {
                                 "key": "field_page_builder_activities_section_activities_cta",
@@ -6865,6 +6877,11 @@
                                 "show_in_rest": 1,
                                 "layout": "block",
                                 "button_label": "Add Review",
+                                "min": 0,
+                                "max": 0,
+                                "pagination": 0,
+                                "rows_per_page": 20,
+                                "collapsed": "",
                                 "sub_fields": [
                                     {
                                         "key": "field_page_builder_review_item_review_title",
@@ -6885,7 +6902,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_reviews_section_reviews_items"
                                     },
                                     {
                                         "key": "field_page_builder_review_item_review_body",
@@ -6906,7 +6924,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "new_lines": "",
-                                        "rows": 4
+                                        "rows": 4,
+                                        "parent_repeater": "field_page_builder_reviews_section_reviews_items"
                                     },
                                     {
                                         "key": "field_page_builder_review_item_review_author",
@@ -6927,7 +6946,8 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_reviews_section_reviews_items"
                                     },
                                     {
                                         "key": "field_page_builder_review_item_review_source",
@@ -6948,14 +6968,10 @@
                                         "maxlength": "",
                                         "placeholder": "",
                                         "prepend": "",
-                                        "append": ""
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_reviews_section_reviews_items"
                                     }
-                                ],
-                                "min": 0,
-                                "max": 0,
-                                "pagination": 0,
-                                "rows_per_page": 20,
-                                "collapsed": ""
+                                ]
                             },
                             {
                                 "key": "field_page_builder_reviews_section_section_settings",
@@ -7077,6 +7093,1294 @@
                             },
                             {
                                 "key": "field_page_builder_cta_banner_section_section_settings",
+                                "label": "",
+                                "name": "section_settings",
+                                "aria-label": "",
+                                "type": "clone",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "clone": [
+                                    "group_section_settings"
+                                ],
+                                "display": "seamless",
+                                "layout": "block",
+                                "prefix_label": 0,
+                                "prefix_name": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "layout_page_builder_vf_route_map",
+                        "name": "vf_route_map",
+                        "label": "VF — Route Map",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_page_builder_vf_route_map_vf_route_map_eyebrow",
+                                "label": "Eyebrow (script)",
+                                "name": "vf_route_map_eyebrow",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_route_map_vf_route_map_heading",
+                                "label": "Heading",
+                                "name": "vf_route_map_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_route_map_section_settings",
+                                "label": "",
+                                "name": "section_settings",
+                                "aria-label": "",
+                                "type": "clone",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "clone": [
+                                    "group_section_settings"
+                                ],
+                                "display": "seamless",
+                                "layout": "block",
+                                "prefix_label": 0,
+                                "prefix_name": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "layout_page_builder_vf_viewpoints",
+                        "name": "vf_viewpoints",
+                        "label": "VF — Viewpoints",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_page_builder_vf_viewpoints_vf_viewpoints_eyebrow",
+                                "label": "Eyebrow (script)",
+                                "name": "vf_viewpoints_eyebrow",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_viewpoints_vf_viewpoints_heading",
+                                "label": "Heading",
+                                "name": "vf_viewpoints_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_viewpoints_vf_viewpoints_subtitle",
+                                "label": "Subtitle",
+                                "name": "vf_viewpoints_subtitle",
+                                "aria-label": "",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "new_lines": "",
+                                "rows": 3
+                            },
+                            {
+                                "key": "field_page_builder_vf_viewpoints_vf_viewpoints_items",
+                                "label": "Viewpoints",
+                                "name": "vf_viewpoints_items",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "layout": "block",
+                                "pagination": 0,
+                                "min": 1,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Add Viewpoint",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_page_builder_vf_viewpoints_items_viewpoint_number",
+                                        "label": "Number (e.g. 01)",
+                                        "name": "viewpoint_number",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_vf_viewpoints_vf_viewpoints_items"
+                                    },
+                                    {
+                                        "key": "field_page_builder_vf_viewpoints_items_viewpoint_title",
+                                        "label": "Title",
+                                        "name": "viewpoint_title",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_vf_viewpoints_vf_viewpoints_items"
+                                    },
+                                    {
+                                        "key": "field_page_builder_vf_viewpoints_items_viewpoint_height",
+                                        "label": "Height (optional, e.g. 108m high)",
+                                        "name": "viewpoint_height",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_vf_viewpoints_vf_viewpoints_items"
+                                    },
+                                    {
+                                        "key": "field_page_builder_vf_viewpoints_items_viewpoint_description",
+                                        "label": "Description",
+                                        "name": "viewpoint_description",
+                                        "aria-label": "",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "new_lines": "",
+                                        "rows": 3,
+                                        "parent_repeater": "field_page_builder_vf_viewpoints_vf_viewpoints_items"
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_page_builder_vf_viewpoints_section_settings",
+                                "label": "",
+                                "name": "section_settings",
+                                "aria-label": "",
+                                "type": "clone",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "clone": [
+                                    "group_section_settings"
+                                ],
+                                "display": "seamless",
+                                "layout": "block",
+                                "prefix_label": 0,
+                                "prefix_name": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "layout_page_builder_vf_when_to_visit",
+                        "name": "vf_when_to_visit",
+                        "label": "VF — When to Visit",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_page_builder_vf_when_to_visit_vf_wtv_eyebrow",
+                                "label": "Eyebrow (script)",
+                                "name": "vf_wtv_eyebrow",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_when_to_visit_vf_wtv_heading",
+                                "label": "Heading",
+                                "name": "vf_wtv_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_when_to_visit_vf_wtv_cards",
+                                "label": "Cards",
+                                "name": "vf_wtv_cards",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "layout": "block",
+                                "pagination": 0,
+                                "min": 1,
+                                "max": 2,
+                                "collapsed": "",
+                                "button_label": "Add Card",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_page_builder_vf_wtv_cards_card_heading",
+                                        "label": "Heading",
+                                        "name": "card_heading",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_vf_when_to_visit_vf_wtv_cards"
+                                    },
+                                    {
+                                        "key": "field_page_builder_vf_wtv_cards_card_period",
+                                        "label": "Period (e.g. April – July)",
+                                        "name": "card_period",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_vf_when_to_visit_vf_wtv_cards"
+                                    },
+                                    {
+                                        "key": "field_page_builder_vf_wtv_cards_card_description",
+                                        "label": "Description",
+                                        "name": "card_description",
+                                        "aria-label": "",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "new_lines": "",
+                                        "rows": 4,
+                                        "parent_repeater": "field_page_builder_vf_when_to_visit_vf_wtv_cards"
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_page_builder_vf_when_to_visit_section_settings",
+                                "label": "",
+                                "name": "section_settings",
+                                "aria-label": "",
+                                "type": "clone",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "clone": [
+                                    "group_section_settings"
+                                ],
+                                "display": "seamless",
+                                "layout": "block",
+                                "prefix_label": 0,
+                                "prefix_name": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "layout_page_builder_vf_what_to_take",
+                        "name": "vf_what_to_take",
+                        "label": "VF — What to Take",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_page_builder_vf_what_to_take_vf_wtt_eyebrow",
+                                "label": "Eyebrow (script)",
+                                "name": "vf_wtt_eyebrow",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_what_to_take_vf_wtt_heading",
+                                "label": "Heading",
+                                "name": "vf_wtt_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_what_to_take_vf_wtt_fees_heading",
+                                "label": "Fees column heading",
+                                "name": "vf_wtt_fees_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_what_to_take_vf_wtt_fees_intro",
+                                "label": "Fees intro paragraph",
+                                "name": "vf_wtt_fees_intro",
+                                "aria-label": "",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "new_lines": "",
+                                "rows": 2
+                            },
+                            {
+                                "key": "field_page_builder_vf_what_to_take_vf_wtt_fees",
+                                "label": "Entry Fees",
+                                "name": "vf_wtt_fees",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "layout": "block",
+                                "pagination": 0,
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Add Fee",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_page_builder_vf_wtt_fees_fee_label",
+                                        "label": "Label (e.g. International ID)",
+                                        "name": "fee_label",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_vf_what_to_take_vf_wtt_fees"
+                                    },
+                                    {
+                                        "key": "field_page_builder_vf_wtt_fees_fee_price",
+                                        "label": "Price (e.g. $58 USD)",
+                                        "name": "fee_price",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_vf_what_to_take_vf_wtt_fees"
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_page_builder_vf_what_to_take_vf_wtt_pack_heading",
+                                "label": "Pack column heading",
+                                "name": "vf_wtt_pack_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_vf_what_to_take_vf_wtt_pack_items",
+                                "label": "Pack List",
+                                "name": "vf_wtt_pack_items",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "layout": "block",
+                                "pagination": 0,
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Add Item",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_page_builder_vf_wtt_pack_items_pack_item",
+                                        "label": "Item",
+                                        "name": "pack_item",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_vf_what_to_take_vf_wtt_pack_items"
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_page_builder_vf_what_to_take_section_settings",
+                                "label": "",
+                                "name": "section_settings",
+                                "aria-label": "",
+                                "type": "clone",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "clone": [
+                                    "group_section_settings"
+                                ],
+                                "display": "seamless",
+                                "layout": "block",
+                                "prefix_label": 0,
+                                "prefix_name": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "layout_page_builder_contact_hero",
+                        "name": "contact_hero",
+                        "label": "Contact — Hero",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_page_builder_contact_hero_contact_hero_image",
+                                "label": "Background Image",
+                                "name": "contact_hero_image",
+                                "aria-label": "",
+                                "type": "image",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": 0,
+                                "min_height": 0,
+                                "min_size": 0,
+                                "max_width": 0,
+                                "max_height": 0,
+                                "max_size": 0,
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_hero_contact_hero_heading",
+                                "label": "Heading",
+                                "name": "contact_hero_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": true,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_hero_contact_hero_subheading",
+                                "label": "Subheading",
+                                "name": "contact_hero_subheading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_hero_section_settings",
+                                "label": "",
+                                "name": "section_settings",
+                                "aria-label": "",
+                                "type": "clone",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "clone": [
+                                    "group_section_settings"
+                                ],
+                                "display": "seamless",
+                                "layout": "block",
+                                "prefix_label": 0,
+                                "prefix_name": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "layout_page_builder_contact_intro",
+                        "name": "contact_intro",
+                        "label": "Contact — Intro",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_page_builder_contact_intro_contact_intro_body",
+                                "label": "Body",
+                                "name": "contact_intro_body",
+                                "aria-label": "",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_page_builder_contact_intro_section_settings",
+                                "label": "",
+                                "name": "section_settings",
+                                "aria-label": "",
+                                "type": "clone",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "clone": [
+                                    "group_section_settings"
+                                ],
+                                "display": "seamless",
+                                "layout": "block",
+                                "prefix_label": 0,
+                                "prefix_name": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "layout_page_builder_contact_form_channels",
+                        "name": "contact_form_channels",
+                        "label": "Contact — Form + Channels",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_page_builder_contact_form_channels_contact_form_eyebrow",
+                                "label": "Form eyebrow (script)",
+                                "name": "contact_form_eyebrow",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_form_channels_contact_form_heading",
+                                "label": "Form heading",
+                                "name": "contact_form_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_form_channels_contact_form_note",
+                                "label": "Note under form",
+                                "name": "contact_form_note",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_form_channels_contact_channels_eyebrow",
+                                "label": "Channels eyebrow (script)",
+                                "name": "contact_channels_eyebrow",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_form_channels_contact_channels_heading",
+                                "label": "Channels heading",
+                                "name": "contact_channels_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_form_channels_contact_channels",
+                                "label": "Contact Channels",
+                                "name": "contact_channels",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "layout": "block",
+                                "pagination": 0,
+                                "min": 1,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Add Channel",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_page_builder_contact_channels_channel_title",
+                                        "label": "Title",
+                                        "name": "channel_title",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_contact_form_channels_contact_channels"
+                                    },
+                                    {
+                                        "key": "field_page_builder_contact_channels_channel_intent",
+                                        "label": "Intent (short description)",
+                                        "name": "channel_intent",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_contact_form_channels_contact_channels"
+                                    },
+                                    {
+                                        "key": "field_page_builder_contact_channels_channel_email",
+                                        "label": "Email",
+                                        "name": "channel_email",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_contact_form_channels_contact_channels"
+                                    },
+                                    {
+                                        "key": "field_page_builder_contact_channels_channel_phones",
+                                        "label": "Phone Numbers",
+                                        "name": "channel_phones",
+                                        "aria-label": "",
+                                        "type": "repeater",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "layout": "block",
+                                        "pagination": 0,
+                                        "min": 0,
+                                        "max": 0,
+                                        "collapsed": "",
+                                        "button_label": "Add Phone",
+                                        "rows_per_page": 20,
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_page_builder_channel_phones_phone",
+                                                "label": "Phone (display format)",
+                                                "name": "phone",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": false,
+                                                "conditional_logic": false,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "show_in_rest": 1,
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_page_builder_contact_channels_channel_phones"
+                                            }
+                                        ],
+                                        "parent_repeater": "field_page_builder_contact_form_channels_contact_channels"
+                                    },
+                                    {
+                                        "key": "field_page_builder_contact_channels_channel_whatsapp",
+                                        "label": "WhatsApp number (digits only, e.g. 263788097346)",
+                                        "name": "channel_whatsapp",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": false,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "show_in_rest": 1,
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_page_builder_contact_form_channels_contact_channels"
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_page_builder_contact_form_channels_section_settings",
+                                "label": "",
+                                "name": "section_settings",
+                                "aria-label": "",
+                                "type": "clone",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "clone": [
+                                    "group_section_settings"
+                                ],
+                                "display": "seamless",
+                                "layout": "block",
+                                "prefix_label": 0,
+                                "prefix_name": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "layout_page_builder_contact_find_us",
+                        "name": "contact_find_us",
+                        "label": "Contact — Find Us",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_page_builder_contact_find_us_contact_findus_eyebrow",
+                                "label": "Eyebrow (script)",
+                                "name": "contact_findus_eyebrow",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_find_us_contact_findus_heading",
+                                "label": "Heading",
+                                "name": "contact_findus_heading",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_page_builder_contact_find_us_contact_findus_body",
+                                "label": "Body",
+                                "name": "contact_findus_body",
+                                "aria-label": "",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_page_builder_contact_find_us_contact_findus_cta_primary",
+                                "label": "Primary CTA",
+                                "name": "contact_findus_cta_primary",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "return_format": "array"
+                            },
+                            {
+                                "key": "field_page_builder_contact_find_us_contact_findus_cta_secondary",
+                                "label": "Secondary CTA",
+                                "name": "contact_findus_cta_secondary",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "show_in_rest": 1,
+                                "return_format": "array"
+                            },
+                            {
+                                "key": "field_page_builder_contact_find_us_section_settings",
                                 "label": "",
                                 "name": "section_settings",
                                 "aria-label": "",
@@ -7340,7 +8644,7 @@
                 "name": "size",
                 "aria-label": "",
                 "type": "text",
-                "instructions": "e.g., 36 m\u00b2",
+                "instructions": "e.g., 36 m²",
                 "required": false,
                 "conditional_logic": false,
                 "wrapper": {
@@ -7889,6 +9193,7 @@
                                 "max": 0,
                                 "rows_per_page": 20,
                                 "collapsed": "",
+                                "parent_repeater": "field_site_options_header_nav_items",
                                 "sub_fields": [
                                     {
                                         "key": "field_site_options_header_nav_sub_label",
@@ -7931,8 +9236,7 @@
                                         "placeholder": "",
                                         "parent_repeater": "field_site_options_header_nav_sub_items"
                                     }
-                                ],
-                                "parent_repeater": "field_site_options_header_nav_items"
+                                ]
                             }
                         ]
                     }
@@ -8088,6 +9392,7 @@
                                 "max": 0,
                                 "rows_per_page": 20,
                                 "collapsed": "",
+                                "parent_repeater": "field_site_options_footer_nav_columns",
                                 "sub_fields": [
                                     {
                                         "key": "field_site_options_footer_nav_links_title",
@@ -8130,8 +9435,7 @@
                                         "placeholder": "",
                                         "parent_repeater": "field_site_options_footer_nav_links"
                                     }
-                                ],
-                                "parent_repeater": "field_site_options_footer_nav_columns"
+                                ]
                             }
                         ]
                     }
