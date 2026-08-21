@@ -306,13 +306,14 @@ function ilala_get_image_data($attachment_id) {
     }
 
     return [
-        'id'     => $attachment_id,
-        'url'    => $image_src[0],
-        'width'  => $image_src[1],
-        'height' => $image_src[2],
-        'alt'    => get_post_meta($attachment_id, '_wp_attachment_image_alt', true) ?: $attachment->post_title,
-        'title'  => $attachment->post_title,
-        'sizes'  => [
+        'id'      => $attachment_id,
+        'url'     => $image_src[0],
+        'width'   => $image_src[1],
+        'height'  => $image_src[2],
+        'alt'     => get_post_meta($attachment_id, '_wp_attachment_image_alt', true) ?: $attachment->post_title,
+        'title'   => $attachment->post_title,
+        'caption' => $attachment->post_excerpt,
+        'sizes'   => [
             'thumbnail' => wp_get_attachment_image_src($attachment_id, 'thumbnail')[0] ?? null,
             'medium'    => wp_get_attachment_image_src($attachment_id, 'medium')[0] ?? null,
             'large'     => wp_get_attachment_image_src($attachment_id, 'large')[0] ?? null,

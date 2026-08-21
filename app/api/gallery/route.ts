@@ -5,6 +5,7 @@ interface WPImage {
   url: string;
   alt: string;
   title: string;
+  caption?: string;
   sizes: {
     thumbnail: string;
     medium: string;
@@ -26,6 +27,7 @@ interface GallerySection {
 interface GalleryImage {
   src: string;
   alt: string;
+  caption: string;
   category: string;
 }
 
@@ -76,6 +78,7 @@ export async function GET() {
           images.push({
             src: img.sizes?.large || img.url,
             alt: img.alt || img.title || '',
+            caption: img.caption || '',
             category: categoryId,
           });
         }
