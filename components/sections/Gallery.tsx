@@ -188,9 +188,16 @@ export default function Gallery({ data }: Props) {
             />
           </div>
 
-          {/* Counter */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
-            {lightboxIndex + 1} / {filteredImages.length}
+          {/* Caption + Counter */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 max-w-[90vw]">
+            {filteredImages[lightboxIndex].caption && (
+              <p className="text-white text-sm md:text-base text-center bg-black/50 px-4 py-2 rounded-lg">
+                {filteredImages[lightboxIndex].caption}
+              </p>
+            )}
+            <div className="text-white text-sm">
+              {lightboxIndex + 1} / {filteredImages.length}
+            </div>
           </div>
         </div>
       )}
