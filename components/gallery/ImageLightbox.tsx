@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
 interface ImageLightboxProps {
-  images: { src: string; alt: string }[];
+  images: { src: string; alt: string; caption?: string }[];
   columns?: string;
 }
 
@@ -113,8 +113,15 @@ export default function ImageLightbox({ images, columns = 'grid-cols-3 md:grid-c
             <ChevronRight className="h-10 w-10 lg:h-14 lg:w-14" />
           </button>
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-3 py-1 rounded-full">
-            {selectedIndex + 1} / {images.length}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 max-w-[90vw]">
+            {images[selectedIndex].caption && (
+              <p className="text-white text-sm md:text-base text-center bg-black/50 px-4 py-2 rounded-lg">
+                {images[selectedIndex].caption}
+              </p>
+            )}
+            <div className="text-white text-sm bg-black/50 px-3 py-1 rounded-full">
+              {selectedIndex + 1} / {images.length}
+            </div>
           </div>
         </div>
       )}

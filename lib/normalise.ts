@@ -447,11 +447,15 @@ function normaliseGallerySection(section: Record<string, unknown>, wp: WPSection
           // Gallery field returns flat image objects (not nested)
           const imageData = i.image ? normaliseImageField(i.image) : normaliseImageField(i);
           if (imageData) {
+            const rawImage = (i.image || i) as Record<string, unknown>;
+            const caption =
+              typeof i.caption === 'string' ? i.caption :
+              typeof rawImage.caption === 'string' ? rawImage.caption : '';
             mergedImages.push({
               image: imageData,
               url: imageData.url,
               alt: imageData.alt || '',
-              caption: '',
+              caption,
               category: label, // Auto-assign category based on field
             });
           }
@@ -467,11 +471,15 @@ function normaliseGallerySection(section: Record<string, unknown>, wp: WPSection
       const i = img as Record<string, unknown>;
       // Handle both gallery field (flat image) and repeater format (nested image object)
       const imageData = i.image ? normaliseImageField(i.image) : normaliseImageField(i);
+      const rawImage = (i.image || i) as Record<string, unknown>;
+      const caption =
+        typeof i.caption === 'string' ? i.caption :
+        typeof rawImage.caption === 'string' ? rawImage.caption : '';
       return {
         image: imageData,
         url: imageData?.url,
         alt: imageData?.alt || '',
-        caption: '',
+        caption,
         category: '',
       };
     });
