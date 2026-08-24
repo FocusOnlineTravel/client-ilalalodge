@@ -18,7 +18,7 @@ const FILTERS: { id: Category | 'all'; label: string }[] = [
   { id: 'rooms', label: 'Rooms & Suites' },
   { id: 'dining', label: 'Dining' },
   { id: 'pool', label: 'Pool & Bar' },
-  { id: 'conferencing', label: 'Conferencing' },
+  { id: 'conferencing', label: 'Facilities' },
   { id: 'wildlife', label: 'Wildlife' },
   { id: 'hotel', label: 'Hotel & Grounds' },
 ];

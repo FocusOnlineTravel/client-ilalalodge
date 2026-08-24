@@ -425,7 +425,7 @@ function normaliseGallerySection(section: Record<string, unknown>, wp: WPSection
     { field: 'rooms_gallery', label: 'Rooms & Suites' },
     { field: 'dining_gallery', label: 'Dining' },
     { field: 'pool_bar_gallery', label: 'Pool & Bar' },
-    { field: 'conferencing_gallery', label: 'Conferencing' },
+    { field: 'conferencing_gallery', label: 'Facilities' },
     { field: 'wildlife_gallery', label: 'Wildlife' },
     { field: 'hotel_grounds_gallery', label: 'Hotel & Grounds' },
   ];
