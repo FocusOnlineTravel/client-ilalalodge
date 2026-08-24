@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { HeroBlock } from '@/types/acf';
 import { Play, X } from 'lucide-react';
+import { ENABLE_TITLE_FADE, VIDEO_TITLE_FADE_DELAY } from '@/lib/hero-config';
 
 /**
  * Convert a Streamable direct video URL to an embed URL
@@ -23,6 +24,7 @@ interface Props {
 export default function HeroSection({ data }: Props) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [titleVisible, setTitleVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +33,17 @@ export default function HeroSection({ data }: Props) {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Fade title after delay for video heroes
+  useEffect(() => {
+    if (!ENABLE_TITLE_FADE) return;
+
+    const timeout = setTimeout(() => {
+      setTitleVisible(false);
+    }, VIDEO_TITLE_FADE_DELAY);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   const openVideo = () => {
@@ -65,7 +78,9 @@ export default function HeroSection({ data }: Props) {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
+        <div className={`relative z-10 container mx-auto px-4 text-center text-white transition-opacity duration-1000 ${
+          ENABLE_TITLE_FADE && !titleVisible ? 'opacity-0' : 'opacity-100'
+        }`}>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl mb-4 lg:mb-6 leading-tight">
             {data.hero_heading}
           </h1>
