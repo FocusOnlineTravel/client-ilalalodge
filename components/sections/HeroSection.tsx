@@ -4,7 +4,17 @@ import { useState, useEffect } from 'react';
 import { HeroBlock } from '@/types/acf';
 import { Play, X } from 'lucide-react';
 
-const HERO_VIDEO_URL = 'https://streamable.com/l/iprhyt/mp4.mp4';
+/**
+ * Convert a Streamable direct video URL to an embed URL
+ * e.g., https://streamable.com/l/iprhyt/mp4.mp4 -> https://streamable.com/e/iprhyt?autoplay=1
+ */
+function getStreamableEmbedUrl(videoUrl: string): string {
+  const match = videoUrl.match(/streamable\.com\/l\/([a-zA-Z0-9]+)\//);
+  if (match) {
+    return `https://streamable.com/e/${match[1]}?autoplay=1`;
+  }
+  return videoUrl;
+}
 
 interface Props {
   data: HeroBlock;
@@ -40,7 +50,7 @@ export default function HeroSection({ data }: Props) {
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
           <video
-            src={HERO_VIDEO_URL}
+            src={data.hero_video_url}
             poster={data.hero_background_image.url}
             autoPlay
             loop
@@ -98,7 +108,7 @@ export default function HeroSection({ data }: Props) {
           >
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://streamable.com/e/iprhyt?autoplay=1"
+              src={data.hero_video_url ? getStreamableEmbedUrl(data.hero_video_url) : ''}
               title="Ilala Lodge Hotel Video"
               frameBorder="0"
               allow="autoplay; fullscreen"

@@ -19,6 +19,7 @@ export interface HeroBlock {
   hero_heading: string;
   hero_subheading?: string;
   hero_background_image: AcfImage;
+  hero_video_url?: string;
   hero_cta: AcfCta;
   hero_scroll_label?: string;
 }
