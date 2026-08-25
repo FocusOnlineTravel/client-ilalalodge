@@ -21,13 +21,6 @@ export default function Header() {
     return null;
   }
 
-  // Show Our Rooms submenu by default when menu opens
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      setHoveredMenuItem('Our Rooms');
-    }
-  }, [isMobileMenuOpen]);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
