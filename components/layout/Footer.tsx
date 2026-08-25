@@ -232,7 +232,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-stem">
           <p>
-            &copy; {currentYear} Ilala Lodge | <Link href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</Link> | <Link href="#" className="hover:text-brand-gold transition-colors">Terms & Conditions</Link>
+            &copy; {currentYear} Ilala Lodge Hotel | <Link href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</Link> | <Link href="#" className="hover:text-brand-gold transition-colors">Terms & Conditions</Link>
           </p>
           <p>
             Website by <a href="https://focusonlinetravel.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Focus Online Travel</a>
