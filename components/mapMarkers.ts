@@ -53,7 +53,7 @@ export const markers: MapMarker[] = [
     "id": "4",
     "x": 2709,
     "y": 2762,
-    "title": "Stanley and Livingstone",
+    "title": "Kingdom Hotel",
     "blurb": "Exclusive safari-style boutique retreat located within a private wildlife reserve.",
     "category": "activity",
     "label": "D"
