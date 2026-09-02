@@ -61,9 +61,9 @@ export default function MapPage() {
           </div>
 
           {/* Google Map Embed */}
-          <div className="w-full h-[400px] md:h-[500px] bg-gray-200 mb-8">
+          <div className="w-full h-[450px] md:h-[550px] bg-gray-200 mb-8">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3795.5087900612083!2d25.83636!3d-17.92583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x194ff150d7b96f6d%3A0x7e59a67e89c5e8a8!2sIlala%20Lodge%20Hotel!5e0!3m2!1sen!2s!4v1699000000000!5m2!1sen!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15182!2d25.8364!3d-17.9258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x194ff150d7b96f6d%3A0x7e59a67e89c5e8a8!2sIlala%20Lodge%20Hotel!5e0!3m2!1sen!2szw!4v1725300000000!5m2!1sen!2szw"
               width="100%"
               height="100%"
               style={{ border: 0 }}
