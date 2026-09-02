@@ -6,8 +6,73 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { X, Facebook, Instagram } from 'lucide-react';
 import { BOOKING_URL } from '@/lib/constants';
+import type { NavItem } from '@/types/options';
 
-export default function Header() {
+interface HeaderProps {
+  navItems?: NavItem[];
+}
+
+// Fallback navigation if WordPress data not available
+const defaultNavLinks: NavItem[] = [
+  { label: 'Home', href: '/' },
+  {
+    label: 'Our Rooms',
+    href: '/our-rooms',
+    sub_items: [
+      { label: 'Classic Rooms', href: '/our-rooms/classic-rooms' },
+      { label: 'Classic Suites', href: '/our-rooms/classic-suites' },
+      { label: 'Deluxe Rooms', href: '/our-rooms/deluxe-rooms' },
+      { label: 'Executive Suites', href: '/our-rooms/executive-suites' },
+      { label: 'Strathearn Suite', href: '/our-rooms/strathearn-suite' },
+      { label: 'Rates', href: '/rates' },
+    ]
+  },
+  {
+    label: 'The Hotel',
+    href: '/facilities',
+    sub_items: [
+      { label: 'Our Story', href: '/our-story' },
+      { label: 'Facilities', href: '/facilities' },
+      { label: 'Conferencing', href: '/facilities#conferencing' },
+      { label: 'Spa', href: '/facilities#spa' },
+    ]
+  },
+  {
+    label: 'Dining',
+    href: '/dining',
+    sub_items: [
+      { label: 'Cassia Restaurant', href: '/dining' },
+      { label: 'Zambezi River Deck Experience', href: '/dining/zambezi-river-deck' },
+      { label: 'Palm River Hotel High Tea', href: '/dining/high-tea' },
+      { label: 'Our Menus', href: '/dining#menus' },
+    ]
+  },
+  {
+    label: 'Activities',
+    href: '/activities',
+    sub_items: [
+      { label: 'Relaxation', href: '/activities#relaxation' },
+      { label: 'Wildlife', href: '/activities#wildlife' },
+      { label: 'Cultural', href: '/activities#cultural' },
+      { label: 'Adventure', href: '/activities#adventure' },
+      { label: 'Featured Experiences', href: '/activities#featured-experiences' },
+    ]
+  },
+  {
+    label: 'Location',
+    href: '/location',
+    sub_items: [
+      { label: 'The Victoria Falls', href: '/victoria-falls' },
+      { label: 'Town Map', href: '/map' },
+    ]
+  },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'FAQs', href: '/faqs' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Agents', href: '/agents' },
+];
+
+export default function Header({ navItems }: HeaderProps) {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,6 +80,9 @@ export default function Header() {
   const [submenuOffset, setSubmenuOffset] = useState(0);
   const navRef = useRef<HTMLElement>(null);
   const menuItemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+
+  // Use WordPress nav items if available, otherwise fallback to defaults
+  const navLinks = (navItems && navItems.length > 0) ? navItems : defaultNavLinks;
 
   // Hide on map-editor page (it has its own header)
   if (pathname === '/map-editor') {
@@ -29,65 +97,6 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navLinks = [
-    { label: 'Home', href: '/' },
-    {
-      label: 'Our Rooms',
-      href: '/our-rooms',
-      subItems: [
-        { label: 'Classic Rooms', href: '/our-rooms/classic-rooms' },
-        { label: 'Classic Suites', href: '/our-rooms/classic-suites' },
-        { label: 'Deluxe Rooms', href: '/our-rooms/deluxe-rooms' },
-        { label: 'Executive Suites', href: '/our-rooms/executive-suites' },
-        { label: 'Strathearn Suite', href: '/our-rooms/strathearn-suite' },
-        { label: 'Rates', href: '/rates' },
-      ]
-    },
-    {
-      label: 'The Hotel',
-      href: '/facilities',
-      subItems: [
-        { label: 'Our Story', href: '/our-story' },
-        { label: 'Facilities', href: '/facilities' },
-        { label: 'Conferencing', href: '/facilities#conferencing' },
-        { label: 'Spa', href: '/facilities#spa' },
-      ]
-    },
-    {
-      label: 'Dining',
-      href: '/dining',
-      subItems: [
-        { label: 'Cassia Restaurant', href: '/dining' },
-        { label: 'Zambezi River Deck Experience', href: '/dining/zambezi-river-deck' },
-        { label: 'Palm River Hotel High Tea', href: '/dining/high-tea' },
-        { label: 'Our Menus', href: '/dining#menus' },
-      ]
-    },
-    {
-      label: 'Activities',
-      href: '/activities',
-      subItems: [
-        { label: 'Relaxation', href: '/activities#relaxation' },
-        { label: 'Wildlife', href: '/activities#wildlife' },
-        { label: 'Cultural', href: '/activities#cultural' },
-        { label: 'Adventure', href: '/activities#adventure' },
-        { label: 'Featured Experiences', href: '/activities#featured-experiences' },
-      ]
-    },
-    {
-      label: 'Location',
-      href: '/location',
-      subItems: [
-        { label: 'Victoria Falls', href: '/victoria-falls' },
-        { label: 'Map', href: '/map' },
-      ]
-    },
-    { label: 'Gallery', href: '/gallery' },
-    { label: 'FAQs', href: '/faqs' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Agents', href: '/agents' },
-  ];
 
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
@@ -227,6 +236,7 @@ export default function Header() {
                 <nav ref={navRef} className="flex flex-col gap-2">
                   {navLinks.map((link) => {
                     const isExpanded = hoveredMenuItem === link.label;
+                    const subItems = link.sub_items;
                     return (
                       <div
                         key={link.href}
@@ -236,7 +246,7 @@ export default function Header() {
                           }
                         }}
                         onMouseEnter={() => {
-                          if (link.subItems) {
+                          if (subItems) {
                             setHoveredMenuItem(link.label);
                             // Calculate offset relative to nav container
                             const navEl = navRef.current;
@@ -251,7 +261,7 @@ export default function Header() {
                           }
                         }}
                       >
-                        {link.subItems ? (
+                        {subItems ? (
                           <>
                             {/* Desktop: clickable link */}
                             <Link
@@ -291,7 +301,7 @@ export default function Header() {
                         )}
 
                         {/* Mobile-only inline submenu (always rendered when expanded) */}
-                        {link.subItems && isExpanded && (
+                        {subItems && isExpanded && (
                           <div className="lg:hidden pl-4 mt-2 mb-3 flex flex-col gap-2 border-l border-white/15 ml-1">
                             <Link
                               href={link.href}
@@ -300,7 +310,7 @@ export default function Header() {
                             >
                               View {link.label}
                             </Link>
-                            {link.subItems.map((subItem) => (
+                            {subItems.map((subItem) => (
                               <Link
                                 key={subItem.href}
                                 href={subItem.href}
@@ -323,13 +333,13 @@ export default function Header() {
                   onMouseLeave={() => setHoveredMenuItem(null)}
                 >
                   {navLinks.map((link) => (
-                    link.subItems && hoveredMenuItem === link.label && (
+                    link.sub_items && hoveredMenuItem === link.label && (
                       <div
                         key={`${link.href}-sub`}
                         className="flex flex-col gap-1 animate-fade-in"
                         style={{ marginTop: submenuOffset }}
                       >
-                        {link.subItems.map((subItem) => (
+                        {link.sub_items.map((subItem) => (
                           <Link
                             key={subItem.href}
                             href={subItem.href}

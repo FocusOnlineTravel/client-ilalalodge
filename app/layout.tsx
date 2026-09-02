@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileBottomNav from "@/components/layout/MobileBottomNav";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import { getOptions } from "@/lib/content";
 
 export const metadata: Metadata = {
   icons: {
@@ -48,15 +49,17 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const options = await getOptions();
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
-        <Header />
+        <Header navItems={options.header.nav_items} />
         <main className="pb-16 lg:pb-0">{children}</main>
         <Footer />
         <WhatsAppButton />
