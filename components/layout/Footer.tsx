@@ -165,6 +165,14 @@ export default function Footer() {
                   Gallery
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
