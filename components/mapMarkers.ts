@@ -54,7 +54,7 @@ export const markers: MapMarker[] = [
     "x": 2709,
     "y": 2762,
     "title": "Kingdom Hotel",
-    "blurb": "Exclusive safari-style boutique retreat located within a private wildlife reserve.",
+    "blurb": "",
     "category": "activity",
     "label": "D"
   },
