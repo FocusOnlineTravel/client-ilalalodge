@@ -63,6 +63,7 @@ export interface TextBlockSection extends SectionSettings {
   content: string;
   max_width?: 'narrow' | 'medium' | 'wide';
   text_align?: 'left' | 'center';
+  cta_primary?: AcfLink;
 }
 
 // =============================================================================
