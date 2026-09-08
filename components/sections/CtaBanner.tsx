@@ -81,6 +81,7 @@ export default function CtaBanner({ data }: Props) {
             alt={data.background_image!.alt}
             fill
             className="object-cover"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>

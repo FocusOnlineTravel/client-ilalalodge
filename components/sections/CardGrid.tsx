@@ -31,6 +31,7 @@ function RoomListingCard({ card, index }: { card: Card; index: number }) {
             alt={card.image.alt}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         )}
       </Link>
@@ -119,6 +120,7 @@ function RoomCard({ card, index, isLast, isOdd }: { card: Card; index: number; i
             alt={card.image.alt}
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         )}
         {/* Price Pill */}
@@ -332,6 +334,7 @@ export default function CardGrid({ data }: Props) {
                         alt={card.image.alt}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>
                   )}

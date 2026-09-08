@@ -219,6 +219,7 @@ export default function TextMedia({ data, pageSlug }: Props) {
                 alt={image.alt}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
             </FadeInView>
           ))}
