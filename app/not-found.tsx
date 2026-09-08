@@ -20,9 +20,9 @@ export default function NotFound() {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4">
         <h1 className="font-serif text-6xl md:text-8xl mb-4">404</h1>
-        <p className="text-xl md:text-2xl mb-2">Page not found.</p>
+        <p className="text-xl md:text-2xl mb-2">This is not what you were looking for.</p>
         <p className="text-white/80 mb-8 max-w-md mx-auto">
-          The page you are looking for may have moved or no longer exists.
+          That page may have moved or no longer exists.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
