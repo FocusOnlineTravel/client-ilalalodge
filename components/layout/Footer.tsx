@@ -246,7 +246,7 @@ export default function Footer() {
             &copy; {currentYear} Ilala Lodge Hotel | <Link href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</Link> | <a href={TERMS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Terms & Conditions</a>
           </p>
           <p>
-            Website by <a href="https://focusonlinetravel.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Focus Online Travel</a>
+            Website by <a href="https://www.focusonline.co.za" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Focus Online Travel</a>
           </p>
         </div>
       </div>
