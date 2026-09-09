@@ -58,7 +58,9 @@ const menuItems: MenuItem[] = [
 ];
 
 export default function MenuCarousel() {
-  const [itemsPerView, setItemsPerView] = useState(3);
+  // Default to mobile-first (1 per view) so SSR HTML renders correctly on
+  // phones. Desktop briefly shows 1 card before useEffect bumps it to 3.
+  const [itemsPerView, setItemsPerView] = useState(1);
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
