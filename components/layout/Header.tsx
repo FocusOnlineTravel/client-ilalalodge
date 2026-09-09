@@ -84,6 +84,12 @@ export default function Header({ navItems }: HeaderProps) {
   // Use WordPress nav items if available, otherwise fallback to defaults
   const navLinks = (navItems && navItems.length > 0) ? navItems : defaultNavLinks;
 
+  // Pages that render on a light background with no dark hero. On these,
+  // the top-of-page nav needs the "scrolled" (dark text/logo) treatment or
+  // the menu and logo disappear into the background.
+  const isLightBgPage = pathname === '/agents';
+  const useDarkNav = isScrolled || isLightBgPage;
+
   // Hide on map-editor page (it has its own header)
   if (pathname === '/map-editor') {
     return null;
@@ -127,23 +133,23 @@ export default function Header({ navItems }: HeaderProps) {
             className={`absolute left-2 lg:left-8 z-10 p-2 group transition-colors flex items-center gap-3 ${
               isMobileMenuOpen ? 'opacity-0 pointer-events-none' : ''
             } ${
-              isScrolled ? 'text-brand-forest' : 'text-white'
+              useDarkNav ? 'text-brand-forest' : 'text-white'
             }`}
             aria-label="Open menu"
           >
             <div className="flex flex-col gap-1.5 w-7">
               <span className={`h-0.5 w-7 transition-all group-hover:bg-brand-gold ${
-                isScrolled ? 'bg-brand-forest' : 'bg-white'
+                useDarkNav ? 'bg-brand-forest' : 'bg-white'
               }`}></span>
               <span className={`h-0.5 w-5 transition-all group-hover:bg-brand-gold ${
-                isScrolled ? 'bg-brand-forest' : 'bg-white'
+                useDarkNav ? 'bg-brand-forest' : 'bg-white'
               }`}></span>
               <span className={`h-0.5 w-7 transition-all group-hover:bg-brand-gold ${
-                isScrolled ? 'bg-brand-forest' : 'bg-white'
+                useDarkNav ? 'bg-brand-forest' : 'bg-white'
               }`}></span>
             </div>
             <span className={`hidden lg:inline text-lg font-semibold uppercase tracking-wider transition-colors ${
-              isScrolled ? 'text-brand-forest' : 'text-white'
+              useDarkNav ? 'text-brand-forest' : 'text-white'
             } group-hover:text-brand-gold`}>
               Menu
             </span>
@@ -152,7 +158,7 @@ export default function Header({ navItems }: HeaderProps) {
           {/* Logo - Centered */}
           <Link href="/" className="relative z-10">
             <Image
-              src={isScrolled ? '/images/logo-blacl.png' : '/images/logo-white.png'}
+              src={useDarkNav ? '/images/logo-blacl.png' : '/images/logo-white.png'}
               alt="Ilala Lodge Hotel"
               width={248}
               height={83}
@@ -176,7 +182,7 @@ export default function Header({ navItems }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={`px-6 pt-2 pb-1.5 text-base rounded-full font-semibold transition-all duration-200 uppercase tracking-wide ${
-                isScrolled
+                useDarkNav
                   ? 'bg-brand-forest hover:bg-brand-forest/90 text-white'
                   : 'bg-white hover:bg-white/90 text-brand-forest'
               }`}
