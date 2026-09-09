@@ -212,7 +212,7 @@ export default function RouteMap() {
             {/* Tooltip */}
             <div
               className={`absolute left-1/2 -translate-x-1/2 bottom-full pb-3 transition-all duration-200 ${
-                marker.blurb ? 'w-64' : 'w-auto'
+                marker.blurb ? 'w-80 md:w-96' : 'w-auto'
               } ${
                 isActive
                   ? 'opacity-100 translate-y-0 pointer-events-auto'
