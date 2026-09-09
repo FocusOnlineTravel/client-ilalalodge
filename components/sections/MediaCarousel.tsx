@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { MediaCarouselSection } from '@/types/sections';
 import { ChevronLeft, ChevronRight, FileText } from 'lucide-react';
@@ -12,6 +12,16 @@ interface Props {
 export default function MediaCarousel({ data }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
+  // Cards mode: mobile-first (1 per view) so SSR HTML renders correctly on
+  // phones. useEffect bumps to the configured per-view value on desktop.
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsDesktop(window.innerWidth >= 768);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   // Return null if no items
   if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
@@ -102,18 +112,16 @@ export default function MediaCarousel({ data }: Props) {
     );
   }
 
-  // Cards display mode (menu-style 3-column layout)
+  // Cards display mode (menu-style multi-column layout on desktop, 1-up on mobile)
   if (data.display_mode === 'cards') {
-    const itemsPerView = parseInt(data.items_per_slide || '3', 10);
-    const totalSlides = Math.ceil(data.items.length / itemsPerView);
+    const desktopPerView = parseInt(data.items_per_slide || '3', 10);
+    const itemsPerView = isDesktop ? desktopPerView : 1;
+    const totalPages = Math.ceil(data.items.length / itemsPerView);
+    const safePage = Math.min(currentIndex, totalPages - 1);
+    const itemWidthPercent = 100 / itemsPerView;
 
-    const nextCardSlide = () => {
-      setCurrentIndex((prev) => (prev + 1) % totalSlides);
-    };
-
-    const prevCardSlide = () => {
-      setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-    };
+    const nextCardSlide = () => setCurrentIndex((prev) => (prev + 1) % totalPages);
+    const prevCardSlide = () => setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
 
     return (
       <section className={`py-16 md:py-24 ${bgClass}`} id={data.anchor_id}>
@@ -139,66 +147,54 @@ export default function MediaCarousel({ data }: Props) {
             <div className="overflow-hidden">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                style={{ transform: `translateX(-${safePage * 100}%)` }}
               >
-                {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-                  <div key={slideIndex} className="min-w-full flex gap-8 md:gap-12">
-                    {data.items
-                      .slice(slideIndex * itemsPerView, slideIndex * itemsPerView + itemsPerView)
-                      .map((item, itemIndex) => (
-                        <div
-                          key={itemIndex}
-                          className={`w-full flex-shrink-0 text-center ${
-                            itemsPerView === 2 ? 'md:w-[calc(50%-1.5rem)]' :
-                            itemsPerView === 4 ? 'md:w-[calc(25%-1.5rem)]' :
-                            'md:w-[calc(33.333%-2rem)]'
-                          }`}
-                        >
-                          {/* Image */}
-                          {item.image && (
-                            <div className="relative h-64 mb-6 overflow-hidden">
-                              <Image
-                                src={item.image.url}
-                                alt={item.image.alt || item.title}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                          )}
-
-                          {/* Content */}
-                          <h3 className={`font-serif text-3xl md:text-4xl ${textColorClass} mb-1`}>
-                            {item.title}
-                          </h3>
-                          {item.subtitle && (
-                            <p className="text-lg text-brand-stem font-semibold mb-4">
-                              {item.subtitle}
-                            </p>
-                          )}
-                          {item.description && (
-                            <p className={`leading-relaxed mb-4 ${data.section_theme === 'dark' || data.section_theme === 'forest' ? 'text-white/70' : 'text-brand-forest/70'}`}>
-                              {item.description}
-                            </p>
-                          )}
-                          {item.pdf && (
-                            <a
-                              href={item.pdf}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-                            >
-                              View Menu
-                            </a>
-                          )}
-                        </div>
-                      ))}
+                {data.items.map((item, itemIndex) => (
+                  <div
+                    key={itemIndex}
+                    className="flex-shrink-0 text-center px-3 md:px-6"
+                    style={{ width: `${itemWidthPercent}%` }}
+                  >
+                    {item.image && (
+                      <div className="relative h-64 mb-6 overflow-hidden">
+                        <Image
+                          src={item.image.url}
+                          alt={item.image.alt || item.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <h3 className={`font-serif text-3xl md:text-4xl ${textColorClass} mb-1`}>
+                      {item.title}
+                    </h3>
+                    {item.subtitle && (
+                      <p className="text-lg text-brand-stem font-semibold mb-4">
+                        {item.subtitle}
+                      </p>
+                    )}
+                    {item.description && (
+                      <p className={`leading-relaxed mb-4 ${data.section_theme === 'dark' || data.section_theme === 'forest' ? 'text-white/70' : 'text-brand-forest/70'}`}>
+                        {item.description}
+                      </p>
+                    )}
+                    {item.pdf && (
+                      <a
+                        href={item.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+                      >
+                        View Menu
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Navigation Arrows */}
-            {totalSlides > 1 && (
+            {totalPages > 1 && (
               <>
                 <button
                   onClick={prevCardSlide}
@@ -217,12 +213,12 @@ export default function MediaCarousel({ data }: Props) {
 
                 {/* Dots */}
                 <div className="flex justify-center gap-3 mt-8">
-                  {Array.from({ length: totalSlides }).map((_, index) => (
+                  {Array.from({ length: totalPages }).map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentIndex(index)}
                       className={`h-3 rounded-full transition-all duration-300 ${
-                        index === currentIndex ? 'w-10 bg-brand-gold' : 'w-3 bg-brand-stem/30'
+                        index === safePage ? 'w-10 bg-brand-gold' : 'w-3 bg-brand-stem/30'
                       }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />

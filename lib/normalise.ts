@@ -103,6 +103,24 @@ function normaliseImageField(value: unknown): AcfImage | undefined {
 // LINK NORMALISATION
 // =============================================================================
 
+// WP/ACF often stores plain-text fields with HTML entities already applied
+// (e.g. `Book & Enquire` → `Book &amp; Enquire`). React renders those as
+// literal text, so decode them here before they hit any component.
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+  ndash: '–', mdash: '—', hellip: '…', lsquo: '‘', rsquo: '’',
+  ldquo: '“', rdquo: '”',
+};
+
+function decodeEntities(input: string): string {
+  if (!input || input.indexOf('&') === -1) return input;
+  return input.replace(/&(#(\d+)|#x([0-9a-fA-F]+)|([a-zA-Z]+));/g, (match, _all, dec, hex, name) => {
+    if (dec) return String.fromCodePoint(parseInt(dec, 10));
+    if (hex) return String.fromCodePoint(parseInt(hex, 16));
+    return NAMED_ENTITIES[name] ?? match;
+  });
+}
+
 /**
  * Normalise a link to AcfLink format
  */
@@ -117,7 +135,7 @@ function normaliseLink(value: unknown): AcfLink | undefined {
     const link = value as { url?: string; title?: string; target?: string; href?: string };
     return {
       url: link.url || link.href || '',
-      title: link.title || '',
+      title: decodeEntities(link.title || ''),
       target: (link.target === '_blank' ? '_blank' : '_self') as '_blank' | '_self',
     };
   }
@@ -782,7 +800,7 @@ function normaliseButtonsArray(buttons: unknown[]): { text: string; url: string;
   return buttons.map((btn: unknown) => {
     const b = btn as Record<string, unknown>;
     return {
-      text: String(b.text || b.title || ''),
+      text: decodeEntities(String(b.text || b.title || '')),
       url: String(b.url || b.href || ''),
       style: b.style as string | undefined,
       external: Boolean(b.external || b.target === '_blank'),
