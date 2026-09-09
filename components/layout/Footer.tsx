@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { Facebook, Instagram } from 'lucide-react';
 import { CONTACT, SOCIAL_MEDIA } from '@/lib/constants';
 
+const WP_URL = process.env.WP_URL || process.env.NEXT_PUBLIC_WP_URL || 'https://backend-ilalalodge.focusonlinetravel.co.za';
+const TERMS_URL = `${WP_URL}/wp-content/uploads/2026/09/ILH-Terms-Conditions.pdf`;
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -240,7 +243,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-stem">
           <p>
-            &copy; {currentYear} Ilala Lodge Hotel | <Link href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</Link> | <Link href="#" className="hover:text-brand-gold transition-colors">Terms & Conditions</Link>
+            &copy; {currentYear} Ilala Lodge Hotel | <Link href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</Link> | <a href={TERMS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Terms & Conditions</a>
           </p>
           <p>
             Website by <a href="https://focusonlinetravel.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Focus Online Travel</a>
