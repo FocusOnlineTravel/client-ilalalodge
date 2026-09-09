@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -58,75 +58,69 @@ const menuItems: MenuItem[] = [
 ];
 
 export default function MenuCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 3;
-  const totalSlides = Math.ceil(menuItems.length / itemsPerView);
+  const [itemsPerView, setItemsPerView] = useState(3);
+  const [currentPage, setCurrentPage] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  };
+  useEffect(() => {
+    const update = () => setItemsPerView(window.innerWidth >= 768 ? 3 : 1);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
+  const totalPages = Math.ceil(menuItems.length / itemsPerView);
+  const safePage = Math.min(currentPage, totalPages - 1);
+
+  const nextSlide = () => setCurrentPage((prev) => (prev + 1) % totalPages);
+  const prevSlide = () => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  const itemWidthPercent = 100 / itemsPerView;
 
   return (
     <div className="relative max-w-7xl mx-auto">
       <div className="overflow-hidden">
-        {/* Cards Container */}
         <div
           className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          style={{ transform: `translateX(-${safePage * 100}%)` }}
         >
-          {/* Group items into slides of 3 */}
-          {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-            <div key={slideIndex} className="min-w-full flex gap-8 md:gap-12">
-              {menuItems
-                .slice(slideIndex * itemsPerView, slideIndex * itemsPerView + itemsPerView)
-                .map((item, itemIndex) => (
-                  <div
-                    key={item.title}
-                    className="w-full md:w-[calc(33.333%-2rem)] flex-shrink-0 text-center"
-                  >
-                    {/* Image */}
-                    <div className="relative h-64 mb-6 overflow-hidden">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">
-                      {item.title}
-                    </h3>
-                    {item.subtitle && (
-                      <p className="text-lg text-brand-stem font-semibold mb-4">
-                        {item.subtitle}
-                      </p>
-                    )}
-                    <p className="text-brand-forest/70 leading-relaxed mb-4">
-                      {item.description}
-                    </p>
-                    <a
-                      href={item.menuUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
-                    >
-                      View Menu
-                    </a>
-                  </div>
-                ))}
+          {menuItems.map((item) => (
+            <div
+              key={item.title}
+              className="flex-shrink-0 px-3 md:px-6 text-center"
+              style={{ width: `${itemWidthPercent}%` }}
+            >
+              <div className="relative h-64 mb-6 overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="font-serif text-3xl md:text-4xl text-brand-forest mb-1">
+                {item.title}
+              </h3>
+              {item.subtitle && (
+                <p className="text-lg text-brand-stem font-semibold mb-4">
+                  {item.subtitle}
+                </p>
+              )}
+              <p className="text-brand-forest/70 leading-relaxed mb-4">
+                {item.description}
+              </p>
+              <a
+                href={item.menuUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-brand-forest border border-brand-stem/30 hover:border-brand-forest hover:bg-brand-daisy"
+              >
+                View Menu
+              </a>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Navigation Arrows */}
-      {totalSlides > 1 && (
+      {totalPages > 1 && (
         <>
           <button
             onClick={prevSlide}
@@ -145,15 +139,14 @@ export default function MenuCarousel() {
         </>
       )}
 
-      {/* Dots Indicator */}
-      {totalSlides > 1 && (
+      {totalPages > 1 && (
         <div className="flex justify-center gap-3 mt-8">
-          {Array.from({ length: totalSlides }).map((_, index) => (
+          {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => setCurrentPage(index)}
               className={`h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'w-10 bg-brand-gold' : 'w-3 bg-brand-stem/30'
+                index === safePage ? 'w-10 bg-brand-gold' : 'w-3 bg-brand-stem/30'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

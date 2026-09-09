@@ -53,10 +53,10 @@ export default function StaySection({ data }: Props) {
                 {/* Image with Price Pill */}
                 <Link
                   href={`/our-rooms/${roomSlugMap[room.room_name] || '#'}`}
-                  className={`relative mb-6 block ${
+                  className={`relative mb-6 block aspect-[4/3] ${
                     index === data.stay_rooms.length - 1 && data.stay_rooms.length % 2 !== 0
-                      ? 'aspect-[8/3]'
-                      : 'aspect-[4/3]'
+                      ? 'md:aspect-[8/3]'
+                      : ''
                   }`}
                 >
                   <Image

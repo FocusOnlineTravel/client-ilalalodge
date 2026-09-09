@@ -258,7 +258,7 @@ export default function TextMedia({ data, pageSlug }: Props) {
       <section className={`py-0 ${bgClass} w-full`} id={data.anchor_id}>
         <div className="flex flex-col lg:flex-row w-full">
           {/* Text Content */}
-          <div className={`w-full lg:w-[${textWidth}] flex items-center ${isMediaLeft ? 'order-2' : 'order-1 lg:order-1'}`}>
+          <div className={`w-full lg:w-[${textWidth}] flex items-center order-2 ${isMediaLeft ? 'lg:order-2' : 'lg:order-1'}`}>
             <FadeInView className="px-12 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
               <div className="space-y-6">
                 {data.eyebrow && (
@@ -288,7 +288,7 @@ export default function TextMedia({ data, pageSlug }: Props) {
           </div>
 
           {/* Media */}
-          <div className={`w-full lg:w-[${mediaWidth}] ${isMediaLeft ? 'order-1' : 'order-2'}`}>
+          <div className={`w-full lg:w-[${mediaWidth}] order-1 ${isMediaLeft ? 'lg:order-1' : 'lg:order-2'}`}>
             {renderMedia()}
           </div>
         </div>
@@ -309,14 +309,14 @@ export default function TextMedia({ data, pageSlug }: Props) {
       <div className={`${maxWidthClass} mx-auto px-4`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Media */}
-          <div className={isMediaLeft ? 'order-2 md:order-1' : 'order-2'}>
+          <div className={`order-1 ${isMediaLeft ? 'md:order-1' : 'md:order-2'}`}>
             {renderMedia()}
           </div>
 
           {/* Text Content */}
           <FadeInView
             direction={isMediaLeft ? 'right' : 'left'}
-            className={`${isMediaLeft ? 'order-1 md:order-2' : 'order-1'} space-y-6`}
+            className={`order-2 ${isMediaLeft ? 'md:order-2' : 'md:order-1'} space-y-6`}
           >
             {data.eyebrow && (
               <span className="text-brand-gold font-serif text-sm lg:text-base uppercase tracking-wider block">
