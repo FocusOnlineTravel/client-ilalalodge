@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { HeroBlock } from '@/types/acf';
 import { Play, X } from 'lucide-react';
 import { ENABLE_TITLE_FADE, VIDEO_TITLE_FADE_DELAY } from '@/lib/hero-config';
@@ -25,6 +25,17 @@ export default function HeroSection({ data }: Props) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [titleVisible, setTitleVisible] = useState(true);
+  const [videoReady, setVideoReady] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Defer video loading until after page is interactive
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVideoReady(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,17 +73,31 @@ export default function HeroSection({ data }: Props) {
           className="absolute inset-0 z-0"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
-          <video
-            src={data.hero_video_url}
-            poster={data.hero_background_image.url}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover scale-110"
-            aria-label={data.hero_background_image.alt}
+          {/* Poster image shown while video loads */}
+          <img
+            src={data.hero_background_image.url}
+            alt={data.hero_background_image.alt}
+            className={`absolute inset-0 w-full h-full object-cover scale-110 transition-opacity duration-500 ${
+              videoLoaded ? 'opacity-0' : 'opacity-100'
+            }`}
           />
+          {/* Video - only loaded after page is interactive */}
+          {videoReady && (
+            <video
+              ref={videoRef}
+              src={data.hero_video_url}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              onLoadedData={() => setVideoLoaded(true)}
+              className={`absolute inset-0 w-full h-full object-cover scale-110 transition-opacity duration-500 ${
+                videoLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              aria-label={data.hero_background_image.alt}
+            />
+          )}
           {/* Dark overlay for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/40"></div>
         </div>
