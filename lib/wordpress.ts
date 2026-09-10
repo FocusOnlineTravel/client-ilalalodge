@@ -484,6 +484,140 @@ export function clearRoomCache(slug?: string): void {
 }
 
 // =============================================================================
+// BLOG POST FETCHING
+// =============================================================================
+
+export interface WPPost {
+  id: number;
+  slug: string;
+  title: { rendered: string };
+  content: { rendered: string };
+  excerpt: { rendered: string };
+  date: string;
+  modified: string;
+  featured_media: number;
+  _embedded?: {
+    'wp:featuredmedia'?: Array<{
+      source_url: string;
+      alt_text: string;
+      media_details?: {
+        sizes?: {
+          large?: { source_url: string };
+          medium?: { source_url: string };
+          full?: { source_url: string };
+        };
+      };
+    }>;
+    author?: Array<{
+      name: string;
+      avatar_urls?: { '96'?: string };
+    }>;
+  };
+}
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  content: string;
+  excerpt: string;
+  date: string;
+  modified: string;
+  featuredImage: string | null;
+  featuredImageAlt: string;
+  author: string;
+  authorAvatar: string | null;
+}
+
+/**
+ * Normalise WordPress post data to frontend format
+ */
+function normalisePost(wpPost: WPPost): BlogPost {
+  const featuredMedia = wpPost._embedded?.['wp:featuredmedia']?.[0];
+  const author = wpPost._embedded?.author?.[0];
+
+  return {
+    slug: wpPost.slug,
+    title: wpPost.title.rendered,
+    content: wpPost.content.rendered,
+    excerpt: wpPost.excerpt.rendered.replace(/<[^>]+>/g, '').trim(),
+    date: wpPost.date,
+    modified: wpPost.modified,
+    featuredImage: featuredMedia?.media_details?.sizes?.large?.source_url
+      || featuredMedia?.source_url
+      || null,
+    featuredImageAlt: featuredMedia?.alt_text || '',
+    author: author?.name || 'Ilala Lodge',
+    authorAvatar: author?.avatar_urls?.['96'] || null,
+  };
+}
+
+/**
+ * Get all blog posts from WordPress
+ */
+export async function getAllPostsFromWP(page = 1, perPage = 12): Promise<{ posts: BlogPost[]; totalPages: number }> {
+  try {
+    const response = await fetch(
+      `${WP_API_URL}/wp/v2/posts?page=${page}&per_page=${perPage}&_embed`,
+      {
+        headers: { Accept: 'application/json' },
+        ...(WP_CACHE_DISABLED
+          ? { cache: 'no-store' as const }
+          : { next: { revalidate: 300, tags: ['posts'] } }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new WordPressError(`Failed to fetch posts: ${response.status}`, response.status, '/wp/v2/posts');
+    }
+
+    const totalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1', 10);
+    const posts: WPPost[] = await response.json();
+
+    return {
+      posts: posts.map(normalisePost),
+      totalPages,
+    };
+  } catch (error) {
+    console.error('[WordPress] Failed to fetch posts:', error);
+    return { posts: [], totalPages: 0 };
+  }
+}
+
+/**
+ * Get a single blog post by slug from WordPress
+ */
+export async function getPostBySlugFromWP(slug: string): Promise<BlogPost | null> {
+  try {
+    const posts = await wpFetch<WPPost[]>(
+      `/wp/v2/posts?slug=${encodeURIComponent(slug)}&_embed`,
+      { tags: [`post-${slug}`], revalidate: 300 }
+    );
+
+    if (!posts || posts.length === 0) {
+      return null;
+    }
+
+    return normalisePost(posts[0]);
+  } catch (error) {
+    console.error(`[WordPress] Failed to fetch post "${slug}":`, error);
+    return null;
+  }
+}
+
+/**
+ * Get all post slugs for static generation
+ */
+export async function getAllPostSlugsFromWP(): Promise<string[]> {
+  try {
+    const { posts } = await getAllPostsFromWP(1, 100);
+    return posts.map(post => post.slug);
+  } catch (error) {
+    console.error('[WordPress] Failed to fetch post slugs:', error);
+    return [];
+  }
+}
+
+// =============================================================================
 // EXPORTS
 // =============================================================================
 

@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { getAllPosts } from '@/lib/content';
 
 const BASE_URL = 'https://www.ilalalodge.com';
 
@@ -28,6 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/faqs',
     '/contact',
     '/agents',
+    '/blog',
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPages.map((path) => ({
@@ -37,5 +39,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: path === '' ? 1 : path.startsWith('/our-rooms') ? 0.9 : 0.8,
   }));
 
-  return staticEntries;
+  // Fetch blog posts for dynamic entries
+  let blogEntries: MetadataRoute.Sitemap = [];
+  try {
+    const { posts } = await getAllPosts(1, 100);
+    blogEntries = posts.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: new Date(post.modified || post.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
+  } catch (error) {
+    console.error('[Sitemap] Failed to fetch blog posts:', error);
+  }
+
+  return [...staticEntries, ...blogEntries];
 }

@@ -330,6 +330,47 @@ export function getAccommodationOverview() {
 }
 
 // =============================================================================
+// BLOG CONTENT
+// =============================================================================
+
+import type { BlogPost } from './wordpress';
+export type { BlogPost };
+
+/**
+ * Get all blog posts with pagination
+ */
+export async function getAllPosts(page = 1, perPage = 12): Promise<{ posts: BlogPost[]; totalPages: number }> {
+  if (USE_WORDPRESS) {
+    const wp = await getWPModule();
+    return wp.getAllPostsFromWP(page, perPage);
+  }
+  // No local JSON fallback for blog posts
+  return { posts: [], totalPages: 0 };
+}
+
+/**
+ * Get a blog post by slug
+ */
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+  if (USE_WORDPRESS) {
+    const wp = await getWPModule();
+    return wp.getPostBySlugFromWP(slug);
+  }
+  return null;
+}
+
+/**
+ * Get all post slugs for static generation
+ */
+export async function getAllPostSlugs(): Promise<string[]> {
+  if (USE_WORDPRESS) {
+    const wp = await getWPModule();
+    return wp.getAllPostSlugsFromWP();
+  }
+  return [];
+}
+
+// =============================================================================
 // HEALTH CHECK
 // =============================================================================
 
