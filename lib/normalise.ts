@@ -854,6 +854,18 @@ function normaliseColumns(value: unknown): string {
 }
 
 // =============================================================================
+// PAGE SECTIONS NORMALISATION (EXPORTED FOR POSTS)
+// =============================================================================
+
+/**
+ * Normalise an array of WordPress sections to PageSection format
+ * Used by both pages and posts
+ */
+export function normalisePageSections(wpSections: WPSection[]): PageSection[] {
+  return (wpSections || []).map(normaliseSection);
+}
+
+// =============================================================================
 // PAGE NORMALISATION
 // =============================================================================
 

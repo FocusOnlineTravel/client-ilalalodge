@@ -5,7 +5,8 @@
 
 import { PageData } from '@/types/page';
 import { Options } from '@/types/options';
-import { normalisePageData, normaliseOptions } from './normalise';
+import { PageSection } from '@/types/sections';
+import { normalisePageData, normaliseOptions, normalisePageSections } from './normalise';
 
 // =============================================================================
 // CONFIGURATION
@@ -496,6 +497,10 @@ export interface WPPost {
   date: string;
   modified: string;
   featured_media: number;
+  acf?: {
+    page_sections?: WPSection[];
+    [key: string]: unknown;
+  };
   _embedded?: {
     'wp:featuredmedia'?: Array<{
       source_url: string;
@@ -526,6 +531,7 @@ export interface BlogPost {
   featuredImageAlt: string;
   author: string;
   authorAvatar: string | null;
+  pageSections?: PageSection[];
 }
 
 /**
@@ -534,6 +540,11 @@ export interface BlogPost {
 function normalisePost(wpPost: WPPost): BlogPost {
   const featuredMedia = wpPost._embedded?.['wp:featuredmedia']?.[0];
   const author = wpPost._embedded?.author?.[0];
+
+  // Normalise page sections if they exist (ACF page builder)
+  const pageSections = wpPost.acf?.page_sections
+    ? normalisePageSections(wpPost.acf.page_sections as WPSection[])
+    : undefined;
 
   return {
     slug: wpPost.slug,
@@ -548,6 +559,7 @@ function normalisePost(wpPost: WPPost): BlogPost {
     featuredImageAlt: featuredMedia?.alt_text || '',
     author: author?.name || 'Ilala Lodge',
     authorAvatar: author?.avatar_urls?.['96'] || null,
+    pageSections,
   };
 }
 
