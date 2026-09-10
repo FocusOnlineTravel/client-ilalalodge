@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileBottomNav from "@/components/layout/MobileBottomNav";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { getOptions } from "@/lib/content";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-poppins",
+});
 
 const GTM_ID = "GTM-MKFC6M";
 
@@ -60,7 +68,7 @@ export default async function RootLayout({
   const options = await getOptions();
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${poppins.variable}`}>
       <head>
         <Script
           id="gtm-script"
