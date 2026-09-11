@@ -6,30 +6,30 @@ import dynamic from 'next/dynamic';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SectionComponent = React.ComponentType<{ data: any; pageSlug?: string }>;
 
-// Dynamically import section components
+// Critical above-the-fold components - SSR enabled
 const Hero = dynamic(() => import('./Hero'));
-const TextMedia = dynamic(() => import('./TextMedia'));
-const CardGrid = dynamic(() => import('./CardGrid'));
-const IconGrid = dynamic(() => import('./IconGrid'));
-const TestimonialCarousel = dynamic(() => import('./TestimonialCarousel'));
-const CtaBanner = dynamic(() => import('./CtaBanner'));
-const TextBlock = dynamic(() => import('./TextBlock'));
-const Gallery = dynamic(() => import('./Gallery'));
-const Accordion = dynamic(() => import('./Accordion'));
-const Timeline = dynamic(() => import('./Timeline'));
-const RateTable = dynamic(() => import('./RateTable'));
-const InfoBar = dynamic(() => import('./InfoBar'));
-const MediaCarousel = dynamic(() => import('./MediaCarousel'));
-
-// Homepage bespoke layouts
 const HeroSection = dynamic(() => import('./HeroSection'));
+const TextMedia = dynamic(() => import('./TextMedia'));
+const TextBlock = dynamic(() => import('./TextBlock'));
 const IntroSection = dynamic(() => import('./IntroSection'));
-const StaySection = dynamic(() => import('./StaySection'));
-const DiningSection = dynamic(() => import('./DiningSection'));
-const WildlifeSection = dynamic(() => import('./WildlifeSection'));
-const ActivitiesSection = dynamic(() => import('./ActivitiesSection'));
-const ReviewsSection = dynamic(() => import('./ReviewsSection'));
-const CtaBannerSection = dynamic(() => import('./CtaBannerSection'));
+
+// Below-the-fold components - defer JS loading with ssr: false
+const CardGrid = dynamic(() => import('./CardGrid'), { ssr: false });
+const IconGrid = dynamic(() => import('./IconGrid'), { ssr: false });
+const TestimonialCarousel = dynamic(() => import('./TestimonialCarousel'), { ssr: false });
+const CtaBanner = dynamic(() => import('./CtaBanner'), { ssr: false });
+const Gallery = dynamic(() => import('./Gallery'), { ssr: false });
+const Accordion = dynamic(() => import('./Accordion'), { ssr: false });
+const Timeline = dynamic(() => import('./Timeline'), { ssr: false });
+const RateTable = dynamic(() => import('./RateTable'), { ssr: false });
+const InfoBar = dynamic(() => import('./InfoBar'), { ssr: false });
+const MediaCarousel = dynamic(() => import('./MediaCarousel'), { ssr: false });
+const StaySection = dynamic(() => import('./StaySection'), { ssr: false });
+const DiningSection = dynamic(() => import('./DiningSection'), { ssr: false });
+const WildlifeSection = dynamic(() => import('./WildlifeSection'), { ssr: false });
+const ActivitiesSection = dynamic(() => import('./ActivitiesSection'), { ssr: false });
+const ReviewsSection = dynamic(() => import('./ReviewsSection'), { ssr: false });
+const CtaBannerSection = dynamic(() => import('./CtaBannerSection'), { ssr: false });
 
 // Component map keyed by acf_fc_layout
 const SECTION_COMPONENTS: Record<LayoutName, SectionComponent> = {
