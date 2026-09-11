@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { HeroBlock } from '@/types/acf';
 import { Play, X } from 'lucide-react';
 import { ENABLE_TITLE_FADE, VIDEO_TITLE_FADE_DELAY } from '@/lib/hero-config';
@@ -74,10 +75,13 @@ export default function HeroSection({ data }: Props) {
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
           {/* Poster image shown while video loads */}
-          <img
+          <Image
             src={data.hero_background_image.url}
             alt={data.hero_background_image.alt}
-            className={`absolute inset-0 w-full h-full object-cover scale-110 transition-opacity duration-500 ${
+            fill
+            priority
+            sizes="100vw"
+            className={`object-cover scale-110 transition-opacity duration-500 ${
               videoLoaded ? 'opacity-0' : 'opacity-100'
             }`}
           />
