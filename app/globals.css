@@ -218,13 +218,29 @@ section {
   @apply text-3xl lg:text-5xl;
 }
 
+
 /* =============================================================================
    PROSE STYLES FOR BLOG CONTENT
    ============================================================================= */
 
 .prose {
-  color: #222715;
   max-width: 65ch;
+  color: #222715;
+}
+
+/* Allow Tailwind text color classes to override prose color */
+.prose.text-white\/80,
+.prose.text-white,
+.text-white\/80.prose,
+.text-white.prose {
+  color: rgb(255 255 255 / 0.8) !important;
+}
+
+.prose.text-white\/80 p,
+.prose.text-white p,
+.text-white\/80.prose p,
+.text-white.prose p {
+  color: inherit !important;
 }
 
 .prose p {

@@ -30,5 +30,5 @@ export default async function RaIkanePage() {
     notFound();
   }
 
-  return <SectionRenderer sections={page.page_sections} />;
+  return <SectionRenderer sections={page.page_sections} pageSlug="ra-ikane" />;
 }

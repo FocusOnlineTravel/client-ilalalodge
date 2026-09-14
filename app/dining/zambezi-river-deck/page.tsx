@@ -30,5 +30,5 @@ export default async function ZambeziRiverDeckPage() {
     notFound();
   }
 
-  return <SectionRenderer sections={page.page_sections} />;
+  return <SectionRenderer sections={page.page_sections} pageSlug="zambezi-river-deck" />;
 }
