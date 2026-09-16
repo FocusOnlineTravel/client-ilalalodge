@@ -248,6 +248,15 @@ section {
   line-height: 1.8;
 }
 
+.prose h1 {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: normal;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  color: #222715;
+}
+
 .prose h2 {
   font-family: var(--font-serif);
   font-size: 1.75rem;
