@@ -517,6 +517,12 @@ export interface WPPost {
       name: string;
       avatar_urls?: { '96'?: string };
     }>;
+    'wp:term'?: Array<Array<{
+      id: number;
+      name: string;
+      slug: string;
+      taxonomy: string;
+    }>>;
   };
 }
 
@@ -531,6 +537,7 @@ export interface BlogPost {
   featuredImageAlt: string;
   author: string;
   authorAvatar: string | null;
+  categories: Array<{ name: string; slug: string }>;
   pageSections?: PageSection[];
 }
 
@@ -540,6 +547,13 @@ export interface BlogPost {
 function normalisePost(wpPost: WPPost): BlogPost {
   const featuredMedia = wpPost._embedded?.['wp:featuredmedia']?.[0];
   const author = wpPost._embedded?.author?.[0];
+
+  // Extract categories from embedded terms
+  const terms = wpPost._embedded?.['wp:term'] || [];
+  const categories = terms
+    .flat()
+    .filter((term) => term.taxonomy === 'category')
+    .map((cat) => ({ name: cat.name, slug: cat.slug }));
 
   // Normalise page sections if they exist (ACF page builder)
   const pageSections = wpPost.acf?.page_sections
@@ -559,6 +573,7 @@ function normalisePost(wpPost: WPPost): BlogPost {
     featuredImageAlt: featuredMedia?.alt_text || '',
     author: author?.name || 'Ilala Lodge',
     authorAvatar: author?.avatar_urls?.['96'] || null,
+    categories,
     pageSections,
   };
 }

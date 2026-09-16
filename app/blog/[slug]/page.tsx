@@ -94,17 +94,9 @@ export default async function BlogPostPage({ params }: PageProps) {
             />
           )}
           <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-            <time className="text-sm text-white/80 mb-4 block">
-              {formatDate(post.date)}
-            </time>
-            <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl mb-4">
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl">
               {decodeHtmlEntities(post.title)}
             </h1>
-            {post.author && (
-              <p className="text-white/90">
-                By {post.author}
-              </p>
-            )}
           </div>
         </section>
       )}
@@ -115,6 +107,36 @@ export default async function BlogPostPage({ params }: PageProps) {
       ) : (
         <article className="py-16 md:py-24 bg-white">
           <div className="max-w-3xl mx-auto px-4">
+            {/* Post Meta */}
+            <div className="mb-8 pb-8 border-b border-brand-daisy">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-brand-stem">
+                <time dateTime={post.date}>
+                  {formatDate(post.date)}
+                </time>
+                {post.categories.length > 0 && (
+                  <>
+                    <span className="text-brand-stem/40">|</span>
+                    <div className="flex flex-wrap gap-2">
+                      {post.categories.map((cat) => (
+                        <span
+                          key={cat.slug}
+                          className="text-brand-gold"
+                        >
+                          {cat.name}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {post.author && (
+                  <>
+                    <span className="text-brand-stem/40">|</span>
+                    <span>By {post.author}</span>
+                  </>
+                )}
+              </div>
+            </div>
+
             {/* Post Content */}
             <div
               className="prose prose-lg prose-brand max-w-none"
