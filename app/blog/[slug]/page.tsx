@@ -93,8 +93,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               sizes="100vw"
             />
           )}
-          <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-            <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl">
+          <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl">
               {decodeHtmlEntities(post.title)}
             </h1>
           </div>
