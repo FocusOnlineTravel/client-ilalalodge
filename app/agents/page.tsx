@@ -300,7 +300,7 @@ export default function AgentsPage() {
       <section className="py-8 md:py-12 bg-brand-daisy">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div
-            className="prose prose-lg max-w-none text-brand-forest/80"
+            className="prose prose-lg max-w-2xl mx-auto text-brand-forest/80"
             dangerouslySetInnerHTML={{ __html: data.text_hotel }}
           />
         </div>
