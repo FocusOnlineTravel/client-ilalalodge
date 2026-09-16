@@ -1,6 +1,30 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+const AGENT_PASSWORD = process.env.AGENT_PASSWORD || 'ilala2024';
+
+// POST - verify password
+export async function POST(request: Request) {
+  try {
+    const { password } = await request.json();
+
+    if (password === AGENT_PASSWORD) {
+      return NextResponse.json({ success: true });
+    }
+
+    return NextResponse.json({ success: false, error: 'Invalid password' }, { status: 401 });
+  } catch {
+    return NextResponse.json({ success: false, error: 'Invalid request' }, { status: 400 });
+  }
+}
+
+// GET - fetch agents data (requires auth header)
+export async function GET(request: Request) {
+  // Check for auth header
+  const authHeader = request.headers.get('x-agents-auth');
+  if (authHeader !== AGENT_PASSWORD) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const res = await fetch(
       'https://backend-ilalalodge.focusonlinetravel.co.za/wp-json/ilala/v1/page/agents',

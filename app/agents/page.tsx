@@ -80,8 +80,6 @@ interface AgentsPageData {
   links: LinkItem[];
 }
 
-// Password for agents area - checked client-side
-const AGENT_PASSWORD = process.env.NEXT_PUBLIC_AGENT_PASSWORD || 'ilala2024';
 
 // Tab definitions
 const TABS = [
@@ -146,7 +144,7 @@ export default function AgentsPage() {
   // Check if already authenticated
   useEffect(() => {
     const auth = sessionStorage.getItem('agents_auth');
-    if (auth === 'true') {
+    if (auth) {
       setIsAuthenticated(true);
     }
   }, []);
@@ -160,8 +158,21 @@ export default function AgentsPage() {
 
   const fetchAgentsData = async () => {
     try {
-      const res = await fetch('/api/agents');
-      if (!res.ok) throw new Error('API request failed');
+      const storedPassword = sessionStorage.getItem('agents_auth');
+      const res = await fetch('/api/agents', {
+        headers: {
+          'x-agents-auth': storedPassword || '',
+        },
+      });
+      if (!res.ok) {
+        if (res.status === 401) {
+          // Password no longer valid, clear session
+          sessionStorage.removeItem('agents_auth');
+          setIsAuthenticated(false);
+          return;
+        }
+        throw new Error('API request failed');
+      }
       const json = await res.json();
       setData(json);
     } catch (err) {
@@ -171,14 +182,27 @@ export default function AgentsPage() {
     }
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === AGENT_PASSWORD) {
-      sessionStorage.setItem('agents_auth', 'true');
-      setIsAuthenticated(true);
-      setError('');
-    } else {
-      setError('Incorrect password. Please try again.');
+    setError('');
+
+    try {
+      const res = await fetch('/api/agents', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        sessionStorage.setItem('agents_auth', password);
+        setIsAuthenticated(true);
+      } else {
+        setError('Incorrect password. Please try again.');
+      }
+    } catch {
+      setError('An error occurred. Please try again.');
     }
   };
 
