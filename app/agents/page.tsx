@@ -338,7 +338,7 @@ export default function AgentsPage() {
                 Rates & Pricing
               </h2>
               <div
-                className="prose max-w-none text-center mb-10 text-brand-forest/80"
+                className="prose max-w-2xl mx-auto text-center mb-10 text-brand-forest/80"
                 dangerouslySetInnerHTML={{ __html: data.text_rates }}
               />
               <div className="space-y-3">
@@ -373,7 +373,7 @@ export default function AgentsPage() {
               </h2>
               {data.text_hotel && (
                 <div
-                  className="prose max-w-none text-center mb-10 text-brand-forest/80"
+                  className="prose max-w-2xl mx-auto text-center mb-10 text-brand-forest/80"
                   dangerouslySetInnerHTML={{ __html: data.text_hotel }}
                 />
               )}
@@ -456,7 +456,7 @@ export default function AgentsPage() {
               <h2 className="font-serif text-3xl md:text-4xl text-brand-forest text-center mb-6">
                 Media Library
               </h2>
-              <p className="text-center text-brand-forest/80 mb-10">
+              <p className="max-w-2xl mx-auto text-center text-brand-forest/80 mb-10">
                 Download high-resolution images and videos for your marketing materials.
               </p>
 
