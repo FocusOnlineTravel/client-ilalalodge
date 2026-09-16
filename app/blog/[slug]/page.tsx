@@ -49,6 +49,24 @@ function formatDate(dateString: string): string {
   });
 }
 
+function decodeHtmlEntities(text: string): string {
+  const entities: Record<string, string> = {
+    '&#8217;': "'",
+    '&#8216;': "'",
+    '&#8220;': '"',
+    '&#8221;': '"',
+    '&#8211;': '–',
+    '&#8212;': '—',
+    '&#038;': '&',
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&#039;': "'",
+  };
+  return text.replace(/&#?\w+;/g, (match) => entities[match] || match);
+}
+
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
@@ -79,8 +97,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             <time className="text-sm text-white/80 mb-4 block">
               {formatDate(post.date)}
             </time>
-            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl mb-4">
-              {post.title}
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl mb-4">
+              {decodeHtmlEntities(post.title)}
             </h1>
             {post.author && (
               <p className="text-white/90">
