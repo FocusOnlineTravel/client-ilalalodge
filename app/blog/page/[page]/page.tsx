@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getAllPosts, getAllCategories } from '@/lib/content';
 import BlogPostCard from '@/components/blog/BlogPostCard';
 import Pagination from '@/components/blog/Pagination';
@@ -6,16 +7,39 @@ import CategoryFilter from '@/components/blog/CategoryFilter';
 
 export const revalidate = 300;
 
-export const metadata: Metadata = {
-  title: 'Blog | Ilala Lodge Hotel',
-  description: 'News, stories, and travel inspiration from Ilala Lodge Hotel in Victoria Falls, Zimbabwe.',
-};
+interface PageProps {
+  params: Promise<{ page: string }>;
+}
 
-export default async function BlogPage() {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { page } = await params;
+  return {
+    title: `Blog - Page ${page} | Ilala Lodge Hotel`,
+    description: 'News, stories, and travel inspiration from Ilala Lodge Hotel in Victoria Falls, Zimbabwe.',
+  };
+}
+
+export default async function BlogPaginatedPage({ params }: PageProps) {
+  const { page } = await params;
+  const pageNum = parseInt(page, 10);
+
+  if (isNaN(pageNum) || pageNum < 1) {
+    notFound();
+  }
+
+  // Redirect page 1 to /blog
+  if (pageNum === 1) {
+    notFound();
+  }
+
   const [{ posts, totalPages }, categories] = await Promise.all([
-    getAllPosts(1, 12),
+    getAllPosts(pageNum, 12),
     getAllCategories(),
   ]);
+
+  if (pageNum > totalPages) {
+    notFound();
+  }
 
   return (
     <>
@@ -39,7 +63,7 @@ export default async function BlogPage() {
 
           {posts.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-brand-stem text-lg">No posts yet. Check back soon!</p>
+              <p className="text-brand-stem text-lg">No posts found on this page.</p>
             </div>
           ) : (
             <>
@@ -50,7 +74,7 @@ export default async function BlogPage() {
               </div>
 
               <Pagination
-                currentPage={1}
+                currentPage={pageNum}
                 totalPages={totalPages}
                 basePath="/blog"
               />

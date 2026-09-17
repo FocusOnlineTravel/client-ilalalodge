@@ -370,6 +370,28 @@ export async function getAllPostSlugs(): Promise<string[]> {
   return [];
 }
 
+/**
+ * Get all categories
+ */
+export async function getAllCategories() {
+  if (USE_WORDPRESS) {
+    const wp = await getWPModule();
+    return wp.getAllCategoriesFromWP();
+  }
+  return [];
+}
+
+/**
+ * Get posts by category
+ */
+export async function getPostsByCategory(categorySlug: string, page = 1, perPage = 12) {
+  if (USE_WORDPRESS) {
+    const wp = await getWPModule();
+    return wp.getPostsByCategoryFromWP(categorySlug, page, perPage);
+  }
+  return { posts: [], totalPages: 0, category: null };
+}
+
 // =============================================================================
 // HEALTH CHECK
 // =============================================================================

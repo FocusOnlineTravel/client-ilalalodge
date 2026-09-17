@@ -644,6 +644,89 @@ export async function getAllPostSlugsFromWP(): Promise<string[]> {
   }
 }
 
+export interface Category {
+  id: number;
+  name: string;
+  slug: string;
+  count: number;
+}
+
+/**
+ * Get all categories from WordPress
+ */
+export async function getAllCategoriesFromWP(): Promise<Category[]> {
+  try {
+    const categories = await wpFetch<Array<{ id: number; name: string; slug: string; count: number }>>(
+      '/wp/v2/categories?per_page=100&hide_empty=true',
+      { tags: ['categories'], revalidate: 3600 }
+    );
+    return categories.map(cat => ({
+      id: cat.id,
+      name: cat.name,
+      slug: cat.slug,
+      count: cat.count,
+    }));
+  } catch (error) {
+    console.error('[WordPress] Failed to fetch categories:', error);
+    return [];
+  }
+}
+
+/**
+ * Get posts by category slug
+ */
+export async function getPostsByCategoryFromWP(
+  categorySlug: string,
+  page = 1,
+  perPage = 12
+): Promise<{ posts: BlogPost[]; totalPages: number; category: Category | null }> {
+  try {
+    // First get the category ID from slug
+    const categories = await wpFetch<Array<{ id: number; name: string; slug: string; count: number }>>(
+      `/wp/v2/categories?slug=${encodeURIComponent(categorySlug)}`,
+      { tags: [`category-${categorySlug}`], revalidate: 3600 }
+    );
+
+    if (!categories || categories.length === 0) {
+      return { posts: [], totalPages: 0, category: null };
+    }
+
+    const category = {
+      id: categories[0].id,
+      name: categories[0].name,
+      slug: categories[0].slug,
+      count: categories[0].count,
+    };
+
+    // Then get posts for that category
+    const response = await fetch(
+      `${WP_API_URL}/wp/v2/posts?categories=${category.id}&page=${page}&per_page=${perPage}&_embed`,
+      {
+        headers: { Accept: 'application/json' },
+        ...(WP_CACHE_DISABLED
+          ? { cache: 'no-store' as const }
+          : { next: { revalidate: 300, tags: ['posts', `category-${categorySlug}`] } }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new WordPressError(`Failed to fetch posts: ${response.status}`, response.status, '/wp/v2/posts');
+    }
+
+    const totalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1', 10);
+    const posts: WPPost[] = await response.json();
+
+    return {
+      posts: posts.map(normalisePost),
+      totalPages,
+      category,
+    };
+  } catch (error) {
+    console.error('[WordPress] Failed to fetch posts by category:', error);
+    return { posts: [], totalPages: 0, category: null };
+  }
+}
+
 // =============================================================================
 // EXPORTS
 // =============================================================================
