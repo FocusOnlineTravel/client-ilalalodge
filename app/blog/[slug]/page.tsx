@@ -94,18 +94,17 @@ export default async function BlogPostPage({ params }: PageProps) {
               sizes="100vw"
             />
           )}
-          {/* Back to Blog link */}
-          <Link
-            href="/blog"
-            className="absolute top-24 left-4 md:left-8 z-20 inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
-          </Link>
           <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6">
               {decodeHtmlEntities(post.title)}
             </h1>
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Blog
+            </Link>
           </div>
         </section>
       )}

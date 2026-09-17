@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { getAllPosts, getAllCategories } from '@/lib/content';
 import BlogPostCard from '@/components/blog/BlogPostCard';
 import Pagination from '@/components/blog/Pagination';
@@ -45,6 +46,13 @@ export default async function BlogPaginatedPage({ params }: PageProps) {
     <>
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-brand-forest">
+        <Image
+          src="/images/Ilala-Lodge-Exteriors-16.jpg"
+          alt="Ilala Lodge Hotel"
+          fill
+          className="object-cover opacity-40"
+          priority
+        />
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4">
             Blog
