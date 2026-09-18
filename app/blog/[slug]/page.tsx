@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { getPostBySlug, getAllPostSlugs } from '@/lib/content';
 import SectionRenderer from '@/components/sections/SectionRenderer';
+import EditPostLink from '@/components/blog/EditPostLink';
 
 export const revalidate = 300; // Revalidate every 5 minutes
 
@@ -81,6 +82,9 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <>
+      {/* Floating Edit Link - only visible when logged into WordPress */}
+      <EditPostLink postId={post.id} />
+
       {/* Hero Section - only show if NOT using page builder (page builder has its own hero) */}
       {!hasPageSections && (
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-brand-forest">

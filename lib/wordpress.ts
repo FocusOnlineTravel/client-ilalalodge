@@ -527,6 +527,7 @@ export interface WPPost {
 }
 
 export interface BlogPost {
+  id: number;
   slug: string;
   title: string;
   content: string;
@@ -561,6 +562,7 @@ function normalisePost(wpPost: WPPost): BlogPost {
     : undefined;
 
   return {
+    id: wpPost.id,
     slug: wpPost.slug,
     title: wpPost.title.rendered,
     content: wpPost.content.rendered,
