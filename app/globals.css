@@ -333,9 +333,32 @@ section {
 
 .prose figure {
   margin: 2em 0;
+  text-align: center;
+}
+
+.prose figure img {
+  margin: 0 auto;
 }
 
 .prose figcaption {
+  font-size: 0.875rem;
+  color: #636449;
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+/* WordPress classic editor captions */
+.prose .wp-caption {
+  max-width: 100%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.prose .wp-caption img {
+  margin: 0 auto;
+}
+
+.prose .wp-caption-text {
   font-size: 0.875rem;
   color: #636449;
   margin-top: 0.5em;
