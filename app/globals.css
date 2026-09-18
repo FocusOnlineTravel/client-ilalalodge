@@ -327,12 +327,13 @@ section {
 .prose img {
   max-width: 100%;
   height: auto;
-  margin: 2em 0;
+  margin: 2em auto;
   border-radius: 4px;
+  display: block;
 }
 
 .prose figure {
-  margin: 2em 0;
+  margin: 2em 0 0 0;
   text-align: center;
 }
 
@@ -341,16 +342,17 @@ section {
 }
 
 .prose figcaption {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #636449;
   margin-top: 0.5em;
   text-align: center;
+  font-style: normal;
 }
 
 /* WordPress classic editor captions */
 .prose .wp-caption {
   max-width: 100%;
-  margin: 2em auto;
+  margin: 2em auto 0 auto;
   text-align: center;
 }
 
@@ -359,10 +361,11 @@ section {
 }
 
 .prose .wp-caption-text {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #636449;
   margin-top: 0.5em;
   text-align: center;
+  font-style: normal;
 }
 
 .prose hr {
