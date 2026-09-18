@@ -170,6 +170,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/blog"
+                  className="text-base text-brand-stem hover:text-brand-gold transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="text-base text-brand-stem hover:text-brand-gold transition-colors"
                 >

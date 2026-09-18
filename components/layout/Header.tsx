@@ -67,6 +67,7 @@ const defaultNavLinks: NavItem[] = [
     ]
   },
   { label: 'Gallery', href: '/gallery' },
+  { label: 'Blog', href: '/blog' },
   { label: 'FAQs', href: '/faqs' },
   { label: 'Contact', href: '/contact' },
   { label: 'Agents', href: '/agents' },
