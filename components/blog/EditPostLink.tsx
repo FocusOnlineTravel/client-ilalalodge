@@ -1,41 +1,38 @@
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { Pencil } from 'lucide-react';
 
 interface EditPostLinkProps {
   postId: number;
 }
 
-const WP_ADMIN_URL = process.env.NEXT_PUBLIC_WP_URL || 'https://backend-ilalalodge.focusonlinetravel.co.za';
+const WP_URL = process.env.NEXT_PUBLIC_WP_URL || 'https://backend-ilalalodge.focusonlinetravel.co.za';
 
-function EditPostLinkInner({ postId }: EditPostLinkProps) {
-  const [editMode, setEditMode] = useState(false);
-  const searchParams = useSearchParams();
+export default function EditPostLink({ postId }: EditPostLinkProps) {
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    // Check URL parameter to toggle edit mode
-    const editParam = searchParams.get('edit');
+    // Check if user is logged into WordPress as admin
+    fetch(`${WP_URL}/wp-json/ilala/v1/is-admin`, {
+      credentials: 'include', // Send WordPress cookies
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.is_admin) {
+          setIsAdmin(true);
+        }
+      })
+      .catch(() => {
+        // Silently fail - user not logged in
+      });
+  }, []);
 
-    if (editParam === '1' || editParam === 'true') {
-      localStorage.setItem('wp_edit_mode', '1');
-      setEditMode(true);
-    } else if (editParam === '0' || editParam === 'false') {
-      localStorage.removeItem('wp_edit_mode');
-      setEditMode(false);
-    } else {
-      // Check localStorage for existing edit mode
-      const stored = localStorage.getItem('wp_edit_mode');
-      setEditMode(stored === '1');
-    }
-  }, [searchParams]);
-
-  if (!editMode) {
+  if (!isAdmin) {
     return null;
   }
 
-  const editUrl = `${WP_ADMIN_URL}/wp-admin/post.php?post=${postId}&action=edit`;
+  const editUrl = `${WP_URL}/wp-admin/post.php?post=${postId}&action=edit`;
 
   return (
     <a
@@ -50,13 +47,5 @@ function EditPostLinkInner({ postId }: EditPostLinkProps) {
         Edit Post
       </span>
     </a>
-  );
-}
-
-export default function EditPostLink({ postId }: EditPostLinkProps) {
-  return (
-    <Suspense fallback={null}>
-      <EditPostLinkInner postId={postId} />
-    </Suspense>
   );
 }
