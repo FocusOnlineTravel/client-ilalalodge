@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Pencil } from 'lucide-react';
 
 interface EditPostLinkProps {
@@ -9,19 +10,28 @@ interface EditPostLinkProps {
 
 const WP_ADMIN_URL = process.env.NEXT_PUBLIC_WP_URL || 'https://backend-ilalalodge.focusonlinetravel.co.za';
 
-export default function EditPostLink({ postId }: EditPostLinkProps) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+function EditPostLinkInner({ postId }: EditPostLinkProps) {
+  const [editMode, setEditMode] = useState(false);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Check for WordPress login cookie
-    const cookies = document.cookie;
-    const hasWordPressLogin = cookies.split(';').some(cookie =>
-      cookie.trim().startsWith('wordpress_logged_in_')
-    );
-    setIsLoggedIn(hasWordPressLogin);
-  }, []);
+    // Check URL parameter to toggle edit mode
+    const editParam = searchParams.get('edit');
 
-  if (!isLoggedIn) {
+    if (editParam === '1' || editParam === 'true') {
+      localStorage.setItem('wp_edit_mode', '1');
+      setEditMode(true);
+    } else if (editParam === '0' || editParam === 'false') {
+      localStorage.removeItem('wp_edit_mode');
+      setEditMode(false);
+    } else {
+      // Check localStorage for existing edit mode
+      const stored = localStorage.getItem('wp_edit_mode');
+      setEditMode(stored === '1');
+    }
+  }, [searchParams]);
+
+  if (!editMode) {
     return null;
   }
 
@@ -40,5 +50,13 @@ export default function EditPostLink({ postId }: EditPostLinkProps) {
         Edit Post
       </span>
     </a>
+  );
+}
+
+export default function EditPostLink({ postId }: EditPostLinkProps) {
+  return (
+    <Suspense fallback={null}>
+      <EditPostLinkInner postId={postId} />
+    </Suspense>
   );
 }
