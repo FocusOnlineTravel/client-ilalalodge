@@ -67,7 +67,6 @@ const defaultNavLinks: NavItem[] = [
     ]
   },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Blog', href: '/blog' },
   { label: 'FAQs', href: '/faqs' },
   { label: 'Contact', href: '/contact' },
   { label: 'Agents', href: '/agents' },
@@ -83,18 +82,7 @@ export default function Header({ navItems }: HeaderProps) {
   const menuItemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   // Use WordPress nav items if available, otherwise fallback to defaults
-  let navLinks = (navItems && navItems.length > 0) ? navItems : defaultNavLinks;
-
-  // Inject Blog link if not present (after Gallery, before FAQs/Contact/Agents)
-  if (!navLinks.some(link => link.href === '/blog')) {
-    const galleryIndex = navLinks.findIndex(link => link.href === '/gallery');
-    const insertIndex = galleryIndex >= 0 ? galleryIndex + 1 : navLinks.length - 2;
-    navLinks = [
-      ...navLinks.slice(0, insertIndex),
-      { label: 'Blog', href: '/blog' },
-      ...navLinks.slice(insertIndex),
-    ];
-  }
+  const navLinks = (navItems && navItems.length > 0) ? navItems : defaultNavLinks;
 
   // Pages that render on a light background with no dark hero. On these,
   // the top-of-page nav needs the "scrolled" (dark text/logo) treatment or
