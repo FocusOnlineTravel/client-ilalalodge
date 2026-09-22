@@ -350,12 +350,10 @@ section {
   font-style: normal;
 }
 
-/* Override WordPress width/height attributes on images */
-.prose img[width],
-.prose img[height] {
-  width: auto !important;
-  height: auto !important;
+/* Respect WordPress width/height attributes on images */
+.prose img[width] {
   max-width: 100%;
+  height: auto;
 }
 
 /* WordPress classic editor captions */
@@ -368,9 +366,8 @@ section {
 
 .prose .wp-caption img {
   margin: 0 auto;
-  width: auto !important;
-  height: auto !important;
   max-width: 100%;
+  height: auto;
 }
 
 .prose .wp-caption-text {
