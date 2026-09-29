@@ -71,7 +71,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
             {decodeHtmlEntities(post.title)}
           </h2>
           <p className="text-brand-stem line-clamp-2">
-            {post.excerpt}
+            {decodeHtmlEntities(post.excerpt)}
           </p>
         </div>
       </Link>
