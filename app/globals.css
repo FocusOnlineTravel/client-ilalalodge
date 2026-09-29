@@ -228,6 +228,11 @@ section {
   color: #222715;
 }
 
+/* Allow Tailwind max-w-none to override prose max-width */
+.prose.max-w-none {
+  max-width: none;
+}
+
 /* Allow Tailwind text color classes to override prose color */
 .prose.text-white\/80,
 .prose.text-white,
