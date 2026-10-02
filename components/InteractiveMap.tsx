@@ -25,9 +25,22 @@ export default function InteractiveMap() {
   const [isDragging, setIsDragging] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isHoveringPreview, setIsHoveringPreview] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 });
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.matchMedia('(max-width: 768px)').matches ||
+                     ('ontouchstart' in window && window.matchMedia('(pointer: coarse)').matches);
+      setIsMobile(mobile);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleZoomChange = (newLevel: ZoomLevel) => {
     const container = containerRef.current;
@@ -420,7 +433,13 @@ export default function InteractiveMap() {
         <div
           ref={previewRef}
           className="relative cursor-none"
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            setIsModalOpen(true);
+            // Start mobile at 50% zoom for better readability
+            if (isMobile) {
+              setZoomLevel('50');
+            }
+          }}
           onMouseMove={(e) => {
             if (previewRef.current) {
               const rect = previewRef.current.getBoundingClientRect();
@@ -480,17 +499,17 @@ export default function InteractiveMap() {
             {/* Close Button */}
             <button
               onClick={handleModalClose}
-              className="absolute top-4 right-4 z-30 flex items-center gap-2 px-4 py-2 bg-brand-forest hover:bg-brand-forest/90 text-white rounded-full shadow-lg transition-all duration-200 font-semibold text-sm"
+              className="absolute top-4 right-4 z-30 flex items-center gap-2 px-5 py-3 md:px-4 md:py-2 min-w-[48px] min-h-[48px] md:min-w-0 md:min-h-0 bg-brand-forest hover:bg-brand-forest/90 text-white rounded-full shadow-lg transition-all duration-200 font-semibold text-base md:text-sm"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5 md:w-4 md:h-4" />
               <span>Close</span>
             </button>
 
             {/* Zoom Buttons */}
-            <div className="absolute top-4 left-4 z-30 flex gap-2">
+            <div className="absolute top-4 left-4 z-30 flex gap-3 md:gap-2">
               <button
                 onClick={() => handleZoomChange('fit')}
-                className={`px-4 py-2 rounded-full shadow-lg transition-all duration-200 font-semibold text-sm ${
+                className={`px-5 py-3 md:px-4 md:py-2 min-w-[48px] min-h-[48px] md:min-w-0 md:min-h-0 rounded-full shadow-lg transition-all duration-200 font-semibold text-base md:text-sm ${
                   zoomLevel === 'fit'
                     ? 'bg-brand-forest text-white'
                     : 'bg-white/90 hover:bg-white text-brand-forest'
@@ -500,7 +519,7 @@ export default function InteractiveMap() {
               </button>
               <button
                 onClick={() => handleZoomChange('50')}
-                className={`px-4 py-2 rounded-full shadow-lg transition-all duration-200 font-semibold text-sm ${
+                className={`px-5 py-3 md:px-4 md:py-2 min-w-[48px] min-h-[48px] md:min-w-0 md:min-h-0 rounded-full shadow-lg transition-all duration-200 font-semibold text-base md:text-sm ${
                   zoomLevel === '50'
                     ? 'bg-brand-forest text-white'
                     : 'bg-white/90 hover:bg-white text-brand-forest'
@@ -510,7 +529,7 @@ export default function InteractiveMap() {
               </button>
               <button
                 onClick={() => handleZoomChange('100')}
-                className={`px-4 py-2 rounded-full shadow-lg transition-all duration-200 font-semibold text-sm ${
+                className={`px-5 py-3 md:px-4 md:py-2 min-w-[48px] min-h-[48px] md:min-w-0 md:min-h-0 rounded-full shadow-lg transition-all duration-200 font-semibold text-base md:text-sm ${
                   zoomLevel === '100'
                     ? 'bg-brand-forest text-white'
                     : 'bg-white/90 hover:bg-white text-brand-forest'
@@ -549,9 +568,11 @@ export default function InteractiveMap() {
             {/* Instructions */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30">
               <p className="text-center text-sm text-white bg-black/50 px-4 py-2 rounded-full">
-                {zoomLevel !== 'fit'
-                  ? 'Click and drag to pan. Hover markers for details.'
-                  : 'Hover over markers to see details.'}
+                {isMobile
+                  ? 'Drag to pan. Tap markers to see details.'
+                  : zoomLevel !== 'fit'
+                    ? 'Click and drag to pan. Hover markers for details.'
+                    : 'Hover over markers to see details.'}
               </p>
             </div>
           </div>
