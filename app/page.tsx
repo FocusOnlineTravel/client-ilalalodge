@@ -9,13 +9,21 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug('home');
 
   if (!page) {
-    return { title: 'Ilala Lodge Hotel | Victoria Falls' };
+    return {
+      title: 'Ilala Lodge Hotel | Victoria Falls',
+      alternates: {
+        canonical: 'https://www.ilalalodge.com',
+      },
+    };
   }
 
   return {
     title: page.seo.title || 'Ilala Lodge Hotel | Victoria Falls',
     description: page.seo.description,
     openGraph: page.seo.og_image ? { images: [{ url: page.seo.og_image }] } : undefined,
+    alternates: {
+      canonical: 'https://www.ilalalodge.com',
+    },
   };
 }
 
