@@ -3,9 +3,10 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { getPostBySlug, getAllPostSlugs } from '@/lib/content';
+import { getOptions, getPostBySlug, getAllPostSlugs } from '@/lib/content';
 import SectionRenderer from '@/components/sections/SectionRenderer';
 import EditPostLink from '@/components/blog/EditPostLink';
+import { BlogPostingJsonLd } from '@/components/seo/StructuredData';
 
 export const revalidate = 300; // Revalidate every 5 minutes
 
@@ -28,16 +29,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const canonical = `https://www.ilalalodge.com/blog/${post.slug}`;
+  const cleanTitle = decodeHtmlEntities(post.title);
+  const cleanExcerpt = decodeHtmlEntities(post.excerpt);
+
   return {
-    title: `${post.title} | Ilala Lodge Hotel Blog`,
-    description: post.excerpt,
+    title: `${cleanTitle} | Ilala Lodge Hotel Blog`,
+    description: cleanExcerpt,
+    alternates: { canonical },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: cleanTitle,
+      description: cleanExcerpt,
+      url: canonical,
       type: 'article',
       publishedTime: post.date,
       modifiedTime: post.modified,
+      authors: post.author ? [post.author] : undefined,
       images: post.featuredImage ? [{ url: post.featuredImage }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: cleanTitle,
+      description: cleanExcerpt,
+      images: post.featuredImage ? [post.featuredImage] : undefined,
     },
   };
 }
@@ -71,7 +85,7 @@ function decodeHtmlEntities(text: string): string {
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const [post, options] = await Promise.all([getPostBySlug(slug), getOptions()]);
 
   if (!post) {
     notFound();
@@ -82,6 +96,8 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <>
+      <BlogPostingJsonLd post={post} options={options} />
+
       {/* Floating Edit Link - only visible when logged into WordPress */}
       <EditPostLink postId={post.id} />
 

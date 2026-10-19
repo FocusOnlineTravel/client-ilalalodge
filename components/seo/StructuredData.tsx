@@ -1,4 +1,5 @@
 import type { Options } from '@/types/options';
+import type { BlogPost } from '@/lib/wordpress';
 
 const SITE_URL = 'https://www.ilalalodge.com';
 
@@ -15,6 +16,28 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
+}
+
+function decodeEntities(input: string): string {
+  const named: Record<string, string> = {
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&apos;': "'",
+    '&nbsp;': ' ',
+    '&hellip;': '…',
+    '&mdash;': '—',
+    '&ndash;': '–',
+    '&rsquo;': '’',
+    '&lsquo;': '‘',
+    '&ldquo;': '“',
+    '&rdquo;': '”',
+  };
+  return input
+    .replace(/&(amp|lt|gt|quot|apos|nbsp|hellip|mdash|ndash|rsquo|lsquo|ldquo|rdquo);/g, (m) => named[m] || m)
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)));
 }
 
 function buildSameAs(social: Options['social']): string[] {
@@ -107,6 +130,53 @@ export function HotelJsonLd({ options }: { options: Options }) {
         }
       : {}),
     ...(sameAs.length ? { sameAs } : {}),
+  };
+
+  return <JsonLd data={data} />;
+}
+
+export function BlogPostingJsonLd({
+  post,
+  options,
+}: {
+  post: BlogPost;
+  options: Options;
+}) {
+  const url = `${SITE_URL}/blog/${post.slug}`;
+  const image = post.featuredImage ? absoluteUrl(post.featuredImage) : undefined;
+  const logo = absoluteUrl(options.lodge_info?.logo?.url || options.header?.logo?.url);
+  const publisherName = options.lodge_info?.legal_name || options.site_name || 'Ilala Lodge Hotel';
+
+  const data: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: decodeEntities(post.title),
+    description: decodeEntities(post.excerpt),
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    datePublished: post.date,
+    dateModified: post.modified || post.date,
+    author: {
+      '@type': 'Person',
+      name: post.author || publisherName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}#organization`,
+      name: publisherName,
+      ...(logo
+        ? {
+            logo: {
+              '@type': 'ImageObject',
+              url: logo,
+            },
+          }
+        : {}),
+    },
+    ...(image ? { image: [image] } : {}),
+    ...(post.categories.length
+      ? { articleSection: post.categories.map((c) => c.name) }
+      : {}),
   };
 
   return <JsonLd data={data} />;
