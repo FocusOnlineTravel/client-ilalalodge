@@ -10,6 +10,6 @@ export const CONTACT = {
 
 export const SOCIAL_MEDIA = {
   facebook: 'https://facebook.com/ilalalodge',
-  instagram: 'https://instagram.com/ilalalodge',
+  instagram: 'https://www.instagram.com/ilalalodgevicfalls/',
   twitter: 'https://twitter.com/ilalalodge',
 };

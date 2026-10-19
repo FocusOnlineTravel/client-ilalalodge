@@ -435,7 +435,7 @@ export default function Header({ navItems }: HeaderProps) {
                       <Facebook className="w-6 h-6" />
                     </a>
                     <a
-                      href="https://instagram.com/ilalalodge"
+                      href="https://www.instagram.com/ilalalodgevicfalls/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-brand-gold transition-colors"
