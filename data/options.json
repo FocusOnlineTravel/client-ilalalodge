@@ -124,5 +124,19 @@
     "facebook": "https://facebook.com/ilalalodge",
     "instagram": "https://instagram.com/ilalalodge",
     "twitter": "https://twitter.com/ilalalodge"
+  },
+  "lodge_info": {
+    "legal_name": "Ilala Lodge Hotel",
+    "description": "Family-run luxury hotel in the heart of Victoria Falls, Zimbabwe — the closest hotel to the Falls, an eight-minute walk from the entrance gate.",
+    "address_street": "413 Livingstone Way",
+    "address_locality": "Victoria Falls",
+    "address_region": "Matabeleland North",
+    "address_country": "ZW",
+    "latitude": -17.9258,
+    "longitude": 25.8364,
+    "check_in_time": "14:00",
+    "check_out_time": "10:00",
+    "price_range": "$$$",
+    "currencies_accepted": "USD, EUR, GBP, ZAR"
   }
 }

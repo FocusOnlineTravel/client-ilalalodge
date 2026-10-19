@@ -59,6 +59,32 @@ export interface SocialOptions {
   twitter?: string;
 }
 
+/**
+ * Lodge-level facts used for Organization / Hotel JSON-LD and other
+ * AI-discovery surfaces (llms.txt, "Fast Facts" blocks). All fields are
+ * optional so a partially-configured WordPress site still renders.
+ */
+export interface LodgeInfoOptions {
+  legal_name?: string;
+  description?: string;
+  logo?: AcfImage;
+  primary_image?: AcfImage;
+  address_street?: string;
+  address_locality?: string;
+  address_region?: string;
+  address_country?: string;
+  address_postal_code?: string;
+  latitude?: number;
+  longitude?: number;
+  star_rating?: number;
+  room_count?: number;
+  check_in_time?: string;
+  check_out_time?: string;
+  price_range?: string;
+  currencies_accepted?: string;
+  year_founded?: number;
+}
+
 /** Complete options structure */
 export interface Options {
   site_name: string;
@@ -66,4 +92,5 @@ export interface Options {
   footer: FooterOptions;
   contact: ContactOptions;
   social: SocialOptions;
+  lodge_info?: LodgeInfoOptions;
 }

@@ -160,6 +160,60 @@ add_action('acf/init', function () {
 });
 
 // =============================================================================
+// ACF FIELD GROUP: LODGE INFO (powers Hotel / Organization JSON-LD + llms.txt)
+// =============================================================================
+
+add_action('acf/init', function () {
+    if (!function_exists('acf_add_local_field_group')) {
+        return;
+    }
+
+    acf_add_local_field_group([
+        'key'      => 'group_lodge_info',
+        'title'    => 'Lodge Info (SEO / AI)',
+        'location' => [[[
+            'param'    => 'options_page',
+            'operator' => '==',
+            'value'    => 'site-options',
+        ]]],
+        'position'    => 'normal',
+        'style'       => 'default',
+        'menu_order'  => 20,
+        'show_in_rest' => true,
+        'instructions' => 'Facts about the lodge used for structured data (Hotel / Organization schema), llms.txt, and other AI discovery surfaces. Keep NAP (name, address, phone) consistent with the Contact section and the website body copy.',
+        'fields'   => [
+            [
+                'key'   => 'field_lodge_info_header',
+                'label' => 'Lodge Info',
+                'name'  => 'lodge_info',
+                'type'  => 'group',
+                'layout' => 'block',
+                'sub_fields' => [
+                    ['key' => 'field_lodge_legal_name',       'label' => 'Legal name',          'name' => 'legal_name',          'type' => 'text',    'default_value' => 'Ilala Lodge Hotel'],
+                    ['key' => 'field_lodge_description',      'label' => 'One-sentence description', 'name' => 'description',    'type' => 'textarea','rows' => 2],
+                    ['key' => 'field_lodge_logo',             'label' => 'Logo',                'name' => 'logo',                'type' => 'image',   'return_format' => 'id'],
+                    ['key' => 'field_lodge_primary_image',    'label' => 'Primary image',       'name' => 'primary_image',       'type' => 'image',   'return_format' => 'id'],
+                    ['key' => 'field_lodge_addr_street',      'label' => 'Street address',      'name' => 'address_street',      'type' => 'text'],
+                    ['key' => 'field_lodge_addr_locality',    'label' => 'Locality (city)',     'name' => 'address_locality',    'type' => 'text',    'default_value' => 'Victoria Falls'],
+                    ['key' => 'field_lodge_addr_region',      'label' => 'Region (province)',   'name' => 'address_region',      'type' => 'text',    'default_value' => 'Matabeleland North'],
+                    ['key' => 'field_lodge_addr_country',     'label' => 'Country (ISO code)',  'name' => 'address_country',     'type' => 'text',    'default_value' => 'ZW',             'instructions' => 'Two-letter ISO country code (e.g. ZW).'],
+                    ['key' => 'field_lodge_addr_postal',      'label' => 'Postal code',         'name' => 'address_postal_code', 'type' => 'text'],
+                    ['key' => 'field_lodge_lat',              'label' => 'Latitude',            'name' => 'latitude',            'type' => 'number',  'step' => 0.000001, 'default_value' => -17.9258],
+                    ['key' => 'field_lodge_lng',              'label' => 'Longitude',           'name' => 'longitude',           'type' => 'number',  'step' => 0.000001, 'default_value' => 25.8364],
+                    ['key' => 'field_lodge_star_rating',      'label' => 'Star rating',         'name' => 'star_rating',         'type' => 'number',  'min' => 1, 'max' => 5, 'step' => 1],
+                    ['key' => 'field_lodge_room_count',       'label' => 'Number of rooms',     'name' => 'room_count',          'type' => 'number'],
+                    ['key' => 'field_lodge_checkin',          'label' => 'Check-in time (24h)', 'name' => 'check_in_time',       'type' => 'text',    'default_value' => '14:00', 'instructions' => 'ISO time, e.g. 14:00.'],
+                    ['key' => 'field_lodge_checkout',         'label' => 'Check-out time (24h)','name' => 'check_out_time',      'type' => 'text',    'default_value' => '10:00'],
+                    ['key' => 'field_lodge_price_range',      'label' => 'Price range',         'name' => 'price_range',         'type' => 'text',    'instructions' => 'Schema.org format: $, $$, $$$, $$$$.'],
+                    ['key' => 'field_lodge_currencies',       'label' => 'Currencies accepted', 'name' => 'currencies_accepted', 'type' => 'text',    'instructions' => 'Comma-separated ISO codes, e.g. USD, EUR, GBP, ZAR.'],
+                    ['key' => 'field_lodge_year_founded',     'label' => 'Year founded',        'name' => 'year_founded',        'type' => 'number'],
+                ],
+            ],
+        ],
+    ]);
+});
+
+// =============================================================================
 // REST API: EXPOSE ACF OPTIONS
 // =============================================================================
 
@@ -245,6 +299,7 @@ function ilala_image_field_keys() {
         'image', 'images', 'icon', 'thumbnail', 'photo', 'photos',
         'gallery', 'gallery_images', 'carousel_images', 'hero_image',
         'featured_image', 'background_image', 'og_image', 'video_poster',
+        'primary_image',
         // Gallery page category fields (see components/sections/Gallery.tsx).
         'rooms_gallery', 'dining_gallery', 'pool_bar_gallery',
         'conferencing_gallery', 'wildlife_gallery', 'hotel_grounds_gallery',

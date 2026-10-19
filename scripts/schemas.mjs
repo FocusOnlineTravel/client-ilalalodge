@@ -453,6 +453,26 @@ export const OptionsSchema = z.object({
     twitter: z.string().optional(),
     tripadvisor: z.string().optional(),
   }),
+  lodge_info: z.object({
+    legal_name: z.string().optional(),
+    description: z.string().optional(),
+    logo: AcfImageSchema.optional(),
+    primary_image: AcfImageSchema.optional(),
+    address_street: z.string().optional(),
+    address_locality: z.string().optional(),
+    address_region: z.string().optional(),
+    address_country: z.string().optional(),
+    address_postal_code: z.string().optional(),
+    latitude: z.number().optional(),
+    longitude: z.number().optional(),
+    star_rating: z.number().optional(),
+    room_count: z.number().optional(),
+    check_in_time: z.string().optional(),
+    check_out_time: z.string().optional(),
+    price_range: z.string().optional(),
+    currencies_accepted: z.string().optional(),
+    year_founded: z.number().optional(),
+  }).optional(),
 });
 
 // =============================================================================
