@@ -6,7 +6,7 @@
 import { PageData } from '@/types/page';
 import { Options } from '@/types/options';
 import { PageSection } from '@/types/sections';
-import { normalisePageData, normaliseOptions, normalisePageSections } from './normalise';
+import { DEFAULT_LODGE_INFO, normalisePageData, normaliseOptions, normalisePageSections } from './normalise';
 
 // =============================================================================
 // CONFIGURATION
@@ -218,6 +218,7 @@ interface WPOptionsResponse {
   footer?: Record<string, unknown>;
   contact?: Record<string, unknown>;
   social?: Record<string, unknown>;
+  lodge_info?: Record<string, unknown>;
   [key: string]: unknown;
 }
 
@@ -253,12 +254,12 @@ function getDefaultOptions(): Options {
   return {
     site_name: 'Ilala Lodge Hotel',
     header: {
-      logo: { url: '/images/ilala-lodge-logo.svg', alt: 'Ilala Lodge Hotel' },
+      logo: { url: '/images/logo-white.png', alt: 'Ilala Lodge Hotel' },
       nav_items: [],
       booking_url: 'https://booking.ilalalodge.com',
     },
     footer: {
-      logo: { url: '/images/ilala-lodge-logo.svg', alt: 'Ilala Lodge Hotel' },
+      logo: { url: '/images/logo-white.png', alt: 'Ilala Lodge Hotel' },
       tagline: '',
       nav_columns: [],
       copyright: '',
@@ -274,6 +275,7 @@ function getDefaultOptions(): Options {
       instagram: '',
       tripadvisor: '',
     },
+    lodge_info: { ...DEFAULT_LODGE_INFO },
   };
 }
 

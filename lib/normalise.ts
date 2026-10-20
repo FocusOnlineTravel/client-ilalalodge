@@ -918,6 +918,7 @@ export function normaliseOptions(wpOptions: WPOptionsResponse): Options {
     footer: normaliseFooter(wpOptions.footer),
     contact: normaliseContact(wpOptions.contact),
     social: normaliseSocial(wpOptions.social),
+    lodge_info: normaliseLodgeInfo(wpOptions.lodge_info as Record<string, unknown> | undefined),
   };
 
   // Validate in development
@@ -939,14 +940,14 @@ export function normaliseOptions(wpOptions: WPOptionsResponse): Options {
 function normaliseHeader(header: Record<string, unknown> | undefined): Options['header'] {
   if (!header) {
     return {
-      logo: { url: '/images/ilala-lodge-logo.svg', alt: 'Ilala Lodge Hotel' },
+      logo: { url: '/images/logo-white.png', alt: 'Ilala Lodge Hotel' },
       nav_items: [],
       booking_url: 'https://booking.ilalalodge.com',
     };
   }
 
   return {
-    logo: normaliseImageField(header.logo) || { url: '/images/ilala-lodge-logo.svg', alt: 'Ilala Lodge Hotel' },
+    logo: normaliseImageField(header.logo) || { url: '/images/logo-white.png', alt: 'Ilala Lodge Hotel' },
     logo_scrolled: normaliseImageField(header.logo_scrolled),
     nav_items: normaliseNavItems(header.nav_items as unknown[] | undefined),
     booking_url: String(header.booking_url || 'https://booking.ilalalodge.com'),
@@ -979,7 +980,7 @@ function normaliseNavSubItems(items: unknown[]): { label: string; href: string }
 function normaliseFooter(footer: Record<string, unknown> | undefined): Options['footer'] {
   if (!footer) {
     return {
-      logo: { url: '/images/ilala-lodge-logo.svg', alt: 'Ilala Lodge Hotel' },
+      logo: { url: '/images/logo-white.png', alt: 'Ilala Lodge Hotel' },
       tagline: '',
       nav_columns: [],
       copyright: '',
@@ -987,7 +988,7 @@ function normaliseFooter(footer: Record<string, unknown> | undefined): Options['
   }
 
   return {
-    logo: normaliseImageField(footer.logo) || { url: '/images/ilala-lodge-logo.svg', alt: 'Ilala Lodge Hotel' },
+    logo: normaliseImageField(footer.logo) || { url: '/images/logo-white.png', alt: 'Ilala Lodge Hotel' },
     tagline: String(footer.tagline || ''),
     nav_columns: normaliseNavColumns(footer.nav_columns as unknown[] | undefined),
     copyright: String(footer.copyright || ''),
@@ -1054,4 +1055,73 @@ function normaliseSocial(social: Record<string, unknown> | undefined): Options['
     twitter: social.twitter ? String(social.twitter) : undefined,
     tripadvisor: social.tripadvisor ? String(social.tripadvisor) : undefined,
   };
+}
+
+function toOptionalNumber(value: unknown): number | undefined {
+  if (value === null || value === undefined || value === '') return undefined;
+  const n = typeof value === 'number' ? value : Number(value);
+  return Number.isFinite(n) ? n : undefined;
+}
+
+function toOptionalString(value: unknown): string | undefined {
+  if (value === null || value === undefined) return undefined;
+  const s = String(value).trim();
+  return s === '' ? undefined : s;
+}
+
+/**
+ * Baseline lodge facts, used when WordPress hasn't been populated yet.
+ * WordPress values are merged on top of these so partial admin input still
+ * produces a complete JSON-LD payload.
+ */
+export const DEFAULT_LODGE_INFO: NonNullable<Options['lodge_info']> = {
+  legal_name: 'Ilala Lodge Hotel',
+  description:
+    'Family-run luxury hotel in the heart of Victoria Falls, Zimbabwe — the closest hotel to the Falls, an eight-minute walk from the entrance gate.',
+  address_street: '413 Livingstone Way',
+  address_locality: 'Victoria Falls',
+  address_region: 'Matabeleland North',
+  address_country: 'ZW',
+  latitude: -17.9258,
+  longitude: 25.8364,
+  check_in_time: '14:00',
+  check_out_time: '10:00',
+  price_range: '$$$',
+  currencies_accepted: 'USD, EUR, GBP, ZAR',
+};
+
+export function normaliseLodgeInfo(info: Record<string, unknown> | undefined): Options['lodge_info'] {
+  const fromWp = info ?? {};
+  const merged: NonNullable<Options['lodge_info']> = {
+    ...DEFAULT_LODGE_INFO,
+    ...stripUndefined({
+      legal_name: toOptionalString(fromWp.legal_name),
+      description: toOptionalString(fromWp.description),
+      logo: normaliseImageField(fromWp.logo) || undefined,
+      primary_image: normaliseImageField(fromWp.primary_image) || undefined,
+      address_street: toOptionalString(fromWp.address_street),
+      address_locality: toOptionalString(fromWp.address_locality),
+      address_region: toOptionalString(fromWp.address_region),
+      address_country: toOptionalString(fromWp.address_country),
+      address_postal_code: toOptionalString(fromWp.address_postal_code),
+      latitude: toOptionalNumber(fromWp.latitude),
+      longitude: toOptionalNumber(fromWp.longitude),
+      star_rating: toOptionalNumber(fromWp.star_rating),
+      room_count: toOptionalNumber(fromWp.room_count),
+      check_in_time: toOptionalString(fromWp.check_in_time),
+      check_out_time: toOptionalString(fromWp.check_out_time),
+      price_range: toOptionalString(fromWp.price_range),
+      currencies_accepted: toOptionalString(fromWp.currencies_accepted),
+      year_founded: toOptionalNumber(fromWp.year_founded),
+    }),
+  };
+  return merged;
+}
+
+function stripUndefined<T extends Record<string, unknown>>(obj: T): Partial<T> {
+  const out: Partial<T> = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (v !== undefined) (out as Record<string, unknown>)[k] = v;
+  }
+  return out;
 }

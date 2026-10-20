@@ -102,12 +102,12 @@ function getDefaultOptions(): Options {
   return {
     site_name: 'Ilala Lodge Hotel',
     header: {
-      logo: { url: '/images/ilala-lodge-logo.svg', alt: 'Ilala Lodge Hotel' },
+      logo: { url: '/images/logo-white.png', alt: 'Ilala Lodge Hotel' },
       nav_items: [],
       booking_url: 'https://booking.ilalalodge.com',
     },
     footer: {
-      logo: { url: '/images/ilala-lodge-logo.svg', alt: 'Ilala Lodge Hotel' },
+      logo: { url: '/images/logo-white.png', alt: 'Ilala Lodge Hotel' },
       tagline: '',
       nav_columns: [],
       copyright: '',

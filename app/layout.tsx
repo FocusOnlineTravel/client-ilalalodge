@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileBottomNav from "@/components/layout/MobileBottomNav";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import { HotelJsonLd, OrganizationJsonLd } from "@/components/seo/StructuredData";
 import { getOptions } from "@/lib/content";
 
 const poppins = Poppins({
@@ -18,6 +19,7 @@ const poppins = Poppins({
 const GTM_ID = "GTM-MKFC6M";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ilalalodge.com"),
   icons: {
     icon: "/images/il-favicon.png",
   },
@@ -93,6 +95,8 @@ export default async function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <OrganizationJsonLd options={options} />
+        <HotelJsonLd options={options} />
         <Header navItems={options.header.nav_items} />
         <main className="pb-16 lg:pb-0">{children}</main>
         <Footer />
