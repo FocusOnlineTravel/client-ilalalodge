@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         hostname: "cms.ilalalodge.com",
         pathname: "/wp-content/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "content.ilalalodge.com",
+        pathname: "/wp-content/uploads/**",
+      },
     ],
   },
   async headers() {
