@@ -85,6 +85,62 @@ export default async function RootLayout({
             `,
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LodgingBusiness",
+              "@id": "https://www.ilalalodge.co.zw/#hotel",
+              name: "Ilala Lodge Hotel",
+              description:
+                "Ilala Lodge Hotel is a family-run luxury hotel offering accommodation in the heart of Victoria Falls, Zimbabwe. Just an 8-minute walk from the Falls, one of the Seven Natural Wonders of the World.",
+              url: "https://www.ilalalodge.co.zw",
+              telephone: "+263 719 384 920",
+              email: "onlinereservations@ilalalodge.com",
+              image: [
+                "https://www.ilalalodge.co.zw/images/HERO.png",
+                "https://www.ilalalodge.co.zw/images/il-logo.svg",
+              ],
+              logo: "https://www.ilalalodge.co.zw/images/il-logo.svg",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "413 Livingstone Way",
+                addressLocality: "Victoria Falls",
+                addressCountry: "ZW",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: -17.9243,
+                longitude: 25.8572,
+              },
+              numberOfRooms: 73,
+              starRating: {
+                "@type": "Rating",
+                ratingValue: "4",
+              },
+              amenityFeature: [
+                { "@type": "LocationFeatureSpecification", name: "Free WiFi" },
+                { "@type": "LocationFeatureSpecification", name: "Restaurant" },
+                { "@type": "LocationFeatureSpecification", name: "Swimming Pool" },
+                { "@type": "LocationFeatureSpecification", name: "Spa" },
+                { "@type": "LocationFeatureSpecification", name: "Room Service" },
+                { "@type": "LocationFeatureSpecification", name: "Airport Shuttle" },
+                { "@type": "LocationFeatureSpecification", name: "Concierge" },
+              ],
+              sameAs: [
+                "https://facebook.com/ilalalodge",
+                "https://www.instagram.com/ilalalodgevicfalls/",
+                "https://twitter.com/ilalalodge",
+              ],
+              priceRange: "$$$",
+              checkinTime: "14:00",
+              checkoutTime: "10:00",
+              currenciesAccepted: "USD, ZWL",
+              paymentAccepted: "Cash, Credit Card",
+            }),
+          }}
+        />
       </head>
       <body className="antialiased">
         <noscript>
