@@ -60,6 +60,9 @@ export const metadata: Metadata = {
   },
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
+  verification: {
+    google: "E6Lj2p-b0owfZ18mI1kqIry8QyiidQrkHtq6TEmXlxc",
+  },
 };
 
 export default async function RootLayout({
